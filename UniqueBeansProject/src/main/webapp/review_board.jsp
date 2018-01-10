@@ -73,8 +73,10 @@
 			</tbody>
 		</table>
 		<div>
-			<button type="button" class="btn btn-success"
-				style="float:right;">글 작성</button>
+			<a href="board_write.jsp">
+				<button type="button" class="btn btn-success"
+					style="float:right;">글 작성</button>
+			</a>
 		</div>
 
 	</div>
