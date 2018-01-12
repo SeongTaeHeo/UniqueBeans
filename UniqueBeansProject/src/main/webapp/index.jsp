@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="" >
+<meta name="author" content="">
 
 <title>Unique Bean</title>
 
@@ -57,9 +57,9 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#Board">Board</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Contact</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal"
-						data-target="#login-modal">Login</a></li>
+						href="Contact_board.jsp">Contact</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						data-toggle="modal" data-target="#login-modal">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -322,17 +322,6 @@
 						여러분의 공간입니다.</h3>
 				</div>
 			</div>
-
-			<div class="card card-form">
-				<h3 class="card-header text-center">리뷰 게시판</h3>
-				<div class="card-body text-center">
-					<h4 class="card-title">여러분들의 후기를 들려주세요!</h4>
-					<p class="card-text">구매후 만족하셨거나, 만족 하지 못하신 이야기들을 들려주세요. 저희는
-						여러분의 이야기를 항상 경청하고 있습니다.</p>
-					<a href="review_board.jsp" class="btn btn-primary layer">이동하기</a>
-				</div>
-			</div>
-
 			<div class="card card-form">
 				<h3 class="card-header text-center">자유 게시판</h3>
 				<div class="card-body text-center">
@@ -340,9 +329,19 @@
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="#!" class="btn btn-primary center-block">이동하기</a>
+					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
+			
+			<div class="card card-form">
+				<h3 class="card-header text-center">문의 게시판</h3>
+				<div class="card-body text-center">
+					<h4 class="card-title">여러분들의 후기를 들려주세요!</h4>
+					<p class="card-text">저희 UniqueBeans 이용에 불편이 있으신가요? <br> 언제든지 자유롭게 문의해주세요.</p>
+					<a href="Contact_board.jsp" class="btn btn-primary layer">이동하기</a>
+				</div>
+			</div>
+			
 
 			<div class="row row-form">
 				<div class="col-lg-8 mx-auto text-center">
@@ -354,30 +353,6 @@
 	</section>
 
 	<!-- ↑허성태 수정부분 -->
-
-	<!-- Contact -->
-	<!-- Contact.jsp 분리 -->
-	<section id="contact">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 text-center">
-					<h2 class="section-heading text-uppercase">Contact Us</h2>
-					<h3 class="section-subheading text-muted">
-						문의사항을 남겨주시면 답변 드리겠습니다.<br> 아래 이미지를 누르시면 문의사항 페이지로 이동합니다.
-					</h3>
-				</div>
-
-			</div>
-			<div class="portfolio-item text-center">
-				<a class="portfolio-link" data-toggle="modal"
-					href="#portfolioModal7"> <img class="img-fluid"
-					src="img/portfolio/07-thumbnail.jpg" alt="">
-				</a>
-
-			</div>
-		</div>
-
-	</section>
 
 	<footer>
 		<div class="container">
@@ -394,23 +369,6 @@
 						<br>
 						<li class="list-inline-item"><a href="#">이용안내</a></li>
 					</ul>
-					<!--           <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">
-                  <i class="fa fa-linkedin"></i>
-                </a>
-              </li>
-            </ul>-->
 				</div>
 				<div class="col-md-4">
 					<ul class="list-inline-item">
@@ -757,87 +715,6 @@
 			</div>
 		</div>
 	</div>
-
-	<!-- modal 7 -->
-	<div class="portfolio-modal modal fade" id="portfolioModal7"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<!-- Project Details Go Here -->
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-12 text-center">
-											<h3 class="section-subheading text-muted">*표시가 되어있는 항목은
-												필수사항입니다.</h3>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-12">
-											<form action="Contact.jsp" id="contactForm"
-												name="sendMessage" method="get">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<input class="form-control" id="pnum" type="text"
-																placeholder="주문번호*" required
-																data-validation-required-message="주문번호는 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="name" type="text"
-																placeholder="성명*" required
-																data-validation-required-message="이름은 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="email" type="email"
-																placeholder="이메일*" required
-																data-validation-required-message="이메일 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<textarea class="form-control" id="message"
-																placeholder="문의 내용을 입력하세요*" required
-																data-validation-required-message="상세 문의사항을 입력하세요"></textarea>
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="clearfix"></div>
-													<div class="col-lg-12 text-center">
-														<div id="success"></div>
-														<button id="sendMessageButton"
-															class="btn btn-primary btn-xl text-uppercase"
-															type="submit">Send Message</button>
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-								<br>
-								<button class="btn btn-primary" data-dismiss="modal"
-									type="button">
-									<i class="fa fa-times"></i> Close Project
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- login -->
 	<!-- BEGIN # MODAL LOGIN -->
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"

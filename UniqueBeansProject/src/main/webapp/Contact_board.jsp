@@ -43,7 +43,7 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight:bold">리뷰 게시판</h1>
+		<h1 class="display-4" style="font-weight: bold">문의 게시판</h1>
 	</div>
 
 	<div class="board_main">
@@ -70,16 +70,91 @@
 					<td>운영자</td>
 					<td>2018/01/03</td>
 				</tr>
+
 			</tbody>
 		</table>
-		<div>
-			<a href="board_write.jsp">
-				<button type="button" class="btn btn-success"
-					style="float:right;">글 작성</button>
+		<div class="write">
+
+			<a href="contact_write.jsp">
+				<button type="button" class="btn btn-success btn-lg">글
+					작성</button>
 			</a>
 		</div>
 
+		<div class='search' align="center">
+		<span class='green_window'>
+			<input type='text' class='input_text' />
+		</span>
+			<button type='submit' class='sch_smit'>검색</button>
+		</div>
+
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<br>
+	<br>
+	<br>
+	<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<ul class="list-inline-quicklinks">
+					<b>COMPANY</b>
+					<br>
+					<li class="list-inline-item"><a href="#">회사소개</a></li>
+					<br>
+					<li class="list-inline-item"><a href="#">이용약관</a></li>
+					<br>
+					<li class="list-inline-item"><a href="#">개인정보 취급방침</a></li>
+					<br>
+					<li class="list-inline-item"><a href="#">이용안내</a></li>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<ul class="list-inline-item">
+					<b>INFORMATION</b>
+					<br>
+					<li class="list-inline-item">COMPANY:UNIQUEBEAN</li>
+					<br>
+					<li class="list-inline-item">ADDRESS: 서울특별시</li>
+					<br>
+					<li class="list-inline-item">TELEPHONE: 070-7727-1401</li>
+					<br>
+					<li class="list-inline-item">EMAIL:help@uniquebean.com</li>
+					<br>
+					<li class="list-inline-item">개인정보책임자:노루</li>
+					<br>
+				</ul>
+			</div>
+			<div class="col-md-4">
+				<ul class="list-inline-list">
+					<b>CS CENTER</b>
+					<br>
+					<li class="list-inline-item">WEEKDAY:09:00-18:00</li>
+					<br>
+					<li class="list-inline-item">LUNCH:12:00-13:00</li>
+					<br>
+					<li class="list-inline-item">CLOSED:Weekend and Holidays</li>
+				</ul>
+
+			</div>
+		</div>
+		<div>
+			<span class="copyright">Copyright &copy; UniqueBean 2017</span>
+		</div>
+	</div>
+	</footer>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
