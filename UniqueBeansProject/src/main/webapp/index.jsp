@@ -370,7 +370,7 @@
 			</div>
 			<div class="portfolio-item text-center">
 				<a class="portfolio-link" data-toggle="modal"
-					href="#portfolioModal7"> <img class="img-fluid"
+					href="#Contact-Modal"> <img class="img-fluid"
 					src="img/portfolio/07-thumbnail.jpg" alt="">
 				</a>
 
@@ -759,85 +759,61 @@
 	</div>
 
 	<!-- modal 7 -->
-	<div class="portfolio-modal modal fade" id="portfolioModal7"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<!-- Project Details Go Here -->
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-12 text-center">
-											<h3 class="section-subheading text-muted">*표시가 되어있는 항목은
-												필수사항입니다.</h3>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-12">
-											<form action="Contact.jsp" id="contactForm"
-												name="sendMessage" method="get">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<input class="form-control" id="pnum" type="text"
-																placeholder="주문번호*" required
-																data-validation-required-message="주문번호는 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="name" type="text"
-																placeholder="성명*" required
-																data-validation-required-message="이름은 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="email" type="email"
-																placeholder="이메일*" required
-																data-validation-required-message="이메일 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<textarea class="form-control" id="message"
-																placeholder="문의 내용을 입력하세요*" required
-																data-validation-required-message="상세 문의사항을 입력하세요"></textarea>
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="clearfix"></div>
-													<div class="col-lg-12 text-center">
-														<div id="success"></div>
-														<button id="sendMessageButton"
-															class="btn btn-primary btn-xl text-uppercase"
-															type="submit">Send Message</button>
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-								<br>
-								<button class="btn btn-primary" data-dismiss="modal"
-									type="button">
-									<i class="fa fa-times"></i> Close Project
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- contactModal -->
+   <div class="modal fade" id="Contact-Modal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true"
+      style="display: none;">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header" align="center">
+               <img class="img-circle" id="img_logo" src="img/UniqueBeans.png">
+               <button type="button" class="close" data-dismiss="modal"
+                  aria-label="Close">
+                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+               </button>
+            </div>
 
+            <!-- Begin # DIV Form -->
+            <div id="div-forms">
+
+               <!-- Begin # Login Form -->
+               <form action="index.jsp" method="get" >
+                  <div class="modal-body">
+                     <div id="div-register-msg">
+                        <div id="icon-register-msg"
+                           class="glyphicon glyphicon-chevron-right"></div>
+                        <span id="text-register-msg">문의사항을 상세하게 입력해주세요</span>
+                     </div>
+                     <input id="pnum" class="form-control" type="text" placeholder="*주문번호" required> 
+                     <input id="name" class="form-control" type="text" placeholder="*이름" required> 
+                     <input id="email" class="form-control" type="email" placeholder="*이메일" required> 
+                     <select id="kind" class="form-control" name="선택">
+                        <option value="삼품">상품관련</option>
+                        <option value="결제">결제관련</option>
+                        <option value="배송">배송관련</option> 
+                        <option value="기타">기타문의</option>
+                     </select> 
+                     <textarea class="form-control" id="message" placeholder="*상세문의 내용을 입력하세요" required></textarea>
+               </div>
+               <div class="modal-footer">
+                     <div>
+                        <button type="button" class="btn btn-primary btn-lg" value="문의하기"
+                        onclick="alert('문의 성공')">문의하기</button>
+                     </div>
+                     <div>
+                        <button class="btn btn-primary btn-lg" data-dismiss="modal"
+                           type="button">
+                           <i class="fa fa-times"></i> 취소하기
+                        </button>
+                     </div>
+                  </div>
+               </form>
+            </div>
+            <!-- End # DIV Form -->
+
+         </div>
+      </div>
+   </div>
 	<!-- login -->
 	<!-- BEGIN # MODAL LOGIN -->
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
@@ -857,17 +833,21 @@
 				<div id="div-forms">
 
 					<!-- Begin # Login Form -->
-					<form id="login-form">
+					<form id="login-form" action="http://www.naver.com" method="post">
 						<div class="modal-body">
 							<div id="div-login-msg">
 								<div id="icon-login-msg"
 									class="glyphicon glyphicon-chevron-right"></div>
 								<span id="text-login-msg">ID와 Password를 입력하세요.</span>
 							</div>
-							<input id="login_id" class="form-control" type="text"
-								placeholder="ID" required> <input id="login_password"
+							
+							<input id="id" class="form-control" type="text"
+								placeholder="ID" required> 
+								
+							<input id="pwd"
 								class="form-control" type="password" placeholder="Password"
 								required>
+								
 							<div class="checkbox">
 								<label> <input type="checkbox"> Remember me
 								</label>
