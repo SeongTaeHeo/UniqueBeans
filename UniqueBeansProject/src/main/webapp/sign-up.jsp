@@ -7,10 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="getUser.do" method="post">
-	<input type="text" name="id">
-	<input type="password" name="psw">
-	<input type="submit" value="commit">
-</form>
+
 </body>
 </html>

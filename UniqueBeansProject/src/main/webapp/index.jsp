@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="" >
+<meta name="author" content="">
 
 <title>Unique Bean</title>
 
@@ -58,8 +58,8 @@
 						href="#Board">Board</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#contact">Contact</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal"
-						data-target="#login-modal">Login</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="login.jsp">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -369,9 +369,8 @@
 
 			</div>
 			<div class="portfolio-item text-center">
-				<a class="portfolio-link" data-toggle="modal"
-					href="#Contact-Modal"> <img class="img-fluid"
-					src="img/portfolio/07-thumbnail.jpg" alt="">
+				<a class="portfolio-link" data-toggle="modal" href="#Contact-Modal">
+					<img class="img-fluid" src="img/portfolio/07-thumbnail.jpg" alt="">
 				</a>
 
 			</div>
@@ -553,7 +552,34 @@
 									고유의 특성을 가지고 있습니다. <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을
 									알아보세요.
 								</p>
-								<div id="vmap" style="width: 600px; height: 500px;"></div>
+								<div id="vmap_wrap">
+									<div id="vmap"
+										style="width: 600px; height: 400px; margin-right: 50px;"></div>
+								</div>
+								<div id="info_result">
+									<div>Info</div>
+									<div id="info_wrapper">
+										<div class="info_wrap">
+											Country : <span id="info_name"></span>
+										</div>
+										<div class="info_wrap">
+											Price : <span id="info_price"></span>
+										</div>
+										<div class="info_wrap">
+											kind : <span id="info_kind"></span>
+										</div>
+										<div class="info_wrap">
+											Roasting : <span id="info_rt"></span>
+										</div>
+										<div class="info_wrap">
+											Description : <span id="info_desc">스피드 웨건! 설명충!!! 혼돈
+												파괴 망가!</span>
+										</div>
+									</div>
+									<div style="width: 50%" id="rd_chart_wrapper">
+										<canvas id="canvas"></canvas>
+									</div>
+								</div>
 								<button class="btn btn-primary" data-dismiss="modal"
 									type="button">
 									<i class="fa fa-times"></i> Close Project
@@ -760,60 +786,63 @@
 
 	<!-- modal 7 -->
 	<!-- contactModal -->
-   <div class="modal fade" id="Contact-Modal" tabindex="-1" role="dialog"
-      aria-labelledby="myModalLabel" aria-hidden="true"
-      style="display: none;">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header" align="center">
-               <img class="img-circle" id="img_logo" src="img/UniqueBeans.png">
-               <button type="button" class="close" data-dismiss="modal"
-                  aria-label="Close">
-                  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-               </button>
-            </div>
+	<div class="modal fade" id="Contact-Modal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true"
+		style="display: none;">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" align="center">
+					<img class="img-circle" id="img_logo" src="img/UniqueBeans.png">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+					</button>
+				</div>
 
-            <!-- Begin # DIV Form -->
-            <div id="div-forms">
+				<!-- Begin # DIV Form -->
+				<div id="div-forms">
 
-               <!-- Begin # Login Form -->
-               <form action="index.jsp" method="get" >
-                  <div class="modal-body">
-                     <div id="div-register-msg">
-                        <div id="icon-register-msg"
-                           class="glyphicon glyphicon-chevron-right"></div>
-                        <span id="text-register-msg">문의사항을 상세하게 입력해주세요</span>
-                     </div>
-                     <input id="pnum" class="form-control" type="text" placeholder="*주문번호" required> 
-                     <input id="name" class="form-control" type="text" placeholder="*이름" required> 
-                     <input id="email" class="form-control" type="email" placeholder="*이메일" required> 
-                     <select id="kind" class="form-control" name="선택">
-                        <option value="삼품">상품관련</option>
-                        <option value="결제">결제관련</option>
-                        <option value="배송">배송관련</option> 
-                        <option value="기타">기타문의</option>
-                     </select> 
-                     <textarea class="form-control" id="message" placeholder="*상세문의 내용을 입력하세요" required></textarea>
-               </div>
-               <div class="modal-footer">
-                     <div>
-                        <button type="button" class="btn btn-primary btn-lg" value="문의하기"
-                        onclick="alert('문의 성공')">문의하기</button>
-                     </div>
-                     <div>
-                        <button class="btn btn-primary btn-lg" data-dismiss="modal"
-                           type="button">
-                           <i class="fa fa-times"></i> 취소하기
-                        </button>
-                     </div>
-                  </div>
-               </form>
-            </div>
-            <!-- End # DIV Form -->
+					<!-- Begin # Login Form -->
+					<form action="index.jsp" method="get">
+						<div class="modal-body">
+							<div id="div-register-msg">
+								<div id="icon-register-msg"
+									class="glyphicon glyphicon-chevron-right"></div>
+								<span id="text-register-msg">문의사항을 상세하게 입력해주세요</span>
+							</div>
+							<input id="pnum" class="form-control" type="text"
+								placeholder="*주문번호" required> <input id="name"
+								class="form-control" type="text" placeholder="*이름" required>
+							<input id="email" class="form-control" type="email"
+								placeholder="*이메일" required> <select id="kind"
+								class="form-control" name="선택">
+								<option value="삼품">상품관련</option>
+								<option value="결제">결제관련</option>
+								<option value="배송">배송관련</option>
+								<option value="기타">기타문의</option>
+							</select>
+							<textarea class="form-control" id="message"
+								placeholder="*상세문의 내용을 입력하세요" required></textarea>
+						</div>
+						<div class="modal-footer">
+							<div>
+								<button type="submit" class="btn btn-primary btn-lg"
+									value="문의하기" onclick="alert('문의 성공')">문의하기</button>
+							</div>
+							<div>
+								<button class="btn btn-primary btn-lg" data-dismiss="modal"
+									type="button">
+									<i class="fa fa-times"></i> 취소하기
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- End # DIV Form -->
 
-         </div>
-      </div>
-   </div>
+			</div>
+		</div>
+	</div>
 	<!-- login -->
 	<!-- BEGIN # MODAL LOGIN -->
 	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
@@ -840,14 +869,11 @@
 									class="glyphicon glyphicon-chevron-right"></div>
 								<span id="text-login-msg">ID와 Password를 입력하세요.</span>
 							</div>
-							
-							<input id="id" class="form-control" type="text"
-								placeholder="ID" required> 
-								
-							<input id="pwd"
-								class="form-control" type="password" placeholder="Password"
-								required>
-								
+
+							<input id="id" class="form-control" type="text" placeholder="ID"
+								required> <input id="pwd" class="form-control"
+								type="password" placeholder="Password" required>
+
 							<div class="checkbox">
 								<label> <input type="checkbox"> Remember me
 								</label>
@@ -946,6 +972,9 @@
 
 	<script src="js/agency.min.js"></script>
 	<!-- 지도 관련 작업 박혜성 -->
+	<script src="js/Chart.bundle.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/chartjqvmap.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/jquery.vmap.js"></script>
 	<script type="text/javascript" src="js/jquery.vmap.world.js"
 		charset="utf-8"></script>
