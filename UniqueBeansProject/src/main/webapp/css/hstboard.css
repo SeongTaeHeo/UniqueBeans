@@ -6,6 +6,58 @@
 	background-color: #ffffff;
 }
 
+#navBar {
+	background-color: #212529
+}
+
+#navBar .nav-brand {
+	color: #7F6854;
+	font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial,
+		cursive;
+	font-size: 30px;
+	text-decoration: none;
+	transition: all .3s
+}
+
+#navBar .nav-toggle {
+	font-size: 12px;
+	right: 0;
+	padding: 13px;
+	text-transform: uppercase;
+	color: #fff;
+	border: 0;
+	background-color: #fed136;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#navBar .nav-items {
+	font-size: 90%;
+	font-weight: 400;
+	padding: 10px;
+	letter-spacing: 1px;
+	color: #fff;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+#navBar .nav-items .nav-links {
+	font-size: 90%;
+	font-weight: 400;
+	padding: .75em 0;
+	letter-spacing: 1px;
+	color: #fff;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+#navBar .nav-tems .nav-links:hover {
+	color: #7F6854;
+}
+
+#navBar .nav-brand:hover {
+	color: #fed136;
+	
+}
+
 .card-form {
 	width: 500px;
 	margin-bottom: 20px;

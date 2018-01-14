@@ -1,5 +1,5 @@
 <div>
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: black;">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavs" style="background-color: black;">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
 			Beans</a>
@@ -13,7 +13,7 @@
 			<ul class="navbar-nav text-uppercase ml-auto">
 			
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="index.jsp">About</a></li>
+					href="#About">About</a></li>
 					
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#Shop">Shop</a></li>

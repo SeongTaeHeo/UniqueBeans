@@ -36,34 +36,40 @@
 
 <body id="page-top">
 
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Unique
-				Beans</a>
-			<button class="navbar-toggler navbar-toggler-right" type="button"
-				data-toggle="collapse" data-target="#navbarResponsive"
-				aria-controls="navbarResponsive" aria-expanded="false"
-				aria-label="Toggle navigation">
-				Menu <i class="fa fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav text-uppercase ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#About">About</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Shop">Shop</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#portfolio">Library</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Board">Board</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Contact</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="login.jsp">Login</a></li>
-				</ul>
-			</div>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavs" style="background-color: black;">
+	<div class="container">
+		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
+			Beans</a>
+		<button class="navbar-toggler navbar-toggler-right" type="button"
+			data-toggle="collapse" data-target="#navbarResponsive"
+			aria-controls="navbarResponsive" aria-expanded="false"
+			aria-label="Toggle navigation">
+			Menu <i class="fa fa-bars"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarResponsive">
+			<ul class="navbar-nav text-uppercase ml-auto">
+			
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#About">About</a></li>
+					
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#Shop">Shop</a></li>
+					
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#portfolio">Library</a></li>
+					
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#Board">Board</a></li>
+					
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					href="#contact">Contact</a></li>
+					
+				<li class="nav-item"><a class="nav-link js-scroll-trigger"
+					data-toggle="modal" data-target="#login-modal">Login</a></li>
+			</ul>
 		</div>
-	</nav>
+	</div>
+</nav>
 
 	<header class="masthead">
 		<div class="container">
@@ -207,7 +213,8 @@
 						<li class="timeline-inverted">
 							<div class="timeline-image">
 								<h4>
-									나만의<br>맞춤원두<br>주문하기!!
+									<a href="shop.jsp" style="color: white; text-decoration: none;">
+									나만의<br>맞춤원두<br>주문하기!!</a>
 								</h4>
 							</div>
 						</li>
@@ -827,7 +834,7 @@
 						<div class="modal-footer">
 							<div>
 								<button type="submit" class="btn btn-primary btn-lg"
-									value="문의하기" onclick="alert('문의 성공')">문의하기</button>
+									value="문의하기">문의하기</button>
 							</div>
 							<div>
 								<button class="btn btn-primary btn-lg" data-dismiss="modal"
