@@ -29,7 +29,7 @@
 <title>Insert title here</title>
 
 </head>
-<body id="main">
+<body id="main" onload="closeNav();">
 	<nav class="navbar navbar-expand-lg navbar-dark" id="shopNav">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique

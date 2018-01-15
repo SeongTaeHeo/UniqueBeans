@@ -1,11 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>글 작성</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Unique Bean</title>
 
 <link href="vendor/bootstrap/css/bootstrap.min.css?ver=2"
 	rel="stylesheet">
@@ -27,7 +35,8 @@
 <link href="css/hstboard.css" rel="stylesheet">
 
 </head>
-<body>
+<body id="board_body">
+
 	<jsp:include page="top_menu.jsp" />
 
 	<header class="masthead" style="height:250px;">
@@ -37,43 +46,61 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		<h1 class="display-4" style="font-weight: bold">���� �Խ���</h1>
 	</div>
 
-	<div class="container" style="position: relative; top: -50px;">
-		<table class="table table-bordered">
+	<div class="board_main">
+		<table
+			class="bg-light table table-hover table-sm text-center form-radius">
+			<thead>
+				<tr>
+					<th class="post_number">�� ��ȣ</th>
+					<th class="post_title">�� ��</th>
+					<th class="id">�ۼ���</th>
+					<th class="post_date">�ۼ���</th>
+					<th class="post_views">��ȸ��</th>
+				</tr>
+			</thead>
 			<tbody>
-				<form method="post" action="insertBoard.do">
+				<c:forEach items="${boardList }" var="board">
 					<tr>
-						<th>제목:</th>
-						<td><input id="post_title" type="text"
-							placeholder="제목을 입력하세요. " name="subject" class="form-control"
-							required /></td>
+						<td>${board.post_number }</td>
+						<td><a href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
+						<td>${board.id }</td>
+						<td>${board.post_date }</td>
+						<td>${board.post_views }</td>
 					</tr>
-					<tr>
-						<th>내용:</th>
-						<td><textarea id="post_contents" cols="10"
-								placeholder="내용을 입력하세요. " name="content" class="form-control"
-								style="resize: none; height: 400px;" required></textarea></td>
-					</tr>
-					<tr>
-						<th>첨부파일:</th>
-						<td><input type="file" placeholder="파일을 선택하세요. "
-							name="filename" class="form-control" /></td>
-					</tr>
-					<tr align="center">
-						<td colspan="2">
-							<button type="submit" class="btn btn-success btn-xl">
-								작성 
-							</button> 
-							<a class="btn btn-success btn-xl" href="Free_board.jsp"
-							onclick="return confirm('글쓰기를 취소하시겠습니까?')"> 취소 </a>
-						</td>
-					</tr>
-				</form>
+				</c:forEach>
 			</tbody>
 		</table>
+		<div class="write">
+
+			<a href="board_write.jsp">
+				<button type="button" class="btn btn-success btn-lg">��
+					�ۼ�</button>
+			</a>
+		</div>
+
+		<div class='search' align="center">
+		<span class='green_window'>
+			<input type='text' class='input_text' />
+		</span>
+			<button type='submit' class='sch_smit'>�˻�</button>
+		</div>
+
 	</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 	<br>
 	<br>
@@ -85,13 +112,13 @@
 				<ul class="list-inline-quicklinks">
 					<b>COMPANY</b>
 					<br>
-					<li class="list-inline-item"><a href="#">회사소개</a></li>
+					<li class="list-inline-item"><a href="#">ȸ��Ұ�</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">이용약관</a></li>
+					<li class="list-inline-item"><a href="#">�̿���</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">개인정보 취급방침</a></li>
+					<li class="list-inline-item"><a href="#">�������� ��޹�ħ</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">이용안내</a></li>
+					<li class="list-inline-item"><a href="#">�̿�ȳ�</a></li>
 				</ul>
 			</div>
 			<div class="col-md-4">
@@ -100,13 +127,13 @@
 					<br>
 					<li class="list-inline-item">COMPANY:UNIQUEBEAN</li>
 					<br>
-					<li class="list-inline-item">ADDRESS: 서울특별시</li>
+					<li class="list-inline-item">ADDRESS: ����Ư����</li>
 					<br>
 					<li class="list-inline-item">TELEPHONE: 070-7727-1401</li>
 					<br>
 					<li class="list-inline-item">EMAIL:help@uniquebean.com</li>
 					<br>
-					<li class="list-inline-item">개인정보책임자:노루</li>
+					<li class="list-inline-item">��������å����:���</li>
 					<br>
 				</ul>
 			</div>
@@ -137,6 +164,7 @@
 	<script src="js/contact_me.js"></script>
 
 	<script src="js/agency.min.js"></script>
-	<script src="js/free_write.js"></script>
+
+
 </body>
 </html>

@@ -36,40 +36,41 @@
 
 <body id="page-top">
 
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavs" style="background-color: black;">
-	<div class="container">
-		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
-			Beans</a>
-		<button class="navbar-toggler navbar-toggler-right" type="button"
-			data-toggle="collapse" data-target="#navbarResponsive"
-			aria-controls="navbarResponsive" aria-expanded="false"
-			aria-label="Toggle navigation">
-			Menu <i class="fa fa-bars"></i>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav text-uppercase ml-auto">
-			
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#About">About</a></li>
-					
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Shop">Shop</a></li>
-					
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#portfolio">Library</a></li>
-					
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Board">Board</a></li>
-					
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#contact">Contact</a></li>
-					
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					data-toggle="modal" data-target="#login-modal">Login</a></li>
-			</ul>
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+		id="mainNavs" style="background-color: black;">
+		<div class="container">
+			<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
+				Beans</a>
+			<button class="navbar-toggler navbar-toggler-right" type="button"
+				data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false"
+				aria-label="Toggle navigation">
+				Menu <i class="fa fa-bars"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav text-uppercase ml-auto">
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#About">About</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#Shop">Shop</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#portfolio">Library</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="#Board">Board</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="Contact_board.jsp">Contact</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="login.jsp">Login</a></li>
+				</ul>
+			</div>
 		</div>
-	</div>
-</nav>
+	</nav>
 
 	<header class="masthead">
 		<div class="container">
@@ -214,7 +215,8 @@
 							<div class="timeline-image">
 								<h4>
 									<a href="shop.jsp" style="color: white; text-decoration: none;">
-									나만의<br>맞춤원두<br>주문하기!!</a>
+										나만의<br>맞춤원두<br>주문하기!!
+									</a>
 								</h4>
 							</div>
 						</li>
@@ -331,23 +333,24 @@
 			</div>
 
 			<div class="card card-form">
-				<h3 class="card-header text-center">리뷰 게시판</h3>
-				<div class="card-body text-center">
-					<h4 class="card-title">여러분들의 후기를 들려주세요!</h4>
-					<p class="card-text">구매후 만족하셨거나, 만족 하지 못하신 이야기들을 들려주세요. 저희는
-						여러분의 이야기를 항상 경청하고 있습니다.</p>
-					<a href="review_board.jsp" class="btn btn-primary layer">이동하기</a>
-				</div>
-			</div>
-
-			<div class="card card-form">
 				<h3 class="card-header text-center">자유 게시판</h3>
 				<div class="card-body text-center">
 					<h4 class="card-title">자유로운 회원님들을 위한 공간입니다.</h4>
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="#!" class="btn btn-primary center-block">이동하기</a>
+					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
+				</div>
+			</div>
+
+			<div class="card card-form">
+				<h3 class="card-header text-center">문의 게시판</h3>
+				<div class="card-body text-center">
+					<h4 class="card-title">UniqueBeans에 원하시는 것을 알려주세요.</h4>
+					<p class="card-text">
+						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
+					</p>
+					<a href="Contact_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 
@@ -850,125 +853,7 @@
 			</div>
 		</div>
 	</div>
-	<!-- login -->
-	<!-- BEGIN # MODAL LOGIN -->
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true"
-		style="display: none;">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header" align="center">
-					<img class="img-circle" id="img_logo" src="img/UniqueBeans.png">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-label="Close">
-						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-					</button>
-				</div>
 
-				<!-- Begin # DIV Form -->
-				<div id="div-forms">
-
-					<!-- Begin # Login Form -->
-					<form id="login-form" action="http://www.naver.com" method="post">
-						<div class="modal-body">
-							<div id="div-login-msg">
-								<div id="icon-login-msg"
-									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-login-msg">ID와 Password를 입력하세요.</span>
-							</div>
-
-							<input id="id" class="form-control" type="text" placeholder="ID"
-								required> <input id="pwd" class="form-control"
-								type="password" placeholder="Password" required>
-
-							<div class="checkbox">
-								<label> <input type="checkbox"> Remember me
-								</label>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
-							</div>
-							<div>
-								<button id="login_lost_btn" type="button" class="btn btn-link">비밀번호를
-									잊어버렸나요?</button>
-								<button id="login_register_btn" type="button"
-									class="btn btn-link">회원가입</button>
-							</div>
-						</div>
-					</form>
-					<!-- End # Login Form -->
-
-					<!-- Begin | Lost Password Form -->
-					<form id="lost-form" style="display: none;">
-						<div class="modal-body">
-							<div id="div-lost-msg">
-								<div id="icon-lost-msg"
-									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-lost-msg">이메일을 입력하세요.</span>
-							</div>
-							<input id="lost_email" class="form-control" type="text"
-								placeholder="e-mail" required>
-						</div>
-						<div class="">
-							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">전송</button>
-							</div>
-							<div>
-								<button id="lost_login_btn" type="button" class="btn btn-link">로그인</button>
-								<button id="lost_register_btn" type="button"
-									class="btn btn-link">회원가입</button>
-							</div>
-						</div>
-					</form>
-					<!-- End | Lost Password Form -->
-
-					<!-- Begin | Register Form -->
-					<form id="register-form" style="display: none;">
-						<div class="modal-body">
-							<div id="div-register-msg">
-								<div id="icon-register-msg"
-									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-register-msg">회원정보를 입력하세요.</span>
-							</div>
-							<input id="register_id" class="form-control" type="text"
-								placeholder="ID" required> <input id="register_password"
-								class="form-control" type="password" placeholder="Password"
-								required> <input id="register_name" class="form-control"
-								type="text" placeholder="Name" required> <input
-								id="register_email" class="form-control" type="text"
-								placeholder="e-mail" required> <input
-								id="register_address" class="form-control" type="text"
-								placeholder="Adress" required> <input
-								id="register_telephone" class="form-control" type="text"
-								placeholder="Telephone" required> <label
-								class="radio-inline"> <input type="radio"
-								name="inlineRadioOptions" id="register_gender" value="male"
-								required> 남성 <input type="radio"
-								name="inlineRadioOptions" id="register_gender" value="female"
-								required> 여성
-							</label>
-						</div>
-						<div class="modal-footer">
-							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
-							</div>
-							<div>
-								<button id="register_login_btn" type="button"
-									class="btn btn-link">로그인</button>
-							</div>
-						</div>
-					</form>
-					<!-- End | Register Form -->
-
-				</div>
-				<!-- End # DIV Form -->
-
-			</div>
-		</div>
-	</div>
-	<!-- END # MODAL LOGIN -->
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
