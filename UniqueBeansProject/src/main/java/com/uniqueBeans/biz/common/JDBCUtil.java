@@ -14,8 +14,8 @@ public class JDBCUtil {
 			
 			// UniqueBeans 프로젝트 DB 연결.
 			Class.forName("com.mysql.jdbc.Driver");
-			return DriverManager.getConnection("jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8", 
-					"root", "root");
+			return DriverManager.getConnection("jdbc:mysql://192.168.1.11:3306/UniqueBean?useUnicode=true&characterEncoding=utf8", 
+					"uniquebean", "uniquebean");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

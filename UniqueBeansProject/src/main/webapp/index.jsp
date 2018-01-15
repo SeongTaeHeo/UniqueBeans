@@ -63,7 +63,7 @@
 						href="#Board">Board</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Contact</a></li>
+						href="Contact_board.jsp">Contact</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="login.jsp">Login</a></li>
@@ -333,23 +333,24 @@
 			</div>
 
 			<div class="card card-form">
-				<h3 class="card-header text-center">리뷰 게시판</h3>
-				<div class="card-body text-center">
-					<h4 class="card-title">여러분들의 후기를 들려주세요!</h4>
-					<p class="card-text">구매후 만족하셨거나, 만족 하지 못하신 이야기들을 들려주세요. 저희는
-						여러분의 이야기를 항상 경청하고 있습니다.</p>
-					<a href="review_board.jsp" class="btn btn-primary layer">이동하기</a>
-				</div>
-			</div>
-
-			<div class="card card-form">
 				<h3 class="card-header text-center">자유 게시판</h3>
 				<div class="card-body text-center">
 					<h4 class="card-title">자유로운 회원님들을 위한 공간입니다.</h4>
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="#!" class="btn btn-primary center-block">이동하기</a>
+					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
+				</div>
+			</div>
+
+			<div class="card card-form">
+				<h3 class="card-header text-center">문의 게시판</h3>
+				<div class="card-body text-center">
+					<h4 class="card-title">UniqueBeans에 원하시는 것을 알려주세요.</h4>
+					<p class="card-text">
+						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
+					</p>
+					<a href="Contact_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 
@@ -852,7 +853,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
