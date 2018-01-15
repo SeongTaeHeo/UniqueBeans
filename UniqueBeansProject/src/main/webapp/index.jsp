@@ -553,7 +553,22 @@
 									고유의 특성을 가지고 있습니다. <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을
 									알아보세요.
 								</p>
-								<div id="vmap" style="width: 600px; height: 500px;"></div>
+								<div id="vmap_wrap">
+									<div id="vmap" style="width:600px; height: 400px; margin-right:50px; "></div>
+								</div>
+								<div id="info_result">
+									<div>Info</div>
+									<div id="info_wrapper">			
+										<div class="info_wrap">Country : <span id="info_name"></span></div>
+										<div class="info_wrap">Price : <span id="info_price"></span></div>
+										<div class="info_wrap">kind : <span id="info_kind"></span></div>
+										<div class="info_wrap">Roasting : <span id="info_rt"></span></div>
+										<div class="info_wrap">Description : <span id="info_desc">스피드 웨건! 설명충!!! 혼돈 파괴 망가!</span></div> 
+									</div>
+									<div style="width:50%" id="rd_chart_wrapper">
+			        						<canvas id="canvas"></canvas>
+			    					</div>
+       							</div>
 								<button class="btn btn-primary" data-dismiss="modal"
 									type="button">
 									<i class="fa fa-times"></i> Close Project
@@ -969,14 +984,9 @@
 	<script type="text/javascript" src="js/jquery.vmap.js"></script>
 	<script type="text/javascript" src="js/jquery.vmap.world.js"
 		charset="utf-8"></script>
-
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('#vmap').vectorMap({
-				map : 'world_en'
-			});
-		});
-	</script>
+	<script src="js/Chart.bundle.js"></script>
+    <script src="js/utils.js"></script>
+	<script src="js/chartjqvmap.js" type="text/javascript"></script>
 	<!-- 지도 관련 작업 끝! -->
 
 
