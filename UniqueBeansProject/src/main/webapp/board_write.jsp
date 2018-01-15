@@ -43,15 +43,15 @@
 <div class="container" style="position: relative; top: -50px;">
 <table class="table table-bordered">
     <tbody>
-        <form action="#" method="post">
+        <form method="post" onsubmit="return free_data(this);">
             <tr>
                 <th>제목: </th>
-                <td><input type="text" placeholder="제목을 입력하세요. " 
+                <td><input id="board_title" type="text" placeholder="제목을 입력하세요. " 
                 name="subject" class="form-control" required/></td>
             </tr>
             <tr>
                 <th>내용: </th>
-                <td><textarea cols="10" placeholder="내용을 입력하세요. " 
+                <td><textarea id="board_content" cols="10" placeholder="내용을 입력하세요. " 
                 name="content" class="form-control" style="resize: none; height: 400px;" required></textarea></td>
             </tr>
             <tr>
@@ -61,8 +61,8 @@
             </tr>
             <tr align="center">
                 <td colspan="2">
-                    <a class="btn btn-success btn-xl"> 작성 </a>
-                    <a class="btn btn-success btn-xl" href="review_board.jsp">  취소 </a>
+                    <button type="submit" class="btn btn-success btn-xl"><a href="Free_board.jsp"> 작성 </a></button>
+                    <a class="btn btn-success btn-xl" href="Free_board.jsp" onclick="return confirm('글쓰기를 취소하시겠습니까?')">  취소 </a>
                 </td>
             </tr>
         </form>
@@ -130,5 +130,6 @@
 <script src="js/contact_me.js"></script>
 
 <script src="js/agency.min.js"></script>
+<script src="js/free_write.js"></script>
 </body>
 </html>
