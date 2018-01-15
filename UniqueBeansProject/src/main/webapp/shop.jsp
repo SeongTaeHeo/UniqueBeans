@@ -29,8 +29,7 @@
 <title>Insert title here</title>
 
 </head>
-<body>
-
+<body id="main">
 	<nav class="navbar navbar-expand-lg navbar-dark" id="shopNav">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
@@ -56,6 +55,46 @@
 		</div>
 	</div>
 	</nav>
+
+	<!-- 주문테이블 -->
+		<div id="mySidenav" class="sidenav hidden">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="container">
+
+				<h1>주문상황</h1>
+				<hr>
+				<table class="table table-striped table-hover table-bordered">
+					<tbody>
+						<tr>
+							<th>상품</th>
+							<th>개수</th>
+							<th>개당 가격</th>
+							<th>총합</th>
+						</tr>
+						<tr>
+							<td>원두</td>
+							<td>1 <a href="#"></a></td>
+							<td>250.00</td>
+							<td>250.00</td>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">상품 가격</span></th>
+							<th>250.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">부가세 20%</span></th>
+							<th>50.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">총 가격</span></th>
+							<th>300.00</th>
+						</tr>
+
+					</tbody>
+				</table>
+
+			</div>
+		</div>
 
 	<div class="conatiner">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -88,7 +127,7 @@
 						</a>
 						<div id="vmap_wrap">
 							<div id="vmap"
-								style="width: 400px; height: 400px; margin-right: 50px;"></div>
+								style="width: 800px; height: 400px; margin-right: 50px;"></div>
 							<div id="info_result">
 								<div>Info</div>
 								<div id="info_wrapper">
@@ -190,11 +229,22 @@
 					data-slide="prev">
 					<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
 				</a>
+				<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
 			</center>
 		</div>
 	</div>
 
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "400px";
+			document.getElementById("main").style.marginLeft = "400px";
+		}
 
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.1.1.win.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="vendor/jquery/jquery.min.js"></script>
