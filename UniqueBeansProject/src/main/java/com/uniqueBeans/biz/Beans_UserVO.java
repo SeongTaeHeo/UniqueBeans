@@ -1,6 +1,6 @@
 package com.uniqueBeans.biz;
 
-import java.util.Date;
+import java.sql.Date;
 
 /*
  * 유저 정보를 저장하기 위한 객체 모델
@@ -9,14 +9,23 @@ public class Beans_UserVO {
 	private String id;
 	private String pwd;
 	private String email;
-	private Date birth;
+	private String birth;
 	private String tel;
 	private String name;
 	private String address;
 	private String gender;
 	private int point;
 	
+	// DB로직 처리를 위한 sql.Date 변수
+	private Date input_Birth;
 	
+	
+	public Date getInput_Birth() {
+		return input_Birth;
+	}
+	public void setInput_Birth(Date input_Birth) {
+		this.input_Birth = input_Birth;
+	}
 	public String getId() {
 		return id;
 	}
@@ -35,10 +44,10 @@ public class Beans_UserVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public Date getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(Date birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public String getTel() {
@@ -62,7 +71,7 @@ public class Beans_UserVO {
 	public String getGender() {
 		return gender;
 	}
-	public void setSex(String sex) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 	public int getPoint() {

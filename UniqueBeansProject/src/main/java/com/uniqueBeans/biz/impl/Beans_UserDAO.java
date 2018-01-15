@@ -3,6 +3,9 @@ package com.uniqueBeans.biz.impl;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.springframework.stereotype.Repository;
 
@@ -19,7 +22,7 @@ public class Beans_UserDAO {
 	private ResultSet rs;
 
 	// 회원가입 쿼리문
-	private final String INSERT_USER = "insert into testtable values(?,?)";
+	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address, gender, point) values(?,?,?,?,?,?,?,?,?)";
 	// 로그인을 위하여 DB값과 비교.
 	private final String GET_USER_LOGIN = "select id, pw from testtable where id = ?";
 	
@@ -34,6 +37,13 @@ public class Beans_UserDAO {
 			pstmt = conn.prepareStatement(INSERT_USER);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getPwd());
+			pstmt.setString(3, vo.getEmail());
+			pstmt.setDate(4, vo.getInput_Birth());
+			pstmt.setString(5, vo.getTel());
+			pstmt.setString(6, vo.getName());
+			pstmt.setString(7, vo.getAddress());
+			pstmt.setString(8, vo.getGender());
+			pstmt.setInt(9, vo.getPoint());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

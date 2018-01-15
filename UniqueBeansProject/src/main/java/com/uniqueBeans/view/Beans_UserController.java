@@ -22,7 +22,7 @@ public class Beans_UserController {
 		System.out.println("회원가입 메서드 실행");
 		userService.insertUser(vo);
 		
-		return "testFile.jsp";
+		return "index.jsp";
 	}
 
 	/*

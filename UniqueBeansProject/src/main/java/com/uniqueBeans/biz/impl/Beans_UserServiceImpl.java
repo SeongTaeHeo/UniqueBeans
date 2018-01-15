@@ -1,5 +1,9 @@
 package com.uniqueBeans.biz.impl;
 
+import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +22,20 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	@Override
 	public void insertUser(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
+		
+		try {
+			System.out.println(vo.getBirth());
+			java.util.Date date = new SimpleDateFormat("YYYY-MM-DD").parse(vo.getBirth());
+			Date sqlDate = new Date(date.getTime());
+			vo.setInput_Birth(sqlDate);
+			vo.setPoint(100);
+			
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(vo.toString());
 		userDAO.insertUserData(vo);
 	}
 
