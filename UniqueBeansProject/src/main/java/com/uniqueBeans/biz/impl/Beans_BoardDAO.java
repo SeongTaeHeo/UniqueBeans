@@ -18,7 +18,7 @@ public class Beans_BoardDAO {
 	private PreparedStatement stmt=null;
 	private ResultSet rs=null;
 	
-	private final String BOARD_INSERT = "insert into board(post_title,post_contents) " + "values(?,?)";
+	private final String BOARD_INSERT = "insert into board(post_title,post_contents) values(?,?)";
 	private final String BOARD_UPDATE = "update board set title=?, content=? " + "where post_number = ?";
 	private final String BOARD_DELETE = "delete form board where post_number = ?";
 	private final String BOARD_GET = "select * from board where post_number=?";
