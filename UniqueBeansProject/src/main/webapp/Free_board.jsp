@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -51,26 +54,23 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<th class="board_no">글 번호</th>
-					<th class="board_title">제 목</th>
-					<th class="board_write">작성자</th>
-					<th class="board_date">작성일</th>
+					<th class="post_number">글 번호</th>
+					<th class="post_title">제 목</th>
+					<th class="id">작성자</th>
+					<th class="post_date">작성일</th>
+					<th class="post_views">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<th scope="row">1</th>
-					<td>게시판 만들기</td>
-					<td>운영자</td>
-					<td>2018/01/03</td>
-				</tr>
-				<tr>
-					<th scope="row">2</th>
-					<td>두번째 게시물</td>
-					<td>운영자</td>
-					<td>2018/01/03</td>
-				</tr>
-
+				<c:forEach items="${boardList }" var="board">
+					<tr>
+						<td>${board.post_number }</td>
+						<td><a href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
+						<td>${board.id }</td>
+						<td>${board.post_date }</td>
+						<td>${board.post_views }</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<div class="write">

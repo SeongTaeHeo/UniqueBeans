@@ -1,9 +1,9 @@
 function free_data(f) {
-	if (f.board_title.value == "") {
+	if (f.post_title.value == "") {
 		alert("제목을 입력해주세요.");
 		return false;
 	}
-	if (f.board_content.value == "") {
+	if (f.post_contents.value == "") {
 		alert("내용을 입력해주세요.");
 		return false;
 	}
