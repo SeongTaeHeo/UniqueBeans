@@ -103,11 +103,11 @@ body {
 	-webkit-tap-highlight-color: #fed136
 }
 
-#mainNav {
+#mainNavs {
 	background-color: #212529
 }
 
-#mainNav .navbar-toggler {
+#mainNavs .navbar-toggler {
 	font-size: 12px;
 	right: 0;
 	padding: 13px;
@@ -118,18 +118,18 @@ body {
 	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-#mainNav .navbar-brand {
+#mainNavs .navbar-brand {
 	color: #7F6854;
 	font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial,
 		cursive
 }
 
-#mainNav .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus,
+#mainNavs .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus,
 	#mainNav .navbar-brand:hover {
 	color: #fed136
 }
 
-#mainNav .navbar-nav .nav-item .nav-link {
+#mainNavs .navbar-nav .nav-item .nav-link {
 	font-size: 90%;
 	font-weight: 400;
 	padding: .75em 0;
@@ -138,36 +138,34 @@ body {
 	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-#mainNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover
+#mainNavs .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover
 	{
 	color: #7F6854
 }
 
 @media ( min-width :992px) {
-	#mainNav {
-		padding-top: 25px;
-		padding-bottom: 25px;
+	#mainNavs {
 		-webkit-transition: padding-top .3s, padding-bottom .3s;
 		-moz-transition: padding-top .3s, padding-bottom .3s;
 		transition: padding-top .3s, padding-bottom .3s;
 		border: none;
 		background-color: transparent
 	}
-	#mainNav .navbar-brand {
+	#mainNavs .navbar-brand {
 		font-size: 1.75em;
 		-webkit-transition: all .3s;
 		-moz-transition: all .3s;
 		transition: all .3s
 	}
-	#mainNav .navbar-nav .nav-item .nav-link {
+	#mainNavs .navbar-nav .nav-item .nav-link {
 		padding: 1.1em 1em !important
 	}
-	#mainNav.navbar-shrink {
+	#mainNavs.navbar-shrink {
 		padding-top: 0;
 		padding-bottom: 0;
 		background-color: #DBCDAD
 	}
-	#mainNav.navbar-shrink .navbar-brand {
+	#mainNavs.navbar-shrink .navbar-brand {
 		font-size: 1.25em;
 		padding: 12px 0
 	}
