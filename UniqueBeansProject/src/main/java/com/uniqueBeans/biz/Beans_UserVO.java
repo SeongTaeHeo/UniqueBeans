@@ -13,7 +13,7 @@ public class Beans_UserVO {
 	private String tel;
 	private String name;
 	private String address;
-	private String sex;
+	private String gender;
 	private int point;
 	
 	
@@ -59,11 +59,11 @@ public class Beans_UserVO {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public String getSex() {
-		return sex;
+	public String getGender() {
+		return gender;
 	}
 	public void setSex(String sex) {
-		this.sex = sex;
+		this.gender = gender;
 	}
 	public int getPoint() {
 		return point;
@@ -80,7 +80,7 @@ public class Beans_UserVO {
 		// TODO Auto-generated method stub	
 		return "[id = " + id + " pwd = " + pwd + " email = " + email + " birth = " + birth
 				+ " tel = " + tel + " name = " + name + " address = " + address + " sex = " +
-				sex + " point = " + point + "]";
+				gender + " point = " + point + "]";
 	}
 	
 }

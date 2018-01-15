@@ -48,7 +48,7 @@ border {azimuth:
 				</tr>
 				<tr>
 					<td>비밀번호 :</td>
-					<td align="left"><input type="password" name="pass" /></td>
+					<td align="left"><input type="password" name="pwd" /></td>
 				</tr>
 				<tr>
 					<td>이름 :</td>
@@ -56,7 +56,7 @@ border {azimuth:
 				</tr>
 				<tr>
 					<td>생년월일 :</td>
-					<td align="left"><input type="text" name="age" maxlength=8 size=7 /></td>
+					<td align="left"><input type="text" name="birth" maxlength=8 size=7 /></td>
 				</tr>
 				<tr>
 					<td>성별 :</td>
@@ -69,11 +69,11 @@ border {azimuth:
 				</tr>
 				<tr>
 					<td>연락처 :</td>
-					<td align="left"><input type="text" name="email" size=30 /></td>
+					<td align="left"><input type="text" name="tel" size=30 /></td>
 				</tr>
 				<tr>
 					<td>주소 :</td>
-					<td align="left"><input type="text" name="email" size=30 /></td>
+					<td align="left"><input type="text" name="address" size=30 /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align=center>
