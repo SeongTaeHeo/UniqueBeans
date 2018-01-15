@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -54,31 +51,31 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<th class="board_no">글 번호</th>
-					<th class="board_title">제 목</th>
-					<th class="board_write">작성자</th>
-					<th class="board_date">작성일</th>
-					<th class="board_cnt">조회수</th>
+					<td align="center"><input name="post_title" type="text" value="${board.post_title}"/></td>
+				</tr>
+				<tr>
+					<td>작성자</td>
+					<td align="left">${board.id }</td>
+					<td>등록일</td>
+					<td align="left">${board.post_date }</td>
+					<td>조회수</td>
+					<td align="left">${board.post_views }</td>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${boardList }" var="board">
-					<tr>
-						<td>${contact.contact_seq }</td>
-						<td><a href="Free_board_content.do?post_number=${contact.contact_seq }">${contact.contact_title}</a></td>
-						<td>${contact.id }</td>
-						<td>${contact.contact_date }</td>
-						<td>${contact.contact_views }</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td align="left"><textarea name="post_contents" >${board.post_contents }</textarea></td>
+				</tr>
 			</tbody>
 		</table>
 		<div class="write">
-
+			<a href="deleteBoard.do?post_number=${board.post_number }">
+				<button type="button" class="btn btn-success btn-lg">글 삭제</button></a>
+			<a href="free_board.do">
+				<button type="button" class="btn btn-success btn-lg">글 목록</button></a>
 			<a href="board_write.jsp">
-				<button type="button" class="btn btn-success btn-lg">글
-					작성</button>
-			</a>
+				<button type="button" class="btn btn-success btn-lg">글 작성</button></a>
+			
 		</div>
 
 		<div class='search' align="center">

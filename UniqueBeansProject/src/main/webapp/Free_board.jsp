@@ -54,11 +54,11 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<th class="post_number">글 번호</th>
-					<th class="post_title">제 목</th>
-					<th class="id">작성자</th>
-					<th class="post_date">작성일</th>
-					<th class="post_views">조회수</th>
+					<th class="board_no">글 번호</th>
+					<th class="board_title">제 목</th>
+					<th class="board_write">작성자</th>
+					<th class="board_date">작성일</th>
+					<th class="board_cnt">조회수</th>
 				</tr>
 			</thead>
 			<tbody>

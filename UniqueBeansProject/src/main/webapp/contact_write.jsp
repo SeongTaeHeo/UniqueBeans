@@ -62,7 +62,7 @@
            	</tr>
             <tr>
                 <th>내용: </th>
-                <td><textarea id="contact_content" cols="10" placeholder="내용을 입력하세요. " 
+                <td><textarea id="contact_contents" cols="10" placeholder="내용을 입력하세요. " 
                 name="content" class="form-control" style="resize: none; height: 400px;" required></textarea></td>
             </tr>
             <tr>

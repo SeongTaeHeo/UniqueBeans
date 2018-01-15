@@ -103,6 +103,9 @@
 .board_date {
 	width: 300px;
 }
+.board_cnt{
+	width: 100px;
+}
 .write{
 	float: right;
 }
