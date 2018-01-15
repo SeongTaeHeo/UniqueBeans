@@ -69,11 +69,11 @@ border {azimuth:
 				</tr>
 				<tr>
 					<td>연락처 :</td>
-					<td align="left"><input type="text" name="email" size=30 /></td>
+					<td align="left"><input type="text" name="tel" size=30 /></td>
 				</tr>
 				<tr>
 					<td>주소 :</td>
-					<td align="left"><input type="text" name="email" size=30 /></td>
+					<td align="left"><input type="text" name="address" size=30 /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align=center>
