@@ -47,13 +47,13 @@
 					<tr>
 						<th>제목:</th>
 						<td><input id="post_title" type="text"
-							placeholder="제목을 입력하세요. " name="subject" class="form-control"
+							placeholder="제목을 입력하세요. " name="post_title" class="form-control"
 							required /></td>
 					</tr>
 					<tr>
 						<th>내용:</th>
 						<td><textarea id="post_contents" cols="10"
-								placeholder="내용을 입력하세요. " name="content" class="form-control"
+								placeholder="내용을 입력하세요. " name="post_contents" class="form-control"
 								style="resize: none; height: 400px;" required></textarea></td>
 					</tr>
 					<tr>

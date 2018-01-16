@@ -33,15 +33,15 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 	}
 
 	@Override
-	public Beans_BoardVO getBoard(Beans_BoardVO vo) {
+	public Beans_BoardVO Free_board_content(Beans_BoardVO vo) {
 		// TODO Auto-generated method stub
-		return beans_boardDAO.getBoard(vo);
+		return beans_boardDAO.Free_board_content(vo);
 	}
 
 	@Override
-	public List<Beans_BoardVO> getBoardList(Beans_BoardVO vo) {
+	public List<Beans_BoardVO> Free_board(Beans_BoardVO vo) {
 		// TODO Auto-generated method stub
-		return beans_boardDAO.getBoardList(vo);
+		return beans_boardDAO.Free_board(vo);
 	}
 
 }

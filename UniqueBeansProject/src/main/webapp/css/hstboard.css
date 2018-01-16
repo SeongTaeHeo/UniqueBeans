@@ -89,7 +89,7 @@
 }
 
 .board_no {
-	width: 100px;
+	width: 50px;
 }
 
 .board_title {
@@ -101,10 +101,13 @@
 }
 
 .board_date {
-	width: 300px;
+	width: 200px;
+}
+.board_opt{
+	width: 100px;
 }
 .board_cnt{
-	width: 100px;
+	width: 150px;
 }
 .write{
 	float: right;

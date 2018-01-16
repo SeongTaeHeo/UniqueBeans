@@ -21,85 +21,62 @@ import com.uniqueBeans.biz.impl.Beans_BoardDAO;
 public class Beans_BoardController {
 	@Autowired
 	private Beans_BoardService boardservice;
-	
-	@RequestMapping("/dataTransform.do")
-	@ResponseBody
-	public List<Beans_BoardVO> dataTransform(Beans_BoardVO vo){
-		vo.setSearchCondition("POST_TITLE");
-		vo.setSerachKeyword("");
-		List<Beans_BoardVO> boardList=boardservice.getBoardList(vo);
-		return boardList;
-	}
+
 	@ModelAttribute("conditionMap")
-	public Map<String, String> searchConditionMap(){
-		Map<String, String> conditionMap=new HashMap<String,String>();
+	public Map<String, String> searchConditionMap() {
+		Map<String, String> conditionMap = new HashMap<String, String>();
 		conditionMap.put("제목", "POST_TITLE");
 		conditionMap.put("내용", "POST_CONTENTS");
 		return conditionMap;
 	}
-	@RequestMapping(value="/insertBoard.do")
-	public String insertBoard(Beans_BoardVO vo) throws IOException{
+
+	@RequestMapping(value = "insertBoard.do")
+	public String insertBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
 		boardservice.insertBoard(vo);
 		return "Free_board.do";
 	}
-	@RequestMapping("/updateBoard.do")
-	public String updateBoard(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
-		System.out.println("번호: "+vo.getPost_number());
-		System.out.println("제목: "+vo.getPost_title());
-		System.out.println("작성자: "+vo.getId());
-		System.out.println("내용: "+vo.getPost_contents());
-		System.out.println("등록일: "+vo.getPost_date());
-		System.out.println("조회수: "+vo.getPost_views());
+
+	@RequestMapping(value = "updateBoard.do")
+	public String updateBoard(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
+		System.out.println("번호: " + vo.getPost_number());
+		System.out.println("제목: " + vo.getPost_title());
+		System.out.println("작성자: " + vo.getId());
+		System.out.println("내용: " + vo.getPost_contents());
+		System.out.println("등록일: " + vo.getPost_date());
+		System.out.println("조회수: " + vo.getPost_views());
 		boardservice.updateBoard(vo);
 		return "Free_board.do";
 	}
-	@RequestMapping("/deleteBoard.do")
-	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
+
+	@RequestMapping(value = "deleteBoard.do")
+	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
 		boardservice.deleteBoard(vo);
 		return "Free_board.do";
 	}
-	@RequestMapping("/Free_board_content.do")
-	public String getBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model){
-		model.addAttribute("board", boardservice.getBoard(vo));
+
+	@RequestMapping(value = "/Free_board_content.do")
+	public String Free_board_content(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model) {
+		model.addAttribute("board", boardservice.Free_board_content(vo));
 		return "Free_board_content.jsp";
 	}
-	@RequestMapping("/Free_board.do")
-	public String getBoardList(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model){
-		if(vo.getSearchCondition()==null) vo.setSearchCondition("POST_TITLE");
-		if(vo.getSerachKeyword()==null) vo.setSerachKeyword("");
-		model.addAttribute("boardList", beans_boardDAO.getBoardList(vo));
+
+	@RequestMapping(value = "Free_board.do")
+	public String Free_board(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model) {
+		if (vo.getSearchCondition() == null)
+			vo.setSearchCondition("POST_TITLE");
+		if (vo.getSearchKeyword() == null)
+			vo.setSearchKeyword("");
+		model.addAttribute("boardList", boardservice.Free_board(vo));
 		return "Free_board.jsp";
 	}
+
+	@RequestMapping("/dataTransform.do")
+	@ResponseBody
+	public List<Beans_BoardVO> dataTransform(Beans_BoardVO vo) {
+		vo.setSearchCondition("POST_TITLE");
+		vo.setSearchKeyword("");
+		List<Beans_BoardVO> boardList = boardservice.Free_board(vo);
+		return boardList;
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
