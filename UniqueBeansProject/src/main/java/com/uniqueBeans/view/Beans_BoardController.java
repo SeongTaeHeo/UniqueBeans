@@ -30,18 +30,13 @@ public class Beans_BoardController {
 		List<Beans_BoardVO> boardList=boardservice.getBoardList(vo);
 		return boardList;
 	}
-	@ModelAttribute("conditionMap")
-	public Map<String, String> searchConditionMap(){
-		Map<String, String> conditionMap=new HashMap<String,String>();
-		conditionMap.put("제목", "POST_TITLE");
-		conditionMap.put("내용", "POST_CONTENTS");
-		return conditionMap;
-	}
+
 	@RequestMapping(value="/insertBoard.do")
 	public String insertBoard(Beans_BoardVO vo) throws IOException{
 		boardservice.insertBoard(vo);
 		return "Free_board.do";
 	}
+	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
 		System.out.println("번호: "+vo.getPost_number());
@@ -53,16 +48,25 @@ public class Beans_BoardController {
 		boardservice.updateBoard(vo);
 		return "Free_board.do";
 	}
+	
 	@RequestMapping("/deleteBoard.do")
 	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
 		boardservice.deleteBoard(vo);
 		return "Free_board.do";
 	}
+	
+	/*
+	 * 게시글 불러오기
+	 */
 	@RequestMapping("/Free_board_content.do")
 	public String getBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model){
 		model.addAttribute("board", boardservice.getBoard(vo));
 		return "Free_board_content.jsp";
 	}
+	
+	/*
+	 * 게시판 불러오기
+	 */
 	@RequestMapping("/Free_board.do")
 	public String getBoardList(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model){
 		if(vo.getSearchCondition()==null) vo.setSearchCondition("POST_TITLE");

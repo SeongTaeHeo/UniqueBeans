@@ -24,7 +24,7 @@ public class Beans_UserDAO {
 	// 회원가입 쿼리문
 	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address, gender, point) values(?,?,?,?,?,?,?,?,?)";
 	// 로그인을 위하여 DB값과 비교.
-	private final String GET_USER_LOGIN = "select id, pw from testtable where id = ?";
+	private final String GET_USER_LOGIN = "select id, password from customer where id = ?";
 	
 	/*
 	 * 회원가입을 위한 메서드
@@ -69,8 +69,8 @@ public class Beans_UserDAO {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				System.out.println(rs.getString(1));
-				System.out.println(rs.getString(2));
+				System.out.println("받아온 유저 ID = " + rs.getString(1));
+				System.out.println("받아온 유저 PW " + rs.getString(2));
 				
 				userInfo.setId(rs.getString(1));
 				userInfo.setPwd(rs.getString(2));

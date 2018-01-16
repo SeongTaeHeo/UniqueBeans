@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,8 +66,16 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="Contact_board.jsp">Contact</a></li>
 
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="login.jsp">Login</a></li>
+					<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="login.jsp">
+						<c:if test="${!empty loginUser}">
+							${loginUser}님
+						</c:if>
+						
+						<c:if test="${empty loginUser}">
+							Login
+						</c:if>
+					</a></li>
 				</ul>
 			</div>
 		</div>
