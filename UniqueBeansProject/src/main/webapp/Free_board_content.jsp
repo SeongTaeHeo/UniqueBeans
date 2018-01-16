@@ -51,7 +51,7 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<td align="center"><input name="post_title" type="text" value="${board.post_title}"/></td>
+					<td align="center" colspan="10"><h3>${board.post_title}</h3></td>
 				</tr>
 				<tr>
 					<td>작성자</td>
@@ -64,24 +64,27 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td align="left"><textarea name="post_contents" >${board.post_contents }</textarea></td>
+					<td align="left" colspan="10">${board.post_contents }</td>
 				</tr>
 			</tbody>
 		</table>
 		<div class="write">
 			<a href="deleteBoard.do?post_number=${board.post_number }">
-				<button type="button" class="btn btn-success btn-lg">글 삭제</button></a>
-			<a href="free_board.do">
-				<button type="button" class="btn btn-success btn-lg">글 목록</button></a>
-			<a href="board_write.jsp">
-				<button type="button" class="btn btn-success btn-lg">글 작성</button></a>
-			
+				<button type="button" class="btn btn-success btn-lg">글 삭제</button>
+			</a> <a href="updateBoard.do?post_number=${board.post_number }">
+				<button type="button" class="btn btn-success btn-lg">글 수정</button>
+			</a> <a href="insertBoard.do">
+				<button type="button" class="btn btn-success btn-lg">글 목록</button>
+			</a> <a href="board_write.jsp">
+				<button type="button" class="btn btn-success btn-lg">글 작성</button>
+			</a>
+
 		</div>
 
 		<div class='search' align="center">
-		<span class='green_window'>
-			<input type='text' class='input_text' />
-		</span>
+			<span class='green_window'> <input type='text'
+				class='input_text' />
+			</span>
 			<button type='submit' class='sch_smit'>검색</button>
 		</div>
 

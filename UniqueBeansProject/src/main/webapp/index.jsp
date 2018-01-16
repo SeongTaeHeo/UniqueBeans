@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -65,8 +66,16 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="Contact_board.jsp">Contact</a></li>
 
-					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="login.jsp">Login</a></li>
+					<li class="nav-item">
+					<a class="nav-link js-scroll-trigger" href="login.jsp">
+						<c:if test="${!empty loginUser}">
+							${loginUser}님
+						</c:if>
+						
+						<c:if test="${empty loginUser}">
+							Login
+						</c:if>
+					</a></li>
 				</ul>
 			</div>
 		</div>
@@ -339,7 +348,7 @@
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
+					<a href="insertBoard.do" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 

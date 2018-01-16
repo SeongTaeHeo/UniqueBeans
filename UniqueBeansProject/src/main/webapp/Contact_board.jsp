@@ -46,7 +46,7 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		<h1 class="display-4" style="font-weight: bold">문의 게시판</h1>
 	</div>
 
 	<div class="board_main">
@@ -55,6 +55,7 @@
 			<thead>
 				<tr>
 					<th class="board_no">글 번호</th>
+					<th class="board_opt">문의 유형</th>
 					<th class="board_title">제 목</th>
 					<th class="board_write">작성자</th>
 					<th class="board_date">작성일</th>
@@ -62,7 +63,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${boardList }" var="board">
+				<c:forEach items="${contactList }" var="board">
 					<tr>
 						<td>${contact.contact_seq }</td>
 						<td><a href="Free_board_content.do?post_number=${contact.contact_seq }">${contact.contact_title}</a></td>
@@ -75,7 +76,7 @@
 		</table>
 		<div class="write">
 
-			<a href="board_write.jsp">
+			<a href="contact_write.jsp">
 				<button type="button" class="btn btn-success btn-lg">글
 					작성</button>
 			</a>

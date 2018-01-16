@@ -9,6 +9,6 @@ public interface Beans_UserService {
 	public void insertUser(Beans_UserVO vo);
 	
 	// 유저 정보 가져오기
-	public Beans_UserVO getUser(Beans_UserVO vo);
+	public String getUser(Beans_UserVO vo);
 	
 }
