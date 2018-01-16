@@ -24,17 +24,18 @@
 			
 			jQuery('#vmap').vectorMap({
 				map: 'world_en',
-				backgroundColor: '#a5bfdd',
+				backgroundColor: '#ffffff',
 				borderColor: '#818181',
 				borderOpacity: 0.25,
 				borderWidth: 1,
-				color: '#f4f3f0',
+				color: '#aaaaaa',
 				enableZoom: true,
-				hoverColor: '#c9dfaf',
+				hoverColor: '#fed136',
 				hoverOpacity: null,
 				normalizeFunction: 'linear',
-				scaleColors: ['#b6d6ff', '#005ace'],
-				selectedColor: '#c9dfaf',
+				values: null,
+				scaleColors: ['#dbcdad', '#7f6854'],
+				selectedColor: '#fed136',
 				selectedRegions: null,
 			    showTooltip: true,
 				onRegionClick: function(element, code, region){
@@ -80,4 +81,16 @@
 			});
 		});
 		
-		
+		var selectkind;
+		selectkind = 0;
+		jQuery(document).ready(function() {
+			if(selectkind==0){
+				jQuery('#vmap').vectorMap('set', 'values', allkind);
+			} else if(selectkind==1){
+				jQuery('#vmap').vectorMap('set', 'values', arabica);
+			} else if(selectkind==2){
+				jQuery('#vmap').vectorMap('set', 'values', robusta);
+			} else {
+				jQuery('#vmap').vectorMap('set', 'values', null);
+			}		       
+		});

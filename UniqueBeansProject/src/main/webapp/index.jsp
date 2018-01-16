@@ -9,7 +9,7 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
-<meta name="author" content="" >
+<meta name="author" content="">
 
 <title>Unique Bean</title>
 
@@ -31,14 +31,16 @@
 
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/hstboard.css" rel="stylesheet">
+<link href="css/jqvmap.css" rel="stylesheet">
 
 </head>
 
 <body id="page-top">
 
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top"
+		id="mainNavs" style="background-color: black;">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top">Unique
+			<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
 				Beans</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
@@ -48,18 +50,24 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ml-auto">
+
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#About">About</a></li>
+
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#Shop">Shop</a></li>
+
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#portfolio">Library</a></li>
+
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="#Board">Board</a></li>
+
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Contact</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" data-toggle="modal"
-						data-target="#login-modal">Login</a></li>
+						href="Contact_board.jsp">Contact</a></li>
+
+					<li class="nav-item"><a class="nav-link js-scroll-trigger"
+						href="login.jsp">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -207,7 +215,9 @@
 						<li class="timeline-inverted">
 							<div class="timeline-image">
 								<h4>
-									나만의<br>맞춤원두<br>주문하기!!
+									<a href="shop.jsp" style="color: white; text-decoration: none;">
+										나만의<br>맞춤원두<br>주문하기!!
+									</a>
 								</h4>
 							</div>
 						</li>
@@ -324,23 +334,24 @@
 			</div>
 
 			<div class="card card-form">
-				<h3 class="card-header text-center">리뷰 게시판</h3>
-				<div class="card-body text-center">
-					<h4 class="card-title">여러분들의 후기를 들려주세요!</h4>
-					<p class="card-text">구매후 만족하셨거나, 만족 하지 못하신 이야기들을 들려주세요. 저희는
-						여러분의 이야기를 항상 경청하고 있습니다.</p>
-					<a href="review_board.jsp" class="btn btn-primary layer">이동하기</a>
-				</div>
-			</div>
-
-			<div class="card card-form">
 				<h3 class="card-header text-center">자유 게시판</h3>
 				<div class="card-body text-center">
 					<h4 class="card-title">자유로운 회원님들을 위한 공간입니다.</h4>
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="#!" class="btn btn-primary center-block">이동하기</a>
+					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
+				</div>
+			</div>
+
+			<div class="card card-form">
+				<h3 class="card-header text-center">문의 게시판</h3>
+				<div class="card-body text-center">
+					<h4 class="card-title">UniqueBeans에 원하시는 것을 알려주세요.</h4>
+					<p class="card-text">
+						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
+					</p>
+					<a href="Contact_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 
@@ -369,9 +380,8 @@
 
 			</div>
 			<div class="portfolio-item text-center">
-				<a class="portfolio-link" data-toggle="modal"
-					href="#portfolioModal7"> <img class="img-fluid"
-					src="img/portfolio/07-thumbnail.jpg" alt="">
+				<a class="portfolio-link" data-toggle="modal" href="#Contact-Modal">
+					<img class="img-fluid" src="img/portfolio/07-thumbnail.jpg" alt="">
 				</a>
 
 			</div>
@@ -531,7 +541,7 @@
 	<!-- Modal 2 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal2"
 		tabindex="-1" role="dialog" aria-hidden="true">
-
+	
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="close-modal" data-dismiss="modal">
@@ -545,30 +555,37 @@
 							<div class="modal-body">
 								<!-- Project Details Go Here -->
 								<h2 class="text-uppercase">Country</h2>
-								<p class="item-intro text-muted">국가마다 다양한 특성을 지닌 커피 원두가
-									생산됩니다.</p>
-
-								<p>
-									각 국가마다 품종, 부터 생산방식 까지 각기 다른 방법으로 생산되고 있기때문에,<br> 생산 국가마다,
-									고유의 특성을 가지고 있습니다. <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을
-									알아보세요.
-								</p>
+								<p class="item-intro text-muted">국가마다 다양한 특성을 지닌 커피 원두가 생산됩니다.</p>
+								
+								<p>각 국가마다 품종, 부터 생산방식 까지 각기 다른 방법으로 생산되고 있기때문에,<br> 생산 국가마다, 고유의 특성을 가지고 있습니다.
+								 <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을 알아보세요.</p>
 								<div id="vmap_wrap">
-									<div id="vmap" style="width:600px; height: 400px; margin-right:50px; "></div>
-								</div>
-								<div id="info_result">
-									<div>Info</div>
-									<div id="info_wrapper">			
-										<div class="info_wrap">Country : <span id="info_name"></span></div>
-										<div class="info_wrap">Price : <span id="info_price"></span></div>
-										<div class="info_wrap">kind : <span id="info_kind"></span></div>
-										<div class="info_wrap">Roasting : <span id="info_rt"></span></div>
-										<div class="info_wrap">Description : <span id="info_desc">스피드 웨건! 설명충!!! 혼돈 파괴 망가!</span></div> 
+									<div id="vmap"
+										style="width: 800px; height: 400px; margin-right: 50px;"></div>
+									<div id="info_result">
+										<div>Info</div>
+										<div id="info_wrapper">
+											<div class="info_wrap">
+												Country : <span id="info_name"></span>
+											</div>
+											<div class="info_wrap">
+												Price : <span id="info_price"></span>
+											</div>
+											<div class="info_wrap">
+												kind : <span id="info_kind"></span>
+											</div>
+											<div class="info_wrap">
+												Roasting : <span id="info_rt"></span>
+											</div>
+											<div class="info_wrap">
+												Description : <span id="info_desc"></span>
+											</div>
+											<div style="width: 50%" id="rd_chart_wrapper">
+												<canvas id="canvas"></canvas>
+											</div>
+										</div>
 									</div>
-									<div style="width:50%" id="rd_chart_wrapper">
-			        						<canvas id="canvas"></canvas>
-			    					</div>
-       							</div>
+								</div>
 								<button class="btn btn-primary" data-dismiss="modal"
 									type="button">
 									<i class="fa fa-times"></i> Close Project
@@ -774,88 +791,8 @@
 	</div>
 
 	<!-- modal 7 -->
-	<div class="portfolio-modal modal fade" id="portfolioModal7"
-		tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 mx-auto">
-							<div class="modal-body">
-								<!-- Project Details Go Here -->
-								<div class="container">
-									<div class="row">
-										<div class="col-lg-12 text-center">
-											<h3 class="section-subheading text-muted">*표시가 되어있는 항목은
-												필수사항입니다.</h3>
-										</div>
-									</div>
-									<div class="row">
-										<div class="col-lg-12">
-											<form action="Contact.jsp" id="contactForm"
-												name="sendMessage" method="get">
-												<div class="row">
-													<div class="col-md-6">
-														<div class="form-group">
-															<input class="form-control" id="pnum" type="text"
-																placeholder="주문번호*" required
-																data-validation-required-message="주문번호는 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="name" type="text"
-																placeholder="성명*" required
-																data-validation-required-message="이름은 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-														<div class="form-group">
-															<input class="form-control" id="email" type="email"
-																placeholder="이메일*" required
-																data-validation-required-message="이메일 필수입력사항입니다.">
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="col-md-6">
-														<div class="form-group">
-															<textarea class="form-control" id="message"
-																placeholder="문의 내용을 입력하세요*" required
-																data-validation-required-message="상세 문의사항을 입력하세요"></textarea>
-															<p class="help-block text-danger"></p>
-														</div>
-													</div>
-													<div class="clearfix"></div>
-													<div class="col-lg-12 text-center">
-														<div id="success"></div>
-														<button id="sendMessageButton"
-															class="btn btn-primary btn-xl text-uppercase"
-															type="submit">Send Message</button>
-													</div>
-												</div>
-											</form>
-										</div>
-									</div>
-								</div>
-								<br>
-								<button class="btn btn-primary" data-dismiss="modal"
-									type="button">
-									<i class="fa fa-times"></i> Close Project
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- login -->
-	<!-- BEGIN # MODAL LOGIN -->
-	<div class="modal fade" id="login-modal" tabindex="-1" role="dialog"
+	<!-- contactModal -->
+	<div class="modal fade" id="Contact-Modal" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true"
 		style="display: none;">
 		<div class="modal-dialog">
@@ -872,105 +809,47 @@
 				<div id="div-forms">
 
 					<!-- Begin # Login Form -->
-					<form id="login-form">
-						<div class="modal-body">
-							<div id="div-login-msg">
-								<div id="icon-login-msg"
-									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-login-msg">ID와 Password를 입력하세요.</span>
-							</div>
-							<input id="login_id" class="form-control" type="text"
-								placeholder="ID" required> <input id="login_password"
-								class="form-control" type="password" placeholder="Password"
-								required>
-							<div class="checkbox">
-								<label> <input type="checkbox"> Remember me
-								</label>
-							</div>
-						</div>
-						<div class="modal-footer">
-							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">로그인</button>
-							</div>
-							<div>
-								<button id="login_lost_btn" type="button" class="btn btn-link">비밀번호를
-									잊어버렸나요?</button>
-								<button id="login_register_btn" type="button"
-									class="btn btn-link">회원가입</button>
-							</div>
-						</div>
-					</form>
-					<!-- End # Login Form -->
-
-					<!-- Begin | Lost Password Form -->
-					<form id="lost-form" style="display: none;">
-						<div class="modal-body">
-							<div id="div-lost-msg">
-								<div id="icon-lost-msg"
-									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-lost-msg">이메일을 입력하세요.</span>
-							</div>
-							<input id="lost_email" class="form-control" type="text"
-								placeholder="e-mail" required>
-						</div>
-						<div class="">
-							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">전송</button>
-							</div>
-							<div>
-								<button id="lost_login_btn" type="button" class="btn btn-link">로그인</button>
-								<button id="lost_register_btn" type="button"
-									class="btn btn-link">회원가입</button>
-							</div>
-						</div>
-					</form>
-					<!-- End | Lost Password Form -->
-
-					<!-- Begin | Register Form -->
-					<form id="register-form" style="display: none;">
+					<form action="index.jsp" method="get">
 						<div class="modal-body">
 							<div id="div-register-msg">
 								<div id="icon-register-msg"
 									class="glyphicon glyphicon-chevron-right"></div>
-								<span id="text-register-msg">회원정보를 입력하세요.</span>
+								<span id="text-register-msg">문의사항을 상세하게 입력해주세요</span>
 							</div>
-							<input id="register_id" class="form-control" type="text"
-								placeholder="ID" required> <input id="register_password"
-								class="form-control" type="password" placeholder="Password"
-								required> <input id="register_name" class="form-control"
-								type="text" placeholder="Name" required> <input
-								id="register_email" class="form-control" type="text"
-								placeholder="e-mail" required> <input
-								id="register_address" class="form-control" type="text"
-								placeholder="Adress" required> <input
-								id="register_telephone" class="form-control" type="text"
-								placeholder="Telephone" required> <label
-								class="radio-inline"> <input type="radio"
-								name="inlineRadioOptions" id="register_gender" value="male"
-								required> 남성 <input type="radio"
-								name="inlineRadioOptions" id="register_gender" value="female"
-								required> 여성
-							</label>
+							<input id="pnum" class="form-control" type="text"
+								placeholder="*주문번호" required> <input id="name"
+								class="form-control" type="text" placeholder="*이름" required>
+							<input id="email" class="form-control" type="email"
+								placeholder="*이메일" required> <select id="kind"
+								class="form-control" name="선택">
+								<option value="삼품">상품관련</option>
+								<option value="결제">결제관련</option>
+								<option value="배송">배송관련</option>
+								<option value="기타">기타문의</option>
+							</select>
+							<textarea class="form-control" id="message"
+								placeholder="*상세문의 내용을 입력하세요" required></textarea>
 						</div>
 						<div class="modal-footer">
 							<div>
-								<button type="submit" class="btn btn-primary btn-lg btn-block">회원가입</button>
+								<button type="submit" class="btn btn-primary btn-lg"
+									value="문의하기">문의하기</button>
 							</div>
 							<div>
-								<button id="register_login_btn" type="button"
-									class="btn btn-link">로그인</button>
+								<button class="btn btn-primary btn-lg" data-dismiss="modal"
+									type="button">
+									<i class="fa fa-times"></i> 취소하기
+								</button>
 							</div>
 						</div>
 					</form>
-					<!-- End | Register Form -->
-
 				</div>
 				<!-- End # DIV Form -->
 
 			</div>
 		</div>
 	</div>
-	<!-- END # MODAL LOGIN -->
+
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -981,12 +860,15 @@
 
 	<script src="js/agency.min.js"></script>
 	<!-- 지도 관련 작업 박혜성 -->
+	<script src="js/Chart.bundle.js"></script>
+	<script src="js/utils.js"></script>
 	<script type="text/javascript" src="js/jquery.vmap.js"></script>
 	<script type="text/javascript" src="js/jquery.vmap.world.js"
 		charset="utf-8"></script>
 	<script src="js/Chart.bundle.js"></script>
-    <script src="js/utils.js"></script>
+	<script src="js/utils.js"></script>
 	<script src="js/chartjqvmap.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
 	<!-- 지도 관련 작업 끝! -->
 
 

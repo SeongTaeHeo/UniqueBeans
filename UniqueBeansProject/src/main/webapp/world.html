@@ -5,24 +5,24 @@
     <title>JQVMap - World Map</title>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
 
-    <link href="../dist/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
+    <link href="css/jqvmap.css" media="screen" rel="stylesheet" type="text/css"/>
 
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="js/jquery.vmap.js"></script>
     <script type="text/javascript" src="js/jquery.vmap.world.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
 
-    <script>
+    <script type="text/javascript">
       jQuery(document).ready(function () {
         jQuery('#vmap').vectorMap({
           map: 'world_en',
-          backgroundColor: '#333333',
+          backgroundColor: '#bbbbbb',
           color: '#ffffff',
-          hoverOpacity: 0.7,
+          hoverOpacity: 1,
           selectedColor: '#666666',
           enableZoom: true,
           showTooltip: true,
-          scaleColors: ['#C8EEFF', '#006491'],
+          scaleColors: ['#fffff', '#ff0000'],
           values: sample_data,
           normalizeFunction: 'polynomial'
         });

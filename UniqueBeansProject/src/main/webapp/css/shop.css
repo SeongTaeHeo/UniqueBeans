@@ -1,0 +1,239 @@
+@charset "UTF-8";
+
+body {
+	-webkit-tap-highlight-color: #fed136
+}
+
+#shopNav {
+	background-color: #212529
+}
+
+#shopNav .navbar-toggler {
+	font-size: 12px;
+	right: 0;
+	padding: 13px;
+	text-transform: uppercase;
+	color: #fff;
+	border: 0;
+	background-color: #fed136;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+#shopNav .navbar-brand {
+	color: #7F6854;
+	font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial,
+		cursive
+}
+
+#shopNav .navbar-brand.active, #shopNav .navbar-brand:active, #shopNav .navbar-brand:focus,
+	#shopNav .navbar-brand:hover {
+	color: #fed136
+}
+
+#shopNav .navbar-nav .nav-item .nav-link {
+	font-size: 90%;
+	font-weight: 400;
+	padding: .75em 0;
+	letter-spacing: 1px;
+	color: #fff;
+	font-family: Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+#shopNav .navbar-nav .nav-item .nav-link.active, #mainNav .navbar-nav .nav-item .nav-link:hover
+	{
+	color: #7F6854
+}
+
+@media ( min-width :992px) {
+	#shopNav {
+		padding-top: 25px;
+		padding-bottom: 25px;
+		transition: padding-top .3s, padding-bottom .3s;
+		border: none;
+	}
+	#shopNav .navbar-brand {
+		font-size: 1.75em;
+		transition: all .3s
+	}
+	#shopNav .navbar-nav .nav-item .nav-link {
+		padding: 1.1em 1em !important
+	}
+	#shopNav.navbar-shrink {
+		padding-top: 0;
+		padding-bottom: 0;
+		background-color: #DBCDAD
+	}
+	#shopNav.navbar-shrink .navbar-brand {
+		font-size: 1.25em;
+		padding: 12px 0
+	}
+}
+
+.quantity {
+	float: left;
+	margin-right: 15px;
+	background-color: #eee;
+	position: relative;
+	width: 80px;
+	overflow: hidden
+}
+
+.quantity input {
+	margin: 0;
+	text-align: center;
+	width: 15px;
+	height: 15px;
+	padding: 0;
+	float: right;
+	color: #000;
+	font-size: 20px;
+	border: 0;
+	outline: 0;
+	background-color: #F6F6F6
+}
+
+.quantity input.qty {
+	position: relative;
+	border: 0;
+	width: 100%;
+	height: 40px;
+	padding: 10px 25px 10px 10px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 15px;
+	border-radius: 0;
+	background-clip: padding-box
+}
+
+.quantity .minus, .quantity .plus {
+	line-height: 0;
+	background-clip: padding-box;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-background-size: 6px 30px;
+	-moz-background-size: 6px 30px;
+	color: #bbb;
+	font-size: 20px;
+	position: absolute;
+	height: 50%;
+	border: 0;
+	right: 0;
+	padding: 0;
+	width: 25px;
+	z-index: 3
+}
+
+.quantity .minus:hover, .quantity .plus:hover {
+	background-color: #dad8da
+}
+
+.quantity .minus {
+	bottom: 0
+}
+
+.shopping-cart {
+	margin-top: 20px;
+}
+
+#carousel-caption {
+	text-align: center;
+}
+
+#shop-option-img1 {
+	padding: 50px;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	transition: transform .2s;
+}
+
+#shop-option-img2 {
+	padding: 50px;
+	width: 400px;
+	height: 400px;
+	margin: 0 auto;
+	transition: transform .2s;
+}
+
+#shop-option-img3 {
+	padding: 30px;
+	width: 280px;
+	height: 200px;
+	transition: transform .2s;
+}
+
+#shop-option-img4 {
+	padding: 30px;
+	width: 350px;
+	height: 200px;
+	transition: transform .2s;
+}
+
+.shop-step {
+	display: block;
+	text-align: -webkit-center;
+}
+
+#shop-option-img1:hover {
+	-ms-transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+	transform: scale(1.3);
+}
+
+#shop-option-img2:hover {
+	-ms-transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+	transform: scale(1.3);
+}
+
+#shop-option-img3:hover {
+	-ms-transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+	transform: scale(1.3);
+}
+
+#shop-option-img4:hover {
+	-ms-transform: scale(0.5);
+	-webkit-transform: scale(0.5);
+	transform: scale(1.3);
+}
+
+.sidenav {
+    height: 100%;
+    width: x;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    transition: 0.1s;
+}
+
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
