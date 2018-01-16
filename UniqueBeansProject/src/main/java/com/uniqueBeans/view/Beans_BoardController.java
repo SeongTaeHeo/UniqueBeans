@@ -33,7 +33,7 @@ public class Beans_BoardController {
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap(){
 		Map<String, String> conditionMap=new HashMap<String,String>();
-		conditionMap.put("제목", "POST_TITLE");
+		conditionMap.put("제목", "POST_TITLE"); 
 		conditionMap.put("내용", "POST_CONTENTS");
 		return conditionMap;
 	}
