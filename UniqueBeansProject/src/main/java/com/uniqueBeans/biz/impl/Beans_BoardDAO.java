@@ -19,8 +19,8 @@ public class Beans_BoardDAO {
 	private ResultSet rs=null;
 	
 	private final String BOARD_INSERT = "insert into board(post_title,post_contents) values(?,?)";
-	private final String BOARD_UPDATE = "update board set title=?, content=? " + "where post_number = ?";
-	private final String BOARD_DELETE = "delete form board where post_number = ?";
+	private final String BOARD_UPDATE = "update board set post_title=?, post_contents=? " + "where post_number = ?";
+	private final String BOARD_DELETE = "delete from board where post_number = ?";
 	private final String BOARD_GET = "select * from board where post_number=?";
 	private final String BOARD_LIST_T = "select * from board where post_title like ? order by post_number";
 	private final String BOARD_LIST_C = "select * from baord where post_contents like ? order by post_number";
@@ -68,7 +68,7 @@ public class Beans_BoardDAO {
 			JDBCUtil.close(stmt, conn);
 		}
 	}
-	public Beans_BoardVO getBoard(Beans_BoardVO vo){
+	public Beans_BoardVO Free_board_content(Beans_BoardVO vo){
 		System.out.println("--->JDBC로 getBoard() 기능처리");
 		Beans_BoardVO board=null;
 		
@@ -99,7 +99,7 @@ public class Beans_BoardDAO {
 		}
 		return board;
 	}
-	public List<Beans_BoardVO> getBoardList(Beans_BoardVO vo){
+	public List<Beans_BoardVO> Free_board(Beans_BoardVO vo){
 		System.out.println("--->JDBC로 getBoardList() 기능 처리");
 		List<Beans_BoardVO> boardList=new ArrayList<Beans_BoardVO>();
 		
@@ -107,10 +107,10 @@ public class Beans_BoardDAO {
 			conn=JDBCUtil.getConnection();
 			if(vo.getSearchCondition().equals("POST_TITLE")){
 				stmt=conn.prepareStatement(BOARD_LIST_T);
-			}else if(vo.getSerachKeyword().equals("POST_CONTENTS")){
+			}else if(vo.getSearchKeyword().equals("POST_CONTENTS")){
 				stmt=conn.prepareStatement(BOARD_LIST_C);
 			}
-			stmt.setString(1, "%" + vo.getSerachKeyword() + "%");
+			stmt.setString(1, "%" + vo.getSearchKeyword() + "%");
 			
 			rs=stmt.executeQuery();
 			

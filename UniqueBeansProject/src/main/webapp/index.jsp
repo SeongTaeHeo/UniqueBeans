@@ -348,7 +348,7 @@
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
+					<a href="insertBoard.do" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 

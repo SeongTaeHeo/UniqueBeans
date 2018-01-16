@@ -9,7 +9,7 @@ public interface Beans_BoardService {
 	
 	void deleteBoard(Beans_BoardVO vo);
 	
-	Beans_BoardVO getBoard(Beans_BoardVO vo);
+	Beans_BoardVO Free_board_content(Beans_BoardVO vo);
 	
-	List<Beans_BoardVO> getBoardList(Beans_BoardVO vo);
+	List<Beans_BoardVO> Free_board(Beans_BoardVO vo);
 }
