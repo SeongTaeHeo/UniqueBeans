@@ -11,7 +11,7 @@ public class Beans_BoardVO {
 	private int post_views;
 	private String searchCondition;
 	private String searchKeyword;
-	private int recnt; 
+	
 	
 	public void setSearchCondition(String searchCondition) {
 		this.searchCondition = searchCondition;
@@ -76,16 +76,11 @@ public class Beans_BoardVO {
 	public int getPost_views() {
 		return post_views;
 	}
-	public int getRecnt() {
-		return recnt;
-	}
-	public void setRecnt(int recnt) {
-		this.recnt = recnt;
-	}
+
 
 	public String toString() {
 		return "Beans_BoardVO [post_number=" + post_number + ", post_title=" + post_title + ", id=" + id
 				+ ", post_contents=" + post_contents + ", post_date=" + post_date + ", post_views=" + post_views + 
-				",recnt =" +recnt+ "]";
+				"]";
 	}
 }

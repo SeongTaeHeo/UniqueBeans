@@ -51,20 +51,36 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<td align="center" colspan="10"><h3>${board.post_title}</h3></td>
+					<td align="center" colspan="12"><h3>${board.post_title}</h3></td>
 				</tr>
 				<tr>
-					<td>작성자</td>
-					<td align="left">${board.id }</td>
-					<td>등록일</td>
-					<td align="left">${board.post_date }</td>
-					<td>조회수</td>
-					<td align="left">${board.post_views }</td>
+					<td colspan="2">작성자</td>
+					<td align="left" colspan="2">${loginUser }</td>
+					<td colspan="2">등록일</td>
+					<td align="left" colspan="2">${board.post_date }</td>
+					<td colspan="2">조회수</td>
+					<td align="left" colspan="2">${board.post_views }</td>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td align="left" colspan="10">${board.post_contents }</td>
+					<td align="left" colspan="12">${board.post_contents }</td>
+				</tr>
+			</tbody>
+			<tbody>
+				<tr>
+					<td align="center" colspan="1">${comment.id }</td>
+					<td colspan="10">${comment.com_content }</td>
+					<td colspan="1"></td>
+				</tr>
+				<tr>
+					<td align="center" colspan="1">${comment.id }</td>
+					<td align="left" colspan="10"><textarea id="com_content"
+							name="com_content" class="form-control"
+							style="resize: none; height: 50px;" required>
+					</textarea></td>
+					<td align="center" colspan="1"><button type="button"
+							class="btn btn-success btn-lg">등록</button></td>
 				</tr>
 			</tbody>
 		</table>
