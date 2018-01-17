@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,6 +31,7 @@
 
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/hstboard.css" rel="stylesheet">
+<link href="css/jqvmap.css" rel="stylesheet">
 
 </head>
 
@@ -66,14 +66,20 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="Contact_board.jsp">Contact</a></li>
 
-					<li class="nav-item">	
-						<c:if test="${!empty loginUser}">
-							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
-						</c:if>
-						<c:if test="${empty loginUser}">
-							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
-						</c:if>
-					</li>
+					<li class="nav-item">
+ 					<a class="nav-link js-scroll-trigger" href="login.jsp">
+ 					<li class="nav-item">	
+  						<c:if test="${!empty loginUser}">
+ 							${loginUser}님
+ 							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
+  						</c:if>
+ 						
+  						<c:if test="${empty loginUser}">
+ 							Login
+ 							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
+  						</c:if>
+ 					</a></li>
+ 					</li>
 				</ul>
 			</div>
 		</div>
@@ -219,19 +225,19 @@
 							</div>
 						</li>
 						<li class="timeline-inverted">
-							<div class="timeline-image">
-								<h4>
-								<c:if test="${!empty loginUser}">
-									<a href="shop.jsp" style="color: white; text-decoration: none;">
-										나만의<br>맞춤원두<br>주문하기!!
-									</a>
-								</c:if>
-								<c:if test="${empty loginUser}">
-									<b id = "">나만의<br>맞춤원두<br>주문하기!!</b>
-								</c:if>
-								</h4>
-							</div>
-						</li>
+  							<div class="timeline-image">
+  								<h4>
+ 								<c:if test="${!empty loginUser}">
+  									<a href="shop.jsp" style="color: white; text-decoration: none;">
+  										나만의<br>맞춤원두<br>주문하기!!
+  									</a>
+ 								</c:if>
+ 								<c:if test="${empty loginUser}">
+ 									<b id = "">나만의<br>맞춤원두<br>주문하기!!</b>
+ 								</c:if>
+  								</h4>
+  							</div>
+  						</li>
 					</ul>
 				</div>
 			</div>
@@ -351,17 +357,17 @@
 					<p class="card-text">
 						자유롭게 자신의 의견과 생각들을 우리 UniqueBeans<br>회원 분들과 함께 공유 하여 보세요.
 					</p>
-					<a href="insertBoard.do" class="btn btn-primary center-block">이동하기</a>
+					<a href="Free_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
 
 			<div class="card card-form">
-				<h3 class="card-header text-center">문의 게시판</h3>
-				<div class="card-body text-center">
-					<h4 class="card-title">UniqueBeans에 궁금한점을 알려주세요.</h4>
-					<p class="card-text">
-						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
-					</p>
+  				<h3 class="card-header text-center">문의 게시판</h3>
+  				<div class="card-body text-center">
+ 					<h4 class="card-title">UniqueBeans에 궁금한점을 알려주세요.</h4>
+  					<p class="card-text">
+  						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
+  					</p>
 					<a href="Contact_board.jsp" class="btn btn-primary center-block">이동하기</a>
 				</div>
 			</div>
@@ -552,7 +558,7 @@
 	<!-- Modal 2 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal2"
 		tabindex="-1" role="dialog" aria-hidden="true">
-
+	
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="close-modal" data-dismiss="modal">
@@ -566,40 +572,35 @@
 							<div class="modal-body">
 								<!-- Project Details Go Here -->
 								<h2 class="text-uppercase">Country</h2>
-								<p class="item-intro text-muted">국가마다 다양한 특성을 지닌 커피 원두가
-									생산됩니다.</p>
-
-								<p>
-									각 국가마다 품종, 부터 생산방식 까지 각기 다른 방법으로 생산되고 있기때문에,<br> 생산 국가마다,
-									고유의 특성을 가지고 있습니다. <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을
-									알아보세요.
-								</p>
+								<p class="item-intro text-muted">국가마다 다양한 특성을 지닌 커피 원두가 생산됩니다.</p>
+								
+								<p>각 국가마다 품종, 부터 생산방식 까지 각기 다른 방법으로 생산되고 있기때문에,<br> 생산 국가마다, 고유의 특성을 가지고 있습니다.
+								 <br>아래의 지도에서 국가를 클릭하여 각 국가의 커피원두 특성을 알아보세요.</p>
 								<div id="vmap_wrap">
 									<div id="vmap"
-										style="width: 600px; height: 400px; margin-right: 50px;"></div>
-								</div>
-								<div id="info_result">
-									<div>Info</div>
-									<div id="info_wrapper">
-										<div class="info_wrap">
-											Country : <span id="info_name"></span>
+										style="width: 800px; height: 400px; margin-right: 50px;"></div>
+									<div id="info_result">
+										<div>Info</div>
+										<div id="info_wrapper">
+											<div class="info_wrap">
+												Country : <span id="info_name"></span>
+											</div>
+											<div class="info_wrap">
+												Price : <span id="info_price"></span>
+											</div>
+											<div class="info_wrap">
+												kind : <span id="info_kind"></span>
+											</div>
+											<div class="info_wrap">
+												Roasting : <span id="info_rt"></span>
+											</div>
+											<div class="info_wrap">
+												Description : <span id="info_desc"></span>
+											</div>
+											<div style="width: 50%" id="rd_chart_wrapper">
+												<canvas id="canvas"></canvas>
+											</div>
 										</div>
-										<div class="info_wrap">
-											Price : <span id="info_price"></span>
-										</div>
-										<div class="info_wrap">
-											kind : <span id="info_kind"></span>
-										</div>
-										<div class="info_wrap">
-											Roasting : <span id="info_rt"></span>
-										</div>
-										<div class="info_wrap">
-											Description : <span id="info_desc">스피드 웨건! 설명충!!! 혼돈
-												파괴 망가!</span>
-										</div>
-									</div>
-									<div style="width: 50%" id="rd_chart_wrapper">
-										<canvas id="canvas"></canvas>
 									</div>
 								</div>
 								<button class="btn btn-primary" data-dismiss="modal"
@@ -873,27 +874,20 @@
 
 	<script src="js/jqBootstrapValidation.js"></script>
 	<script src="js/contact_me.js"></script>
-	
+
 	<script src="js/agency.min.js"></script>
-	
-	<script src="js/shopbuttonJS.js"></script>
 	<!-- 지도 관련 작업 박혜성 -->
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
-	<script src="js/chartjqvmap.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/jquery.vmap.js"></script>
 	<script type="text/javascript" src="js/jquery.vmap.world.js"
 		charset="utf-8"></script>
-
-	<script type="text/javascript">
-		jQuery(document).ready(function() {
-			jQuery('#vmap').vectorMap({
-				map : 'world_en'
-			});
-		});
-	</script>
+	<script src="js/Chart.bundle.js"></script>
+	<script src="js/utils.js"></script>
+	<script src="js/chartjqvmap.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
 	<!-- 지도 관련 작업 끝! -->
-
+	<script src="js/shopbuttonJS.js"></script>
 
 </body>
 
