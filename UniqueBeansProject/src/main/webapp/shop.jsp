@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -49,8 +50,16 @@
 					href="#Board">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					data-toggle="modal" data-target="#login-modal">Login</a></li>
+				<li class="nav-item">
+					
+						<c:if test="${!empty loginUser}">
+							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
+						</c:if> 
+						
+						<c:if test="${empty loginUser}">
+							<a class="nav-link js-scroll-trigger" href="login.jsp">Login33</a>
+						</c:if>
+					</li>
 			</ul>
 		</div>
 	</div>
