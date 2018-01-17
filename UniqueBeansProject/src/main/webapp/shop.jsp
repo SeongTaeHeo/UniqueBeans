@@ -110,7 +110,7 @@
 
 	<div class="conatiner">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
-			data-interval="0">
+			data-interval="0" data-wrap="false">
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="shop-step">
@@ -133,14 +133,9 @@
 				<!-- 나라선택 -->
 				<div class="carousel-item">
 					<div class="shop-step">
-						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="shop-option-img2" id=""
-							src="img/about/2.jpg" alt="">
-						</a>
-						<div id="vmap_wrap">
-							<div id="vmap"
-								style="width: 800px; height: 400px; margin-right: 50px;"></div>
-							<div id="vmap_wrapper"></div>
+						
+						<div id="pro_status">
+							<div id="btn_wrap"></div>
 							<div id="info_result">
 								<div>Info</div>
 								
@@ -274,19 +269,58 @@
 		charset="utf-8"></script>
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
-	<script src="js/chartjqvmap.js" type="text/javascript"></script>
-	<script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
 	<script type="text/javascript">
 		$(".kd1").click(function(){
-
-			jQuery('#vmap').vectorMap('set', 'values', arabica);
-		});	
-		
-		$(".kd2").click(function(){
-			jQuery('#vmap').vectorMap('set', 'values', robusta);	
+			console.log("아라비카 클릭");
+			$.ajax({
+				url:'ajax/country.json',
+				dataType: 'json',
+				success: function(data){
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for(var i =0; i< data.length; i++){
+						if(data[i].kd =="Arabica"){
+							
+							$('#btn_wrap').append(
+									"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div class='pro_data[i].co' id='shop-option-img2'>" +data[i].name + "</div></a>"		
+							);
+						} else{
+							continue;
+						}
+					}	
+				}
+				
+			});
 		});
-	
-	
+		$(".kd2").click(function(){
+			console.log("로부스타 클릭");
+			$.ajax({
+				url:'ajax/country.json',
+				dataType: 'json',
+				success: function(data){
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for(var i =0; i< data.length; i++){
+						if(data[i].kd =="Robusta"){
+							
+							$('#btn_wrap').append(
+									"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div id='shop-option-img2'>" +data[i].name + "</div></a>"		
+							);		
+						} else{
+							continue;
+						}
+					}	
+				}
+				
+			});
+		});
+		
+		$('#shop-option-img2').mouseover(function(){
+			console.log("마우스 들어옴");
+		});
+		
 		$(".rt0").click(function(){
 			$("#sel_rt").empty();
 			$("#sel_rt").append("그린 빈");

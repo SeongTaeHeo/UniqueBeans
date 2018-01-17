@@ -33,7 +33,7 @@
 				hoverColor: '#fed136',
 				hoverOpacity: null,
 				normalizeFunction: 'linear',
-				values: null,
+				values: allkind,
 				scaleColors: ['#dbcdad', '#7f6854'],
 				selectedColor: '#fed136',
 				selectedRegions: null,
@@ -83,14 +83,3 @@
 				}
 			});
 		});
-		/*jQuery(document).ready(function() {
-			if(selectkind==0){
-				jQuery('#vmap').vectorMap('set', 'values', allkind);
-			} else if(selectkind==1){
-				jQuery('#vmap').vectorMap('set', 'values', arabica);
-			} else if(selectkind==2){
-				jQuery('#vmap').vectorMap('set', 'values', robusta);
-			} else {
-				jQuery('#vmap').vectorMap('set', 'values', null);
-			}		       
-		});*/
