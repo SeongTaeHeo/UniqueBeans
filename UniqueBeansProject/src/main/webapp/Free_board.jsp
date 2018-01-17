@@ -55,6 +55,7 @@
 			<thead>
 				<tr>
 					<th class="board_no">臂 锅龋</th>
+					<th class="board_opt">富赣府</th>
 					<th class="board_title">力 格</th>
 					<th class="board_write">累己磊</th>
 					<th class="board_date">累己老</th>
@@ -65,6 +66,7 @@
 				<c:forEach items="${boardList }" var="board">
 					<tr>
 						<td>${board.post_number }</td>
+						<td>${board.post_option }</td>
 						<td align="left"><a href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
 						<td>${board.id }</td>
 						<td>${board.post_date }</td>

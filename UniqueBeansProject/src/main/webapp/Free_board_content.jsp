@@ -51,7 +51,8 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<td align="center" colspan="12"><h3>${board.post_title}</h3></td>
+					<td align="center" colspan="2"><h3>[${board.post_option }]</h3></td>
+					<td align="center" colspan="10"><h3>${board.post_title}</h3></td>
 				</tr>
 				<tr>
 					<td colspan="2">작성자</td>
@@ -64,7 +65,7 @@
 			</thead>
 			<tbody>
 				<tr>
-					<td align="left" colspan="12">${board.post_contents }</td>
+					<td align="left" colspan="12" height="500px">${board.post_contents }</td>
 				</tr>
 			</tbody>
 			<tbody>
@@ -73,15 +74,16 @@
 					<td colspan="10">${comment.com_content }</td>
 					<td colspan="1"></td>
 				</tr>
+			<form method="post" action="insertComment.do">
 				<tr>
 					<td align="center" colspan="1">${comment.id }</td>
 					<td align="left" colspan="10"><textarea id="com_content"
 							name="com_content" class="form-control"
-							style="resize: none; height: 50px;" required>
-					</textarea></td>
-					<td align="center" colspan="1"><button type="button"
+							style="resize: none; height: 50px;" required></textarea></td>
+					<td align="center" colspan="1"><button type="submit"
 							class="btn btn-success btn-lg">등록</button></td>
 				</tr>
+			</form>
 			</tbody>
 		</table>
 		<div class="write">
@@ -89,7 +91,7 @@
 				<button type="button" class="btn btn-success btn-lg">글 삭제</button>
 			</a> <a href="updateBoard.do?post_number=${board.post_number }">
 				<button type="button" class="btn btn-success btn-lg">글 수정</button>
-			</a> <a href="insertBoard.do">
+			</a> <a href="Free_board.do">
 				<button type="button" class="btn btn-success btn-lg">글 목록</button>
 			</a> <a href="board_write.jsp">
 				<button type="button" class="btn btn-success btn-lg">글 작성</button>

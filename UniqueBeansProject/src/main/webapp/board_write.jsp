@@ -51,6 +51,22 @@
 							required /></td>
 					</tr>
 					<tr>
+						<th>작성자</th>
+						<td><input id="post_title" type="text" value=${loginUser }
+							name="id" readonly="readonly" style="border: none;" /></td>
+					</tr>
+					<tr>
+						<th>말머리:</th>
+						<td><select id="head" name="post_option">
+								<option name="post_option" value="잡담">잡담</option>
+								<option name="post_option" value="리뷰">리뷰</option>
+								<option name="post_option" value="삼품">상품</option>
+								<option name="post_option" value="결제">결제</option>
+								<option name="post_option" value="배송">배송</option>
+								<option name="post_option" value="기타">기타</option>
+						</select></td>
+					</tr>
+					<tr>
 						<th>내용:</th>
 						<td><textarea id="post_contents" cols="10"
 								placeholder="내용을 입력하세요. " name="post_contents"
@@ -64,7 +80,7 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<button type="submit" class="btn btn-success btn-xl">작성</button> 
+							<button type="submit" class="btn btn-success btn-xl">작성</button>
 							<a class="btn btn-success btn-xl" href="insertBoard.do"
 							onclick="return confirm('글쓰기를 취소하시겠습니까?')"> 취소 </a>
 						</td>

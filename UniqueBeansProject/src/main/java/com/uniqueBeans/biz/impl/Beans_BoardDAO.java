@@ -18,7 +18,7 @@ public class Beans_BoardDAO {
 	private PreparedStatement stmt=null;
 	private ResultSet rs=null;
 	
-	private final String BOARD_INSERT = "insert into board(post_title,post_contents) values(?,?)";
+	private final String BOARD_INSERT = "insert into board(post_title,id,post_option,post_contents) values(?,?,?,?)";
 	private final String BOARD_UPDATE = "update board set post_title=?, post_contents=? " + "where post_number = ?";
 	private final String BOARD_DELETE = "delete from board where post_number = ?";
 	private final String BOARD_GET = "select * from board where post_number=?";
@@ -26,13 +26,18 @@ public class Beans_BoardDAO {
 	private final String BOARD_LIST_C = "select * from baord where post_contents like ? order by post_number";
 	private final String BOARD_UPDATE_CNT = "update board set post_views=? " + "where post_number = ?";
 	
+	private final String COMMENT_INSERT = "insert into comment(com_content) value(?)";
+	private final String COMMENT_DELETE = "delete from comment where com_number=?";
+	
 	public void insertBoard(Beans_BoardVO vo){
 		System.out.println("--->JDBC로 insertBoard() 기능처리");
 		try{
 			conn=JDBCUtil.getConnection();
 			stmt=conn.prepareStatement(BOARD_INSERT);
 			stmt.setString(1, vo.getPost_title());
-			stmt.setString(2, vo.getPost_contents());
+			stmt.setString(2, vo.getId());
+			stmt.setString(3, vo.getPost_option());
+			stmt.setString(4, vo.getPost_contents());
 			stmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -46,8 +51,9 @@ public class Beans_BoardDAO {
 			conn=JDBCUtil.getConnection();
 			stmt=conn.prepareStatement(BOARD_UPDATE);
 			stmt.setString(1, vo.getPost_title());
-			stmt.setString(2, vo.getPost_contents());
-			stmt.setInt(3, vo.getPost_number());
+			stmt.setString(2, vo.getPost_option());
+			stmt.setString(3, vo.getPost_contents());
+			stmt.setInt(4, vo.getPost_number());
 			stmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -61,6 +67,34 @@ public class Beans_BoardDAO {
 			conn=JDBCUtil.getConnection();
 			stmt=conn.prepareStatement(BOARD_DELETE);
 			stmt.setInt(1,vo.getPost_number());
+			stmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	
+	public void insertComment(Beans_BoardVO vo){
+		System.out.println("리플 작성");
+		try{
+			conn=JDBCUtil.getConnection();
+			stmt=conn.prepareStatement(COMMENT_INSERT);
+			stmt.setString(1, vo.getCom_content());
+			stmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	
+	public void deleteComment(Beans_BoardVO vo){
+		System.out.println("리플 삭제");
+		try{
+			conn=JDBCUtil.getConnection();
+			stmt=conn.prepareStatement(COMMENT_DELETE);
+			stmt.setInt(1, vo.getCom_number());
 			stmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();

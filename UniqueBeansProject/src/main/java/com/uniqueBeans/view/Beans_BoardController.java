@@ -37,6 +37,11 @@ public class Beans_BoardController {
 		return "Free_board.do";
 	}
 	
+	@RequestMapping(value="insertComment.do")
+	public String insertComment(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException{
+		boardservice.insertComment(vo);
+		return "Free_board.do";
+	}
 
 	@RequestMapping(value = "updateBoard.do")
 	public String updateBoard(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {

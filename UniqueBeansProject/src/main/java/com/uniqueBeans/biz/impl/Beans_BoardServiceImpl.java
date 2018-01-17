@@ -44,4 +44,16 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 		return beans_boardDAO.Free_board(vo);
 	}
 
+	@Override
+	public void insertComment(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.insertComment(vo);
+	}
+
+	@Override
+	public void deleteComment(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.deleteComment(vo);
+	}
+
 }
