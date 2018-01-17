@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -29,8 +30,7 @@
 <title>Insert title here</title>
 
 </head>
-<body>
-
+<body id="main">
 	<nav class="navbar navbar-expand-lg navbar-dark" id="shopNav">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
@@ -50,12 +50,63 @@
 					href="#Board">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
-				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					data-toggle="modal" data-target="#login-modal">Login</a></li>
+				<li class="nav-item">
+					
+						<c:if test="${!empty loginUser}">
+							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
+						</c:if> 
+						
+						<c:if test="${empty loginUser}">
+							<a class="nav-link js-scroll-trigger" href="login.jsp">Login33</a>
+						</c:if>
+					</li>
 			</ul>
 		</div>
 	</div>
 	</nav>
+
+	<!-- 주문테이블 -->
+		<div id="mySidenav" class="sidenav">
+			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+			<div class="container">
+
+				<h1>주문상황</h1>
+				<hr>
+				<table class="table table-striped table-hover table-bordered">
+					<tbody>
+						<tr>
+							<th>품종, 국가명</th>
+							<th>로스팅</th>
+							<th>그라인딩</th>
+							<th>개수</th>
+							<th>개당 가격</th>
+							<th>총합</th>
+						</tr>
+						<tr>
+							<td id="sel_kt">원두</td>
+							<td id="sel_rt"></td>
+							<td id="sel_gd"></td>
+							<td>1 <a href="#"></a></td>
+							<td id="sel_pr">250.00</td>
+							<td>250.00</td>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">상품 가격</span></th>
+							<th>250.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">부가세 20%</span></th>
+							<th>50.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">총 가격</span></th>
+							<th>300.00</th>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</div>
 
 	<div class="conatiner">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -64,10 +115,10 @@
 				<div class="carousel-item active">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img1"
+							data-slide="next"> <img class="kd1" id="shop-option-img1"
 							src="img/arabica.jpg" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img1"
+							data-slide="next"> <img class="kd2" id="shop-option-img1"
 							src="img/robusta.jpg" alt="">
 						</a>
 
@@ -83,14 +134,16 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img2"
+							data-slide="next"> <img class="shop-option-img2" id=""
 							src="img/about/2.jpg" alt="">
 						</a>
 						<div id="vmap_wrap">
 							<div id="vmap"
-								style="width: 400px; height: 400px; margin-right: 50px;"></div>
+								style="width: 800px; height: 400px; margin-right: 50px;"></div>
+							<div id="vmap_wrapper"></div>
 							<div id="info_result">
 								<div>Info</div>
+								
 								<div id="info_wrapper">
 									<div class="info_wrap">
 										Country : <span id="info_name"></span>
@@ -125,28 +178,28 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt0"  id="shop-option-img3"
 							src="img/roasting/roasting_1.PNG" alt="알수없음">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt1" id="shop-option-img3"
 							src="img/roasting/roasting_2.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt2" id="shop-option-img3"
 							src="img/roasting/roasting_3.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt3" id="shop-option-img3"
 							src="img/roasting/roasting_4.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt4" id="shop-option-img3"
 							src="img/roasting/roasting_5.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt5" id="shop-option-img3"
 							src="img/roasting/roasting_6.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt6" id="shop-option-img3"
 							src="img/roasting/roasting_7.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img3"
+							data-slide="next"> <img class="rt7" id="shop-option-img3"
 							src="img/roasting/roasting_8.PNG" alt="">
 						</a>
 						<div>
@@ -158,22 +211,22 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd0" id="shop-option-img4"
 							src="img/grinding/grinding0.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd1" id="shop-option-img4"
 							src="img/grinding/grinding1.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd2" id="shop-option-img4"
 							src="img/grinding/grinding2.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd3" id="shop-option-img4"
 							src="img/grinding/grinding3.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd4" id="shop-option-img4"
 							src="img/grinding/grinding4.PNG" alt="">
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="" id="shop-option-img4"
+							data-slide="next"> <img class="gd5" id="shop-option-img4"
 							src="img/grinding/grinding5.PNG" alt="">
 						</a>
 
@@ -183,6 +236,8 @@
 					</div>
 				</div>
 			</div>
+			
+			
 
 
 			<center>
@@ -190,11 +245,22 @@
 					data-slide="prev">
 					<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
 				</a>
+				<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
 			</center>
 		</div>
 	</div>
 
+	<script>
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "400px";
+			document.getElementById("main").style.marginLeft = "400px";
+		}
 
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft = "0";
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.1.1.win.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="vendor/jquery/jquery.min.js"></script>
@@ -209,5 +275,76 @@
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
 	<script src="js/chartjqvmap.js" type="text/javascript"></script>
+	<script type="text/javascript" src="js/jquery.vmap.sampledata.js"></script>
+	<script type="text/javascript">
+		$(".kd1").click(function(){
+
+			jQuery('#vmap').vectorMap('set', 'values', arabica);
+		});	
+		
+		$(".kd2").click(function(){
+			jQuery('#vmap').vectorMap('set', 'values', robusta);	
+		});
+	
+	
+		$(".rt0").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("그린 빈");
+		});
+		$(".rt1").click(function(){
+			alert("라이트 로스트");
+			$("#sel_rt").empty();
+			$("#sel_rt").append("라이트 로스팅");
+		});
+		$(".rt2").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("시나몬 로스팅");
+		});
+		$(".rt3").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("미디엄 로스팅");
+		});
+		$(".rt4").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("하이 로스팅");
+		});
+		$(".rt5").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("시티 로스팅");
+		});
+		$(".rt6").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("풀시티 로스팅");
+		});
+		$(".rt7").click(function(){
+			$("#sel_rt").empty();
+			$("#sel_rt").append("프렌치 로스팅");
+		});
+		
+		$(".gd0").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("홀빈");
+		});
+		$(".gd1").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("프렌치 프레스");
+		});	
+		$(".gd2").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("융 드립");
+		});	
+		$(".gd3").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("사이폰");
+		});	
+		$(".gd4").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("드립");
+		});	
+		$(".gd5").click(function(){
+			$("#sel_gd").empty();
+			$("#sel_gd").append("에스프레소");
+		});
+	</script>
 </body>
 </html>
