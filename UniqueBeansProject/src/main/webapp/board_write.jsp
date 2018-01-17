@@ -28,8 +28,7 @@
 
 </head>
 <body>
-	<jsp:include page="top_menu.jsp" />
-
+	<jsp:include page="top_menu.jsp"></jsp:include>
 	<header class="masthead" style="height:250px;">
 	<div class="container">
 		<div class="intro-text"></div>
@@ -41,9 +40,10 @@
 	</div>
 
 	<div class="container" style="position: relative; top: -50px;">
-		<table class="table table-bordered">
-			<tbody>
-				<form method="post" action="insertBoard.do">
+		<form method="post" action="insertBoard.do">
+			<table class="table table-bordered">
+				<tbody>
+
 					<tr>
 						<th>제목:</th>
 						<td><input id="post_title" type="text"
@@ -53,8 +53,9 @@
 					<tr>
 						<th>내용:</th>
 						<td><textarea id="post_contents" cols="10"
-								placeholder="내용을 입력하세요. " name="post_contents" class="form-control"
-								style="resize: none; height: 400px;" required></textarea></td>
+								placeholder="내용을 입력하세요. " name="post_contents"
+								class="form-control" style="resize: none; height: 400px;"
+								required></textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일:</th>
@@ -63,16 +64,14 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<button type="submit" class="btn btn-success btn-xl">
-								작성 
-							</button> 
-							<a class="btn btn-success btn-xl" href="Free_board.jsp"
+							<button type="submit" class="btn btn-success btn-xl">작성</button> 
+							<a class="btn btn-success btn-xl" href="insertBoard.do"
 							onclick="return confirm('글쓰기를 취소하시겠습니까?')"> 취소 </a>
 						</td>
 					</tr>
-				</form>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</form>
 	</div>
 
 	<br>
@@ -136,7 +135,7 @@
 	<script src="js/jqBootstrapValidation.js"></script>
 	<script src="js/contact_me.js"></script>
 
-	<script src="js/agency.min.js"></script>
+
 	<script src="js/free_write.js"></script>
 </body>
 </html>

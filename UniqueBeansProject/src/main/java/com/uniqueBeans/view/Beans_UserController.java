@@ -33,8 +33,15 @@ public class Beans_UserController {
 	@RequestMapping("/getUser.do")
 	public String getUser(Beans_UserVO vo, Model model) {
 		System.out.println("로그인 메서드 실행");
+		String userInfo = userService.getUser(vo);
 		
-		model.addAttribute("loginUser", userService.getUser(vo));
-		return "index.jsp";
+		if(userInfo!=null) {
+			model.addAttribute("loginUser", userInfo);
+			return "index.jsp";
+		} else {
+			return "/WEB-INF/errorPage/loginError.jsp";
+		}
+		
+		
 	}
 }

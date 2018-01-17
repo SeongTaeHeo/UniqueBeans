@@ -70,7 +70,7 @@ public class Beans_UserDAO {
 			
 			while(rs.next()) {
 				System.out.println("받아온 유저 ID = " + rs.getString(1));
-				System.out.println("받아온 유저 PW " + rs.getString(2));
+				System.out.println("받아온 유저 PW = " + rs.getString(2));
 				
 				userInfo.setId(rs.getString(1));
 				userInfo.setPwd(rs.getString(2));

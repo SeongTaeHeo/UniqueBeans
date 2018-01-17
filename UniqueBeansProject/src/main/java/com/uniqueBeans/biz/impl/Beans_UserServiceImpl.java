@@ -49,10 +49,10 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		Beans_UserVO user = userDAO.getUserData(vo);
 		
 		if(vo.getPwd().equals(user.getPwd())) {
-			System.out.println("성공함 ㅇㅇ");
+			System.out.println("로그인 성공");
 			return user.getId();
 		} else {
-			System.out.println("실패함 ㅇㅇ");
+			System.out.println("로그인 실패");
 			return null;
 		}
 	}

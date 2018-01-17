@@ -74,11 +74,17 @@
 			</tbody>
 		</table>
 		<div class="write">
-
-			<a href="board_write.jsp">
-				<button type="button" class="btn btn-success btn-lg">글
-					작성</button>
-			</a>
+			<c:if test="${!empty loginUser}">
+				<a href="board_write.jsp">
+					<button type="button" class="btn btn-success btn-lg">글
+						작성</button>
+				</a>
+			</c:if>
+			<c:if test="${empty loginUser}">
+				<button type="button" class="btn btn-success btn-lg" 
+					onclick="alert('로그인 후 작성할수 있습니다.')">글작성</button>
+			</c:if>
+			
 		</div>
 
 		<div class='search' align="center">

@@ -66,16 +66,14 @@
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="Contact_board.jsp">Contact</a></li>
 
-					<li class="nav-item">
-					<a class="nav-link js-scroll-trigger" href="login.jsp">
+					<li class="nav-item">	
 						<c:if test="${!empty loginUser}">
-							${loginUser}님
+							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
 						</c:if>
-						
 						<c:if test="${empty loginUser}">
-							Login
+							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 						</c:if>
-					</a></li>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -223,9 +221,14 @@
 						<li class="timeline-inverted">
 							<div class="timeline-image">
 								<h4>
+								<c:if test="${!empty loginUser}">
 									<a href="shop.jsp" style="color: white; text-decoration: none;">
 										나만의<br>맞춤원두<br>주문하기!!
 									</a>
+								</c:if>
+								<c:if test="${empty loginUser}">
+									<b id = "">나만의<br>맞춤원두<br>주문하기!!</b>
+								</c:if>
 								</h4>
 							</div>
 						</li>
@@ -355,7 +358,7 @@
 			<div class="card card-form">
 				<h3 class="card-header text-center">문의 게시판</h3>
 				<div class="card-body text-center">
-					<h4 class="card-title">UniqueBeans에 원하시는 것을 알려주세요.</h4>
+					<h4 class="card-title">UniqueBeans에 궁금한점을 알려주세요.</h4>
 					<p class="card-text">
 						불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
 					</p>
@@ -870,8 +873,10 @@
 
 	<script src="js/jqBootstrapValidation.js"></script>
 	<script src="js/contact_me.js"></script>
-
+	
 	<script src="js/agency.min.js"></script>
+	
+	<script src="js/shopbuttonJS.js"></script>
 	<!-- 지도 관련 작업 박혜성 -->
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
