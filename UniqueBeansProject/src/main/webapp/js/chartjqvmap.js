@@ -73,6 +73,9 @@
 									$("#info_price").append(data[i].price);
 									$("#info_rt").empty();
 									$("#info_rt").append(data[i].price);
+									
+									$("#sel_kt").empty();
+									$("#sel_kt").append(data[i].kind + data[i].name);
 								}
 							}
 						}
@@ -80,10 +83,7 @@
 				}
 			});
 		});
-		
-		var selectkind;
-		selectkind = 0;
-		jQuery(document).ready(function() {
+		/*jQuery(document).ready(function() {
 			if(selectkind==0){
 				jQuery('#vmap').vectorMap('set', 'values', allkind);
 			} else if(selectkind==1){
@@ -93,4 +93,4 @@
 			} else {
 				jQuery('#vmap').vectorMap('set', 'values', null);
 			}		       
-		});
+		});*/
