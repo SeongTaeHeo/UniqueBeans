@@ -29,7 +29,7 @@
 <title>Insert title here</title>
 
 </head>
-<body id="main" onload="closeNav();">
+<body id="main">
 	<nav class="navbar navbar-expand-lg navbar-dark" id="shopNav">
 	<div class="container">
 		<a class="navbar-brand js-scroll-trigger" href="index.jsp">Unique
@@ -57,7 +57,7 @@
 	</nav>
 
 	<!-- 주문테이블 -->
-		<div id="mySidenav" class="sidenav hidden">
+		<div id="mySidenav" class="sidenav">
 			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="container">
 
