@@ -72,33 +72,39 @@
 				<table class="table table-striped table-hover table-bordered">
 					<tbody>
 						<tr>
+							<th></th>
+							<th>내용</th>
+						</tr>
+						<tr>
 							<th>품종</th>
-							<th>국가명</th>
-							<th>로스팅</th>
-							<th>그라인딩</th>
-							<th>개수</th>
-							<th>개당 가격</th>
-							<th>총합</th>
-						</tr>
-						<tr>
 							<td id="sel_kd"></td>
-							<td id="sel_ct">원두</td>
+						</tr>
+						<tr>
+							<th>국가명</th>
+							<td id="sel_ct"></td>
+						</tr>
+						<tr>
+							<th>로스팅</th>
 							<td id="sel_rt"></td>
+						</tr>
+						<tr>
+							<th>그라인딩</th>
 							<td id="sel_gd"></td>
-							<td>1 <a href="#"></a></td>
+						</tr>
+						<tr>
+							<th>개수</th>
+							<td>1<a href="#"></a></td>
+						</tr>
+						<tr>
+							<th><span class="pull-left">상품 가격</span></th>
 							<td id="sel_pr">250.00</td>
-							<td>250.00</td>
 						</tr>
 						<tr>
-							<th colspan="3"><span class="pull-right">상품 가격</span></th>
-							<th>250.00</th>
+							<th><span class="pull-left">부가세 20%</span></th>
+							<td>50.00</td>
 						</tr>
 						<tr>
-							<th colspan="3"><span class="pull-right">부가세 20%</span></th>
-							<th>50.00</th>
-						</tr>
-						<tr>
-							<th colspan="3"><span class="pull-right">총 가격</span></th>
+							<th><span class="pull-left">총 가격</span></th>
 							<th>300.00</th>
 						</tr>
 
@@ -270,7 +276,6 @@
 		});
 
 		$(".kd1").mouseenter(function() {
-			alert("dd");
 			$(this).siblings("div.hover-content").fadeToggle("slow", "linear");
 		}).mouseleave(function() {
 
