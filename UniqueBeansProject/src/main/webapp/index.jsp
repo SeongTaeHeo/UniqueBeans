@@ -69,7 +69,7 @@
 
                <li class="nav-item">            
                   <c:if test="${!empty loginUser}">
-                      <a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
+                      <a class="nav-link js-scroll-trigger" href="userInfo.jsp">${loginUser}님</a>
                   </c:if> <c:if test="${empty loginUser}">
                       <a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
                   </c:if></li>
@@ -221,15 +221,9 @@
                   <li class="timeline-inverted">
                      <div class="timeline-image">
                         <h4>
-                           <c:if test="${!empty loginUser}">
-                              <a href="shop.jsp"
-                                 style="color: white; text-decoration: none;"> 나만의<br>맞춤원두<br>주문하기!!
-                              </a>
-                           </c:if>
-                           <c:if test="${empty loginUser}">
-                              <b id="shop_error_button">나만의<br>맞춤원두<br>주문하기!!
-                              </b>
-                           </c:if>
+                           <a href="shop.do" style="color: white; text-decoration: none;"> 
+                           		나만의<br>맞춤원두<br>주문하기!!
+                           </a>
                         </h4>
                      </div>
                   </li>

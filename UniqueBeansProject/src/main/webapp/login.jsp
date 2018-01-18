@@ -39,7 +39,7 @@
 	<h3>어서오세요</h3>
 </div>
 
-<form action="getUser.do" method="post">
+<form action="getUser.go" method="post">
 	<div class="input-form">
 		<h5>아이디</h5>
 		<input id="input-id" class="form-control" type="text" name="Id">
