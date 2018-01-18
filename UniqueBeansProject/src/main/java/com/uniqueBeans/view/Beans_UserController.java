@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.uniqueBeans.biz.Beans_UserService;
@@ -56,6 +57,18 @@ public class Beans_UserController {
 		session.removeAttribute("loginUser");
 		System.out.println("session 삭제");
 		return "index.jsp";
+	}
+	
+	/*
+	 * 회원가입 중복검사 기능 메서드
+	 */
+	@RequestMapping(value = "overrap.go", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String overrap(Beans_UserVO vo, HttpServletRequest request) {
+		vo.setId(request.getParameter("id"));
+		String message = userService.overRap(vo);
+		System.out.println(message);
+		return message;
 	}
 
 	/*

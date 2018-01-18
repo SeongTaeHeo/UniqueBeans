@@ -24,10 +24,27 @@
 
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/register-form.css?ver=1" rel="stylesheet">
-
-<style>
-border {azimuth: 
-</style>
+<script src="vendor/jquery/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	
+	$('#overrap').click(function(){
+		var userID = $('#userID').val();
+		var param = {'id': userID};
+		
+		console.log(param);
+		$.ajax({
+			url: 'overrap.go',
+			type: 'post',
+			data: param,
+			
+			success: function(data) {
+				alert(data);
+			}
+		});
+	});
+});
+</script>
 
 </head>
 <body>
@@ -43,8 +60,8 @@ border {azimuth:
 				</tr>
 				<tr>
 					<td width="200px;">아이디 :</td>
-					<td align="left"><input type="text" name="id" /></td>
-					<td><button id="overrap" class="btn btn-primary btn-sm">중복검사</button></td>
+					<td align="left"><input type="text" id="userID" name="id" /></td>
+					<td><button type="button" id="overrap" class="btn btn-primary btn-sm">중복검사</button></td>
 				</tr>
 				<tr>
 					<td>비밀번호 :</td>
