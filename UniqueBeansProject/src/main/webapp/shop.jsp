@@ -352,7 +352,8 @@
 									"<a class='carousel-control-next'"+
 									"href='#myCarousel' data-slide='next'>"+
 									"<img id='shop-option-img2' class='pro_country'"
-									+"src='img/country_img/" +data[i].id.jpg+"'></a>"		
+									+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+									+ data[i].id + "'></a>"			
 							);
 						} else {
 							continue;
@@ -383,14 +384,15 @@
 									"<a class='carousel-control-next'"+
 									"href='#myCarousel' data-slide='next'>"+
 									"<img id='shop-option-img2' class='pro_country'"
-									+"src='img/country_img/" + data[i].id + ".jpg'></a>"		
+									+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+									+ data[i].id + "'></a>"		
 							);
 						} else{
 							continue;
 						}
 					}
 					$(".pro_country").mouseenter(function(){
-						var mover_country = $(this).text();
+						var mover_country = $(this).attr("alt");
 						for(var j =0; j< data.length; j++){
 							if(mover_country == data[j].name){
 								var color = Chart.helpers.color;
@@ -461,7 +463,7 @@
 						}
 					}
 					$(".pro_country").mouseenter(function(){
-						var mover_country = $(this).text();
+						var mover_country = $(this).attr("alt");
 						for(var j =0; j< data.length; j++){
 							if(mover_country == data[j].name){
 								var color = Chart.helpers.color;
