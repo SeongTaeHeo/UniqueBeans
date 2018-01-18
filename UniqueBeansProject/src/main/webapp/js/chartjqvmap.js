@@ -62,8 +62,9 @@
 									            }]
 									        }
 									
-									    };
-
+									 };
+									$('#canvas').remove();
+									$("#rd_chart_wrapper").append("<canvas id='canvas'></canvas>");
 									myRadar = new Chart(document.getElementById("canvas"), config);
 									$("#info_name").empty();
 									$("#info_name").append(data[i].name);
@@ -74,8 +75,6 @@
 									$("#info_rt").empty();
 									$("#info_rt").append(data[i].price);
 									
-									$("#sel_kt").empty();
-									$("#sel_kt").append(data[i].kind + data[i].name);
 								}
 							}
 						}

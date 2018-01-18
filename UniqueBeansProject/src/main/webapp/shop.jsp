@@ -66,38 +66,41 @@
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 		<div class="container">
 
-			<h1>주문상황</h1>
-			<hr>
-			<table class="table table-striped table-hover table-bordered">
-				<tbody>
-					<tr>
-						<th>품종, 국가명</th>
-						<th>로스팅</th>
-						<th>그라인딩</th>
-						<th>개수</th>
-						<th>개당 가격</th>
-						<th>총합</th>
-					</tr>
-					<tr>
-						<td id="sel_kt">원두</td>
-						<td id="sel_rt"></td>
-						<td id="sel_gd"></td>
-						<td>1 <a href="#"></a></td>
-						<td id="sel_pr">250.00</td>
-						<td>250.00</td>
-					</tr>
-					<tr>
-						<th colspan="3"><span class="pull-right">상품 가격</span></th>
-						<th>250.00</th>
-					</tr>
-					<tr>
-						<th colspan="3"><span class="pull-right">부가세 20%</span></th>
-						<th>50.00</th>
-					</tr>
-					<tr>
-						<th colspan="3"><span class="pull-right">총 가격</span></th>
-						<th>300.00</th>
-					</tr>
+			
+				<h1>주문상황</h1>
+				<hr>
+				<table class="table table-striped table-hover table-bordered">
+					<tbody>
+						<tr>
+							<th>품종</th>
+							<th>국가명</th>
+							<th>로스팅</th>
+							<th>그라인딩</th>
+							<th>개수</th>
+							<th>개당 가격</th>
+							<th>총합</th>
+						</tr>
+						<tr>
+							<td id="sel_kd"></td>
+							<td id="sel_ct">원두</td>
+							<td id="sel_rt"></td>
+							<td id="sel_gd"></td>
+							<td>1 <a href="#"></a></td>
+							<td id="sel_pr">250.00</td>
+							<td>250.00</td>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">상품 가격</span></th>
+							<th>250.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">부가세 20%</span></th>
+							<th>50.00</th>
+						</tr>
+						<tr>
+							<th colspan="3"><span class="pull-right">총 가격</span></th>
+							<th>300.00</th>
+						</tr>
 
 				</tbody>
 			</table>
@@ -137,7 +140,7 @@
 						<div id="pro_status">
 							<div id="btn_wrap"></div>
 							<div id="info_result">
-								<div>Info</div>
+								<div id="testtest">Info</div>
 
 								<div id="info_wrapper">
 									<div class="info_wrap">
@@ -156,7 +159,10 @@
 										Description : <span id="info_desc"></span>
 									</div>
 									<div style="width: 50%" id="rd_chart_wrapper">
-										<canvas id="canvas"></canvas>
+										<div id="canvas_wrap">
+											<canvas id="canvas"></canvas>
+										</div>
+
 									</div>
 								</div>
 							</div>
@@ -279,9 +285,6 @@
 	<script src="js/jqBootstrapValidation.js"></script>
 	<script src="js/contact_me.js"></script>
 	<script src="js/agency.min.js"></script>
-	<script type="text/javascript" src="js/jquery.vmap.js"></script>
-	<script type="text/javascript" src="js/jquery.vmap.world.js"
-		charset="utf-8"></script>
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
 	<script type="text/javascript">
@@ -345,13 +348,151 @@
 		$('#shop-option-img2').mouseover(function() {
 			console.log("마우스 들어옴");
 		});
-
-		$(".rt0").click(function() {
+		$(".kd1").click(function(){
+			console.log("아라비카 클릭");
+			$("#sel_kd").empty();
+			$("#sel_kd").append("아라비카");
+			$.ajax({
+				url:'ajax/country.json',
+				dataType: 'json',
+				success: function(data){
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for(var i =0; i< data.length; i++){
+						if(data[i].kd =="Arabica"){
+							
+							$('#btn_wrap').append(
+									"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div class='pro_country' id='shop-option-img2'>" +data[i].name + "</div></a>"		
+							);
+						} else{
+							continue;
+						}
+					}
+					$(".pro_country").mouseenter(function(){
+						var mover_country = $(this).text();
+						for(var j =0; j< data.length; j++){
+							if(mover_country == data[j].name){
+								var color = Chart.helpers.color;
+								var config = {
+								        type: 'radar',
+								        data: {
+								            labels: ["Aroma", "Bitters", "Acidity", "Balance", "Body", "Sweet"],
+								            datasets: [{
+								                label: data[j].name,
+								                borderColor: window.chartColors.yellow,
+								                backgroundColor: color(window.chartColors.yellow).alpha(0.7).rgbString(),
+								                pointBackgroundColor: window.chartColors.yellow,
+								                data: [
+								                	data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw
+								                ]
+								            }]
+								        }	
+								 };
+								$('#canvas').remove();
+								$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
+								myRadar = new Chart(document.getElementById("canvas"), config);
+								$("#info_name").empty();
+								$("#info_name").append(data[j].name);
+								$("#info_kind").empty();
+								$("#info_kind").append(data[j].kind);
+								$("#info_price").empty();
+								$("#info_price").append(data[j].price);
+								$("#info_rt").empty();
+								$("#info_rt").append(data[j].price);
+								
+								$("#sel_kt").empty();
+								$("#sel_kt").append(data[j].kind + data[j].name);
+							}else{
+								continue;
+							}
+						}
+						$(".pro_country").click(function(){
+							var selected_ct = $(this).text();
+							$("#sel_ct").empty();
+							$("#sel_ct").append(selected_ct);
+						});
+					});	
+				}		
+			});
+		});
+		$(".kd2").click(function(){
+			console.log("로부스타 클릭");
+			$("#sel_kd").empty();
+			$("#sel_kd").append("로부스타");
+			$.ajax({
+				url:'ajax/country.json',
+				dataType: 'json',
+				success: function(data){
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for(var i =0; i< data.length; i++){
+						if(data[i].kd =="Robusta"){
+							
+							$('#btn_wrap').append(
+									"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div id='shop-option-img2'" + "class='pro_country'>" +data[i].name + "</div></a>"		
+							);	
+		
+						} else{
+							continue;
+						}
+					}
+					$(".pro_country").mouseenter(function(){
+						var mover_country = $(this).text();
+						for(var j =0; j< data.length; j++){
+							if(mover_country == data[j].name){
+								var color = Chart.helpers.color;
+								var config = {
+								        type: 'radar',
+								        data: {
+								            labels: ["Aroma", "Bitters", "Acidity", "Balance", "Body", "Sweet"],
+								            datasets: [{
+								                label: data[j].name,
+								                borderColor: window.chartColors.yellow,
+								                backgroundColor: color(window.chartColors.yellow).alpha(0.7).rgbString(),
+								                pointBackgroundColor: window.chartColors.yellow,
+								                data: [
+								                	data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw
+								                ]
+								            }]
+								        }	
+								 };
+								$('#canvas').remove();
+								$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
+								myRadar = new Chart(document.getElementById("canvas"), config);
+								$("#info_name").empty();
+								$("#info_name").append(data[j].name);
+								$("#info_kind").empty();
+								$("#info_kind").append(data[j].kind);
+								$("#info_price").empty();
+								$("#info_price").append(data[j].price);
+								$("#info_rt").empty();
+								$("#info_rt").append(data[j].price);
+								
+								$("#sel_kt").empty();
+								$("#sel_kt").append(data[j].kind + data[j].name);
+							}else{
+								continue;
+							}
+						}
+						$(".pro_country").click(function(){
+							var selected_ct = $(this).text();
+							$("#sel_ct").empty();
+							$("#sel_ct").append(selected_ct);
+						});
+						
+					});
+				}
+				
+			});
+		});
+				
+		$(".rt0").click(function(){
 			$("#sel_rt").empty();
 			$("#sel_rt").append("그린 빈");
 		});
 		$(".rt1").click(function() {
-			alert("라이트 로스트");
 			$("#sel_rt").empty();
 			$("#sel_rt").append("라이트 로스팅");
 		});
