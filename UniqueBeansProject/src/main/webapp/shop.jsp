@@ -273,15 +273,9 @@
 	<script src="js/utils.js"></script>
 	<script type="text/javascript">
 		$(".kd1").click(function(){
+			console.log("아라비카 클릭");
 			$("#sel_kd").empty();
 			$("#sel_kd").append("아라비카");
-		});
-		$(".kd2").click(function(){
-			$("#sel_kd").empty();
-			$("#sel_kd").append("로부스타");
-		});
-		$(".kd1").click(function(){
-			console.log("아라비카 클릭");
 			$.ajax({
 				url:'ajax/country.json',
 				dataType: 'json',
@@ -351,6 +345,8 @@
 		});
 		$(".kd2").click(function(){
 			console.log("로부스타 클릭");
+			$("#sel_kd").empty();
+			$("#sel_kd").append("로부스타");
 			$.ajax({
 				url:'ajax/country.json',
 				dataType: 'json',
