@@ -19,7 +19,7 @@ public class Beans_BoardDAO {
 	private ResultSet rs=null;
 	
 	private final String BOARD_INSERT = "insert into board(post_title,id,post_option,post_contents) values(?,?,?,?)";
-	private final String BOARD_UPDATE = "update board set post_title=?, post_contents=? " + "where post_number = ?";
+	private final String BOARD_UPDATE = "update board set post_title=?, post_option=? post_contents=? where post_number = ?";
 	private final String BOARD_DELETE = "delete from board where post_number = ?";
 	private final String BOARD_GET = "select * from board where post_number=?";
 	private final String BOARD_LIST_T = "select * from board where post_title like ? order by post_number";
@@ -27,7 +27,7 @@ public class Beans_BoardDAO {
 	private final String BOARD_UPDATE_CNT = "update board set post_views=? " + "where post_number = ?";
 	
 	private final String RE_INSERT = "insert into reply(id,post_number,re_content) values(?,?,?)";
-	private final String RE_DELETE = "delete from reply where re_number=?";
+	private final String RE_DELETE = "delete from reply where re_content=?";
 	private final String RE_GET = "select * from reply where post_number=?";
 	
 	public void insertBoard(Beans_BoardVO vo){
@@ -69,6 +69,8 @@ public class Beans_BoardDAO {
 			stmt.setString(1, vo.getPost_title());
 			stmt.setString(2, vo.getPost_option());
 			stmt.setString(3, vo.getPost_contents());
+			System.out.println(vo.getPost_title());
+
 			stmt.setInt(4, vo.getPost_number());
 			stmt.executeUpdate();
 		}catch(SQLException e){
@@ -96,9 +98,9 @@ public class Beans_BoardDAO {
 		try{
 			conn=JDBCUtil.getConnection();
 			stmt=conn.prepareStatement(RE_DELETE);
-			stmt.setInt(1, vo.getRe_number());
+			stmt.setString(1, vo.getRe_content());
 			stmt.executeUpdate();
-			System.out.println(vo.getRe_number());
+			System.out.println(vo.getRe_content());
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{

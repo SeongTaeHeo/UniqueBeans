@@ -41,7 +41,7 @@ public class Beans_BoardController {
 
 		boardservice.insertReply(vo);
 		System.out.println(vo.getId());
-		return "Free_board.do";
+		return "Free_board_content.do";
 	}
 
 	@RequestMapping(value = "updateBoard.do")
@@ -53,7 +53,7 @@ public class Beans_BoardController {
 		System.out.println("등록일: " + vo.getPost_date());
 		System.out.println("조회수: " + vo.getPost_views());
 		boardservice.updateBoard(vo);
-		return "Free_board.do";
+		return "Free_update.jsp";
 	}
 
 	@RequestMapping(value = "deleteBoard.do")
