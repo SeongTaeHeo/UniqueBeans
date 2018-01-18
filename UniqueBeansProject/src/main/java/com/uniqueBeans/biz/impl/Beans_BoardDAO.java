@@ -84,18 +84,21 @@ public class Beans_BoardDAO {
 			stmt=conn.prepareStatement(BOARD_DELETE);
 			stmt.setInt(1,vo.getPost_number());
 			stmt.executeUpdate();
+			System.out.println(vo.getPost_number());
+
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			JDBCUtil.close(stmt, conn);
 		}
 	}
-	public void deleteComment(Beans_BoardVO vo){
+	public void deleteReply(Beans_BoardVO vo){
 		try{
 			conn=JDBCUtil.getConnection();
 			stmt=conn.prepareStatement(RE_DELETE);
 			stmt.setInt(1, vo.getRe_number());
 			stmt.executeUpdate();
+			System.out.println(vo.getRe_number());
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{

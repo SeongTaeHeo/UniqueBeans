@@ -22,11 +22,10 @@ public class Beans_BoardController {
 	@Autowired
 	private Beans_BoardService boardservice;
 
-
 	@ModelAttribute("conditionMap")
 	public Map<String, String> searchConditionMap() {
 		Map<String, String> conditionMap = new HashMap<String, String>();
-		conditionMap.put("제목", "POST_TITLE"); 
+		conditionMap.put("제목", "POST_TITLE");
 		conditionMap.put("내용", "POST_CONTENTS");
 		return conditionMap;
 	}
@@ -36,10 +35,10 @@ public class Beans_BoardController {
 		boardservice.insertBoard(vo);
 		return "Free_board.do";
 	}
-	@RequestMapping(value="insertReply.do")
-	public String insertReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException{
-		
-		
+
+	@RequestMapping(value = "insertReply.do")
+	public String insertReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
+
 		boardservice.insertReply(vo);
 		System.out.println(vo.getId());
 		return "Free_board.do";
@@ -56,19 +55,19 @@ public class Beans_BoardController {
 		boardservice.updateBoard(vo);
 		return "Free_board.do";
 	}
-	
 
 	@RequestMapping(value = "deleteBoard.do")
 	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
 		boardservice.deleteBoard(vo);
 		return "Free_board.do";
 	}
-	@RequestMapping(value="deleteReply.do")
-	public String deleteReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
+
+	@RequestMapping(value = "deleteReply.do")
+	public String deleteReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
 		boardservice.deleteReply(vo);
 		return "Free_board.do";
 	}
-	
+
 	/*
 	 * 게시글 불러오기
 	 */
@@ -78,7 +77,7 @@ public class Beans_BoardController {
 		model.addAttribute("board", boardservice.Free_board_content(vo));
 		return "Free_board_content.jsp";
 	}
-	
+
 	/*
 	 * 게시판 불러오기
 	 */
@@ -101,9 +100,10 @@ public class Beans_BoardController {
 		List<Beans_BoardVO> boardList = boardservice.Free_board(vo);
 		return boardList;
 	}
-	@RequestMapping(value="Reply_List.do")
-	public String Reply_List(Beans_BoardVO vo,Model model){
-		model.addAttribute("ReplyList",boardservice.Reply_List(vo));
+
+	@RequestMapping(value = "Reply_List.do")
+	public String Reply_List(Beans_BoardVO vo, Model model) {
+		model.addAttribute("ReplyList", boardservice.Reply_List(vo));
 		return "Reply_List.jsp";
 	}
 }

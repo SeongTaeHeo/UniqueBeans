@@ -53,7 +53,7 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 	@Override
 	public void deleteReply(Beans_BoardVO vo) {
 		// TODO Auto-generated method stub
-		beans_boardDAO.deleteBoard(vo);
+		beans_boardDAO.deleteReply(vo);
 	}
 
 	@Override
