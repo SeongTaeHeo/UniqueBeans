@@ -119,8 +119,18 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="shop-step">
+						<div class="hover-content"></div>
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide="next"> <div class="kd1" id="shop-option-img0" alt="">원두 주문</div>
+						</a>
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide-to="5"> <div class="kd1" id="shop-option-img0" alt="">도구 주문</div>
+						</a>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<div class="shop-step">
 							<div class="hover-content">
-								<p>아라비카 원두입니다.</p>
 							</div>
 							<a class="carousel-control-next" href="#myCarousel"
 								data-slide="next"> <img class="kd1" id="shop-option-img1"
@@ -142,8 +152,9 @@
 				<!-- 나라선택 -->
 				<div class="carousel-item">
 					<div class="shop-step">
-
+					
 						<div id="pro_status">
+							
 							<div id="btn_wrap"></div>
 							<div id="info_result">
 								<div id="testtest">Info</div>
@@ -242,6 +253,17 @@
 						</div>
 					</div>
 				</div>
+				<div class="carousel-item">
+					<div class="shop-step">
+						<div class="hover-content"></div>
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide-to="1"> <div class="kd1" id="shop-option-img0" alt="">원두 추가 주문하기</div>
+						</a>
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide="next"> <div class="kd1" id="shop-option-img0" alt="">도구 주문하기</div>
+						</a>
+					</div>
+				</div>
 			</div>
 
 
@@ -293,62 +315,53 @@
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
 	<script type="text/javascript">
-		$(".kd1")
-				.click(
-						function() {
-							console.log("아라비카 클릭");
-							$
-									.ajax({
-										url : 'ajax/country.json',
-										dataType : 'json',
-										success : function(data) {
-											console.log("ajax 연결 성공");
-											$('#btn_wrap').empty();
-											for (var i = 0; i < data.length; i++) {
-												if (data[i].kd == "Arabica") {
+		$(".kd1").click(function() {
+			console.log("아라비카 클릭");
+			$.ajax({
+				url : 'ajax/country.json',
+				dataType : 'json',
+				success : function(data) {
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for (var i = 0; i < data.length; i++) {
+						if (data[i].kd == "Arabica") {
+							$('#btn_wrap').append("<a class='carousel-control-next'" + "href='#myCarousel'" +
+								"data-slide='next'><div class='pro_data[i].co' id='shop-option-img2'>"
+								+ data[i].name
+								+ "</div></a>");
+							} else {
+								continue;
+							}
+						}
+					}
+				});
+			});
+		
+		$(".kd2").click(
+			function() {
+			console.log("로부스타 클릭");
+			$.ajax({
+				url : 'ajax/country.json',
+				dataType : 'json',
+				success : function(data) {
+					console.log("ajax 연결 성공");
+					$('#btn_wrap').empty();
+					for (var i = 0; i < data.length; i++) {
+						if (data[i].kd == "Robusta") {
+							$('#btn_wrap').append(
+									"<a class='carousel-control-next'"+
+									"href='#myCarousel' data-slide='next'>"+
+									"<img id='shop-option-img2' class='pro_country'"
+									+"src='img/country_img/" +data[i].id.jpg+"'></a>"		
+							);
+						} else {
+							continue;
+						}
+					}
+				}
 
-													$('#btn_wrap')
-															.append(
-																	"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div class='pro_data[i].co' id='shop-option-img2'>"
-																			+ data[i].name
-																			+ "</div></a>");
-												} else {
-													continue;
-												}
-											}
-										}
-
-									});
-						});
-		$(".kd2")
-				.click(
-						function() {
-							console.log("로부스타 클릭");
-							$
-									.ajax({
-										url : 'ajax/country.json',
-										dataType : 'json',
-										success : function(data) {
-											console.log("ajax 연결 성공");
-											$('#btn_wrap').empty();
-											for (var i = 0; i < data.length; i++) {
-												if (data[i].kd == "Robusta") {
-
-													$('#btn_wrap')
-															.append(
-																	"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div id='shop-option-img2'>"
-																			+ data[i].name
-																			+ "</div></a>");
-												} else {
-													continue;
-												}
-											}
-										}
-
-									});
-						});
+			});
+		});
 
 		$('#shop-option-img2').mouseover(function() {
 			console.log("마우스 들어옴");
@@ -367,8 +380,10 @@
 						if(data[i].kd =="Arabica"){
 							
 							$('#btn_wrap').append(
-									"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div class='pro_country' id='shop-option-img2'>" +data[i].name + "</div></a>"		
+									"<a class='carousel-control-next'"+
+									"href='#myCarousel' data-slide='next'>"+
+									"<img id='shop-option-img2' class='pro_country'"
+									+"src='img/country_img/" + data[i].id + ".jpg'></a>"		
 							);
 						} else{
 							continue;
@@ -435,8 +450,10 @@
 						if(data[i].kd =="Robusta"){
 							
 							$('#btn_wrap').append(
-									"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div id='shop-option-img2'" + "class='pro_country'>" +data[i].name + "</div></a>"		
+									"<a class='carousel-control-next'"+
+									"href='#myCarousel' data-slide='next'>"+
+									"<img id='shop-option-img2' class='pro_country'"
+									+"src='img/country_img/" + data[i].id + ".jpg'></a>"			
 							);	
 		
 						} else{
