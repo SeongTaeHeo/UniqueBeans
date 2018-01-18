@@ -27,6 +27,7 @@
 
 <link href="css/shop.css" rel="stylesheet">
 <link href="css/jqvmap.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <title>Insert title here</title>
 
 </head>
@@ -50,63 +51,58 @@
 					href="#Board">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
-				<li class="nav-item">
-					
-						<c:if test="${!empty loginUser}">
-							<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
-						</c:if> 
-						
-						<c:if test="${empty loginUser}">
-							<a class="nav-link js-scroll-trigger" href="login.jsp">Login33</a>
-						</c:if>
-					</li>
+				<li class="nav-item"><c:if test="${!empty loginUser}">
+						<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
+					</c:if> <c:if test="${empty loginUser}">
+						<a class="nav-link js-scroll-trigger" href="login.jsp">Login33</a>
+					</c:if></li>
 			</ul>
 		</div>
 	</div>
 	</nav>
 
 	<!-- 주문테이블 -->
-		<div id="mySidenav" class="sidenav">
-			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<div class="container">
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<div class="container">
 
-				<h1>주문상황</h1>
-				<hr>
-				<table class="table table-striped table-hover table-bordered">
-					<tbody>
-						<tr>
-							<th>품종, 국가명</th>
-							<th>로스팅</th>
-							<th>그라인딩</th>
-							<th>개수</th>
-							<th>개당 가격</th>
-							<th>총합</th>
-						</tr>
-						<tr>
-							<td id="sel_kt">원두</td>
-							<td id="sel_rt"></td>
-							<td id="sel_gd"></td>
-							<td>1 <a href="#"></a></td>
-							<td id="sel_pr">250.00</td>
-							<td>250.00</td>
-						</tr>
-						<tr>
-							<th colspan="3"><span class="pull-right">상품 가격</span></th>
-							<th>250.00</th>
-						</tr>
-						<tr>
-							<th colspan="3"><span class="pull-right">부가세 20%</span></th>
-							<th>50.00</th>
-						</tr>
-						<tr>
-							<th colspan="3"><span class="pull-right">총 가격</span></th>
-							<th>300.00</th>
-						</tr>
+			<h1>주문상황</h1>
+			<hr>
+			<table class="table table-striped table-hover table-bordered">
+				<tbody>
+					<tr>
+						<th>품종, 국가명</th>
+						<th>로스팅</th>
+						<th>그라인딩</th>
+						<th>개수</th>
+						<th>개당 가격</th>
+						<th>총합</th>
+					</tr>
+					<tr>
+						<td id="sel_kt">원두</td>
+						<td id="sel_rt"></td>
+						<td id="sel_gd"></td>
+						<td>1 <a href="#"></a></td>
+						<td id="sel_pr">250.00</td>
+						<td>250.00</td>
+					</tr>
+					<tr>
+						<th colspan="3"><span class="pull-right">상품 가격</span></th>
+						<th>250.00</th>
+					</tr>
+					<tr>
+						<th colspan="3"><span class="pull-right">부가세 20%</span></th>
+						<th>50.00</th>
+					</tr>
+					<tr>
+						<th colspan="3"><span class="pull-right">총 가격</span></th>
+						<th>300.00</th>
+					</tr>
 
-					</tbody>
-				</table>
-			</div>
+				</tbody>
+			</table>
 		</div>
+	</div>
 
 	<div class="conatiner">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
@@ -114,10 +110,14 @@
 			<div class="carousel-inner">
 				<div class="carousel-item active">
 					<div class="shop-step">
+							<div class="hover-content">
+								<p>아라비카 원두입니다.</p>
+							</div>
+							<a class="carousel-control-next" href="#myCarousel"
+								data-slide="next"> <img class="kd1" id="shop-option-img1"
+								src="img/arabica.jpg" alt="">
+							</a>
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="kd1" id="shop-option-img1"
-							src="img/arabica.jpg" alt="">
-						</a> <a class="carousel-control-next" href="#myCarousel"
 							data-slide="next"> <img class="kd2" id="shop-option-img1"
 							src="img/robusta.jpg" alt="">
 						</a>
@@ -133,12 +133,12 @@
 				<!-- 나라선택 -->
 				<div class="carousel-item">
 					<div class="shop-step">
-						
+
 						<div id="pro_status">
 							<div id="btn_wrap"></div>
 							<div id="info_result">
 								<div>Info</div>
-								
+
 								<div id="info_wrapper">
 									<div class="info_wrap">
 										Country : <span id="info_name"></span>
@@ -173,7 +173,7 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt0"  id="shop-option-img3"
+							data-slide="next"> <img class="rt0" id="shop-option-img3"
 							src="img/roasting/roasting_1.PNG" alt="알수없음">
 						</a> <a class="carousel-control-next" href="#myCarousel"
 							data-slide="next"> <img class="rt1" id="shop-option-img3"
@@ -231,8 +231,8 @@
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 
 
 			<center>
@@ -244,7 +244,9 @@
 			</center>
 		</div>
 	</div>
-
+	
+	
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 		function openNav() {
 			document.getElementById("mySidenav").style.width = "400px";
@@ -256,7 +258,20 @@
 			document.getElementById("main").style.marginLeft = "0";
 		}
 	</script>
-	<script src="https://code.jquery.com/jquery-3.1.1.win.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("div.hover-content").hide();
+		});
+
+		$(".kd1").mouseenter(function() {
+			alert("dd");
+			$(this).siblings("div.hover-content").fadeToggle("slow", "linear");
+		}).mouseleave(function() {
+
+			$(this).siblings("div.hover-content").fadeToggle("slow", "linear");
+		});
+	</script>
+	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -270,112 +285,122 @@
 	<script src="js/Chart.bundle.js"></script>
 	<script src="js/utils.js"></script>
 	<script type="text/javascript">
-		$(".kd1").click(function(){
-			console.log("아라비카 클릭");
-			$.ajax({
-				url:'ajax/country.json',
-				dataType: 'json',
-				success: function(data){
-					console.log("ajax 연결 성공");
-					$('#btn_wrap').empty();
-					for(var i =0; i< data.length; i++){
-						if(data[i].kd =="Arabica"){
-							
-							$('#btn_wrap').append(
-									"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div class='pro_data[i].co' id='shop-option-img2'>" +data[i].name + "</div></a>"		
-							);
-						} else{
-							continue;
-						}
-					}	
-				}
-				
-			});
-		});
-		$(".kd2").click(function(){
-			console.log("로부스타 클릭");
-			$.ajax({
-				url:'ajax/country.json',
-				dataType: 'json',
-				success: function(data){
-					console.log("ajax 연결 성공");
-					$('#btn_wrap').empty();
-					for(var i =0; i< data.length; i++){
-						if(data[i].kd =="Robusta"){
-							
-							$('#btn_wrap').append(
-									"<a class='carousel-control-next'" + "href='#myCarousel'" +
-										"data-slide='next'><div id='shop-option-img2'>" +data[i].name + "</div></a>"		
-							);		
-						} else{
-							continue;
-						}
-					}	
-				}
-				
-			});
-		});
-		
-		$('#shop-option-img2').mouseover(function(){
+		$(".kd1")
+				.click(
+						function() {
+							console.log("아라비카 클릭");
+							$
+									.ajax({
+										url : 'ajax/country.json',
+										dataType : 'json',
+										success : function(data) {
+											console.log("ajax 연결 성공");
+											$('#btn_wrap').empty();
+											for (var i = 0; i < data.length; i++) {
+												if (data[i].kd == "Arabica") {
+
+													$('#btn_wrap')
+															.append(
+																	"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div class='pro_data[i].co' id='shop-option-img2'>"
+																			+ data[i].name
+																			+ "</div></a>");
+												} else {
+													continue;
+												}
+											}
+										}
+
+									});
+						});
+		$(".kd2")
+				.click(
+						function() {
+							console.log("로부스타 클릭");
+							$
+									.ajax({
+										url : 'ajax/country.json',
+										dataType : 'json',
+										success : function(data) {
+											console.log("ajax 연결 성공");
+											$('#btn_wrap').empty();
+											for (var i = 0; i < data.length; i++) {
+												if (data[i].kd == "Robusta") {
+
+													$('#btn_wrap')
+															.append(
+																	"<a class='carousel-control-next'" + "href='#myCarousel'" +
+										"data-slide='next'><div id='shop-option-img2'>"
+																			+ data[i].name
+																			+ "</div></a>");
+												} else {
+													continue;
+												}
+											}
+										}
+
+									});
+						});
+
+		$('#shop-option-img2').mouseover(function() {
 			console.log("마우스 들어옴");
 		});
-		
-		$(".rt0").click(function(){
+
+		$(".rt0").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("그린 빈");
 		});
-		$(".rt1").click(function(){
+		$(".rt1").click(function() {
 			alert("라이트 로스트");
 			$("#sel_rt").empty();
 			$("#sel_rt").append("라이트 로스팅");
 		});
-		$(".rt2").click(function(){
+		$(".rt2").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("시나몬 로스팅");
 		});
-		$(".rt3").click(function(){
+		$(".rt3").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("미디엄 로스팅");
 		});
-		$(".rt4").click(function(){
+		$(".rt4").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("하이 로스팅");
 		});
-		$(".rt5").click(function(){
+		$(".rt5").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("시티 로스팅");
 		});
-		$(".rt6").click(function(){
+		$(".rt6").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("풀시티 로스팅");
 		});
-		$(".rt7").click(function(){
+		$(".rt7").click(function() {
 			$("#sel_rt").empty();
 			$("#sel_rt").append("프렌치 로스팅");
 		});
-		
-		$(".gd0").click(function(){
+
+		$(".gd0").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("홀빈");
 		});
-		$(".gd1").click(function(){
+		$(".gd1").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("프렌치 프레스");
-		});	
-		$(".gd2").click(function(){
+		});
+		$(".gd2").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("융 드립");
-		});	
-		$(".gd3").click(function(){
+		});
+		$(".gd3").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("사이폰");
-		});	
-		$(".gd4").click(function(){
+		});
+		$(".gd4").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("드립");
-		});	
-		$(".gd5").click(function(){
+		});
+		$(".gd5").click(function() {
 			$("#sel_gd").empty();
 			$("#sel_gd").append("에스프레소");
 		});
