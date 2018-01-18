@@ -33,7 +33,7 @@
 				hoverColor: '#fed136',
 				hoverOpacity: null,
 				normalizeFunction: 'linear',
-				values: null,
+				values: allkind,
 				scaleColors: ['#dbcdad', '#7f6854'],
 				selectedColor: '#fed136',
 				selectedRegions: null,
@@ -62,8 +62,9 @@
 									            }]
 									        }
 									
-									    };
-
+									 };
+									$('#canvas').remove();
+									$("#rd_chart_wrapper").append("<canvas id='canvas'></canvas>");
 									myRadar = new Chart(document.getElementById("canvas"), config);
 									$("#info_name").empty();
 									$("#info_name").append(data[i].name);
@@ -74,8 +75,6 @@
 									$("#info_rt").empty();
 									$("#info_rt").append(data[i].price);
 									
-									$("#sel_kt").empty();
-									$("#sel_kt").append(data[i].kind + data[i].name);
 								}
 							}
 						}
@@ -83,14 +82,3 @@
 				}
 			});
 		});
-		/*jQuery(document).ready(function() {
-			if(selectkind==0){
-				jQuery('#vmap').vectorMap('set', 'values', allkind);
-			} else if(selectkind==1){
-				jQuery('#vmap').vectorMap('set', 'values', arabica);
-			} else if(selectkind==2){
-				jQuery('#vmap').vectorMap('set', 'values', robusta);
-			} else {
-				jQuery('#vmap').vectorMap('set', 'values', null);
-			}		       
-		});*/
