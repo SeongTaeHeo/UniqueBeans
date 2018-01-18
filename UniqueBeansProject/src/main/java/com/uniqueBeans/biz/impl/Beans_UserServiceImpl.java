@@ -57,4 +57,17 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		}
 	}
 
+	@Override
+	public String overRap(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		
+		Beans_UserVO user = userDAO.getUserData(vo);
+		
+		if(user.getId() ==  null) {
+			return "가입하셔도 좋은 아이디 입니다.";
+		} else {
+			return "이미 가입된 아이디 입니다.";
+		}
+	}
+
 }

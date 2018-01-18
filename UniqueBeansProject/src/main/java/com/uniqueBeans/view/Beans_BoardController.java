@@ -57,13 +57,14 @@ public class Beans_BoardController {
 	}
 
 	@RequestMapping(value = "deleteBoard.do")
-	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
+	public String deleteBoard(Beans_BoardVO vo) {
 		boardservice.deleteBoard(vo);
 		return "Free_board.do";
 	}
 
 	@RequestMapping(value = "deleteReply.do")
-	public String deleteReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
+	public String deleteReply(Beans_BoardVO vo) {
+		System.out.println("댓글번호 = " + vo.getRe_number());
 		boardservice.deleteReply(vo);
 		return "Free_board.do";
 	}

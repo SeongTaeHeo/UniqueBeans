@@ -43,10 +43,8 @@ public class LoginCheck implements Filter {
 		if(session == null || session.getAttribute("loginUser") == null) {
 			HttpServletResponse res = (HttpServletResponse) response;
 			res.sendRedirect(req.getContextPath() + "/login.jsp");
-			System.out.println("로그인되지 않음");
 		} else {
 			chain.doFilter(request, response);
-			System.out.println("로그인 됨.");
 		}
 		
 		// pass the request along the filter chain
