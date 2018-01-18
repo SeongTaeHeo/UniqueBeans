@@ -1,9 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -34,7 +36,7 @@
 </head>
 <body id="board_body">
 
-	<jsp:include page="top_menu.jsp" />
+<!-- <jsp:include page="top_menu.jsp" /> -->
 
 	<header class="masthead" style="height:250px;">
 	<div class="container">
@@ -43,7 +45,7 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">ÀÚÀ¯ °Ô½ÃÆÇ</h1>
+		<h1 class="display-4" style="font-weight: bold">ìžìœ  ê²Œì‹œíŒ</h1>
 	</div>
 
 	<div class="board_main">
@@ -52,14 +54,14 @@
 			<thead>
 				<tr>
 					<td align="center" colspan="2"><h3>[${board.post_option }]</h3></td>
-					<td align="center" colspan="10"><h3>${board.post_title}</h3></td>
+					<td align="left" colspan="10"><h3>${board.post_title}</h3></td>
 				</tr>
 				<tr>
-					<td colspan="2">ÀÛ¼ºÀÚ</td>
-					<td align="left" colspan="2">${loginUser }</td>
-					<td colspan="2">µî·ÏÀÏ</td>
+					<td colspan="2">ìž‘ì„±ìž</td>
+					<td align="left" colspan="2">${board.id }</td>
+					<td colspan="2">ë“±ë¡ì¼</td>
 					<td align="left" colspan="2">${board.post_date }</td>
-					<td colspan="2">Á¶È¸¼ö</td>
+					<td colspan="2">ì¡°íšŒìˆ˜</td>
 					<td align="left" colspan="2">${board.post_views }</td>
 				</tr>
 			</thead>
@@ -69,32 +71,19 @@
 				</tr>
 			</tbody>
 			<tbody>
-				<tr>
-					<td align="center" colspan="1">${comment.id }</td>
-					<td colspan="10">${comment.com_content }</td>
-					<td colspan="1"></td>
-				</tr>
-			<form method="post" action="insertComment.do">
-				<tr>
-					<td align="center" colspan="1">${comment.id }</td>
-					<td align="left" colspan="10"><textarea id="com_content"
-							name="com_content" class="form-control"
-							style="resize: none; height: 50px;" required></textarea></td>
-					<td align="center" colspan="1"><button type="submit"
-							class="btn btn-success btn-lg">µî·Ï</button></td>
-				</tr>
-			</form>
+					<jsp:include page="Reply_List.do" />
+					<jsp:include page="Reply_write.jsp" />
 			</tbody>
 		</table>
 		<div class="write">
 			<a href="deleteBoard.do?post_number=${board.post_number }">
-				<button type="button" class="btn btn-success btn-lg">±Û »èÁ¦</button>
+				<button type="button" class="btn btn-success btn-lg">ê¸€ ì‚­ì œ</button>
 			</a> <a href="updateBoard.do?post_number=${board.post_number }">
-				<button type="button" class="btn btn-success btn-lg">±Û ¼öÁ¤</button>
+				<button type="button" class="btn btn-success btn-lg">ê¸€ ìˆ˜ì •</button>
 			</a> <a href="Free_board.do">
-				<button type="button" class="btn btn-success btn-lg">±Û ¸ñ·Ï</button>
+				<button type="button" class="btn btn-success btn-lg">ê¸€ ëª©ë¡</button>
 			</a> <a href="board_write.jsp">
-				<button type="button" class="btn btn-success btn-lg">±Û ÀÛ¼º</button>
+				<button type="button" class="btn btn-success btn-lg">ê¸€ ìž‘ì„±</button>
 			</a>
 
 		</div>
@@ -103,7 +92,7 @@
 			<span class='green_window'> <input type='text'
 				class='input_text' />
 			</span>
-			<button type='submit' class='sch_smit'>°Ë»ö</button>
+			<button type='submit' class='sch_smit'>ê²€ìƒ‰</button>
 		</div>
 
 	</div>
@@ -130,13 +119,13 @@
 				<ul class="list-inline-quicklinks">
 					<b>COMPANY</b>
 					<br>
-					<li class="list-inline-item"><a href="#">È¸»ç¼Ò°³</a></li>
+					<li class="list-inline-item"><a href="#">íšŒì‚¬ì†Œê°œ</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">ÀÌ¿ë¾à°ü</a></li>
+					<li class="list-inline-item"><a href="#">ì´ìš©ì•½ê´€</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">°³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§</a></li>
+					<li class="list-inline-item"><a href="#">ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">ÀÌ¿ë¾È³»</a></li>
+					<li class="list-inline-item"><a href="#">ì´ìš©ì•ˆë‚´</a></li>
 				</ul>
 			</div>
 			<div class="col-md-4">
@@ -145,13 +134,13 @@
 					<br>
 					<li class="list-inline-item">COMPANY:UNIQUEBEAN</li>
 					<br>
-					<li class="list-inline-item">ADDRESS: ¼­¿ïÆ¯º°½Ã</li>
+					<li class="list-inline-item">ADDRESS: ì„œìš¸íŠ¹ë³„ì‹œ</li>
 					<br>
 					<li class="list-inline-item">TELEPHONE: 070-7727-1401</li>
 					<br>
 					<li class="list-inline-item">EMAIL:help@uniquebean.com</li>
 					<br>
-					<li class="list-inline-item">°³ÀÎÁ¤º¸Ã¥ÀÓÀÚ:³ë·ç</li>
+					<li class="list-inline-item">ê°œì¸ì •ë³´ì±…ìž„ìž:ë…¸ë£¨</li>
 					<br>
 				</ul>
 			</div>

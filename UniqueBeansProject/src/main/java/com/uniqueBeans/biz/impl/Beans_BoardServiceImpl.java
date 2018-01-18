@@ -45,15 +45,21 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 	}
 
 	@Override
-	public void insertComment(Beans_BoardVO vo) {
+	public void insertReply(Beans_BoardVO vo) {
 		// TODO Auto-generated method stub
-		beans_boardDAO.insertComment(vo);
+		beans_boardDAO.insertReply(vo);
 	}
 
 	@Override
-	public void deleteComment(Beans_BoardVO vo) {
+	public void deleteReply(Beans_BoardVO vo) {
 		// TODO Auto-generated method stub
-		beans_boardDAO.deleteComment(vo);
+		beans_boardDAO.deleteBoard(vo);
+	}
+
+	@Override
+	public List<Beans_BoardVO> Reply_List(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return beans_boardDAO.Reply_List(vo);
 	}
 
 }

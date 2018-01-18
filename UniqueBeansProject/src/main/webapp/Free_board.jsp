@@ -1,13 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
@@ -46,20 +46,20 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">ÀÚÀ¯ °Ô½ÃÆÇ</h1>
+		<h1 class="display-4" style="font-weight: bold">ìžìœ  ê²Œì‹œíŒ</h1>
 	</div>
 
-	<div class="board_main">
+	<div class="board_main" style="color:black;">
 		<table
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<th class="board_no">±Û ¹øÈ£</th>
-					<th class="board_opt">¸»¸Ó¸®</th>
-					<th class="board_title">Á¦ ¸ñ</th>
-					<th class="board_write">ÀÛ¼ºÀÚ</th>
-					<th class="board_date">ÀÛ¼ºÀÏ</th>
-					<th class="board_cnt">Á¶È¸¼ö</th>
+					<th class="board_no">ê¸€ ë²ˆí˜¸</th>
+					<th class="board_opt">ë§ë¨¸ë¦¬</th>
+					<th class="board_title">ì œ ëª©</th>
+					<th class="board_write">ìž‘ì„±ìž</th>
+					<th class="board_date">ìž‘ì„±ì¼</th>
+					<th class="board_cnt">ì¡°íšŒìˆ˜</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -78,13 +78,13 @@
 		<div class="write">
 			<c:if test="${!empty loginUser}">
 				<a href="board_write.jsp">
-					<button type="button" class="btn btn-success btn-lg">±Û
-						ÀÛ¼º</button>
+					<button type="button" class="btn btn-success btn-lg">ê¸€
+						ìž‘ì„±</button>
 				</a>
 			</c:if>
 			<c:if test="${empty loginUser}">
 				<button type="button" class="btn btn-success btn-lg" 
-					onclick="alert('·Î±×ÀÎ ÈÄ ÀÛ¼ºÇÒ¼ö ÀÖ½À´Ï´Ù.')">±ÛÀÛ¼º</button>
+					onclick="alert('ë¡œê·¸ì¸ í›„ ìž‘ì„±í• ìˆ˜ ìžˆìŠµë‹ˆë‹¤.')">ê¸€ìž‘ì„±</button>
 			</c:if>
 			
 		</div>
@@ -93,7 +93,7 @@
 		<span class='green_window'>
 			<input type='text' class='input_text' />
 		</span>
-			<button type='submit' class='sch_smit'>°Ë»ö</button>
+			<button type='submit' class='sch_smit'>ê²€ìƒ‰</button>
 		</div>
 
 	</div>
@@ -120,13 +120,13 @@
 				<ul class="list-inline-quicklinks">
 					<b>COMPANY</b>
 					<br>
-					<li class="list-inline-item"><a href="#">È¸»ç¼Ò°³</a></li>
+					<li class="list-inline-item"><a href="#">íšŒì‚¬ì†Œê°œ</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">ÀÌ¿ë¾à°ü</a></li>
+					<li class="list-inline-item"><a href="#">ì´ìš©ì•½ê´€</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">°³ÀÎÁ¤º¸ Ãë±Þ¹æÄ§</a></li>
+					<li class="list-inline-item"><a href="#">ê°œì¸ì •ë³´ ì·¨ê¸‰ë°©ì¹¨</a></li>
 					<br>
-					<li class="list-inline-item"><a href="#">ÀÌ¿ë¾È³»</a></li>
+					<li class="list-inline-item"><a href="#">ì´ìš©ì•ˆë‚´</a></li>
 				</ul>
 			</div>
 			<div class="col-md-4">
@@ -135,13 +135,13 @@
 					<br>
 					<li class="list-inline-item">COMPANY:UNIQUEBEAN</li>
 					<br>
-					<li class="list-inline-item">ADDRESS: ¼­¿ïÆ¯º°½Ã</li>
+					<li class="list-inline-item">ADDRESS: ì„œìš¸íŠ¹ë³„ì‹œ</li>
 					<br>
 					<li class="list-inline-item">TELEPHONE: 070-7727-1401</li>
 					<br>
 					<li class="list-inline-item">EMAIL:help@uniquebean.com</li>
 					<br>
-					<li class="list-inline-item">°³ÀÎÁ¤º¸Ã¥ÀÓÀÚ:³ë·ç</li>
+					<li class="list-inline-item">ê°œì¸ì •ë³´ì±…ìž„ìž:ë…¸ë£¨</li>
 					<br>
 				</ul>
 			</div>

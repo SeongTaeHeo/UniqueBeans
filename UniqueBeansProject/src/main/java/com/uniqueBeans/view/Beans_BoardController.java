@@ -36,10 +36,12 @@ public class Beans_BoardController {
 		boardservice.insertBoard(vo);
 		return "Free_board.do";
 	}
-	
-	@RequestMapping(value="insertComment.do")
-	public String insertComment(@ModelAttribute("board") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException{
-		boardservice.insertComment(vo);
+	@RequestMapping(value="insertReply.do")
+	public String insertReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException{
+		
+		
+		boardservice.insertReply(vo);
+		System.out.println(vo.getId());
 		return "Free_board.do";
 	}
 
@@ -59,6 +61,11 @@ public class Beans_BoardController {
 	@RequestMapping(value = "deleteBoard.do")
 	public String deleteBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
 		boardservice.deleteBoard(vo);
+		return "Free_board.do";
+	}
+	@RequestMapping(value="deleteReply.do")
+	public String deleteReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO){
+		boardservice.deleteReply(vo);
 		return "Free_board.do";
 	}
 	
@@ -94,5 +101,9 @@ public class Beans_BoardController {
 		List<Beans_BoardVO> boardList = boardservice.Free_board(vo);
 		return boardList;
 	}
-
+	@RequestMapping(value="Reply_List.do")
+	public String Reply_List(Beans_BoardVO vo,Model model){
+		model.addAttribute("ReplyList",boardservice.Reply_List(vo));
+		return "Reply_List.jsp";
+	}
 }

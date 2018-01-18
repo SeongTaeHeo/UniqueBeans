@@ -12,9 +12,34 @@ public class Beans_BoardVO {
 	private String post_option;
 	private String searchCondition;
 	private String searchKeyword;
-	private int com_number;
-	private String com_content;
-	private Date com_date;
+	private int re_number;
+	private String re_content;
+	private Date re_date;
+
+
+	public int getRe_number() {
+		return re_number;
+	}
+
+	public String getRe_content() {
+		return re_content;
+	}
+
+	public Date getRe_date() {
+		return re_date;
+	}
+
+	public void setRe_number(int re_number) {
+		this.re_number = re_number;
+	}
+
+	public void setRe_content(String re_content) {
+		this.re_content = re_content;
+	}
+
+	public void setRe_date(Date re_date) {
+		this.re_date = re_date;
+	}
 
 	public String getPost_option() {
 		return post_option;
@@ -22,30 +47,6 @@ public class Beans_BoardVO {
 
 	public void setPost_option(String post_option) {
 		this.post_option = post_option;
-	}
-
-	public void setCom_number(int com_number) {
-		this.com_number = com_number;
-	}
-
-	public void setCom_content(String com_content) {
-		this.com_content = com_content;
-	}
-
-	public void setCom_date(Date com_date) {
-		this.com_date = com_date;
-	}
-
-	public int getCom_number() {
-		return com_number;
-	}
-
-	public String getCom_content() {
-		return com_content;
-	}
-
-	public Date getCom_date() {
-		return com_date;
 	}
 
 	public void setSearchCondition(String searchCondition) {
@@ -115,6 +116,6 @@ public class Beans_BoardVO {
 	public String toString() {
 		return "Beans_BoardVO [post_number=" + post_number + ", post_title=" + post_title + ", id=" + id
 				+ ", post_contents=" + post_contents + ", post_date=" + post_date + ", post_views=" + post_views
-				+ ",com_number =" + com_number + ", com_content=" + com_content + ",com_date=" + com_date + "]";
+				+ ", re_number=" + re_number + ",re_content=" + re_content + ",com_date=" + re_date + "]";
 	}
 }

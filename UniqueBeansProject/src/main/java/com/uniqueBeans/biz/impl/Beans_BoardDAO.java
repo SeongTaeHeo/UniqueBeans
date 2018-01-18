@@ -26,8 +26,9 @@ public class Beans_BoardDAO {
 	private final String BOARD_LIST_C = "select * from baord where post_contents like ? order by post_number";
 	private final String BOARD_UPDATE_CNT = "update board set post_views=? " + "where post_number = ?";
 	
-	private final String COMMENT_INSERT = "insert into comment(com_content) value(?)";
-	private final String COMMENT_DELETE = "delete from comment where com_number=?";
+	private final String RE_INSERT = "insert into reply(id,post_number,re_content) values(?,?,?)";
+	private final String RE_DELETE = "delete from reply where re_number=?";
+	private final String RE_GET = "select * from reply where post_number=?";
 	
 	public void insertBoard(Beans_BoardVO vo){
 		System.out.println("--->JDBC로 insertBoard() 기능처리");
@@ -39,6 +40,21 @@ public class Beans_BoardDAO {
 			stmt.setString(3, vo.getPost_option());
 			stmt.setString(4, vo.getPost_contents());
 			stmt.executeUpdate();
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(stmt, conn);
+		}
+	}
+	public void insertReply(Beans_BoardVO vo){
+		try{
+			conn=JDBCUtil.getConnection();
+			stmt=conn.prepareStatement(RE_INSERT);
+			stmt.setString(1, vo.getId());
+			stmt.setInt(2, vo.getPost_number());
+			stmt.setString(3, vo.getRe_content());
+			stmt.executeUpdate();
+			System.out.println(vo.getId());
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
@@ -74,27 +90,11 @@ public class Beans_BoardDAO {
 			JDBCUtil.close(stmt, conn);
 		}
 	}
-	
-	public void insertComment(Beans_BoardVO vo){
-		System.out.println("리플 작성");
-		try{
-			conn=JDBCUtil.getConnection();
-			stmt=conn.prepareStatement(COMMENT_INSERT);
-			stmt.setString(1, vo.getCom_content());
-			stmt.executeUpdate();
-		}catch(SQLException e){
-			e.printStackTrace();
-		}finally{
-			JDBCUtil.close(stmt, conn);
-		}
-	}
-	
 	public void deleteComment(Beans_BoardVO vo){
-		System.out.println("리플 삭제");
 		try{
 			conn=JDBCUtil.getConnection();
-			stmt=conn.prepareStatement(COMMENT_DELETE);
-			stmt.setInt(1, vo.getCom_number());
+			stmt=conn.prepareStatement(RE_DELETE);
+			stmt.setInt(1, vo.getRe_number());
 			stmt.executeUpdate();
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -102,6 +102,8 @@ public class Beans_BoardDAO {
 			JDBCUtil.close(stmt, conn);
 		}
 	}
+	
+	
 	public Beans_BoardVO Free_board_content(Beans_BoardVO vo){
 		System.out.println("--->JDBC로 getBoard() 기능처리");
 		Beans_BoardVO board=null;
@@ -168,6 +170,30 @@ public class Beans_BoardDAO {
 		}
 		System.out.println("결과값 반환");
 		return boardList;
+	}
+	public List<Beans_BoardVO> Reply_List(Beans_BoardVO vo){
+		List<Beans_BoardVO> ReplyList=new ArrayList<Beans_BoardVO>();
+		System.out.println("댓글 리스트 선언");
+		try{
+			conn=JDBCUtil.getConnection();
+			stmt=conn.prepareStatement(RE_GET);
+			stmt.setInt(1, vo.getPost_number());
+			rs=stmt.executeQuery();
+			while(rs.next()){
+				Beans_BoardVO Reply=new Beans_BoardVO();
+				Reply.setId(rs.getString("ID"));
+				Reply.setRe_content(rs.getString("RE_CONTENT"));
+				Reply.setRe_date(rs.getDate("RE_DATE"));
+				ReplyList.add(Reply);
+			}
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		
+		System.out.println("댓글리스트 출력");
+		return ReplyList;
 	}
 }
 

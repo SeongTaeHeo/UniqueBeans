@@ -116,6 +116,18 @@
 	clear:both;
 
 }
+.reply_num{
+	width: 50px;
+}
+.reply_id{
+	width: 100px;
+}
+.reply_text{
+	width:700px;
+}
+.reply_button{
+	width:100px;
+}
 
 #kind_table {
 	margin-left: auto;
