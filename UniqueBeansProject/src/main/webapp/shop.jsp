@@ -336,11 +336,8 @@
 							$("#sel_ct").empty();
 							$("#sel_ct").append(selected_ct);
 						});
-						
-					});
-					
-				}
-				
+					});	
+				}		
 			});
 		});
 		$(".kd2").click(function(){
