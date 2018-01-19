@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-	
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,10 +46,12 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		<a href="Free_board.do">
+			<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		</a>
 	</div>
 
-	<div class="board_main" style="color:black;">
+	<div class="board_main" style="color: black;">
 		<table
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
@@ -67,7 +69,8 @@
 					<tr>
 						<td>${board.post_number }</td>
 						<td>${board.post_option }</td>
-						<td align="left"><a href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
+						<td align="left"><a
+							href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
 						<td>${board.id }</td>
 						<td>${board.post_date }</td>
 						<td>${board.post_views }</td>
@@ -78,21 +81,20 @@
 		<div class="write">
 			<c:if test="${!empty loginUser}">
 				<a href="board_write.jsp">
-					<button type="button" class="btn btn-success btn-lg">글
-						작성</button>
+					<button type="button" class="btn btn-success btn-lg">글 작성</button>
 				</a>
 			</c:if>
 			<c:if test="${empty loginUser}">
-				<button type="button" class="btn btn-success btn-lg" 
+				<button type="button" class="btn btn-success btn-lg"
 					onclick="alert('로그인 후 작성할수 있습니다.')">글작성</button>
 			</c:if>
-			
+
 		</div>
 
 		<div class='search' align="center">
-		<span class='green_window'>
-			<input type='text' class='input_text' />
-		</span>
+			<span class='green_window'> <input type='text'
+				class='input_text' />
+			</span>
 			<button type='submit' class='sch_smit'>검색</button>
 		</div>
 

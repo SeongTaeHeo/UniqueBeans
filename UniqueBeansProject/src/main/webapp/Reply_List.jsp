@@ -17,8 +17,13 @@
 		<td align="center" class="reply_id">${reply.id }</td>
 			<td class="reply_text" align="left">${reply.re_content }</td>
 		<td class="reply_button">${reply.re_date }<br>
-		<a href="deleteReply.do?re_number=${reply.re_number }">
-			<button type="button" class="btn btn-success">댓글 삭제</button></a>
+		<c:if test="${reply.id==loginUser }">
+		<a href="deleteReply.do?re_content=${reply.re_content }">
+			삭제</a>
+		</c:if>
+		<c:if test="${reply.id!=loginUser }">
+
+		</c:if>
 		</td>
 	</tr>
 </c:forEach>
