@@ -605,7 +605,7 @@
 		});
 		$("#add_complpro").click(function(){
 			console.log("주문 완료");
-			$("#complpro_table").append(
+			$("#complpro_table").append( 
 				"<tr>"+
 					"<td>도구</td>"+
 					"<td>"+$("#tsel_name").text()+"</td>"
