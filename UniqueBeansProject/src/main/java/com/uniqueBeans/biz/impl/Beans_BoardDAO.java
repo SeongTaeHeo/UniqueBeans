@@ -19,7 +19,7 @@ public class Beans_BoardDAO {
 	private ResultSet rs=null;
 	
 	private final String BOARD_INSERT = "insert into board(post_title,id,post_option,post_contents) values(?,?,?,?)";
-	private final String BOARD_UPDATE = "update board set post_title=?, post_option=? post_contents=? where post_number = ?";
+	private final String BOARD_UPDATE = "update board set post_title=?, post_option=?, post_contents=? where post_number = ?";
 	private final String BOARD_DELETE = "delete from board where post_number = ?";
 	private final String BOARD_GET = "select * from board where post_number=?";
 	private final String BOARD_LIST_T = "select * from board where post_title like ? order by post_number";

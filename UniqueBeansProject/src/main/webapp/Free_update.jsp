@@ -36,7 +36,9 @@
 	</header>
 
 	<div class="board_header">
+	<a href="Free_board.do">
 		<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+	</a>
 	</div>
 
 	<div class="container" style="position: relative; top: -50px;">
@@ -46,7 +48,7 @@
 
 					<tr>
 						<th>제목:</th>
-						<td><input id="post_title" type="text"
+						<td><input id="post_title" type="text" value="${board.post_title}"
 							placeholder="제목을 입력하세요. " name="post_title" class="form-control"
 							required /></td>
 					</tr>
@@ -68,10 +70,10 @@
 					</tr>
 					<tr>
 						<th>내용:</th>
-						<td><textarea id="post_contents" cols="10"
+						<td><textarea id="post_contents" cols="10" 
 								placeholder="내용을 입력하세요. " name="post_contents"
 								class="form-control" style="resize: none; height: 400px;"
-								required></textarea></td>
+								required>${board.post_contents}</textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일:</th>
@@ -81,7 +83,7 @@
 					<tr align="center">
 						<td colspan="2">
 							<button type="submit" class="btn btn-success btn-xl">작성</button>
-							<a class="btn btn-success btn-xl" href="Free_Board.do"
+							<a class="btn btn-success btn-xl" href="Free_board.do"
 							onclick="return confirm('글쓰기를 취소하시겠습니까?')"> 취소 </a>
 						</td>
 					</tr>

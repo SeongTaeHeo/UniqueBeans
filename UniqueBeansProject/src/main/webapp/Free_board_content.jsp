@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -36,7 +36,7 @@
 </head>
 <body id="board_body">
 
-<!-- <jsp:include page="top_menu.jsp" /> -->
+	<!-- <jsp:include page="top_menu.jsp" /> -->
 
 	<header class="masthead" style="height:250px;">
 	<div class="container">
@@ -45,7 +45,9 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		<a href="Free_board.do">
+			<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
+		</a>
 	</div>
 
 	<div class="board_main">
@@ -71,16 +73,28 @@
 				</tr>
 			</tbody>
 			<tbody>
-					<jsp:include page="Reply_List.do" />
-					<jsp:include page="Reply_write.jsp" />
+				<jsp:include page="Reply_List.do" />
+				<jsp:include page="Reply_write.jsp" />
 			</tbody>
 		</table>
 		<div class="write">
-			<a href="deleteBoard.do?post_number=${board.post_number }">
-				<button type="button" class="btn btn-success btn-lg">글 삭제</button>
-			</a> <a href="updateBoard.do?post_number=${board.post_number }">
-				<button type="button" class="btn btn-success btn-lg">글 수정</button>
-			</a> <a href="Free_board.do">
+			<c:if test="${board.id==loginUser }">
+				<a href="deleteBoard.do?post_number=${board.post_number }">
+					<button type="button" class="btn btn-success btn-lg">글 삭제</button>
+				</a>
+			</c:if>
+			<c:if test="${board.id!=loginUser }">
+
+			</c:if>
+			<c:if test="${board.id==loginUser }">
+				<a href="Free_update.jsp?post_number=${board.post_number }">
+					<button type="button" class="btn btn-success btn-lg">글 수정</button>
+				</a>
+			</c:if>
+			<c:if test="${board.id!=loginUser }">
+
+			</c:if>
+			<a href="Free_board.do">
 				<button type="button" class="btn btn-success btn-lg">글 목록</button>
 			</a> <a href="board_write.jsp">
 				<button type="button" class="btn btn-success btn-lg">글 작성</button>
