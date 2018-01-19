@@ -327,6 +327,12 @@
 	</div>
 	
 	
+	<!-- 팝업 정보 -->
+	<div id="pop-up">
+	안녕
+	</div>
+	
+	
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script>
 		function openNav() {
@@ -339,18 +345,27 @@
 			document.getElementById("main").style.marginLeft = "0";
 		}
 	</script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("div.hover-content").hide();
-		});
-
-		$(".kd1").mouseenter(function() {
-			$(this).siblings("div.hover-content").fadeToggle("slow", "linear");
-		}).mouseleave(function() {
-
-			$(this).siblings("div.hover-content").fadeToggle("slow", "linear");
-		});
-	</script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        var moveLeft = 10;
+        var moveDown = 20;
+        
+        $('img.kd1').hover(function(e) {
+          $('div#pop-up').show();
+          $('div#pop-up').css('top', e.pageY + moveDown);
+          $('div#pop-up').css('left', e.pageX + moveLeft);
+          $('div#pop-up').appendTo('body');
+        }, function() {
+          $('div#pop-up').hide();
+        });
+        
+        $('img.kd1').mousemove(function(e) {
+          $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+        });
+        
+      });
+    </script>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="vendor/jquery/jquery.min.js"></script>

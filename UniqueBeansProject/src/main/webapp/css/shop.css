@@ -333,3 +333,12 @@ body {
 #tpro_modal{
 	width: 500px;
 }
+
+div#pop-up {
+        display: none;
+        position: absolute;
+        padding: 10px;
+        background: #eeeeee;
+        color: #000000;
+        font-size: 90%;
+      }
