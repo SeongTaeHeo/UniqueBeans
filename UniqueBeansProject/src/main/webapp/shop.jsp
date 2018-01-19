@@ -161,29 +161,7 @@
 							<div id="info_result">
 								<div id="testtest">Info</div>
 
-								<div id="info_wrapper">
-									<div class="info_wrap">
-										Country : <span id="info_name"></span>
-									</div>
-									<div class="info_wrap">
-										Price : <span id="info_price"></span>
-									</div>
-									<div class="info_wrap">
-										kind : <span id="info_kind"></span>
-									</div>
-									<div class="info_wrap">
-										Roasting : <span id="info_rt"></span>
-									</div>
-									<div class="info_wrap">
-										Description : <span id="info_desc"></span>
-									</div>
-									<div style="width: 50%" id="rd_chart_wrapper">
-										<div id="canvas_wrap">
-											<canvas id="canvas"></canvas>
-										</div>
-
-									</div>
-								</div>
+								
 							</div>
 						</div>
 
@@ -329,7 +307,29 @@
 	
 	<!-- 팝업 정보 -->
 	<div id="pop-up">
-	안녕
+		<div id="canvas_wrap">
+			<canvas id="canvas"></canvas>
+		</div>
+		<div id="info_wrapper">
+									<div class="info_wrap">
+										Country : <span id="info_name"></span>
+									</div>
+									<div class="info_wrap">
+										Price : <span id="info_price"></span>
+									</div>
+									<div class="info_wrap">
+										kind : <span id="info_kind"></span>
+									</div>
+									<div class="info_wrap">
+										Roasting : <span id="info_rt"></span>
+									</div>
+									<div class="info_wrap">
+										Description : <span id="info_desc"></span>
+									</div>
+									<div style="width: 50%" id="rd_chart_wrapper">
+									
+
+									</div>
 	</div>
 	
 	
@@ -351,7 +351,7 @@
         var moveLeft = 10;
         var moveDown = 20;
         
-        $('img.kd1').hover(function(e) {
+        /* $('img').hover(function(e) {
           $('div#pop-up').show();
           $('div#pop-up').css('top', e.pageY + moveDown);
           $('div#pop-up').css('left', e.pageX + moveLeft);
@@ -360,11 +360,11 @@
           $('div#pop-up').hide();
         });
         
-        $('img.kd1').mousemove(function(e) {
+        $('img').mousemove(function(e) {
           $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
         });
         
-      });
+      }); */
     </script>
 	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 	<script src="js/bootstrap.js"></script>
@@ -427,6 +427,7 @@
 		});
 
 		$('#shop-option-img2').mouseover(function() {
+			 
 			console.log("마우스 들어옴");
 		});
 		$(".kd1").click(function(){
@@ -453,7 +454,13 @@
 							continue;
 						}
 					}
-					$(".pro_country").mouseenter(function(){
+					var moveLeft = 10;
+			        var moveDown = 20;
+			        
+					
+					$(".pro_country").mouseenter(function(e){
+						
+				        
 						var mover_country = $(this).attr("alt");
 						for(var j =0; j< data.length; j++){
 							if(mover_country == data[j].id){
@@ -473,6 +480,9 @@
 								            }]
 								        }	
 								 };
+								
+								
+						        
 								$('#canvas').remove();
 								$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
 								myRadar = new Chart(document.getElementById("canvas"), config);
@@ -487,10 +497,29 @@
 								
 								$("#sel_kt").empty();
 								$("#sel_kt").append(data[j].kind + data[j].name);
+								
+								/* 팝업 생성 시작 */
+								$('.pro_country').hover(function(e) {
+							          $('div#pop-up').show();
+							          $('div#pop-up').css('top', e.pageY + moveDown);
+							          $('div#pop-up').css('left', e.pageX + moveLeft);
+							          $('div#pop-up').appendTo('body');
+							        }, function() {
+							          $('div#pop-up').hide();
+							        });
+							        
+							        $('.pro_country').mousemove(function(e) {
+							          $("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
+							        });
+							        
+						        /* 팝업생성 끝 */
 							}else{
 								continue;
 							}
 						}
+						
+						
+						
 						$(".pro_country").click(function(){
 							var selected_ct = $(this).text();
 							$("#sel_ct").empty();
@@ -500,6 +529,9 @@
 				}		
 			});
 		});
+		
+		
+		
 		$(".kd2").click(function(){
 			console.log("로부스타 클릭");
 			$("#sel_kd").empty();
