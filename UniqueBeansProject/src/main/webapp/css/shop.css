@@ -179,6 +179,30 @@ body {
 	height: 200px;
 	transition: transform .2s;
 }
+#shop-option-img5 {
+	width: 250px;
+	height: 300px;
+	transition: transform .2s;
+	color: black;
+}
+.tpro_img_wrap{
+	height: 80%;
+	width: 100%;
+}
+
+.tpro_img{
+	height: 100%;
+	width: 100%;
+}
+.tpro_name{
+	font-weight: bold;
+	text-align: center;
+	font-size: 15px;
+}
+.tpro_price{
+	text-align: right;
+	font-size: 12px;
+}
 
 .shop-step {
 	display: block;
@@ -305,4 +329,7 @@ body {
 	background-color: whitesmoke;
 	padding: 10px;
 	border-radius: 10px;
+}
+#tpro_modal{
+	width: 500px;
 }

@@ -25,9 +25,11 @@
 	href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700'
 	rel='stylesheet' type='text/css'>
 
-<link href="css/shop.css" rel="stylesheet">
+
 <link href="css/jqvmap.css" rel="stylesheet">
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/agency.min.css">
+<link href="css/shop.css" rel="stylesheet">
 <title>Insert title here</title>
 
 </head>
@@ -124,7 +126,7 @@
 							data-slide="next"> <div class="kd1" id="shop-option-img0" alt="">원두 주문</div>
 						</a>
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide-to="5"> <div class="kd1" id="shop-option-img0" alt="">도구 주문</div>
+							data-slide-to="6"> <div class="kd1" id="shop-option-img0" alt="">도구 주문</div>
 						</a>
 					</div>
 				</div>
@@ -264,10 +266,55 @@
 						</a>
 					</div>
 				</div>
+				
+				<div class="carousel-item">
+					<div class="shop-step">
+						<div class="hover-content"></div>
+						<a class="carousel-control-next" href="#myCarousel" data-slide="next"> 
+							<div class="tpro_wrap" id="shop-option-img5">
+								<div class="tpro_img_wrap"><img src="img/arabica.jpg" class="tpro_img" alt="" data-toggle="modal" data-target="#myModal"></div>
+								<div class="tpro_name">상품명</div>
+								<div class="tpro_price">가격</div>
+							</div>
+						</a>
+				</div>
 			</div>
-
-
-
+			 <!-- Modal -->
+			  <div class="modal fade" id="myModal" role="dialog">
+			    <div class="modal-dialog">
+			    
+			      <!-- Modal content-->
+			      <div class="modal-content" id="tpro_modal">
+			        <div class="modal-header">
+			          <button type="button" class="close" data-dismiss="modal">X</button>
+			          
+			        </div>
+			        <div class="modal-body">
+			        	<h4 class="modal-title">Info</h4>
+			      		<div><img src="img/arabica.jpg"></div>
+			        	<table>
+			        		<tr>
+			        			<th>상품명</th>
+			        			<td>커피도구 어쩌구 저쩌구<td>
+			        		</tr>
+			        		<tr>
+			        			<th>가격</th>
+			        			<td>10000<td>
+			        		</tr>
+			        		<tr>
+			        			<th>상세정보</th>
+			        			<td>에베베븝브베베벱버부버부베<td>
+			        		</tr>
+			        	</table>
+			        </div>
+			        <div class="modal-footer">
+			          <button type="button" class="btn btn-default" data-dismiss="modal">추가하기</button>
+			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			        </div>
+			      </div>
+			      
+			    </div>
+			  </div>
 
 			<center>
 				<a class="carousel-control-prev" href="#myCarousel"
@@ -394,7 +441,7 @@
 					$(".pro_country").mouseenter(function(){
 						var mover_country = $(this).attr("alt");
 						for(var j =0; j< data.length; j++){
-							if(mover_country == data[j].name){
+							if(mover_country == data[j].id){
 								var color = Chart.helpers.color;
 								var config = {
 								        type: 'radar',
@@ -465,7 +512,7 @@
 					$(".pro_country").mouseenter(function(){
 						var mover_country = $(this).attr("alt");
 						for(var j =0; j< data.length; j++){
-							if(mover_country == data[j].name){
+							if(mover_country == data[j].id){
 								var color = Chart.helpers.color;
 								var config = {
 								        type: 'radar',
