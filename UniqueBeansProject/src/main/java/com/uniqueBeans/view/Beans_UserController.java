@@ -17,6 +17,7 @@ import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
 
 @Controller
+@SessionAttributes("user")
 public class Beans_UserController {
 	
 	@Autowired
@@ -39,7 +40,7 @@ public class Beans_UserController {
 	@RequestMapping("/getUser.go")
 	public String getUser(Beans_UserVO vo, HttpSession session) {
 		System.out.println("로그인 메서드 실행");
-		String userInfo = userService.getUser(vo);
+		String userInfo = userService.loginUser(vo);
 		
 		if(userInfo!=null) {
 			session.setAttribute("loginUser", userInfo);
@@ -72,11 +73,37 @@ public class Beans_UserController {
 	}
 
 	/*
-	 * 유저정보 수정을 수정하기 위한 메서드
+	 * 유저정보를 수정하기 위해 유저정보를 받아오는 메서드
+	 */
+	@RequestMapping("/userGetUp.do")
+	@ResponseBody
+	public String userGetUp(HttpServletRequest request, Model model) {
+		Beans_UserVO vo = new Beans_UserVO();
+		vo.setId(request.getParameter("id"));
+		vo.setPwd(request.getParameter("pw"));
+		
+		if((vo = userService.getUser(vo)) != null) {
+			model.addAttribute("user", vo);
+			return "true";
+		} else {
+			return "false";
+		}
+	}
+	
+	/*
+	 * 유저정보 수정 사항을 보내기 위한 메서드
 	 */
 	@RequestMapping("/userSetUp.do")
-	public void userSetUp() {
+	@ResponseBody
+	public void userSetUp(HttpServletRequest request) {
+		Beans_UserVO vo = new Beans_UserVO();
+		vo.setId(request.getParameter("id"));
+		vo.setPwd(request.getParameter("pass"));
+		vo.setAddress(request.getParameter("address"));
+		vo.setTel(request.getParameter("phone"));
+		vo.setEmail(request.getParameter("email"));
 		
+		userService.setUser(vo);
 	}
 	
 	/*

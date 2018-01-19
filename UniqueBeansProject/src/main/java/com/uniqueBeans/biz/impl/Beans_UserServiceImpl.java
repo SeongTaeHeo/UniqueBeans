@@ -43,7 +43,7 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	 * 유저 정보를 가져오는 메서드
 	 */
 	@Override
-	public String getUser(Beans_UserVO vo) {
+	public String loginUser(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		
 		Beans_UserVO user = userDAO.getUserData(vo);
@@ -56,7 +56,10 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 			return null;
 		}
 	}
-
+	
+	/*
+	 * 회원 중복검사를 위해 유저 정보를 가져오는 메서드
+	 */
 	@Override
 	public String overRap(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
@@ -68,6 +71,34 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		} else {
 			return "이미 가입된 아이디 입니다.";
 		}
+	}
+
+	/*
+	 * 회원정보 수정을 위해 유저 정보를 가져오는 메서드
+	 */
+	@Override
+	public Beans_UserVO getUser(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		
+		Beans_UserVO user = userDAO.getUserInfo(vo);
+		
+		if(user.getPwd() != null) {
+			System.out.println("유저정보를 가져옴");
+			return user;
+		} else {
+			System.out.println("실패");
+			return null;
+		}
+	}
+
+	/*
+	 * 수정된 유저정보를 업데이트 하는 메서드
+	 */
+	@Override
+	public void setUser(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		System.out.println("유저정보 수정사항 업데이트");
+		userDAO.setUserInfo(vo);
 	}
 
 }
