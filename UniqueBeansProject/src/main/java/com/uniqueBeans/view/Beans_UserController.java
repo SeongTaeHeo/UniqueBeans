@@ -115,14 +115,6 @@ public class Beans_UserController {
 	}
 	
 	/*
-	 * 로그인한 아이디의 마일리지 확인하는 메서드
-	 */
-	@RequestMapping("/userMilage.do")
-	public void userMilage() {
-		
-	}
-	
-	/*
 	 * 로그인한 사람이 작성한 글 확인 위한 메서드
 	 */
 	@RequestMapping("/userBoardView.do")

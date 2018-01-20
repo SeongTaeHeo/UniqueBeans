@@ -112,43 +112,46 @@
 				<div id="userMilage">
 					<h1>내 마일리지</h1>
 					<div>
-						<table class="table table-reflow">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Table heading</th>
-									<th>Table heading</th>
-									<th>Table heading</th>
-								</tr>
-							</thead>
+						<table class="table table-reflow" style="margin: 50px;">
 							<tbody>
 								<tr>
-									<th scope="row">1</th>
-									<td>Table cell</td>
-									<td>Table cell</td>
-									<td>Table cell </td>
-								</tr>
-								<tr>
-									<th scope="row">2</th>
-									<td>Table cell</td>
-									<td>Table cell</td>
-									<td>Table cell</td>
-								</tr>
-								<tr>
-									<th scope="row">3</th>
-									<td>Table cell</td>
-									<td>Table cell</td>
-									<td>Table cell</td>
+									<th scope="row" style="width: 150px;">마일리지 확인</th>
+									<td><div id="showMailage">100원</div></td>
 								</tr>
 							</tbody>
 						</table>
+						</hr>
 					</div>
 				</div>
 
 				<!-- 내가 쓴 글 보기 -->
 				<div id="userBoardView">
 					<h1>내가 쓴 글 보기</h1>
-
+					<table class="bg-light table table-hover table-sm text-center form-radius" style="margin-top: 150px">
+						<thead>
+							<tr>
+								<th class="board_no">글 번호</th>
+								<th class="board_opt">말머리</th>
+								<th class="board_title">제 목</th>
+								<th class="board_write">작성자</th>
+								<th class="board_date">작성일</th>
+								<th class="board_cnt">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${boardList }" var="board">
+								<tr>
+									<td>${board.post_number }</td>
+									<td>${board.post_option }</td>
+									<td align="left"><a
+										href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
+									<td>${board.id }</td>
+									<td>${board.post_date }</td>
+									<td>${board.post_views }</td>
+								</tr>
+							</c:forEach>
+						</tbody>
+					</table>
 				</div>
 
 				<!-- 내가 쓴 댓글 보기 -->

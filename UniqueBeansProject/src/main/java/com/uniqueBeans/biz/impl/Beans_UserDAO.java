@@ -29,6 +29,7 @@ public class Beans_UserDAO {
 	private final String GET_USER_INFO = "select id, password, email, birth, tel, name, address, gender, point from customer where id = ? and password = ?";
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
 	private final String SET_USER_INFO = "update customer set password = ?, email = ?, tel = ?, address = ? where id = ?";
+	
 	/*
 	 * 회원가입을 위한 메서드
 	 */
