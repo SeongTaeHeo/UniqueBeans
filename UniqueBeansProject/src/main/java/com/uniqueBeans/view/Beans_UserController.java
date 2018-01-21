@@ -29,7 +29,7 @@ public class Beans_UserController {
 	@RequestMapping("/insertUser.do")
 	public String insertUser(Beans_UserVO vo) {
 		System.out.println("회원가입 메서드 실행");
-		userService.insertUser(vo);
+		//userService.insertUser(vo);
 		
 		return "index.jsp";
 	}

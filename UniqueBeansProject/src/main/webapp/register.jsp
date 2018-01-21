@@ -24,27 +24,6 @@
 
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/register-form.css?ver=1" rel="stylesheet">
-<script src="vendor/jquery/jquery.min.js"></script>
-<script type="text/javascript">
-$(function() {
-	
-	$('#overrap').click(function(){
-		var userID = $('#userID').val();
-		var param = {'id': userID};
-		
-		console.log(param);
-		$.ajax({
-			url: 'overrap.go',
-			type: 'post',
-			data: param,
-			
-			success: function(data) {
-				alert(data);
-			}
-		});
-	});
-});
-</script>
 
 </head>
 <body>
@@ -61,11 +40,20 @@ $(function() {
 				<tr>
 					<td width="200px;">아이디 :</td>
 					<td align="left"><input type="text" id="userID" name="id" /></td>
-					<td><button type="button" id="overrap" class="btn btn-primary btn-sm">중복검사</button></td>
+					<td><button type="button" id="overrap"
+							class="btn btn-primary btn-sm">중복검사</button></td>
 				</tr>
 				<tr>
 					<td>비밀번호 :</td>
-					<td align="left"><input type="password" name="pwd" /></td>
+					<td align="left"><input id="passCheck1" type="password"
+						name="pwd" /></td>
+				</tr>
+				<tr>
+					<td>비밀번호 확인 :</td>
+					<td align="left"><input id="passCheck2" type="password"
+						name="pwd" />
+						<p style="display: none"></p>	
+					</td>
 				</tr>
 				<tr>
 					<td>이름 :</td>
@@ -73,12 +61,12 @@ $(function() {
 				</tr>
 				<tr>
 					<td>생년월일 :</td>
-					<td align="left"><input type="text" name="birth" size=7 /></td>
+					<td align="left"><input id="inputBirth" type="text" name="birth" size=7 maxlength="10"/></td>
 				</tr>
 				<tr>
 					<td>성별 :</td>
-					<td align="left"><input type="radio" name="gender" value="남" checked />남자 <input
-						type="radio" name="gender" value="여" />여자</td>
+					<td align="left"><input type="radio" name="gender" value="남"
+						checked />남자 <input type="radio" name="gender" value="여" />여자</td>
 				</tr>
 				<tr>
 					<td>email :</td>
@@ -101,6 +89,7 @@ $(function() {
 			</table>
 		</form>
 	</div>
-
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="js/register.js"></script>
 </body>
 </html>
