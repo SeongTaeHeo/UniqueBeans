@@ -43,14 +43,14 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	 * 유저 정보를 가져오는 메서드
 	 */
 	@Override
-	public String loginUser(Beans_UserVO vo) {
+	public Beans_UserVO loginUser(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		
 		Beans_UserVO user = userDAO.getUserData(vo);
 		
 		if(vo.getPwd().equals(user.getPwd())) {
 			System.out.println("로그인 성공");
-			return user.getId();
+			return user;
 		} else {
 			System.out.println("로그인 실패");
 			return null;
@@ -80,7 +80,7 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	public Beans_UserVO getUser(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		
-		Beans_UserVO user = userDAO.getUserInfo(vo);
+		Beans_UserVO user = userDAO.getUserData(vo);
 		
 		if(user.getPwd() != null) {
 			System.out.println("유저정보를 가져옴");
