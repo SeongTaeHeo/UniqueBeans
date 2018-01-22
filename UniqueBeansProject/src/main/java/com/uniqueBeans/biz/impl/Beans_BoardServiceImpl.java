@@ -62,4 +62,10 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 		return beans_boardDAO.Reply_List(vo);
 	}
 
+	@Override
+	public List<Beans_BoardVO> get_myBoardList(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return beans_boardDAO.myBoardList(vo);
+	}
+
 }

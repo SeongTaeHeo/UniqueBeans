@@ -82,7 +82,7 @@ public class Beans_UserController {
 		vo.setId(request.getParameter("id"));
 		vo.setPwd(request.getParameter("pw"));
 		
-		if((vo = userService.getUser(vo)) != null) {
+		if((vo = userService.loginUser(vo)) != null) {
 			return "true";
 		} else {
 			return "false";

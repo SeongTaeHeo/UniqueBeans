@@ -13,10 +13,13 @@ public interface Beans_BoardService {
 	
 	List<Beans_BoardVO> Free_board(Beans_BoardVO vo);
 	
+	List<Beans_BoardVO> get_myBoardList(Beans_BoardVO vo);
+	
 	void insertReply(Beans_BoardVO vo);
 	
 	void deleteReply(Beans_BoardVO vo);
 
 	List<Beans_BoardVO> Reply_List(Beans_BoardVO vo);
+	
 
 }

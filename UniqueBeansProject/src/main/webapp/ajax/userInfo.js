@@ -1,5 +1,4 @@
 $(function(){
-	
 	/*유저정보 수정전 비밀번호 입력 확인*/
 	$('#enter_info').click(function(){
 		var userId = $('#userInfo').attr('value');
@@ -69,32 +68,37 @@ $(function(){
 		});
 	});
 	
-	/* 로그인한 아이디의 마일리지 정보 확인 
-	$('#enter_info').click(function(){
-		var userId = $('#userInfo').attr('value');
-		var userPw = $('#pass').val();
-		var param = {'id': userId, 'pw': userPw};
-		
-		console.log(param);
-		$.ajax({
-			url:'userGetUp.do',
-			data: param,
-			type: 'post',
-			
-			success: function(data) {
-				if(data == 'true') {
-					$('#passInput').css('display','none');
-					$('#userSetPanel').css('display','block');
-				} else {
-					alert('비밀번호가 틀렸습니다.');
-				}
-			},
-			error: function() {
-				alert('현재 서버와의 통신이 불안정합니다.');
-			}
+	/*내가 쓴 글 보기*/
+	var userId = $('#userInfo').attr('value');
+	$.getJSON('myGetBoardList.go?id=' + userId, function(data) {
+		console.log('fdsa'+data);
+		var html = '<h1>내가 쓴 글 보기</h1>' +
+			'<table class="bg-light table'+ 
+			'table-hover table-sm text-center'+ 
+			'form-radius" style="margin-top: 150px">'+
+			'<thead><tr>'+
+			'<th class="board_no">글 번호</th>'+
+			'<th class="board_opt">말머리</th>'+
+			'<th class="board_title">제 목</th>'+
+			'<th class="board_write">작성자</th>'+
+			'<th class="board_date">작성일</th>'+
+			'<th class="board_cnt">조회수</th>'+
+			'</tr></thead><tbody>';
+		$(data).each(function(index, board){
+			html += '<tr>';
+			html += '<td>' + board.post_number + '</td>';
+			html += '<td>' + board.post_option + '</td>';
+			html += '<a href="Free_board_content.do?post_number="'+ board.post_number + '<td>' + board.post_title + '</a></td>';
+			html += '<td>' + board.id + '</td>';
+			html += '<td>' + board.post_date + '</td>';
+			html += '<td>' + board.post_views + '</td>';
+			html += '</tr>';
 		});
-	});*/
-	
+		
+		html += '</tbody></table>';
+		console.log('test'+html);
+		$('#userBoardView').html(html);
+	});
 });
 
 

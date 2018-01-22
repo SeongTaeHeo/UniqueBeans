@@ -25,6 +25,8 @@ public class Beans_BoardDAO {
 	private final String BOARD_LIST_T = "select * from board where post_title like ? order by post_number";
 	private final String BOARD_LIST_C = "select * from baord where post_contents like ? order by post_number";
 	private final String BOARD_UPDATE_CNT = "update board set post_views=? " + "where post_number = ?";
+	// 내가 쓴 게시글 불러오기
+	private final String BOARD_LIST_ID = "select * from board where id = ? order by post_number";
 	
 	private final String RE_INSERT = "insert into reply(id,post_number,re_content) values(?,?,?)";
 	private final String RE_DELETE = "delete from reply where re_content=?";
@@ -176,6 +178,39 @@ public class Beans_BoardDAO {
 		System.out.println("결과값 반환");
 		return boardList;
 	}
+	
+	public List<Beans_BoardVO> myBoardList(Beans_BoardVO vo) {
+		System.out.println("내가 쓴 글 불러오기");
+		List<Beans_BoardVO> boardList = new ArrayList<>();
+		
+		try{
+			conn=JDBCUtil.getConnection();
+			stmt = conn.prepareStatement(BOARD_LIST_ID);
+			stmt.setString(1, vo.getId());
+			System.out.println("id" + vo.getId());
+			rs=stmt.executeQuery();
+			
+			while(rs.next()){
+				Beans_BoardVO board=new Beans_BoardVO();
+				board.setPost_number(rs.getInt("POST_NUMBER"));
+				board.setPost_title(rs.getString("POST_TITLE"));
+				board.setId(rs.getString("ID"));
+				board.setPost_contents(rs.getString("POST_CONTENTS"));
+				board.setPost_date(rs.getDate("POST_DATE"));
+				board.setPost_views(rs.getInt("POST_VIEWS"));
+				System.out.println("결과" + rs.getString("ID"));
+				boardList.add(board);
+			}
+			System.out.println("리스트 구현");
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(rs, stmt, conn);
+		}
+		System.out.println("결과값 반환");
+		return boardList;
+	}
+	
 	public List<Beans_BoardVO> Reply_List(Beans_BoardVO vo){
 		List<Beans_BoardVO> ReplyList=new ArrayList<Beans_BoardVO>();
 		System.out.println("댓글 리스트 선언");

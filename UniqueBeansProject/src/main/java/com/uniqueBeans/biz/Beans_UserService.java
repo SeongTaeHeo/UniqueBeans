@@ -14,9 +14,6 @@ public interface Beans_UserService {
 	// 회원가입 중복검사
 	public String overRap(Beans_UserVO vo);
 	
-	// 유저 정보 가져오기
-	public Beans_UserVO getUser(Beans_UserVO vo);
-	
 	// 유저 정보 수정
 	public void setUser(Beans_UserVO vo);
 }

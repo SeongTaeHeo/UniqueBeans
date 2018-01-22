@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -92,12 +94,14 @@ public class Beans_BoardController {
 		return "Free_board.jsp";
 	}
 
-	@RequestMapping("/dataTransform.do")
+	/*
+	 * 내가 쓴 게시글 불러오기
+	 */
+	@RequestMapping("/myGetBoardList.go")
 	@ResponseBody
-	public List<Beans_BoardVO> dataTransform(Beans_BoardVO vo) {
-		vo.setSearchCondition("POST_TITLE");
-		vo.setSearchKeyword("");
-		List<Beans_BoardVO> boardList = boardservice.Free_board(vo);
+	public List<Beans_BoardVO> dataTransform(HttpServletRequest request, Beans_BoardVO vo) {
+		vo.setId(request.getParameter("id"));
+		List<Beans_BoardVO> boardList = boardservice.get_myBoardList(vo);
 		return boardList;
 	}
 

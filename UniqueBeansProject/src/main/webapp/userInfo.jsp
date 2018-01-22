@@ -116,7 +116,7 @@
 							<tbody>
 								<tr>
 									<th scope="row" style="width: 150px;">마일리지 확인</th>
-									<td><div id="showMailage">100원</div></td>
+									<td><div id="showMailage">${loginUser.point}</div></td>
 								</tr>
 							</tbody>
 						</table>
@@ -138,19 +138,6 @@
 								<th class="board_cnt">조회수</th>
 							</tr>
 						</thead>
-						<tbody>
-							<c:forEach items="${boardList }" var="board">
-								<tr>
-									<td>${board.post_number }</td>
-									<td>${board.post_option }</td>
-									<td align="left"><a
-										href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
-									<td>${board.id }</td>
-									<td>${board.post_date }</td>
-									<td>${board.post_views }</td>
-								</tr>
-							</c:forEach>
-						</tbody>
 					</table>
 				</div>
 
