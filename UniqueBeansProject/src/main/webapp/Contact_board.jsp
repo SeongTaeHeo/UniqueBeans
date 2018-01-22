@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-	
+<%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -63,10 +63,12 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${contactList }" var="board">
+				<c:forEach items="${contactList }" var="contact">
 					<tr>
 						<td>${contact.contact_seq }</td>
-						<td><a href="Free_board_content.do?post_number=${contact.contact_seq }">${contact.contact_title}</a></td>
+						<td>${contact.contact_option }</td>
+						<td><a
+							href="Contact_board_content.do?contact_seq=${contact.contact_seq }">${contact.contact_title}</a></td>
 						<td>${contact.id }</td>
 						<td>${contact.contact_date }</td>
 						<td>${contact.contact_views }</td>
@@ -75,17 +77,21 @@
 			</tbody>
 		</table>
 		<div class="write">
-
-			<a href="contact_write.jsp">
-				<button type="button" class="btn btn-success btn-lg">글
-					작성</button>
-			</a>
+			<c:if test="${!empty loginUser}">
+				<a href="contact_write.jsp">
+					<button type="button" class="btn btn-success btn-lg">글 작성</button>
+				</a>
+			</c:if>
+			<c:if test="${empty loginUser}">
+				<button type="button" class="btn btn-success btn-lg"
+					onclick="alert('로그인 후 작성할수 있습니다.')">글작성</button>
+			</c:if>
 		</div>
 
 		<div class='search' align="center">
-		<span class='green_window'>
-			<input type='text' class='input_text' />
-		</span>
+			<span class='green_window'> <input type='text'
+				class='input_text' />
+			</span>
 			<button type='submit' class='sch_smit'>검색</button>
 		</div>
 

@@ -29,7 +29,7 @@
 
 </head>
 <body>
-	<jsp:include page="top_menu.jsp" />
+<!-- 	<jsp:include page="top_menu.jsp" /> -->
 
 	<header class="masthead" style="height:250px;">
 	<div class="container">
@@ -42,9 +42,10 @@
 	</div>
 
 	<div class="container" style="position: relative; top: -50px;">
-		<table class="table table-bordered">
-			<tbody>
-				<form method="post" action="insertContact.do">
+		<form method="post" action="insertContact.do" id="write_form">
+			<table class="table table-bordered">
+				<tbody>
+
 					<tr>
 						<th>제목:</th>
 						<td><input id="contact_title" type="text"
@@ -52,19 +53,24 @@
 							required /></td>
 					</tr>
 					<tr>
-						<th>문의 유형:</th>
+						<th>작성자</th>
+						<td><input id="id" type="text" value=${loginUser } name="id"
+							readonly="readonly" style="border: none;" /></td>
+					</tr>
+					<tr>
+						<th>말머리:</th>
 						<td><select id="contact_option" name="contact_option">
-								<option value="삼품">상품관련</option>
-								<option value="결제">결제관련</option>
-								<option value="배송">배송관련</option>
-								<option value="기타">기타문의</option>
+								<option value="상품관련">상품관련</option>
+								<option value="결제관련">결제관련</option>
+								<option value="배송관련">배송관련</option>
 						</select></td>
 					</tr>
 					<tr>
 						<th>내용:</th>
 						<td><textarea id="contact_contents" cols="10"
-								placeholder="내용을 입력하세요. " name="contact_contents" class="form-control"
-								style="resize: none; height: 400px;" required></textarea></td>
+								placeholder="내용을 입력하세요. " name="contact_contents"
+								class="form-control" style="resize: none; height: 400px;"
+								required></textarea></td>
 					</tr>
 					<tr>
 						<th>첨부파일:</th>
@@ -73,16 +79,15 @@
 					</tr>
 					<tr align="center">
 						<td colspan="2">
-							<button type="submit" class="btn btn-success btn-xl">
-								 작성
-							</button> 
-							<a class="btn btn-success btn-xl" href="Contact_board.jsp"
-							onclick="return confirm('글쓰기를 취소하시겠습니까?')"> 취소 </a>
+							<button type="submit" class="btn btn-success btn-xl"
+								id="write_btn">작성</button> <a class="btn btn-success btn-xl"
+							href="Contact_board.do" onclick="return confirm('글쓰기를 취소하시겠습니까?')">
+								취소 </a>
 						</td>
 					</tr>
-				</form>
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		</form>
 	</div>
 
 	<br>

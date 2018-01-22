@@ -65,7 +65,7 @@
                   href="#Board">Board</a></li>
 
                <li class="nav-item"><a class="nav-link js-scroll-trigger"
-                  href="Contact_board.jsp">Contact</a></li>
+                  href="Contact_board.do">Contact</a></li>
 
                <li class="nav-item">            
                   <c:if test="${!empty loginUser}">
@@ -357,7 +357,7 @@
                <p class="card-text">
                   불편하신것이 있다면 언제든 UniqueBeans<br>저희에게 알려주세요.
                </p>
-               <a href="Contact_board.jsp" class="btn btn-primary center-block">이동하기</a>
+               <a href="Contact_board.do" class="btn btn-primary center-block">이동하기</a>
             </div>
          </div>
 

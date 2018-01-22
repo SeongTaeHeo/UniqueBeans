@@ -62,4 +62,46 @@ public class Beans_BoardServiceImpl implements Beans_BoardService{
 		return beans_boardDAO.Reply_List(vo);
 	}
 
+	@Override
+	public void insertContact(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.insertContact(vo);
+	}
+
+	@Override
+	public void updateContact(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.updateContact(vo);
+	}
+
+	@Override
+	public void deleteContact(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.deleteContact(vo);
+	}
+
+	@Override
+	public Beans_BoardVO Contact_board_content(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return beans_boardDAO.Contact_board_content(vo);
+	}
+
+	@Override
+	public List<Beans_BoardVO> Contact_board(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return beans_boardDAO.Contact_board(vo);
+	}
+
+	@Override
+	public void insertReply2(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		beans_boardDAO.insertReply2(vo);
+	}
+
+	@Override
+	public List<Beans_BoardVO> Reply_List2(Beans_BoardVO vo) {
+		// TODO Auto-generated method stub
+		return beans_boardDAO.Reply_List2(vo);
+	}
+
 }
