@@ -9,7 +9,7 @@ public interface Beans_UserService {
 	public void insertUser(Beans_UserVO vo);
 	
 	// 유저 로그인
-	public String loginUser(Beans_UserVO vo);
+	public Beans_UserVO loginUser(Beans_UserVO vo);
 	
 	// 회원가입 중복검사
 	public String overRap(Beans_UserVO vo);

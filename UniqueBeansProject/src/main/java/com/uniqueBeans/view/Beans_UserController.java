@@ -29,7 +29,7 @@ public class Beans_UserController {
 	@RequestMapping("/insertUser.do")
 	public String insertUser(Beans_UserVO vo) {
 		System.out.println("회원가입 메서드 실행");
-		//userService.insertUser(vo);
+		userService.insertUser(vo);
 		
 		return "index.jsp";
 	}
@@ -40,7 +40,7 @@ public class Beans_UserController {
 	@RequestMapping("/getUser.go")
 	public String getUser(Beans_UserVO vo, HttpSession session) {
 		System.out.println("로그인 메서드 실행");
-		String userInfo = userService.loginUser(vo);
+		Beans_UserVO userInfo = userService.loginUser(vo);
 		
 		if(userInfo!=null) {
 			session.setAttribute("loginUser", userInfo);
@@ -77,13 +77,12 @@ public class Beans_UserController {
 	 */
 	@RequestMapping("/userGetUp.do")
 	@ResponseBody
-	public String userGetUp(HttpServletRequest request, Model model) {
+	public String userGetUp(HttpServletRequest request) {
 		Beans_UserVO vo = new Beans_UserVO();
 		vo.setId(request.getParameter("id"));
 		vo.setPwd(request.getParameter("pw"));
 		
 		if((vo = userService.getUser(vo)) != null) {
-			model.addAttribute("user", vo);
 			return "true";
 		} else {
 			return "false";

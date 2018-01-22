@@ -45,8 +45,7 @@
 				</tr>
 				<tr>
 					<td>비밀번호 :</td>
-					<td align="left"><input id="passCheck1" type="password"
-						name="pwd" /></td>
+					<td align="left"><input id="passCheck1" type="password"/></td>
 				</tr>
 				<tr>
 					<td>비밀번호 확인 :</td>

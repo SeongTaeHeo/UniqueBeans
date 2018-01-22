@@ -56,3 +56,7 @@
  #showMailage {
  	float: left;
  }
+ 
+ .test {
+ 	display: none;
+ }

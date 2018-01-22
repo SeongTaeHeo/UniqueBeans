@@ -24,9 +24,7 @@ public class Beans_UserDAO {
 	// 회원가입 쿼리문
 	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address, gender, point) values(?,?,?,?,?,?,?,?,?)";
 	// 로그인을 위하여 DB값과 비교.
-	private final String GET_USER_LOGIN = "select id, password from customer where id = ?";
-	// 회원정보 수정을 위해 회원 정보를 검색해 오는 쿼리문
-	private final String GET_USER_INFO = "select id, password, email, birth, tel, name, address, gender, point from customer where id = ? and password = ?";
+	private final String GET_USER_LOGIN = "select * from customer where id = ? and password = ?";
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
 	private final String SET_USER_INFO = "update customer set password = ?, email = ?, tel = ?, address = ? where id = ?";
 	
@@ -69,6 +67,7 @@ public class Beans_UserDAO {
 			userInfo = new Beans_UserVO();
 			pstmt = conn.prepareStatement(GET_USER_LOGIN);
 			pstmt.setString(1, vo.getId());
+			pstmt.setString(2, vo.getPwd());
 		
 			rs = pstmt.executeQuery();
 			
@@ -76,36 +75,6 @@ public class Beans_UserDAO {
 				System.out.println("받아온 유저 ID = " + rs.getString(1));
 				System.out.println("받아온 유저 PW = " + rs.getString(2));
 				
-				userInfo.setId(rs.getString(1));
-				userInfo.setPwd(rs.getString(2));
-			}
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JDBCUtil.close(pstmt, conn);
-		}
-		return userInfo;
-	}
-	
-	
-	/*
-	 * 회원정보 수정을 위해 유저정보를 받아오는 메서드
-	 */
-	public Beans_UserVO getUserInfo(Beans_UserVO vo) {
-		System.out.println("전체 회원정보 get");
-		conn = (Connection) JDBCUtil.getConnection();
-		Beans_UserVO userInfo = null;
-		
-		try {
-			userInfo = new Beans_UserVO();
-			pstmt = conn.prepareStatement(GET_USER_INFO);
-			pstmt.setString(1, vo.getId());
-			pstmt.setString(2, vo.getPwd());
-		
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
 				userInfo.setId(rs.getString(1));
 				userInfo.setPwd(rs.getString(2));
 				userInfo.setEmail(rs.getString(3));
@@ -124,6 +93,7 @@ public class Beans_UserDAO {
 		}
 		return userInfo;
 	}
+	
 	
 	/*
 	 * 회원정보 수정 사항을 반영하는 메서드

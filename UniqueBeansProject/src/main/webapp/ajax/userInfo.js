@@ -69,7 +69,7 @@ $(function(){
 		});
 	});
 	
-	/* 로그인한 아이디의 마일리지 정보 확인 */
+	/* 로그인한 아이디의 마일리지 정보 확인 
 	$('#enter_info').click(function(){
 		var userId = $('#userInfo').attr('value');
 		var userPw = $('#pass').val();
@@ -93,7 +93,7 @@ $(function(){
 				alert('현재 서버와의 통신이 불안정합니다.');
 			}
 		});
-	});
+	});*/
 	
 });
 

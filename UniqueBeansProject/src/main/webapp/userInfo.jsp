@@ -32,7 +32,7 @@
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
-				<li class="sidebar-brand"><a id="userInfo" value="${loginUser}">${loginUser}님</a>
+				<li class="sidebar-brand"><a id="userInfo" value="${loginUser.id}">${loginUser.id}님</a>
 				</li>
 				<li><a id="a1">회원정보 수정</a></li>
 				<li><a id="a2">구매내역</a></li>
@@ -65,7 +65,7 @@
 							<tbody>
 								<tr>
 									<th scope="row">아이디</th>
-									<td><input type="text" value="${loginUser}"
+									<td><input type="text" value="${loginUser.id}"
 										readonly="readonly" style="border: none;"></td>
 								</tr>
 								<tr>
@@ -82,17 +82,17 @@
 								<tr>
 									<th scope="row">주소</th>
 									<td><input id="address" type="text"
-										value="${user.address}" class="form-control"
+										value="${loginUser.address}" class="form-control"
 										style="width: 400px;"></td>
 								</tr>
 								<tr>
 									<th scope="row">전화번호</th>
-									<td><input id="phone" type="text" value="${user.tel}"
+									<td><input id="phone" type="text" value="${loginUser.tel}"
 										class="form-control" style="width: 400px;"></td>
 								</tr>
 								<tr>
 									<th scope="row">이메일</th>
-									<td><input id="email" type="text" value="${user.email}"
+									<td><input id="email" type="text" value="${loginUser.email}"
 										class="form-control" style="width: 400px;"></td>
 								</tr>
 							</tbody>
@@ -167,7 +167,7 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 
 	<!-- userInfo 자바 스크립트 -->
-	<script src="js/userInfo.js"></script>
+	<script src="js/userInfo.js?ver=2"></script>
 	<script src="ajax/userInfo.js"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
