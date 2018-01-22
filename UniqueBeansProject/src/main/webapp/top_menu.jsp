@@ -26,10 +26,10 @@
 						href="#portfolio">Library</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Board">Board</a></li>
+						href="Free_board.do">Board</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#contact">Contact</a></li>
+						href="Contact_board.do">Contact</a></li>
 
 					<li class="nav-item">
 					
