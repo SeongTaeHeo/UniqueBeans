@@ -102,32 +102,37 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	public Boolean searchPw(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		
-		String setfrom = "zhdpek12@gmail.com";
-		String toMail = vo.getEmail();
-		String title = "비밀번호 찾기 결과 입니다.";
-		String content = "찾으신 비밀번호는 " + userDAO.searchPw(vo) + "입니다.";
+		String pwd = null;
 		
-		try {
-			MimeMessage message = sendMail.createMimeMessage();
-			MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
-			
-			helper.setFrom(setfrom);
-			helper.setTo(toMail);
-			helper.setSubject(title);
-			helper.setText(content);
-			
-			sendMail.send(message);
-			
-			return true;
-			
-		} catch (MessagingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println(e.getMessage());
+		
+		if((pwd = userDAO.searchPw(vo)) != null) {
+			try {
+				MimeMessage message = sendMail.createMimeMessage();
+				MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+				
+				String setfrom = "zhdpek12@gmail.com";
+				String toMail = vo.getEmail();
+				String title = "비밀번호 찾기 결과 입니다.";
+				String content = "찾으신 비밀번호는 " + pwd + "입니다.";
+				
+				helper.setFrom(setfrom);
+				helper.setTo(toMail);
+				helper.setSubject(title);
+				helper.setText(content);
+				
+				sendMail.send(message);
+				
+				return true;
+				
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		} else {
 			return false;
 		}
-		
-		
+		return false;
 	}
 
 }

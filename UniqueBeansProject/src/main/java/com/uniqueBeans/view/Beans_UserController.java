@@ -125,7 +125,7 @@ public class Beans_UserController {
 		if(userService.searchPw(vo)) {
 			System.out.println("보내졋드아!!!!");
 		} else {
-			System.out.println("응 안보내짐 오류남 ㅇㅇ");
+			System.out.println("아이디 또는 비밀번호가 틀렸습니다.");
 		}
 		
 		return "foundpw.jsp";
