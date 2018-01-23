@@ -8,13 +8,14 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
+
 
 @Controller
 @SessionAttributes("user")
@@ -22,7 +23,7 @@ public class Beans_UserController {
 	
 	@Autowired
 	private Beans_UserService userService;
-	
+
 	/*
 	 * 회원가입 insertUser.do 메서드
 	 */
@@ -104,6 +105,7 @@ public class Beans_UserController {
 		
 		userService.setUser(vo);
 	}
+	
 	
 	/*
 	 * 로그인한 아이디의 구매내역을 보기 위한 메서드
