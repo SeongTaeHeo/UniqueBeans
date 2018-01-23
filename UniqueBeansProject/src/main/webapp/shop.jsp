@@ -68,6 +68,7 @@
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
 			<div class="container">
 				<div id="ordering_wrap">
+					<div>${loginUser.id}님</div>
 					<h1>현재 주문 상품</h1>
 					<hr>
 					<table class="table table-striped table-hover table-bordered" id="ordering">
@@ -103,9 +104,13 @@
 					</tbody>
 				</table>
 				<table id="complpro_table">
+					<div></div>
 					<tr>
-						<th>상품종류</th>
+						<th>품종</th>
 						<th>상품명</th>
+						<th>상품코드</th>
+						<th>로스팅</th>
+						<th>그라인딩</th>
 						<th>수량</th>
 						<th>가격</th>
 						<th>삭제</th>
@@ -596,10 +601,13 @@
 			console.log("주문 완료");
 			$("#complpro_table").append(
 				"<tr>"+
-					"<td>원두</td>"+
-					"<td>"+$("#sel_kd").text()+"/"+$("#sel_ct").text()+"/"+$("#sel_rt").text()+"/"+$("#sel_gd").text()+"</td>"
-					+"<td></td>"+
-					+"<td>"+$("#sel_pr").text()+"</td>"
+					"<td>"+$("#sel_kd").text()+"</td>"
+					+"<td></td>"
+					+"<td>"+$("#sel_ct").text()+"</td>"
+					+"<td>"+$("#sel_rt").text()+"</td>"
+					+"<td>"+$("#sel_gd").text()+"</td>"
+					+"<td>3</td>"
+					+"<td>5000</td>"
 				+"</tr>"
 			);
 		});
