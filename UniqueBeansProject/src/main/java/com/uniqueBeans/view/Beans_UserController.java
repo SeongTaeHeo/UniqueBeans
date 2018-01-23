@@ -116,14 +116,6 @@ public class Beans_UserController {
 	}
 	
 	/*
-	 * 로그인한 사람이 작성한 글 확인 위한 메서드
-	 */
-	@RequestMapping("/userBoardView.do")
-	public void userBoardView() {
-		
-	}
-	
-	/*
 	 * 로그인한 사람이 작성한 댓글 확인 위한 메서드
 	 */
 	@RequestMapping("/userCommenView.do")
