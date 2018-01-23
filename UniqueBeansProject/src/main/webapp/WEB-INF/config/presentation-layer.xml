@@ -33,9 +33,6 @@
         </property>
        
     </bean>
-    <bean id="Beans_emailsend" class="com.uniqueBeans.biz.impl.Beans_MailServiceImpl">
-    	<property name="javaMailSender" ref="javaMailSender"/>
-    </bean>
 
 
 
