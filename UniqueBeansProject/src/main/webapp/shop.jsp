@@ -30,6 +30,7 @@
 <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href="css/agency.min.css">
 <link href="css/shop.css" rel="stylesheet">
+
 <title>Insert title here</title>
 
 </head>
@@ -66,40 +67,41 @@
 	<!-- 주문테이블 -->
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-			<div class="container">
-				<div id="ordering_wrap">
-					<h1>현재 주문 상품</h1>
-					<hr>
-					<table class="table table-striped table-hover table-bordered" id="ordering">
-						<tbody>
-							<tr>
-								<th></th>
-								<th>내용</th>
-							</tr>
-							<tr>
-								<th>품종</th>
-								<td id="sel_kd"></td>
-							</tr>
-							<tr>
-								<th>국가명</th>
-								<td id="sel_ct"></td>
-							</tr>
-							<tr>
-								<th>로스팅</th>
-								<td id="sel_rt"></td>
-							</tr>
-							<tr>
-								<th>그라인딩</th>
-								<td id="sel_gd"></td>
-							</tr>
-							<tr>
-								<th><span class="pull-left">상품 가격</span></th>
-								<td id="sel_pr">250.00</td>
-							</tr>
-							<tr>
-								<th><span class="pull-left">부가세 20%</span></th>
-								<td>50.00</td>
-							</tr>
+		<div class="container">
+			<div id="ordering_wrap">
+				<h1>현재 주문 상품</h1>
+				<hr>
+				<table class="table table-striped table-hover table-bordered"
+					id="ordering">
+					<tbody>
+						<tr>
+							<th></th>
+							<th>내용</th>
+						</tr>
+						<tr>
+							<th>품종</th>
+							<td id="sel_kd"></td>
+						</tr>
+						<tr>
+							<th>국가명</th>
+							<td id="sel_ct"></td>
+						</tr>
+						<tr>
+							<th>로스팅</th>
+							<td id="sel_rt"></td>
+						</tr>
+						<tr>
+							<th>그라인딩</th>
+							<td id="sel_gd"></td>
+						</tr>
+						<tr>
+							<th><span class="pull-left">상품 가격</span></th>
+							<td id="sel_pr">250.00</td>
+						</tr>
+						<tr>
+							<th><span class="pull-left">부가세 20%</span></th>
+							<td>50.00</td>
+						</tr>
 					</tbody>
 				</table>
 				<table id="complpro_table">
@@ -116,7 +118,7 @@
 		</div>
 	</div>
 
-	<div class="conatiner">
+	<div class="container">
 		<div id="myCarousel" class="carousel slide" data-ride="carousel"
 			data-interval="0" data-wrap="false">
 			<div class="carousel-inner">
@@ -124,31 +126,43 @@
 					<div class="shop-step">
 						<div class="hover-content"></div>
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <div class="kd1" id="shop-option-img0" alt="">원두 주문</div>
-						</a>
-						<a class="carousel-control-next" href="#myCarousel"
-							data-slide-to="6"> <div class="kd1" id="shop-option-img0" alt="">도구 주문</div>
+							data-slide="next">
+							<div class="kd1">
+								<img class="" id="shop-option-main" src="img/bean.jpg" alt="">원두
+								주문
+								<div class="text-block">
+									<h4>유니크빈 주문하기</h4>
+									<p>Order my Unique Beans</p>
+								</div>
+							</div>
+						</a> <a class="carousel-control-next" href="#myCarousel"
+							data-slide-to="6">
+							<div class="kd1">
+								<img class="" id="shop-option-main" src="img/tools.jpg" alt="">도구
+								주문
+								<div class="text-block">
+									<h4>도구 주문하기</h4>
+									<p>Order my Unique Beans Tools</p>
+								</div>
+							</div>
 						</a>
 					</div>
 				</div>
 				<div class="carousel-item">
 					<div class="shop-step">
-							<div class="hover-content">
-							</div>
-							<a class="carousel-control-next" href="#myCarousel"
-								data-slide="next"> <img class="kd1" id="shop-option-img1"
-								src="img/arabica.jpg" alt="">
-							</a>
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="kd2" id="shop-option-img1"
-							src="img/robusta.jpg" alt="">
+							data-slide="next">
+							 <img class="kd1" id="shop-option-img1"
+							src="img/arabica.PNG" alt="">
 						</a>
 
+						
+						
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide="next"> <img class="kd2" id="shop-option-img1"
+							src="img/robusta.PNG" alt="">
+						</a>
 
-						<!-- caption -->
-						<div>
-							<h5 id="carousel-caption">원두의 품종을 선택하세요</h5>
-						</div>
 					</div>
 				</div>
 
@@ -199,24 +213,29 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img class="gd0" id="shop-option-img4"
-							src="img/grinding/grinding0.PNG" alt="grind_grade"></span>
-						</a><a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish">  <img class="gd1" id="shop-option-img4"
-							src="img/grinding/grinding1.PNG" alt="grind_grade"></span>
-						</a><a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish">  <img class="gd2" id="shop-option-img4"
-							src="img/grinding/grinding2.PNG" alt="grind_grade"></span>
-						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"><img class="gd3" id="shop-option-img4"
-							src="img/grinding/grinding3.PNG" alt="grind_grade"></span>
-						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img class="gd4" id="shop-option-img4"
-							src="img/grinding/grinding4.PNG" alt="grind_grade"></span>
-						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"><img class="gd5" id="shop-option-img4"
-							src="img/grinding/grinding5.PNG" alt="grind_grade"></span>
-						</a>
+							data-slide="next"><span class="bpro_finish"> <img
+								class="gd0" id="shop-option-img4"
+								src="img/grinding/grinding0.PNG" alt="grind_grade"></span> </a><a
+							class="carousel-control-next" href="#myCarousel"
+							data-slide="next"><span class="bpro_finish"> <img
+								class="gd1" id="shop-option-img4"
+								src="img/grinding/grinding1.PNG" alt="grind_grade"></span> </a><a
+							class="carousel-control-next" href="#myCarousel"
+							data-slide="next"><span class="bpro_finish"> <img
+								class="gd2" id="shop-option-img4"
+								src="img/grinding/grinding2.PNG" alt="grind_grade"></span> </a> <a
+							class="carousel-control-next" href="#myCarousel"
+							data-slide="next"><span class="bpro_finish"><img
+								class="gd3" id="shop-option-img4"
+								src="img/grinding/grinding3.PNG" alt="grind_grade"></span> </a> <a
+							class="carousel-control-next" href="#myCarousel"
+							data-slide="next"><span class="bpro_finish"> <img
+								class="gd4" id="shop-option-img4"
+								src="img/grinding/grinding4.PNG" alt="grind_grade"></span> </a> <a
+							class="carousel-control-next" href="#myCarousel"
+							data-slide="next"><span class="bpro_finish"><img
+								class="gd5" id="shop-option-img4"
+								src="img/grinding/grinding5.PNG" alt="grind_grade"></span> </a>
 
 						<div>
 							<h5 id="carousel-caption">원두의 분쇄도를 선택하세요</h5>
@@ -227,392 +246,619 @@
 					<div class="shop-step">
 						<div class="hover-content"></div>
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide-to="1"> <div class="kd1" id="shop-option-img0" alt="">원두 추가 주문하기</div>
-						</a>
-						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <div class="kd1" id="shop-option-img0" alt="">도구 주문하기</div>
+							data-slide-to="1">
+							<div class="kd1">
+								<img class="" id="shop-option-main" src="img/bean.jpg" alt="">원두
+								추가 주문하기
+								<div class="text-block">
+									<h4>유니크빈 추가 주문하기</h4>
+									<p>Order more my Unique Beans</p>
+								</div>
+							</div>
+						</a> <a class="carousel-control-next" href="#myCarousel"
+							data-slide="next">
+							<div class="kd1">
+								<img class="" id="shop-option-main" src="img/tools.jpg" alt="">도구
+								주문하기
+								<div class="text-block">
+									<h4>도구 추가 주문하기</h4>
+									<p>Order more my Unique Beans Tools</p>
+								</div>
+							</div>
 						</a>
 					</div>
 				</div>
-				
+
 				<div class="carousel-item">
 					<div class="shop-step">
 						<div class="hover-content"></div>
-						<a class="carousel-control-next" href="#myCarousel" data-slide="next"> 
+						<a class="carousel-control-next" href="#myCarousel"
+							data-slide="next">
 							<div class="tpro_wrap" id="shop-option-img5">
-								<div class="tpro_img_wrap"><img src="img/arabica.jpg" class="tpro_img" alt="" data-toggle="modal" data-target="#myModal"></div>
+								<div class="tpro_img_wrap">
+									<img src="img/arabica.jpg" class="tpro_img" alt=""
+										data-toggle="modal" data-target="#myModal">
+								</div>
 								<div class="tpro_name">상품명</div>
 								<div class="tpro_price">가격</div>
 							</div>
 						</a>
+					</div>
+				</div>
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" role="dialog">
+					<div class="modal-dialog">
+
+						<!-- Modal content-->
+						<div class="modal-content" id="tpro_modal">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">X</button>
+
+							</div>
+							<div class="modal-body">
+								<h4 class="modal-title">Info</h4>
+								<div>
+									<img src="img/arabica.jpg">
+								</div>
+								<table>
+									<tr>
+										<th>상품코드</th>
+										<td id="tsel_name">aaa
+										<td>
+									</tr>
+									<tr>
+										<th>상품명</th>
+										<td id="tsel_name">커피도구 어쩌구 저쩌구
+										<td>
+									</tr>
+									<tr>
+										<th>가격</th>
+										<td id="tsel_price">10000
+										<td>
+									</tr>
+									<tr>
+										<th>상세정보</th>
+										<td>에베베븝브베베벱버부버부베
+										<td>
+									</tr>
+								</table>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal" id="add_complpro">추가하기</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">Close</button>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<center>
+					<a class="carousel-control-prev" href="#myCarousel"
+						data-slide="prev">
+						<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
+					</a>
+					<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
+				</center>
+			</div>
+		</div>
+
+
+		<!-- 팝업 정보 -->
+		<div id="pop-up">
+			<div id="canvas_wrap">
+				<canvas id="canvas"></canvas>
+			</div>
+			<div id="info_wrapper">
+				<div class="info_wrap">
+					Country : <span id="info_name"></span>
+				</div>
+				<div class="info_wrap">
+					Price : <span id="info_price"></span>
+				</div>
+				<div class="info_wrap">
+					kind : <span id="info_kind"></span>
+				</div>
+				<div class="info_wrap">
+					Roasting : <span id="info_rt"></span>
+				</div>
+				<div class="info_wrap">
+					Description : <span id="info_desc"></span>
 				</div>
 			</div>
-			 <!-- Modal -->
-			  <div class="modal fade" id="myModal" role="dialog">
-			    <div class="modal-dialog">
-			    
-			      <!-- Modal content-->
-			      <div class="modal-content" id="tpro_modal">
-			        <div class="modal-header">
-			          <button type="button" class="close" data-dismiss="modal">X</button>
-			          
-			        </div>
-			        <div class="modal-body">
-			        	<h4 class="modal-title">Info</h4>
-			      		<div><img src="img/arabica.jpg"></div>
-			        	<table>
-			        		<tr>
-			        			<th>상품코드</th>
-			        			<td id="tsel_name">aaa<td>
-			        		</tr>
-			        		<tr>
-			        			<th>상품명</th>
-			        			<td id="tsel_name">커피도구 어쩌구 저쩌구<td>
-			        		</tr>
-			        		<tr>
-			        			<th>가격</th>
-			        			<td id="tsel_price">10000<td>
-			        		</tr>
-			        		<tr>
-			        			<th>상세정보</th>
-			        			<td>에베베븝브베베벱버부버부베<td>
-			        		</tr>
-			        	</table>
-			        </div>
-			        <div class="modal-footer">
-			          <button type="button" class="btn btn-default" data-dismiss="modal" id="add_complpro">추가하기</button>
-			          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-			        </div>
-			      </div>
-			      
-			    </div>
-			  </div>
+		</div>
+<script src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/mc_validate.js"></script>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			function openNav() {
+				document.getElementById("mySidenav").style.width = "400px";
+				document.getElementById("main").style.marginLeft = "400px";
+			}
+			function closeNav() {
+				document.getElementById("mySidenav").style.width = "0";
+				document.getElementById("main").style.marginLeft = "0";
+			}
+		</script>
 
-			<center>
-				<a class="carousel-control-prev" href="#myCarousel"
-					data-slide="prev">
-					<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
-				</a>
-				<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
-			</center>
-		</div>
-	</div>
-	
-	
-	<!-- 팝업 정보 -->
-	<div id="pop-up">
-		<div id="canvas_wrap">
-			<canvas id="canvas"></canvas>
-		</div>
-		<div id="info_wrapper">
-			<div class="info_wrap">
-				Country : <span id="info_name"></span>
-			</div>
-			<div class="info_wrap">
-				Price : <span id="info_price"></span>
-			</div>
-			<div class="info_wrap">
-				kind : <span id="info_kind"></span>
-			</div>
-			<div class="info_wrap">
-				Roasting : <span id="info_rt"></span>
-			</div>
-			<div class="info_wrap">
-				Description : <span id="info_desc"></span>
-			</div>
-		</div>
-	</div>
-	
-	<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script>
-		function openNav() {
-			document.getElementById("mySidenav").style.width = "400px";
-			document.getElementById("main").style.marginLeft = "400px";
-		}
-		function closeNav() {
-			document.getElementById("mySidenav").style.width = "0";
-			document.getElementById("main").style.marginLeft = "0";
-		}
-	</script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-	<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="vendor/jquery/jquery.min.js"></script>
-	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-	<script src="js/jqBootstrapValidation.js"></script>
-	<script src="js/contact_me.js"></script>
-	<script src="js/agency.min.js"></script>
-	<script src="js/Chart.bundle.js"></script>
-	<script src="js/utils.js"></script>
-	<script type="text/javascript">
-
-		$(".kd1").click(function(){
-			console.log("아라비카 클릭");
-			$("#sel_kd").empty();
-			$("#sel_kd").append("아라비카");
-			$.ajax({
-				url:'ajax/country.json',
-				dataType: 'json',
-				success: function(data){
-					console.log("ajax 연결 성공");
-					$('#btn_wrap').empty();
-					for(var i =0; i< data.length; i++){
-						if(data[i].kd =="Arabica"){
-							$('#btn_wrap').append(
-								"<a class='carousel-control-next'"+
-								"href='#myCarousel' data-slide='next'>"+
-								"<img id='shop-option-img2' class='pro_country'"
+		<script type="text/javascript"
+			src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="js/bootstrap.js"></script>
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+		<script src="js/jqBootstrapValidation.js"></script>
+		<script src="js/contact_me.js"></script>
+		<script src="js/agency.min.js"></script>
+		<script src="js/Chart.bundle.js"></script>
+		<script src="js/utils.js"></script>
+		<script type="text/javascript">
+			$(".kd1")
+					.click(
+							function() {
+								console.log("아라비카 클릭");
+								$("#sel_kd").empty();
+								$("#sel_kd").append("아라비카");
+								$
+										.ajax({
+											url : 'ajax/country.json',
+											dataType : 'json',
+											success : function(data) {
+												console.log("ajax 연결 성공");
+												$('#btn_wrap').empty();
+												for (var i = 0; i < data.length; i++) {
+													if (data[i].kd == "Arabica") {
+														$('#btn_wrap')
+																.append(
+																		"<a class='carousel-control-next'"+
+								"href='#myCarousel' data-slide='next'>"
+																				+ "<img id='shop-option-img2' class='pro_country'"
 								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
-								+ data[i].id + "'></a>"		
-							);
-						} else{
-							continue;
-						}
-					}
-					var moveLeft = 10;
-			        var moveDown = 20;
-			        
-					
-					$(".pro_country").mouseenter(function(e){				        
-						var mover_country = $(this).attr("alt");
-						for(var j =0; j< data.length; j++){
-							if(mover_country == data[j].id){
-								var color = Chart.helpers.color;
-								var config = {
-								        type: 'radar',
-								        data: {
-								            labels: ["Aroma", "Bitters", "Acidity", "Balance", "Body", "Sweet"],
-								            datasets: [{
-								                label: data[j].name,
-								                borderColor: window.chartColors.yellow,
-								                backgroundColor: color(window.chartColors.yellow).alpha(0.7).rgbString(),
-								                pointBackgroundColor: window.chartColors.yellow,
-								                data: [
-								                	data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw
-								                ]
-								            }]
-								        }	
-								 };
-  
-								$('#canvas').remove();
-								$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
-								myRadar = new Chart(document.getElementById("canvas"), config);
-								$("#info_name").empty();
-								$("#info_name").append(data[j].name);
-								$("#info_kind").empty();
-								$("#info_kind").append(data[j].kind);
-								$("#info_price").empty();
-								$("#info_price").append(data[j].price);
-								$("#info_rt").empty();
-								$("#info_rt").append(data[j].price);
-								
-								$("#sel_kt").empty();
-								$("#sel_kt").append(data[j].kind + data[j].name);
-								
-								/* 팝업 생성 시작 */
-								$('.pro_country').hover(function(e) {
-							    	$('div#pop-up').show();
-							        $('div#pop-up').css('top', e.pageY + moveDown);
-							        $('div#pop-up').css('left', e.pageX + moveLeft);
-							        $('div#pop-up').appendTo('body');
-							        }, function() {
-							        	$('div#pop-up').hide();	
-							     	}
-							     );
-							     $('.pro_country').mousemove(function(e) {
-							     	$("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
-							     });
-							        
-						        /* 팝업생성 끝 */
-							}else{
-								continue;
-							}
-						}
-						
-						$(".pro_country").click(function(){
-							var selected_ct = $(this).attr("alt");
-							$("#sel_ct").empty();
-							$("#sel_ct").append(selected_ct);
-						});
-					});	
-				}		
-			});
-		});
-		
-		
+								+ data[i].id + "'></a>");
+													} else {
+														continue;
+													}
+												}
+												var moveLeft = 10;
+												var moveDown = 20;
 
-		$(".kd2").click(function(){
-			console.log("로부스타 클릭");
-			$("#sel_kd").empty();
-			$("#sel_kd").append("로부스타");
-			$.ajax({
-				url:'ajax/country.json',
-				dataType: 'json',
-				success: function(data){
-					console.log("ajax 연결 성공");
-					$('#btn_wrap').empty();
-					for(var i =0; i< data.length; i++){
-						if(data[i].kd =="Robusta"){
-							$('#btn_wrap').append(
-								"<a class='carousel-control-next'"+
-								"href='#myCarousel' data-slide='next'>"+
-								"<img id='shop-option-img2' class='pro_country'"
+												$(".pro_country")
+														.mouseenter(
+																function(e) {
+																	var mover_country = $(
+																			this)
+																			.attr(
+																					"alt");
+																	for (var j = 0; j < data.length; j++) {
+																		if (mover_country == data[j].id) {
+																			var color = Chart.helpers.color;
+																			var config = {
+																				type : 'radar',
+																				data : {
+																					labels : [
+																							"Aroma",
+																							"Bitters",
+																							"Acidity",
+																							"Balance",
+																							"Body",
+																							"Sweet" ],
+																					datasets : [ {
+																						label : data[j].name,
+																						borderColor : window.chartColors.yellow,
+																						backgroundColor : color(
+																								window.chartColors.yellow)
+																								.alpha(
+																										0.7)
+																								.rgbString(),
+																						pointBackgroundColor : window.chartColors.yellow,
+																						data : [
+																								data[j].ar,
+																								data[j].bi,
+																								data[j].ac,
+																								data[j].ba,
+																								data[j].bo,
+																								data[j].sw ]
+																					} ]
+																				}
+																			};
+
+																			$(
+																					'#canvas')
+																					.remove();
+																			$(
+																					"#canvas_wrap")
+																					.append(
+																							"<canvas id='canvas'></canvas>");
+																			myRadar = new Chart(
+																					document
+																							.getElementById("canvas"),
+																					config);
+																			$(
+																					"#info_name")
+																					.empty();
+																			$(
+																					"#info_name")
+																					.append(
+																							data[j].name);
+																			$(
+																					"#info_kind")
+																					.empty();
+																			$(
+																					"#info_kind")
+																					.append(
+																							data[j].kind);
+																			$(
+																					"#info_price")
+																					.empty();
+																			$(
+																					"#info_price")
+																					.append(
+																							data[j].price);
+																			$(
+																					"#info_rt")
+																					.empty();
+																			$(
+																					"#info_rt")
+																					.append(
+																							data[j].price);
+
+																			$(
+																					"#sel_kt")
+																					.empty();
+																			$(
+																					"#sel_kt")
+																					.append(
+																							data[j].kind
+																									+ data[j].name);
+
+																			/* 팝업 생성 시작 */
+																			$(
+																					'.pro_country')
+																					.hover(
+																							function(
+																									e) {
+																								$(
+																										'div#pop-up')
+																										.show();
+																								$(
+																										'div#pop-up')
+																										.css(
+																												'top',
+																												e.pageY
+																														+ moveDown);
+																								$(
+																										'div#pop-up')
+																										.css(
+																												'left',
+																												e.pageX
+																														+ moveLeft);
+																								$(
+																										'div#pop-up')
+																										.appendTo(
+																												'body');
+																							},
+																							function() {
+																								$(
+																										'div#pop-up')
+																										.hide();
+																							});
+																			$(
+																					'.pro_country')
+																					.mousemove(
+																							function(
+																									e) {
+																								$(
+																										"div#pop-up")
+																										.css(
+																												'top',
+																												e.pageY
+																														+ moveDown)
+																										.css(
+																												'left',
+																												e.pageX
+																														+ moveLeft);
+																							});
+
+																			/* 팝업생성 끝 */
+																		} else {
+																			continue;
+																		}
+																	}
+
+																	$(
+																			".pro_country")
+																			.click(
+																					function() {
+																						var selected_ct = $(
+																								this)
+																								.attr(
+																										"alt");
+																						$(
+																								"#sel_ct")
+																								.empty();
+																						$(
+																								"#sel_ct")
+																								.append(
+																										selected_ct);
+																					});
+																});
+											}
+										});
+							});
+
+			$(".kd2")
+					.click(
+							function() {
+								console.log("로부스타 클릭");
+								$("#sel_kd").empty();
+								$("#sel_kd").append("로부스타");
+								$
+										.ajax({
+											url : 'ajax/country.json',
+											dataType : 'json',
+											success : function(data) {
+												console.log("ajax 연결 성공");
+												$('#btn_wrap').empty();
+												for (var i = 0; i < data.length; i++) {
+													if (data[i].kd == "Robusta") {
+														$('#btn_wrap')
+																.append(
+																		"<a class='carousel-control-next'"+
+								"href='#myCarousel' data-slide='next'>"
+																				+ "<img id='shop-option-img2' class='pro_country'"
 								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
-								+ data[i].id + "'></a>"		
-							);
-						} else{
-							continue;
-						}
-					}
-					var moveLeft = 10;
-			        var moveDown = 20;
-			        
-					
-					$(".pro_country").mouseenter(function(e){				        
-						var mover_country = $(this).attr("alt");
-						for(var j =0; j< data.length; j++){
-							if(mover_country == data[j].id){
-								var color = Chart.helpers.color;
-								var config = {
-								        type: 'radar',
-								        data: {
-								            labels: ["Aroma", "Bitters", "Acidity", "Balance", "Body", "Sweet"],
-								            datasets: [{
-								                label: data[j].name,
-								                borderColor: window.chartColors.yellow,
-								                backgroundColor: color(window.chartColors.yellow).alpha(0.7).rgbString(),
-								                pointBackgroundColor: window.chartColors.yellow,
-								                data: [
-								                	data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw
-								                ]
-								            }]
-								        }	
-								 };
-  
-								$('#canvas').remove();
-								$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
-								myRadar = new Chart(document.getElementById("canvas"), config);
-								$("#info_name").empty();
-								$("#info_name").append(data[j].name);
-								$("#info_kind").empty();
-								$("#info_kind").append(data[j].kind);
-								$("#info_price").empty();
-								$("#info_price").append(data[j].price);
-								$("#info_rt").empty();
-								$("#info_rt").append(data[j].price);
-								
-								$("#sel_kt").empty();
-								$("#sel_kt").append(data[j].kind + data[j].name);
-								
-								/* 팝업 생성 시작 */
-								$('.pro_country').hover(function(e) {
-							    	$('div#pop-up').show();
-							        $('div#pop-up').css('top', e.pageY + moveDown);
-							        $('div#pop-up').css('left', e.pageX + moveLeft);
-							        $('div#pop-up').appendTo('body');
-							        }, function() {
-							        	$('div#pop-up').hide();	
-							     	}
-							     );
-							     $('.pro_country').mousemove(function(e) {
-							     	$("div#pop-up").css('top', e.pageY + moveDown).css('left', e.pageX + moveLeft);
-							     });
-							        
-						        /* 팝업생성 끝 */
-							}else{
-								continue;
-							}
-						}
-						
-						$(".pro_country").click(function(){
-							var selected_ct = $(this).attr("alt");
-							$("#sel_ct").empty();
-							$("#sel_ct").append(selected_ct);
-						});
-					});	
-				}		
-			});
-		});
-				
-		$(".rt0").click(function(){
-			$("#sel_rt").empty();
-			$("#sel_rt").append("그린 빈");
-		});
-		$(".rt1").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("라이트 로스팅");
-		});
-		$(".rt2").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("시나몬 로스팅");
-		});
-		$(".rt3").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("미디엄 로스팅");
-		});
-		$(".rt4").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("하이 로스팅");
-		});
-		$(".rt5").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("시티 로스팅");
-		});
-		$(".rt6").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("풀시티 로스팅");
-		});
-		$(".rt7").click(function() {
-			$("#sel_rt").empty();
-			$("#sel_rt").append("프렌치 로스팅");
-		});
+								+ data[i].id + "'></a>");
+													} else {
+														continue;
+													}
+												}
+												var moveLeft = 10;
+												var moveDown = 20;
 
-		$(".gd0").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("홀빈");
-		});
-		$(".gd1").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("프렌치 프레스");
-		});
-		$(".gd2").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("융 드립");
-		});
-		$(".gd3").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("사이폰");
-		});
-		$(".gd4").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("드립");
-		});
-		$(".gd5").click(function() {
-			$("#sel_gd").empty();
-			$("#sel_gd").append("에스프레소");
-		});
-		$(".bpro_finish").click(function(){
-			console.log("주문 완료");
-			$("#complpro_table").append(
-				"<tr>"+
-					"<td>원두</td>"+
-					"<td>"+$("#sel_kd").text()+"/"+$("#sel_ct").text()+"/"+$("#sel_rt").text()+"/"+$("#sel_gd").text()+"</td>"
-					+"<td></td>"+
-					+"<td>"+$("#sel_pr").text()+"</td>"
-				+"</tr>"
-			);
-		});
-		$("#add_complpro").click(function(){
-			console.log("주문 완료");
-			$("#complpro_table").append( 
-				"<tr>"+
-					"<td>도구</td>"+
-					"<td>"+$("#tsel_name").text()+"</td>"
-					+"<td></td>"
-				+"</tr>"
-			);
-		});
-	</script>
+												$(".pro_country")
+														.mouseenter(
+																function(e) {
+																	var mover_country = $(
+																			this)
+																			.attr(
+																					"alt");
+																	for (var j = 0; j < data.length; j++) {
+																		if (mover_country == data[j].id) {
+																			var color = Chart.helpers.color;
+																			var config = {
+																				type : 'radar',
+																				data : {
+																					labels : [
+																							"Aroma",
+																							"Bitters",
+																							"Acidity",
+																							"Balance",
+																							"Body",
+																							"Sweet" ],
+																					datasets : [ {
+																						label : data[j].name,
+																						borderColor : window.chartColors.yellow,
+																						backgroundColor : color(
+																								window.chartColors.yellow)
+																								.alpha(
+																										0.7)
+																								.rgbString(),
+																						pointBackgroundColor : window.chartColors.yellow,
+																						data : [
+																								data[j].ar,
+																								data[j].bi,
+																								data[j].ac,
+																								data[j].ba,
+																								data[j].bo,
+																								data[j].sw ]
+																					} ]
+																				}
+																			};
+
+																			$(
+																					'#canvas')
+																					.remove();
+																			$(
+																					"#canvas_wrap")
+																					.append(
+																							"<canvas id='canvas'></canvas>");
+																			myRadar = new Chart(
+																					document
+																							.getElementById("canvas"),
+																					config);
+																			$(
+																					"#info_name")
+																					.empty();
+																			$(
+																					"#info_name")
+																					.append(
+																							data[j].name);
+																			$(
+																					"#info_kind")
+																					.empty();
+																			$(
+																					"#info_kind")
+																					.append(
+																							data[j].kind);
+																			$(
+																					"#info_price")
+																					.empty();
+																			$(
+																					"#info_price")
+																					.append(
+																							data[j].price);
+																			$(
+																					"#info_rt")
+																					.empty();
+																			$(
+																					"#info_rt")
+																					.append(
+																							data[j].price);
+
+																			$(
+																					"#sel_kt")
+																					.empty();
+																			$(
+																					"#sel_kt")
+																					.append(
+																							data[j].kind
+																									+ data[j].name);
+
+																			/* 팝업 생성 시작 */
+																			$(
+																					'.pro_country')
+																					.hover(
+																							function(
+																									e) {
+																								$(
+																										'div#pop-up')
+																										.show();
+																								$(
+																										'div#pop-up')
+																										.css(
+																												'top',
+																												e.pageY
+																														+ moveDown);
+																								$(
+																										'div#pop-up')
+																										.css(
+																												'left',
+																												e.pageX
+																														+ moveLeft);
+																								$(
+																										'div#pop-up')
+																										.appendTo(
+																												'body');
+																							},
+																							function() {
+																								$(
+																										'div#pop-up')
+																										.hide();
+																							});
+																			$(
+																					'.pro_country')
+																					.mousemove(
+																							function(
+																									e) {
+																								$(
+																										"div#pop-up")
+																										.css(
+																												'top',
+																												e.pageY
+																														+ moveDown)
+																										.css(
+																												'left',
+																												e.pageX
+																														+ moveLeft);
+																							});
+
+																			/* 팝업생성 끝 */
+																		} else {
+																			continue;
+																		}
+																	}
+
+																	$(
+																			".pro_country")
+																			.click(
+																					function() {
+																						var selected_ct = $(
+																								this)
+																								.attr(
+																										"alt");
+																						$(
+																								"#sel_ct")
+																								.empty();
+																						$(
+																								"#sel_ct")
+																								.append(
+																										selected_ct);
+																					});
+																});
+											}
+										});
+							});
+
+			$(".rt0").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("그린 빈");
+			});
+			$(".rt1").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("라이트 로스팅");
+			});
+			$(".rt2").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("시나몬 로스팅");
+			});
+			$(".rt3").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("미디엄 로스팅");
+			});
+			$(".rt4").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("하이 로스팅");
+			});
+			$(".rt5").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("시티 로스팅");
+			});
+			$(".rt6").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("풀시티 로스팅");
+			});
+			$(".rt7").click(function() {
+				$("#sel_rt").empty();
+				$("#sel_rt").append("프렌치 로스팅");
+			});
+
+			$(".gd0").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("홀빈");
+			});
+			$(".gd1").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("프렌치 프레스");
+			});
+			$(".gd2").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("융 드립");
+			});
+			$(".gd3").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("사이폰");
+			});
+			$(".gd4").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("드립");
+			});
+			$(".gd5").click(function() {
+				$("#sel_gd").empty();
+				$("#sel_gd").append("에스프레소");
+			});
+			$(".bpro_finish").click(
+					function() {
+						console.log("주문 완료");
+						$("#complpro_table").append(
+								"<tr>" + "<td>원두</td>" + "<td>"
+										+ $("#sel_kd").text() + "/"
+										+ $("#sel_ct").text() + "/"
+										+ $("#sel_rt").text() + "/"
+										+ $("#sel_gd").text() + "</td>"
+										+ "<td></td>" + +"<td>"
+										+ $("#sel_pr").text() + "</td>"
+										+ "</tr>");
+					});
+			$("#add_complpro").click(
+					function() {
+						console.log("주문 완료");
+						$("#complpro_table").append(
+								"<tr>" + "<td>도구</td>" + "<td>"
+										+ $("#tsel_name").text() + "</td>"
+										+ "<td></td>" + "</tr>");
+					});
+		</script>
 </body>
 </html>
