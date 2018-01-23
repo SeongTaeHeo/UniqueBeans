@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -116,10 +117,17 @@ public class Beans_UserController {
 	}
 	
 	/*
-	 * 로그인한 사람이 작성한 댓글 확인 위한 메서드
+	 * 비밀번호 찾기 인증 메일
 	 */
-	@RequestMapping("/userCommenView.do")
-	public void userCommenView() {
+	@RequestMapping("/findId.do")
+	public String findUserId(Beans_UserVO vo, Model model) {	
 		
+		if(userService.searchPw(vo)) {
+			System.out.println("보내졋드아!!!!");
+		} else {
+			System.out.println("응 안보내짐 오류남 ㅇㅇ");
+		}
+		
+		return "foundpw.jsp";
 	}
 }
