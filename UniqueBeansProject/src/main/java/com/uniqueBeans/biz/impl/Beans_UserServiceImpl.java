@@ -74,24 +74,6 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	}
 
 	/*
-	 * 회원정보 수정을 위해 유저 정보를 가져오는 메서드
-	 */
-	@Override
-	public Beans_UserVO getUser(Beans_UserVO vo) {
-		// TODO Auto-generated method stub
-		
-		Beans_UserVO user = userDAO.getUserData(vo);
-		
-		if(user.getPwd() != null) {
-			System.out.println("유저정보를 가져옴");
-			return user;
-		} else {
-			System.out.println("실패");
-			return null;
-		}
-	}
-
-	/*
 	 * 수정된 유저정보를 업데이트 하는 메서드
 	 */
 	@Override
@@ -99,6 +81,15 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		// TODO Auto-generated method stub
 		System.out.println("유저정보 수정사항 업데이트");
 		userDAO.setUserInfo(vo);
+	}
+	/*
+	 *  비밀번호 찾기
+	 */
+
+	@Override
+	public void searchPw(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		userDAO.searchPw(vo);
 	}
 
 }

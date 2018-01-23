@@ -91,9 +91,6 @@
 						<td><select id="post_option" name="post_option">
 								<option value="잡담">잡담</option>
 								<option value="리뷰">리뷰</option>
-								<option value="상품">상품</option>
-								<option value="주문">주문</option>
-								<option value="배송">배송</option>
 								<option value="기타">기타</option>
 						</select></td>
 					</tr>

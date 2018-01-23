@@ -15,7 +15,12 @@ public class Beans_BoardVO {
 	private int re_number;
 	private String re_content;
 	private Date re_date;
-
+	private int contact_seq;
+	private String contact_title;
+	private String contact_option;
+	private String contact_contents;
+	private Date contact_date;
+	private int contact_views;
 
 	public int getRe_number() {
 		return re_number;
@@ -113,9 +118,60 @@ public class Beans_BoardVO {
 		return post_views;
 	}
 
+	public void setContact_seq(int contact_seq) {
+		this.contact_seq = contact_seq;
+	}
+
+	public void setContact_title(String contact_title) {
+		this.contact_title = contact_title;
+	}
+
+	public void setContact_option(String contact_option) {
+		this.contact_option = contact_option;
+	}
+
+	public void setContact_contents(String contact_contents) {
+		this.contact_contents = contact_contents;
+	}
+
+	public void setContact_date(Date contact_date) {
+		this.contact_date = contact_date;
+	}
+
+	public void setContact_views(int contact_views) {
+		this.contact_views = contact_views;
+	}
+
+	public int getContact_seq() {
+		return contact_seq;
+	}
+
+	public String getContact_title() {
+		return contact_title;
+	}
+
+	public String getContact_option() {
+		return contact_option;
+	}
+
+	public String getContact_contents() {
+		return contact_contents;
+	}
+
+	public Date getContact_date() {
+		return contact_date;
+	}
+
+	public int getContact_views() {
+		return contact_views;
+	}
+
 	public String toString() {
 		return "Beans_BoardVO [post_number=" + post_number + ", post_title=" + post_title + ", id=" + id
 				+ ", post_contents=" + post_contents + ", post_date=" + post_date + ", post_views=" + post_views
-				+ ", re_number=" + re_number + ",re_content=" + re_content + ",com_date=" + re_date + "]";
+				+ ", re_number=" + re_number + ",re_content=" + re_content + ",com_date=" + re_date + ",contact_seq="
+				+ contact_seq + ",contact_title=" + contact_title + ",contact_option=" + contact_option
+				+ ",contact_contents=" + contact_contents + ",contact_date=" + contact_date + ",contact_views="
+				+ contact_views + "]";
 	}
 }
