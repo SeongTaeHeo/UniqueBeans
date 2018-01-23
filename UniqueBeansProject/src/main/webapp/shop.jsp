@@ -54,10 +54,10 @@
 					href="#Board">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
 					href="#contact">Contact</a></li>
-				<li class="nav-item"><c:if test="${!empty loginUser}">
-						<a class="nav-link js-scroll-trigger" href="#">${loginUser}님</a>
-					</c:if> <c:if test="${empty loginUser}">
-						<a class="nav-link js-scroll-trigger" href="login.jsp">Login33</a>
+				<li class="nav-item"><c:if test="${!empty loginUser.id}">
+						<a class="nav-link js-scroll-trigger" href="#">${loginUser.id}님</a>
+					</c:if> <c:if test="${empty loginUser.id}">
+						<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 					</c:if></li>
 			</ul>
 		</div>
@@ -67,47 +67,51 @@
 	<!-- 주문테이블 -->
 	<div id="mySidenav" class="sidenav">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<div class="container">
-			<div id="ordering_wrap">
-				<h1>현재 주문 상품</h1>
-				<hr>
-				<table class="table table-striped table-hover table-bordered"
-					id="ordering">
-					<tbody>
-						<tr>
-							<th></th>
-							<th>내용</th>
-						</tr>
-						<tr>
-							<th>품종</th>
-							<td id="sel_kd"></td>
-						</tr>
-						<tr>
-							<th>국가명</th>
-							<td id="sel_ct"></td>
-						</tr>
-						<tr>
-							<th>로스팅</th>
-							<td id="sel_rt"></td>
-						</tr>
-						<tr>
-							<th>그라인딩</th>
-							<td id="sel_gd"></td>
-						</tr>
-						<tr>
-							<th><span class="pull-left">상품 가격</span></th>
-							<td id="sel_pr">250.00</td>
-						</tr>
-						<tr>
-							<th><span class="pull-left">부가세 20%</span></th>
-							<td>50.00</td>
-						</tr>
+			<div class="container">
+				<div id="ordering_wrap">
+					<div>${loginUser.id}님</div>
+					<h1>현재 주문 상품</h1>
+					<hr>
+					<table class="table table-striped table-hover table-bordered" id="ordering">
+						<tbody>
+							<tr>
+								<th></th>
+								<th>내용</th>
+							</tr>
+							<tr>
+								<th>품종</th>
+								<td id="sel_kd"></td>
+							</tr>
+							<tr>
+								<th>국가명</th>
+								<td id="sel_ct"></td>
+							</tr>
+							<tr>
+								<th>로스팅</th>
+								<td id="sel_rt"></td>
+							</tr>
+							<tr>
+								<th>그라인딩</th>
+								<td id="sel_gd"></td>
+							</tr>
+							<tr>
+								<th><span class="pull-left">상품 가격</span></th>
+								<td id="sel_pr">250.00</td>
+							</tr>
+							<tr>
+								<th><span class="pull-left">부가세 20%</span></th>
+								<td>50.00</td>
+							</tr>
 					</tbody>
 				</table>
 				<table id="complpro_table">
+					<div></div>
 					<tr>
-						<th>상품종류</th>
+						<th>품종</th>
 						<th>상품명</th>
+						<th>상품코드</th>
+						<th>로스팅</th>
+						<th>그라인딩</th>
 						<th>수량</th>
 						<th>가격</th>
 						<th>삭제</th>
@@ -814,51 +818,55 @@
 				$("#sel_rt").append("프렌치 로스팅");
 			});
 
-			$(".gd0").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("홀빈");
-			});
-			$(".gd1").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("프렌치 프레스");
-			});
-			$(".gd2").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("융 드립");
-			});
-			$(".gd3").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("사이폰");
-			});
-			$(".gd4").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("드립");
-			});
-			$(".gd5").click(function() {
-				$("#sel_gd").empty();
-				$("#sel_gd").append("에스프레소");
-			});
-			$(".bpro_finish").click(
-					function() {
-						console.log("주문 완료");
-						$("#complpro_table").append(
-								"<tr>" + "<td>원두</td>" + "<td>"
-										+ $("#sel_kd").text() + "/"
-										+ $("#sel_ct").text() + "/"
-										+ $("#sel_rt").text() + "/"
-										+ $("#sel_gd").text() + "</td>"
-										+ "<td></td>" + +"<td>"
-										+ $("#sel_pr").text() + "</td>"
-										+ "</tr>");
-					});
-			$("#add_complpro").click(
-					function() {
-						console.log("주문 완료");
-						$("#complpro_table").append(
-								"<tr>" + "<td>도구</td>" + "<td>"
-										+ $("#tsel_name").text() + "</td>"
-										+ "<td></td>" + "</tr>");
-					});
-		</script>
+			
+		$(".gd0").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("홀빈");
+		});
+		$(".gd1").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("프렌치 프레스");
+		});
+		$(".gd2").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("융 드립");
+		});
+		$(".gd3").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("사이폰");
+		});
+		$(".gd4").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("드립");
+		});
+		$(".gd5").click(function() {
+			$("#sel_gd").empty();
+			$("#sel_gd").append("에스프레소");
+		});
+		$(".bpro_finish").click(function(){
+			console.log("주문 완료");
+			$("#complpro_table").append(
+				"<tr>"+
+					"<td>"+$("#sel_kd").text()+"</td>"
+					+"<td></td>"
+					+"<td>"+$("#sel_ct").text()+"</td>"
+					+"<td>"+$("#sel_rt").text()+"</td>"
+					+"<td>"+$("#sel_gd").text()+"</td>"
+					+"<td>3</td>"
+					+"<td>5000</td>"
+				+"</tr>"
+			);
+		});
+		$("#add_complpro").click(function(){
+			console.log("주문 완료");
+			$("#complpro_table").append( 
+				"<tr>"+
+					"<td>도구</td>"+
+					"<td>"+$("#tsel_name").text()+"</td>"
+					+"<td></td>"
+				+"</tr>"
+			);
+		});
+	</script>
 </body>
 </html>
