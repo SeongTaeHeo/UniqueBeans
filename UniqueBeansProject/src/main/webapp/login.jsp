@@ -54,6 +54,9 @@
 	<div>
 		아직 아이디가 없으세요??? <a href="register.jsp">회원가입 하기</a>	
 	</div>
+	<div>
+		비밀번호를 잊으셨나요? <a href="foundpw.jsp">비밀번호 찾기</a>
+	</div>
 </form>
 
 </div>

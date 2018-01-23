@@ -82,5 +82,14 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		System.out.println("유저정보 수정사항 업데이트");
 		userDAO.setUserInfo(vo);
 	}
+	/*
+	 *  비밀번호 찾기
+	 */
+
+	@Override
+	public void searchPw(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		userDAO.searchPw(vo);
+	}
 
 }

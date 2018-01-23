@@ -16,4 +16,6 @@ public interface Beans_UserService {
 	
 	// 유저 정보 수정
 	public void setUser(Beans_UserVO vo);
+	
+	public void searchPw(Beans_UserVO vo);
 }
