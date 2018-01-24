@@ -28,7 +28,8 @@
 
 </head>
 <body>
-	<div id="page-wrapper">
+<jsp:include page="top_menu.jsp"></jsp:include>
+	<div id="page-wrapper" style="margin-top: 55px">
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
 			<ul class="sidebar-nav">
