@@ -1,0 +1,32 @@
+.register-form {
+	position:absolute; 
+	margin-top: 150px;
+	text-align: center;
+	width: 60vw;
+	margin-left: 20vw;
+	margin-right: 20vw;
+}
+th{
+	text-align: center;
+}
+td{
+	text-align: left;
+}
+.register-header {
+	margin-bottom: 30px;
+}
+table{
+	margin: auto;
+	width: 60vw;
+}
+
+.form-table{
+	width:550px;
+}
+
+input {
+	margin: 12px;
+}
+h4{
+	text-align: left;
+}
