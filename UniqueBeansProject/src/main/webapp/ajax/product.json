@@ -1,0 +1,7 @@
+[ 
+   { "code": "AA00", "name": "drip", "price": "50000"},
+   { "code": "AA01", "name": "syphone", "price": "20000"},
+   { "code": "AA02", "name": "espressomachine", "price": " 800000"}, 
+   { "code": "AA03", "name": "neldrip", "price": " 30000"},
+   { "code": "AA04", "name": "frenchpress", "price": "35000"}
+]
