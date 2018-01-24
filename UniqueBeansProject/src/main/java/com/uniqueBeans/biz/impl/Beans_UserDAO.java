@@ -23,6 +23,8 @@ public class Beans_UserDAO {
 
 	// 회원가입 쿼리문
 	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address_num, address_road, address_detail, address_other, gender, point) values(?,?,?,?,?,?,?,?,?,?,?,?)";
+	// 아이디 중복검사
+	private final String GET_USER_ID = "select id from customer where id = ?";
 	// 로그인을 위하여 DB값과 비교.
 	private final String GET_USER_LOGIN = "select * from customer where id = ? and password = ?";
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
@@ -63,6 +65,36 @@ public class Beans_UserDAO {
 	}
 	
 	/*
+	 * 아이디 중복검사 메서드
+	 */
+	public Beans_UserVO overRapData(Beans_UserVO vo) {
+		System.out.println("dao 클래스 아이디 중복검사");
+		
+		conn = (Connection) JDBCUtil.getConnection();
+		Beans_UserVO userId = null;
+		
+		try {
+			userId = new Beans_UserVO();
+			pstmt = conn.prepareStatement(GET_USER_ID);
+			pstmt.setString(1, vo.getId());
+		
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				System.out.println("받아온 유저 ID = " + rs.getString(1));
+				
+				userId.setId(rs.getString(1));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		return userId;
+	}
+	
+	/*
 	 * 로그인 위해 회원정보를 DB에서 가져오는 메서드
 	 */
 	public Beans_UserVO getUserData(Beans_UserVO vo) {
@@ -88,9 +120,12 @@ public class Beans_UserDAO {
 				userInfo.setBirth(rs.getString(4));
 				userInfo.setTel(rs.getString(5));
 				userInfo.setName(rs.getString(6));
-				//userInfo.setAddress(rs.getString(7));
-				userInfo.setGender(rs.getString(8));
-				userInfo.setPoint(rs.getInt(9));
+				userInfo.setAddress_number(rs.getInt(7));
+				userInfo.setAddress_road(rs.getString(8));
+				userInfo.setAddress_detail(rs.getString(9));
+				userInfo.setAddress_other(rs.getString(10));
+				userInfo.setGender(rs.getString(11));
+				userInfo.setPoint(rs.getInt(12));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

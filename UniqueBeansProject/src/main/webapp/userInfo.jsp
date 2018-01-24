@@ -81,7 +81,7 @@
 								<tr>
 									<th scope="row">주소</th>
 									<td><input id="address" type="text"
-										value="${loginUser.address}" class="form-control"
+										value="${loginUser.address_detail}" class="form-control"
 										style="width: 400px;"></td>
 								</tr>
 								<tr>
