@@ -399,20 +399,16 @@
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
 		<script type="text/javascript">
-			$(".kd1")
-					.click(
-							function() {
-								console.log("아라비카 클릭");
-								$("#sel_kd").empty();
-								$("#sel_kd").append("아라비카");
-								$
-										.ajax({
-											url : 'ajax/country.json',
-											dataType : 'json',
-											success : function(data) {
-												console.log("ajax 연결 성공");
-												$('#btn_wrap').empty();
-												for (var i = 0; i < data.length; i++) {
+			$(".kd1").click(function() {
+				console.log("아라비카 클릭");
+				$("#sel_kd").empty();
+				$("#sel_kd").append("아라비카");
+				$.ajax({url : 'ajax/country.json',
+						dataType : 'json',
+						success : function(data) {
+									console.log("ajax 연결 성공");
+									$('#btn_wrap').empty();
+									for (var i = 0; i < data.length; i++) {
 													if (data[i].kd == "Arabica") {
 														$('#btn_wrap')
 																.append(
@@ -845,17 +841,32 @@
 		});
 		$(".bpro_finish").click(function(){
 			console.log("주문 완료");
-			$("#complpro_table").append(
-				"<tr>"+
-					"<td>"+$("#sel_kd").text()+"</td>"
-					+"<td></td>"
-					+"<td>"+$("#sel_ct").text()+"</td>"
-					+"<td>"+$("#sel_rt").text()+"</td>"
-					+"<td>"+$("#sel_gd").text()+"</td>"
-					+"<td>3</td>"
-					+"<td>5000</td>"
-				+"</tr>"
-			);
+			var ct_name;
+			$.ajax({url : 'ajax/country.json',
+				dataType : 'json',
+				success : function(data) {
+							console.log("ajax 연결 성공");
+							for (var i = 0; i < data.length; i++) {
+								if($("#sel_ct").text()==data[i].id){
+									$("#complpro_table").append(
+											"<tr>"+
+												"<td>"+$("#sel_kd").text()+"</td>"
+												+"<td>"+ data[i].name +"</td>"
+												+"<td>"+$("#sel_ct").text()+"</td>"
+												+"<td>"+$("#sel_rt").text()+"</td>"
+												+"<td>"+$("#sel_gd").text()+"</td>"
+												+"<td>3</td>"
+												+"<td>5000</td>"
+											+"</tr>"
+									);
+								}else{
+									continue;
+								}
+							}	
+						}
+			
+			});
+			
 		});
 		$("#add_complpro").click(function(){
 			console.log("주문 완료");
