@@ -105,7 +105,6 @@
 					</tbody>
 				</table>
 				<table id="complpro_table">
-					<div></div>
 					<tr>
 						<th>품종</th>
 						<th>상품명</th>
@@ -116,8 +115,8 @@
 						<th>가격</th>
 						<th>삭제</th>
 					</tr>
-
 				</table>
+				<a href="####"><button class="btn btn-default">주문하기</button></a>
 			</div>
 		</div>
 	</div>
