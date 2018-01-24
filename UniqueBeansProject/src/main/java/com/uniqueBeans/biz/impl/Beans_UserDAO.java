@@ -28,7 +28,8 @@ public class Beans_UserDAO {
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
 	private final String SET_USER_INFO = "update customer set password = ?, email = ?, tel = ?, address = ? where id = ?";
 	// 비밀번호찾기
-	private final String GET_USER_PASSWORD="select password from customer where id=? and email=?"; 
+	private final String FIND_USER_PASSWORD="select password from customer where id=? and email=?"; 
+	
 	/*
 	 * 회원가입을 위한 메서드
 	 */
@@ -120,16 +121,15 @@ public class Beans_UserDAO {
 		
 		return true;
 	}
+	
 	/* 
 	 * 비밀번호 찾기 메소드 
 	 */
-	public Beans_UserVO searchPw(Beans_UserVO vo){
+	public String searchPw(Beans_UserVO vo){
 		conn=(Connection)JDBCUtil.getConnection();
-		Beans_UserVO SearchPw=null;
-		
+		String userPwd = null;
 		try{
-			SearchPw=new Beans_UserVO();
-			pstmt=conn.prepareStatement(GET_USER_PASSWORD);
+			pstmt=conn.prepareStatement(FIND_USER_PASSWORD);
 			pstmt.setString(1, vo.getId());
 			pstmt.setString(2, vo.getEmail());
 			
@@ -139,14 +139,14 @@ public class Beans_UserDAO {
 				System.out.println("받아온 유저 id="+vo.getId());
 				System.out.println("받아온 유저 email="+vo.getEmail());
 				
-				SearchPw.setPwd(vo.getPwd());
+				userPwd = rs.getString("password");
 			}
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
 			JDBCUtil.close(pstmt, conn);
 		}
-		return SearchPw;
+		return userPwd;
 	}
 }
 

@@ -88,7 +88,8 @@ $(function(){
 			html += '<tr>';
 			html += '<td>' + board.post_number + '</td>';
 			html += '<td>' + board.post_option + '</td>';
-			html += '<a href="Free_board_content.do?post_number="'+ board.post_number + '<td>' + board.post_title + '</a></td>';
+			html += '<td><a href="Free_board_content.do?post_number=' + board.post_number + '">' +
+				board.post_title + '</a></td>';
 			html += '<td>' + board.id + '</td>';
 			html += '<td>' + board.post_date + '</td>';
 			html += '<td>' + board.post_views + '</td>';

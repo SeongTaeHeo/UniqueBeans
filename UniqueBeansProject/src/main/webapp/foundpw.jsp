@@ -7,6 +7,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-${test.pwd}
+아이디 찾기
+<form method="get" action="#">
+	<input type="text" name="email"><br>
+	<input type="submit" value="전송">
+</form>
+<br><br>
+비밀번호 찾기
+<form method="get" action="findId.do">
+	<input type="text" name="id">
+	<input type="text" name="email">
+	<input type="submit" value="전송">
+</form>
 </body>
 </html>

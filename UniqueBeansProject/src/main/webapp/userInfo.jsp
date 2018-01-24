@@ -155,7 +155,7 @@
 
 	<!-- userInfo 자바 스크립트 -->
 	<script src="js/userInfo.js?ver=2"></script>
-	<script src="ajax/userInfo.js"></script>
+	<script src="ajax/userInfo.js?ver=3"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -342,7 +342,7 @@
 						data-slide="prev">
 						<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
 					</a>
-					<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
+					<button id="showOrder" class="btn btn-default btn-lg active">주문보기</button>
 				</center>
 			</div>
 		</div>
@@ -376,8 +376,7 @@
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
 			function openNav() {
-				document.getElementById("mySidenav").style.width = "400px";
-				document.getElementById("main").style.marginLeft = "400px";
+				
 			}
 			function closeNav() {
 				document.getElementById("mySidenav").style.width = "0";
@@ -398,6 +397,32 @@
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
 		<script type="text/javascript">
+		$(function() {
+			
+			var param = '[';
+			
+			$('#showOrder').click(function(){
+				document.getElementById("mySidenav").style.width = "400px";
+				document.getElementById("main").style.marginLeft = "400px";
+				
+				param = param.substr(0, param.length-1);
+				
+				param += ']';
+				console.log(param);
+				
+				$.ajax({
+					url: 'orderDetailInput.do',
+					method: 'post',
+					contentType: 'application/json',
+					data: param,
+					type: 'text',
+					
+					success: function() {
+						alert('test');
+					}
+				});
+			});
+			
 			$(".kd1")
 					.click(
 							function() {
@@ -855,6 +880,15 @@
 					+"<td>5000</td>"
 				+"</tr>"
 			);
+			
+			// JSON list 타입 생성
+			param += '{"item1":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item2":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item3":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item4":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item5":' + '"' + $("#sel_kd").text() + '"';
+			param += '},';
+			
 		});
 		$("#add_complpro").click(function(){
 			console.log("주문 완료");
@@ -866,6 +900,7 @@
 				+"</tr>"
 			);
 		});
+	});
 	</script>
 </body>
 </html>
