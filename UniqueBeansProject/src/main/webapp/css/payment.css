@@ -1,0 +1,37 @@
+.left-empty{
+   height: 800px;
+   width: 500px;
+   /* background-color: #747474; */
+   float: left;
+   }
+   
+   
+   .main-info{
+   height: 800px;
+   width: 1000px;
+   /* background-color: #858585; */
+   float: left;
+   margin: auto;
+   }
+   
+   .send-info{
+   height: 400px;
+   }
+   
+   .payer-info{
+   height: 800px;
+   width: 300px;
+   /* background-color: #345345; */
+   float: left;
+   }
+   
+   .user-info{
+   height: 400px;
+   }
+   
+   .header{
+   height: 100px;
+   width: 100%;
+   /* background-color: #374534; */
+   }
+   

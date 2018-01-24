@@ -73,7 +73,7 @@
 				</tr>
 				<tr>
 					<td align="left">연락처 :</td>
-					<td align="left"><input type="text" name="tel" size=30 /></td>
+					<td align="left"><input id="phone" type="text" name="tel" size=30 maxlength="13"/></td>
 				</tr>
 				<tr>
 					<td align="left">우편번호 :</td>
@@ -104,7 +104,7 @@
 		</form>
 	</div>
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="js/register.js"></script>
+<script src="js/register.js?ver=2"></script>
 <!-- jQuery와 Postcodify를 로딩한다 -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 <script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>

@@ -34,7 +34,7 @@
 					<li class="nav-item">
 					
 						<c:if test="${!empty loginUser.id}">
-							<a class="nav-link js-scroll-trigger" href="userInfo.jsp">${loginUser.id}님</a>
+							<a class="nav-link js-scroll-trigger" href="#">${loginUser.id}님</a>
 						</c:if> 
 						
 						<c:if test="${empty loginUser.id}">

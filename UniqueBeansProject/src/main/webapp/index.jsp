@@ -2,9 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 
 <meta charset="utf-8">
 <meta name="viewport"
@@ -31,9 +32,9 @@
 	rel='stylesheet' type='text/css'>
 
 <link href="css/agency.min.css" rel="stylesheet">
-<link href="css/hstboard.css" rel="stylesheet">
+<link href="css/register-form.css?ver=1" rel="stylesheet">
 <link href="css/jqvmap.css" rel="stylesheet">
-
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body id="page-top">

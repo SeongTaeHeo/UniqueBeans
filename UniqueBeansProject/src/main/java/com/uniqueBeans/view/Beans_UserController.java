@@ -121,6 +121,7 @@ public class Beans_UserController {
 	 */
 	@RequestMapping("/findId.do")
 	public String findUserId(Beans_UserVO vo,Model model){
+		System.out.println("id2 == " + vo.getName());
 		if(userService.searchId(vo)){
 			System.out.println("방송완료");
 		}else{

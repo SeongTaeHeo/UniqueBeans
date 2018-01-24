@@ -171,6 +171,7 @@ public class Beans_UserDAO {
 			pstmt=conn.prepareStatement(FIND_USER_ID);
 			pstmt.setString(1, vo.getName());
 			pstmt.setString(2, vo.getEmail());
+			System.out.println("id == " + vo.getName());
 			
 			rs=pstmt.executeQuery();
 			
