@@ -12,10 +12,38 @@ public class Beans_UserVO {
 	private String birth;
 	private String tel;
 	private String name;
-	private String address;
+	private int address_number;
+	private String address_road;
+	private String address_detail;
+	private String address_other;
 	private String gender;
 	private int point;
 	
+	public int getAddress_number() {
+		return address_number;
+	}
+	public void setAddress_number(int address_number) {
+		this.address_number = address_number;
+	}
+	public String getAddress_road() {
+		return address_road;
+	}
+	public void setAddress_road(String address_road) {
+		this.address_road = address_road;
+	}
+	public String getAddress_detail() {
+		return address_detail;
+	}
+	public void setAddress_detail(String address_detail) {
+		this.address_detail = address_detail;
+	}
+	public String getAddress_other() {
+		return address_other;
+	}
+	public void setAddress_other(String address_other) {
+		this.address_other = address_other;
+	}
+
 	// DB로직 처리를 위한 sql.Date 변수
 	private Date input_Birth;
 	
@@ -62,12 +90,7 @@ public class Beans_UserVO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
+	
 	public String getGender() {
 		return gender;
 	}
@@ -88,7 +111,8 @@ public class Beans_UserVO {
 	public String toString() {
 		// TODO Auto-generated method stub	
 		return "[id = " + id + " pwd = " + pwd + " email = " + email + " birth = " + birth
-				+ " tel = " + tel + " name = " + name + " address = " + address + " sex = " +
+				+ " tel = " + tel + " name = " + name + " address = " + address_road + " "
+				+ " " + address_detail + " " + address_other + " " + " sex = " +
 				gender + " point = " + point + "]";
 	}
 	

@@ -76,9 +76,9 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 	public String overRap(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		
-		Beans_UserVO user = userDAO.getUserData(vo);
+		Beans_UserVO user = userDAO.overRapData(vo);
 		
-		if(user.getId() ==  null) {
+		if(user.getId() == null) {
 			return "가입하셔도 좋은 아이디 입니다.";
 		} else {
 			return "이미 가입된 아이디 입니다.";
@@ -94,7 +94,42 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		System.out.println("유저정보 수정사항 업데이트");
 		userDAO.setUserInfo(vo);
 	}
-	
+	/*
+	 * 
+	 */
+	@Override
+	public Boolean searchId(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		String Uid=null;
+		if((Uid = userDAO.searchId(vo)) != null) {
+			try {
+				MimeMessage message = sendMail.createMimeMessage();
+				MimeMessageHelper helper = new MimeMessageHelper(message, true, "UTF-8");
+				
+				String setfrom = "zhdpek12@gmail.com";
+				String toMail = vo.getEmail();
+				String title = "아이디 찾기 결과 입니다.";
+				String content = "찾으신 아이디는 " + Uid + "입니다.";
+				
+				helper.setFrom(setfrom);
+				helper.setTo(toMail);
+				helper.setSubject(title);
+				helper.setText(content);
+				
+				sendMail.send(message);
+				
+				return true;
+				
+			} catch (MessagingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				System.out.println(e.getMessage());
+			}
+		} else {
+			return false;
+		}
+		return false;
+	}
 	/*
 	 *  비밀번호 찾기
 	 */
@@ -134,5 +169,7 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		}
 		return false;
 	}
+
+
 
 }

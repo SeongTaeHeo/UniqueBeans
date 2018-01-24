@@ -29,5 +29,4 @@
    { "id": "cu", "name": "CUBA", "price": " 5000", "rt":"3", "ar":"8", "bi":"1", "ac":"2", "ba":"9", "bo":"0", "sw":"8", "kd": "Arabica" },
    { "id": "tz", "name": "TANZANIA", "price": "3000", "rt":"1", "ar":"2", "bi":"3", "ac":"4", "ba":"5", "bo":"6", "sw":"7", "kd":"Arabica" },
    { "id": "pg", "name": "PAPUANEWGUINEA", "price": "2000", "rt":"1", "ar":"3", "bi":"5", "ac":"7", "ba":"1", "bo":"3", "sw":"4",  "kd": "Arabica" }
-  
 ]

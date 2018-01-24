@@ -38,46 +38,61 @@
 					<td colspan="3"></td>
 				</tr>
 				<tr>
-					<td width="200px;">아이디 :</td>
+					<td width="200px;" align="left">아이디 :</td>
 					<td align="left"><input type="text" id="userID" name="id" /></td>
 					<td><button type="button" id="overrap"
 							class="btn btn-primary btn-sm">중복검사</button></td>
 				</tr>
 				<tr>
-					<td>비밀번호 :</td>
+					<td align="left">비밀번호 :</td>
 					<td align="left"><input id="passCheck1" type="password"/></td>
 				</tr>
 				<tr>
-					<td>비밀번호 확인 :</td>
+					<td align="left">비밀번호 확인 :</td>
 					<td align="left"><input id="passCheck2" type="password"
 						name="pwd" />
 						<p style="display: none"></p>	
 					</td>
 				</tr>
 				<tr>
-					<td>이름 :</td>
+					<td align="left">이름 :</td>
 					<td align="left"><input type="text" name="name" /></td>
 				</tr>
 				<tr>
-					<td>생년월일 :</td>
+					<td align="left">생년월일 :</td>
 					<td align="left"><input id="inputBirth" type="text" name="birth" size=7 maxlength="10"/></td>
 				</tr>
 				<tr>
-					<td>성별 :</td>
+					<td align="left">성별 :</td>
 					<td align="left"><input type="radio" name="gender" value="남"
 						checked />남자 <input type="radio" name="gender" value="여" />여자</td>
 				</tr>
 				<tr>
-					<td>email :</td>
+					<td align="left">email :</td>
 					<td align="left"><input type="text" name="email" size=30 /></td>
 				</tr>
 				<tr>
-					<td>연락처 :</td>
-					<td align="left"><input type="text" name="tel" size=30 /></td>
+					<td align="left">연락처 :</td>
+					<td align="left"><input id="phone" type="text" name="tel" size=30 maxlength="13"/></td>
 				</tr>
 				<tr>
-					<td>주소 :</td>
-					<td align="left"><input type="text" name="address" size=30 /></td>
+					<td align="left">우편번호 :</td>
+					<td align="left">
+						<input type="text" name="address_number" class="postcodify_postcode5" size="8" value="" />
+						<button type="button" id="postcodify_search_button" class="btn btn-primary">검색</button><br />
+					</td>
+				</tr>
+				<tr>
+					<td align="left">도로명주소 :</td>
+					<td align="left"><input type="text" name="address_road" class="postcodify_address" size="30" value="" /><br /></td>
+				</tr>
+				<tr>
+					<td align="left">상세주소 :</td>
+					<td align="left"><input type="text" name="address_detail" class="postcodify_details" size="20" value="" /><br /></td>
+				</tr>
+				<tr>
+					<td align="left">참고사항 :</td>
+					<td align="left"><input type="text" name="address_other" class="postcodify_extra_info" size="15" value="" /><br /></td>
 				</tr>
 				<tr>
 					<td colspan="2" align=center>
@@ -89,6 +104,12 @@
 		</form>
 	</div>
 <script src="vendor/jquery/jquery.min.js"></script>
-<script src="js/register.js"></script>
+<script src="js/register.js?ver=2"></script>
+<!-- jQuery와 Postcodify를 로딩한다 -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+
+<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+<script> $(function() { $("#postcodify_search_button").postcodifyPopUp(); }); </script>
 </body>
 </html>

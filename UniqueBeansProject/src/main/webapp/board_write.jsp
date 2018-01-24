@@ -29,33 +29,7 @@
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/hstboard.css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-	$(function() {
-		//전역변수
-		var obj = [];
-		//스마트에디터 프레임생성
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef : obj,
-			elPlaceHolder : "editor",
-			sSkinURI : "./resources/editor/SmartEditor2Skin.html",
-			htParams : {
-				// 툴바 사용 여부
-				bUseToolbar : true,
-				// 입력창 크기 조절바 사용 여부
-				bUseVerticalResizer : true,
-				// 모드 탭(Editor | HTML | TEXT) 사용 여부
-				bUseModeChanger : true,
-			}
-		});
-		//전송버튼
-		$("#write_btn").click(function() {
-			//id가 smarteditor인 textarea에 에디터에서 대입
-			obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-			//폼 submit
-			$("#write_form").submit();
-		});
-	});
-</script>
+
 <body>
 	<jsp:include page="top_menu.jsp"></jsp:include>
 	<header class="masthead" style="height:250px;">
@@ -83,7 +57,8 @@
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td><input id="id" type="text" value=${loginUser } name="id"
+						
+						<td><input id="id" type="text" value=${loginUser.id} name="id"
 							readonly="readonly" style="border: none;" /></td>
 					</tr>
 					<tr>
@@ -122,56 +97,7 @@
 	<br>
 	<br>
 	<br>
-	<footer>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<ul class="list-inline-quicklinks">
-					<b>COMPANY</b>
-					<br>
-					<li class="list-inline-item"><a href="#">회사소개</a></li>
-					<br>
-					<li class="list-inline-item"><a href="#">이용약관</a></li>
-					<br>
-					<li class="list-inline-item"><a href="#">개인정보 취급방침</a></li>
-					<br>
-					<li class="list-inline-item"><a href="#">이용안내</a></li>
-				</ul>
-			</div>
-			<div class="col-md-4">
-				<ul class="list-inline-item">
-					<b>INFORMATION</b>
-					<br>
-					<li class="list-inline-item">COMPANY:UNIQUEBEAN</li>
-					<br>
-					<li class="list-inline-item">ADDRESS: 서울특별시</li>
-					<br>
-					<li class="list-inline-item">TELEPHONE: 070-7727-1401</li>
-					<br>
-					<li class="list-inline-item">EMAIL:help@uniquebean.com</li>
-					<br>
-					<li class="list-inline-item">개인정보책임자:노루</li>
-					<br>
-				</ul>
-			</div>
-			<div class="col-md-4">
-				<ul class="list-inline-list">
-					<b>CS CENTER</b>
-					<br>
-					<li class="list-inline-item">WEEKDAY:09:00-18:00</li>
-					<br>
-					<li class="list-inline-item">LUNCH:12:00-13:00</li>
-					<br>
-					<li class="list-inline-item">CLOSED:Weekend and Holidays</li>
-				</ul>
-
-			</div>
-		</div>
-		<div>
-			<span class="copyright">Copyright &copy; UniqueBean 2017</span>
-		</div>
-	</div>
-	</footer>
+	<jsp:include page="footer.jsp"/>
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

@@ -94,18 +94,19 @@ public class Beans_UserController {
 	/*
 	 * 유저정보 수정 사항을 보내기 위한 메서드
 	 */
-	@RequestMapping("/userSetUp.do")
+	/*@RequestMapping("/userSetUp.do")
 	@ResponseBody
 	public void userSetUp(HttpServletRequest request) {
 		Beans_UserVO vo = new Beans_UserVO();
 		vo.setId(request.getParameter("id"));
 		vo.setPwd(request.getParameter("pass"));
+		System.out.println(vo.getPwd());
 		vo.setAddress(request.getParameter("address"));
 		vo.setTel(request.getParameter("phone"));
 		vo.setEmail(request.getParameter("email"));
 		
-		userService.setUser(vo);
-	}
+		//userService.setUser(vo);
+	}*/
 	
 	
 	/*
@@ -115,12 +116,28 @@ public class Beans_UserController {
 	public void buyList() {
 		
 	}
+	/*
+	 * 아이디 찾기 인증 메일
+	 */
+	@RequestMapping("/findId.do")
+	public String findUserId(Beans_UserVO vo,Model model){
+		System.out.println("id2 == " + vo.getName());
+		if(userService.searchId(vo)){
+			System.out.println("방송완료");
+		}else{
+			System.out.println("이름 또는 이메일확인 요망");
+		}
+		
+		return "foundpw.jsp";
+		
+	}
+	
 	
 	/*
 	 * 비밀번호 찾기 인증 메일
 	 */
-	@RequestMapping("/findId.do")
-	public String findUserId(Beans_UserVO vo, Model model) {	
+	@RequestMapping("/findPw.do")
+	public String findUserPw(Beans_UserVO vo, Model model) {	
 		
 		if(userService.searchPw(vo)) {
 			System.out.println("보내졋드아!!!!");

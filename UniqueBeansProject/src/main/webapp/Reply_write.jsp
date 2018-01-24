@@ -15,7 +15,7 @@
 			<tr>
 				<td class="reply_num"><input id="post_number" name="post_number"
 					value=${board.post_number } style="border: none; display:none;" /></td>
-				<td class="reply_id" align="center"><input id="id" type="text" value=${loginUser }
+				<td class="reply_id" align="center"><input id="id" type="text" value=${loginUser.id }
 							name="id" readonly="readonly" style="border: none;" /></td>
 				<td class="reply_text" align="left"><textarea id="re_content"
 						name="re_content" class="form-control"
