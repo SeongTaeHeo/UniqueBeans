@@ -8,31 +8,9 @@
 
 	<context:component-scan base-package="com.uniqueBeans.view"></context:component-scan>
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!-- max upload size in bytes -->
-		<property name="maxUploadSize" value="20971520" /> <!-- 20MB -->
-		<!-- max size of file in memory (in bytes) -->
-		<property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
-	</bean>
+
 	
-	<bean id="mailSender" class ="org.springframework.mail.javamail.JavaMailSenderImpl" >
-        <property name="host" value="smtp.gmail.com" />
-        <property name="port" value="587" />
-        <property name="defaultEncoding" value="utf-8"/>
-        <property name="username" value="zhdpek12@gmail.com" />
-        <property name="password" value="14dpdlrmdnls" />
-       
-        <property name="javaMailProperties">
-            <props>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.smtp.auth">true</prop>
-               
-            </props>
-        </property>
-       
-    </bean>
+
 
 
 

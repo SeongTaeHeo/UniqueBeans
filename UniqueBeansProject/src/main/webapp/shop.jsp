@@ -105,7 +105,6 @@
 					</tbody>
 				</table>
 				<table id="complpro_table">
-					<div></div>
 					<tr>
 						<th>품종</th>
 						<th>상품명</th>
@@ -116,8 +115,8 @@
 						<th>가격</th>
 						<th>삭제</th>
 					</tr>
-
 				</table>
+				<a href="####"><button class="btn btn-default">주문하기</button></a>
 			</div>
 		</div>
 	</div>
@@ -343,7 +342,7 @@
 						data-slide="prev">
 						<button class="btn btn-default btn-lg active" id="prevbtn">돌아가기</button>
 					</a>
-					<button class="btn btn-default btn-lg active" onclick="openNav()">주문보기</button>
+					<button id="showOrder" class="btn btn-default btn-lg active">주문보기</button>
 				</center>
 			</div>
 		</div>
@@ -376,10 +375,6 @@
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
-			function openNav() {
-				document.getElementById("mySidenav").style.width = "400px";
-				document.getElementById("main").style.marginLeft = "400px";
-			}
 			function closeNav() {
 				document.getElementById("mySidenav").style.width = "0";
 				document.getElementById("main").style.marginLeft = "0";
@@ -409,113 +404,103 @@
 									console.log("ajax 연결 성공");
 									$('#btn_wrap').empty();
 									for (var i = 0; i < data.length; i++) {
-													if (data[i].kd == "Arabica") {
-														$('#btn_wrap')
-																.append(
-																		"<a class='carousel-control-next'"+
-								"href='#myCarousel' data-slide='next'>"
-																				+ "<img id='shop-option-img2' class='pro_country'"
-								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
-								+ data[i].id + "'></a>");
-													} else {
-														continue;
+										$(function() {
+			
+											var param = '[';
+			
+											$('#showOrder').click(function(){
+												document.getElementById("mySidenav").style.width = "400px";
+												document.getElementById("main").style.marginLeft = "400px";
+												
+												param = param.substr(0, param.length-1);
+												
+												param += ']';
+												console.log(param);
+				
+												$.ajax({
+													url: 'orderDetailInput.do',
+													method: 'post',
+													contentType: 'application/json',
+													data: param,
+													type: 'text',
+													
+													success: function() {
+														alert('test');
 													}
-												}
-												var moveLeft = 10;
-												var moveDown = 20;
+												});
+											});
+			
+			$(".kd1").click(function() {
+				console.log("아라비카 클릭");
+				$("#sel_kd").empty();
+				$("#sel_kd").append("아라비카");
+				$.ajax({
+					url : 'ajax/country.json',
+					dataType : 'json',
+					success : function(data) {
+						console.log("ajax 연결 성공");
+						$('#btn_wrap').empty();
+						for (var i = 0; i < data.length; i++) {
+							if (data[i].kd == "Arabica") {
+								$('#btn_wrap').append(
+									"<a class='carousel-control-next'"+
+									"href='#myCarousel' data-slide='next'>"
+									+ "<img id='shop-option-img2' class='pro_country'"
+									+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+									+ data[i].id + "'></a>");
+							} else {
+								continue;
+							}
+						}
+						var moveLeft = 10;
+						var moveDown = 20;
 
-												$(".pro_country")
-														.mouseenter(
-																function(e) {
-																	var mover_country = $(
-																			this)
-																			.attr(
-																					"alt");
-																	for (var j = 0; j < data.length; j++) {
-																		if (mover_country == data[j].id) {
-																			var color = Chart.helpers.color;
-																			var config = {
-																				type : 'radar',
-																				data : {
-																					labels : [
-																							"Aroma",
-																							"Bitters",
-																							"Acidity",
-																							"Balance",
-																							"Body",
-																							"Sweet" ],
-																					datasets : [ {
-																						label : data[j].name,
-																						borderColor : window.chartColors.yellow,
-																						backgroundColor : color(
-																								window.chartColors.yellow)
-																								.alpha(
-																										0.7)
-																								.rgbString(),
-																						pointBackgroundColor : window.chartColors.yellow,
-																						data : [
-																								data[j].ar,
-																								data[j].bi,
-																								data[j].ac,
-																								data[j].ba,
-																								data[j].bo,
-																								data[j].sw ]
-																					} ]
-																				}
-																			};
+						$(".pro_country").mouseenter(function(e) {
+							var mover_country = $(this).attr("alt");
+							for (var j = 0; j < data.length; j++) {
+								if (mover_country == data[j].id) {
+									var color = Chart.helpers.color;
+									var config = {
+										type : 'radar',
+										data : {
+											labels : [
+												"Aroma",
+												"Bitters",
+												"Acidity",
+												"Balance",
+												"Body",
+												"Sweet" ],
+											datasets : [{
+												label : data[j].name,
+												borderColor : window.chartColors.yellow,
+												backgroundColor : color(window.chartColors.yellow).alpha(0.7).rgbString(),
+												pointBackgroundColor : window.chartColors.yellow,
+												data : [
+													data[j].ar,
+													data[j].bi,
+													data[j].ac,
+													data[j].ba,
+													data[j].bo,
+													data[j].sw ]
+											}]
+										}
+									};
 
-																			$(
-																					'#canvas')
-																					.remove();
-																			$(
-																					"#canvas_wrap")
-																					.append(
-																							"<canvas id='canvas'></canvas>");
-																			myRadar = new Chart(
-																					document
-																							.getElementById("canvas"),
-																					config);
-																			$(
-																					"#info_name")
-																					.empty();
-																			$(
-																					"#info_name")
-																					.append(
-																							data[j].name);
-																			$(
-																					"#info_kind")
-																					.empty();
-																			$(
-																					"#info_kind")
-																					.append(
-																							data[j].kind);
-																			$(
-																					"#info_price")
-																					.empty();
-																			$(
-																					"#info_price")
-																					.append(
-																							data[j].price);
-																			$(
-																					"#info_rt")
-																					.empty();
-																			$(
-																					"#info_rt")
-																					.append(
-																							data[j].price);
-
-																			$(
-																					"#sel_kt")
-																					.empty();
-																			$(
-																					"#sel_kt")
-																					.append(
-																							data[j].kind
-																									+ data[j].name);
-
-																			/* 팝업 생성 시작 */
-																			$(
-																					'.pro_country')
+									$('#canvas').remove();
+									$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
+									myRadar = new Chart(document.getElementById("canvas"),config);
+									$("#info_name").empty();
+									$("#info_name").append(data[j].name);
+									$("#info_kind").empty();
+									$("#info_kind").append(data[j].kind);
+									$("#info_price").empty();
+									$("#info_price").append(data[j].price);
+									$("#info_rt").empty();
+									$("#info_rt").append(data[j].price);
+									$("#sel_kt").empty();
+									$("#sel_kt").append(data[j].kind+ data[j].name);
+									/* 팝업 생성 시작 */
+									$('.pro_country')
 																					.hover(
 																							function(
 																									e) {
@@ -866,6 +851,25 @@
 						}
 			
 			});
+			$("#complpro_table").append(
+				"<tr>"+
+					"<td>"+$("#sel_kd").text()+"</td>"
+					+"<td></td>"
+					+"<td>"+$("#sel_ct").text()+"</td>"
+					+"<td>"+$("#sel_rt").text()+"</td>"
+					+"<td>"+$("#sel_gd").text()+"</td>"
+					+"<td>3</td>"
+					+"<td>5000</td>"
+				+"</tr>"
+			);
+			
+			// JSON list 타입 생성
+			param += '{"item1":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item2":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item3":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item4":' + '"' + $("#sel_kd").text() + '",';
+			param += '"item5":' + '"' + $("#sel_kd").text() + '"';
+			param += '},';
 			
 		});
 		$("#add_complpro").click(function(){
@@ -878,6 +882,7 @@
 				+"</tr>"
 			);
 		});
+	});
 	</script>
 </body>
 </html>

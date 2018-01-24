@@ -38,7 +38,6 @@
 				<li><a id="a2">구매내역</a></li>
 				<li><a id="a3">내 마일리지 확인</a></li>
 				<li><a id="a4">내가 쓴 글 보기</a></li>
-				<li><a id="a5">내가 쓴 댓글 보기</a></li>
 				<li><a href="logout.do">로그아웃</a></li>
 			</ul>
 		</div>
@@ -82,7 +81,7 @@
 								<tr>
 									<th scope="row">주소</th>
 									<td><input id="address" type="text"
-										value="${loginUser.address}" class="form-control"
+										value="${loginUser.address_detail}" class="form-control"
 										style="width: 400px;"></td>
 								</tr>
 								<tr>
@@ -140,12 +139,6 @@
 						</thead>
 					</table>
 				</div>
-
-				<!-- 내가 쓴 댓글 보기 -->
-				<div id="userCommenView">
-					<h1>내가 쓴 댓글 보기</h1>
-
-				</div>
 			</div>
 		</div>
 		<!-- /본문 -->
@@ -155,7 +148,7 @@
 
 	<!-- userInfo 자바 스크립트 -->
 	<script src="js/userInfo.js?ver=2"></script>
-	<script src="ajax/userInfo.js"></script>
+	<script src="ajax/userInfo.js?ver=3"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

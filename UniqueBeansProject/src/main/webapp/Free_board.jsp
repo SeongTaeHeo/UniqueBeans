@@ -69,8 +69,7 @@
 					<tr>
 						<td>${board.post_number }</td>
 						<td>${board.post_option }</td>
-						<td align="left"><a
-							href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
+						<td align="left"><a href="Free_board_content.do?post_number=${board.post_number }">${board.post_title}</a></td>
 						<td>${board.id }</td>
 						<td>${board.post_date }</td>
 						<td>${board.post_views }</td>
