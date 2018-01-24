@@ -78,20 +78,20 @@
 			</tbody>
 		</table>
 		<div class="write">
-			<c:if test="${contact.id==loginUser }">
+			<c:if test="${contact.id==loginUser.id }">
 				<a href="deleteContact.do?contact_seq=${contact.contact_seq }">
 					<button type="button" class="btn btn-success btn-lg">글 삭제</button>
 				</a>
 			</c:if>
-			<c:if test="${contact.id!=loginUser }">
+			<c:if test="${contact.id!=loginUser.id }">
 
 			</c:if>
-			<c:if test="${contact.id==loginUser }">
+			<c:if test="${contact.id==loginUser.id }">
 				<a href="Contact_update.jsp?contact_seq=${contact.contact_seq }">
 					<button type="button" class="btn btn-success btn-lg">글 수정</button>
 				</a>
 			</c:if>
-			<c:if test="${contact.id!=loginUser }">
+			<c:if test="${contact.id!=loginUser.id }">
 
 			</c:if>
 			<a href="Contact_board.do">

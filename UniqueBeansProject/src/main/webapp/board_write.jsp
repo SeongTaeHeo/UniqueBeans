@@ -29,33 +29,7 @@
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/hstboard.css" rel="stylesheet">
 </head>
-<script type="text/javascript">
-	$(function() {
-		//전역변수
-		var obj = [];
-		//스마트에디터 프레임생성
-		nhn.husky.EZCreator.createInIFrame({
-			oAppRef : obj,
-			elPlaceHolder : "editor",
-			sSkinURI : "./resources/editor/SmartEditor2Skin.html",
-			htParams : {
-				// 툴바 사용 여부
-				bUseToolbar : true,
-				// 입력창 크기 조절바 사용 여부
-				bUseVerticalResizer : true,
-				// 모드 탭(Editor | HTML | TEXT) 사용 여부
-				bUseModeChanger : true,
-			}
-		});
-		//전송버튼
-		$("#write_btn").click(function() {
-			//id가 smarteditor인 textarea에 에디터에서 대입
-			obj.getById["editor"].exec("UPDATE_CONTENTS_FIELD", []);
-			//폼 submit
-			$("#write_form").submit();
-		});
-	});
-</script>
+
 <body>
 	<jsp:include page="top_menu.jsp"></jsp:include>
 	<header class="masthead" style="height:250px;">
@@ -83,7 +57,8 @@
 					</tr>
 					<tr>
 						<th>작성자</th>
-						<td><input id="id" type="text" value=${loginUser.id } name="id"
+						
+						<td><input id="id" type="text" value=${loginUser.id} name="id"
 							readonly="readonly" style="border: none;" /></td>
 					</tr>
 					<tr>

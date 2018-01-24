@@ -83,7 +83,6 @@ public class Beans_BoardController {
 	/*
 	 * 게시판 불러오기
 	 */
-
 	@RequestMapping(value = "Free_board.do")
 	public String Free_board(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model) {
 		if (vo.getSearchCondition() == null)
