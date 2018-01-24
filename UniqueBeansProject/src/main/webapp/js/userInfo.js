@@ -3,7 +3,6 @@ $(function() {
 	$('#buyList').css('display', 'none');
 	$('#userMilage').css('display', 'none');
 	$('#userBoardView').css('display', 'none');
-	$('#userCommenView').css('display', 'none');
 	$('p').css('display', 'none').css('color','red');
 	$('#userSetPanel').css('display','none');
 	
@@ -37,13 +36,5 @@ $(function() {
 		$('#userMilage').css('display', 'none');
 		$('#userBoardView').css('display', 'block');
 		$('#userCommenView').css('display', 'none');
-	});
-
-	$('#a5').click(function() {
-		$('#userSetUp').css('display', 'none');
-		$('#buyList').css('display', 'none');
-		$('#userMilage').css('display', 'none');
-		$('#userBoardView').css('display', 'none');
-		$('#userCommenView').css('display', 'block');
 	});
 });

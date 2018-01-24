@@ -22,7 +22,7 @@ public class Beans_UserDAO {
 	private ResultSet rs;
 
 	// 회원가입 쿼리문
-	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address, gender, point) values(?,?,?,?,?,?,?,?,?)";
+	private final String INSERT_USER = "insert into customer(id, password, email, birth, tel, name, address_num, address_road, address_detail, address_other, gender, point) values(?,?,?,?,?,?,?,?,?,?,?,?)";
 	// 로그인을 위하여 DB값과 비교.
 	private final String GET_USER_LOGIN = "select * from customer where id = ? and password = ?";
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
@@ -47,9 +47,12 @@ public class Beans_UserDAO {
 			pstmt.setDate(4, vo.getInput_Birth());
 			pstmt.setString(5, vo.getTel());
 			pstmt.setString(6, vo.getName());
-			pstmt.setString(7, vo.getAddress());
-			pstmt.setString(8, vo.getGender());
-			pstmt.setInt(9, vo.getPoint());
+			pstmt.setInt(7, vo.getAddress_number());
+			pstmt.setString(8, vo.getAddress_road());
+			pstmt.setString(9, vo.getAddress_detail());
+			pstmt.setString(10, vo.getAddress_other());
+			pstmt.setString(11, vo.getGender());
+			pstmt.setInt(12, vo.getPoint());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -85,7 +88,7 @@ public class Beans_UserDAO {
 				userInfo.setBirth(rs.getString(4));
 				userInfo.setTel(rs.getString(5));
 				userInfo.setName(rs.getString(6));
-				userInfo.setAddress(rs.getString(7));
+				//userInfo.setAddress(rs.getString(7));
 				userInfo.setGender(rs.getString(8));
 				userInfo.setPoint(rs.getInt(9));
 			}
@@ -110,7 +113,7 @@ public class Beans_UserDAO {
 			pstmt.setString(1, vo.getPwd());
 			pstmt.setString(2, vo.getEmail());
 			pstmt.setString(3, vo.getTel());
-			pstmt.setString(4, vo.getAddress());
+			//pstmt.setString(4, vo.getAddress());
 			pstmt.setString(5, vo.getId());
 			pstmt.executeUpdate();
 			
