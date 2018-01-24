@@ -115,12 +115,27 @@ public class Beans_UserController {
 	public void buyList() {
 		
 	}
+	/*
+	 * 아이디 찾기 인증 메일
+	 */
+	@RequestMapping("/findId.do")
+	public String findUserId(Beans_UserVO vo,Model model){
+		if(userService.searchId(vo)){
+			System.out.println("방송완료");
+		}else{
+			System.out.println("이름 또는 이메일확인 요망");
+		}
+		
+		return "foundpw.jsp";
+		
+	}
+	
 	
 	/*
 	 * 비밀번호 찾기 인증 메일
 	 */
-	@RequestMapping("/findId.do")
-	public String findUserId(Beans_UserVO vo, Model model) {	
+	@RequestMapping("/findPw.do")
+	public String findUserPw(Beans_UserVO vo, Model model) {	
 		
 		if(userService.searchPw(vo)) {
 			System.out.println("보내졋드아!!!!");

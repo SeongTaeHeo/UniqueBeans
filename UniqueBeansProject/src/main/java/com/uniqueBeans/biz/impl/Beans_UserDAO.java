@@ -27,6 +27,8 @@ public class Beans_UserDAO {
 	private final String GET_USER_LOGIN = "select * from customer where id = ? and password = ?";
 	// 유저정보 수정사항을 업데이트 하는 쿼리문
 	private final String SET_USER_INFO = "update customer set password = ?, email = ?, tel = ?, address = ? where id = ?";
+	//아이디 찾기
+	private final String FIND_USER_ID="select id from customer where name=? and email=?";
 	// 비밀번호찾기
 	private final String FIND_USER_PASSWORD="select password from customer where id=? and email=?"; 
 	
@@ -121,6 +123,33 @@ public class Beans_UserDAO {
 		
 		return true;
 	}
+	/*
+	 * 아이디 찾기 메소드
+	 */
+	public String searchId(Beans_UserVO vo){
+		conn=(Connection)JDBCUtil.getConnection();
+		String userId = null;
+		try{
+			pstmt=conn.prepareStatement(FIND_USER_ID);
+			pstmt.setString(1, vo.getName());
+			pstmt.setString(2, vo.getEmail());
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				System.out.println("받아온 유저 이름="+vo.getName());
+				System.out.println("받아온 유저 email="+vo.getEmail());
+				
+				userId = rs.getString("id");
+			}
+			System.out.println(userId);
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+			JDBCUtil.close(pstmt, conn);
+		}
+		return userId;
+	}
 	
 	/* 
 	 * 비밀번호 찾기 메소드 
@@ -141,6 +170,7 @@ public class Beans_UserDAO {
 				
 				userPwd = rs.getString("password");
 			}
+			System.out.println(userPwd);
 		}catch(SQLException e){
 			e.printStackTrace();
 		}finally{
