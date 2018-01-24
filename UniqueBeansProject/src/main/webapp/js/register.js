@@ -11,6 +11,15 @@ $(function() {
 			$('p').text('비밀번호가 일치하지 않습니다.')
 		}
 	});
+	
+	// 전화번호 포맷으로 강제 입력
+	$('#phone').keyup(function() {
+		var check = $('#phone').val();
+
+		this.value = autoHypenPhone(check);
+	});
+	
+	
 
 	// 생년월일 포맷으로 강제 입력
 	$('#inputBirth').keyup(function() {
@@ -56,6 +65,28 @@ function autoHypenBirth(str) {
 		tmp += str.substr(4, 2);
 		tmp += '-';
 		tmp += str.substr(6);
+		return tmp;
+	}
+	
+}
+
+function autoHypenPhone(str) {
+	str = str.replace(/[^0-9]/g, '');
+	var tmp = '';
+
+	if (str.length < 4) {
+		return str;
+	} else if (str.length < 8) {
+		tmp += str.substr(0, 3);
+		tmp += '-';
+		tmp += str.substr(3, 4);
+		return tmp;
+	} else {
+		tmp += str.substr(0, 3);
+		tmp += '-';
+		tmp += str.substr(3, 4);
+		tmp += '-';
+		tmp += str.substr(7);
 		return tmp;
 	}
 }
