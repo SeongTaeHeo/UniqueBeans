@@ -94,18 +94,19 @@ public class Beans_UserController {
 	/*
 	 * 유저정보 수정 사항을 보내기 위한 메서드
 	 */
-	@RequestMapping("/userSetUp.do")
+	/*@RequestMapping("/userSetUp.do")
 	@ResponseBody
 	public void userSetUp(HttpServletRequest request) {
 		Beans_UserVO vo = new Beans_UserVO();
 		vo.setId(request.getParameter("id"));
 		vo.setPwd(request.getParameter("pass"));
+		System.out.println(vo.getPwd());
 		vo.setAddress(request.getParameter("address"));
 		vo.setTel(request.getParameter("phone"));
 		vo.setEmail(request.getParameter("email"));
 		
-		userService.setUser(vo);
-	}
+		//userService.setUser(vo);
+	}*/
 	
 	
 	/*
