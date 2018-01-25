@@ -24,395 +24,205 @@
 					});
 				});
 
-				$("#kd1")
-						.click(
-								function() {
-									console.log("아라비카 클릭");
-									$("#sel_kd").empty();
-									$("#sel_kd").append("아라비카");
-									$
-											.ajax({
-												url : 'ajax/country.json',
-												dataType : 'json',
-												success : function(data) {
-													console.log("ajax 연결 성공");
-													$('#btn_wrap').empty();
-													for (var i = 0; i < data.length; i++) {
-														if (data[i].kd == "Arabica") {
-															$('#btn_wrap')
-																	.append(
-																			"<a class='carousel-control-next'"+
-								"href='#myCarousel' data-slide='next'>"
-																					+ "<img id='shop-option-img2' class='pro_country'"
-								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
-								+ data[i].id + "'></a>");
-														} else {
-															continue;
-														}
-													}
-													var moveLeft = 10;
-													var moveDown = 20;
+				$("#kd1").click(
+					function() {
+						console.log("아라비카 클릭");
+						$("#sel_kd").empty();
+						$("#sel_kd").append("아라비카");
+						$.ajax({
+							url : 'ajax/country.json',
+							dataType : 'json',
+							success : function(data) {
+								console.log("ajax 연결 성공");
+								$('#btn_wrap').empty();
+								for (var i = 0; i < data.length; i++) {
+									if (data[i].kd == "Arabica") {
+										$('#btn_wrap').append(
+											"<a class='carousel-control-next'"+
+											"href='#myCarousel' data-slide='next'>"
+											+ "<img id='shop-option-img2' class='pro_country'"
+											+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+											+ data[i].id + "'></a>");
+									} else {
+										continue;
+									}
+								}
+								var moveLeft = 10;
+								var moveDown = 20;
 
-													$(".pro_country")
-															.mouseenter(
-																	function(e) {
-																		var mover_country = $(
-																				this)
-																				.attr(
-																						"alt");
-																		for (var j = 0; j < data.length; j++) {
-																			if (mover_country == data[j].id) {
-																				var color = Chart.helpers.color;
-																				var config = {
-																					type : 'radar',
-																					data : {
-																						labels : [
-																								"Aroma",
-																								"Bitters",
-																								"Acidity",
-																								"Balance",
-																								"Body",
-																								"Sweet" ],
-																						datasets : [ {
-																							label : data[j].name,
-																							borderColor : window.chartColors.yellow,
-																							backgroundColor : color(
-																									window.chartColors.yellow)
-																									.alpha(
-																											0.7)
-																									.rgbString(),
-																							pointBackgroundColor : window.chartColors.yellow,
-																							data : [
-																									data[j].ar,
-																									data[j].bi,
-																									data[j].ac,
-																									data[j].ba,
-																									data[j].bo,
-																									data[j].sw ]
-																						} ]
-																					}
-																				};
-
-																				$(
-																						'#canvas')
-																						.remove();
-																				$(
-																						"#canvas_wrap")
-																						.append(
-																								"<canvas id='canvas'></canvas>");
-																				myRadar = new Chart(
-																						document
-																								.getElementById("canvas"),
-																						config);
-																				$(
-																						"#info_name")
-																						.empty();
-																				$(
-																						"#info_name")
-																						.append(
-																								data[j].name);
-																				$(
-																						"#info_kind")
-																						.empty();
-																				$(
-																						"#info_kind")
-																						.append(
-																								data[j].kind);
-																				$(
-																						"#info_price")
-																						.empty();
-																				$(
-																						"#info_price")
-																						.append(
-																								data[j].price);
-																				$(
-																						"#info_rt")
-																						.empty();
-																				$(
-																						"#info_rt")
-																						.append(
-																								data[j].price);
-
-																				$(
-																						"#sel_kt")
-																						.empty();
-																				$(
-																						"#sel_kt")
-																						.append(
-																								data[j].kind
-																										+ data[j].name);
-
-																				/* 팝업 생성 시작 */
-																				$(
-																						'.pro_country')
-																						.hover(
-																								function(
-																										e) {
-																									$(
-																											'div#pop-up')
-																											.show();
-																									$(
-																											'div#pop-up')
-																											.css(
-																													'top',
-																													e.pageY
-																															+ moveDown);
-																									$(
-																											'div#pop-up')
-																											.css(
-																													'left',
-																													e.pageX
-																															+ moveLeft);
-																									$(
-																											'div#pop-up')
-																											.appendTo(
-																													'body');
-																								},
-																								function() {
-																									$(
-																											'div#pop-up')
-																											.hide();
-																								});
-																				$(
-																						'.pro_country')
-																						.mousemove(
-																								function(
-																										e) {
-																									$(
-																											"div#pop-up")
-																											.css(
-																													'top',
-																													e.pageY
-																															+ moveDown)
-																											.css(
-																													'left',
-																													e.pageX
-																															+ moveLeft);
-																								});
-
-																				/* 팝업생성 끝 */
-																			} else {
-																				continue;
-																			}
-																		}
-
-																		$(
-																				".pro_country")
-																				.click(
-																						function() {
-																							var selected_ct = $(
-																									this)
-																									.attr(
-																											"alt");
-																							$(
-																									"#sel_ct")
-																									.empty();
-																							$(
-																									"#sel_ct")
-																									.append(
-																											selected_ct);
-																						});
-																	});
+								$(".pro_country").mouseenter(function(e) {
+									var mover_country = $(this).attr("alt");
+									for (var j = 0; j < data.length; j++) {
+										if (mover_country == data[j].id) {
+											var color = Chart.helpers.color;
+											var config = {
+												type : 'radar',
+												data : {
+												labels : ["Aroma", "Bitters", "Acidity", "Balance", "Body","Sweet" ],
+												datasets : [ {
+													label : data[j].name,
+													borderColor : window.chartColors.yellow,
+													backgroundColor : color(window.chartColors.yellow).alpha(0.7).rgbString(),
+													pointBackgroundColor : window.chartColors.yellow,
+													data : [
+														data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw ]
+													} ]
 												}
-											});
+											};
+											$('#canvas').remove();
+											$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
+											myRadar = new Chart(document.getElementById("canvas"),config);
+											$("#info_name").empty();
+											$("#info_name").append(data[j].name);
+											$("#info_kind").empty();
+											$("#info_kind").append(data[j].kind);
+											$("#info_price").empty();
+											$("#info_price").append(data[j].price);
+											$("#info_rt").empty();
+											$("#info_rt").append(data[j].price);
+											$("#sel_kt").empty();
+											$("#sel_kt").append(data[j].kind + data[j].name);
+
+											/* 팝업 생성 시작 */
+											$('.pro_country').hover(function(e) {
+											$('div#pop-up').show();
+											$('div#pop-up').css('top',e.pageY+ moveDown);
+											$('div#pop-up').css('left',e.pageX+ moveLeft);
+											$('div#pop-up').appendTo('body');
+										},
+										function() {
+											$('div#pop-up').hide();
+										});
+										$('.pro_country').mousemove(function(e) {
+											$("div#pop-up").css('top',e.pageY+ moveDown).css('left',e.pageX+ moveLeft);
+										});
+
+										/* 팝업생성 끝 */
+									} else {
+										continue;
+									}
+								}
+								$(".pro_country").click(function() {
+									var selected_ct = $(this).attr("alt");
+									for(var k=0; k<data.length;k++){
+										if(selected_ct==data[k].id){
+											$("#sel_ct").empty();
+											$("#sel_ct").append(data[k].name);
+											$("#sel_pr").empty();
+											$("#sel_pr").append(data[k].price);
+										}else{
+											continue;
+										}
+									}											
 								});
+							});
+						}
+					});
+				});
 
-				$("#kd2")
-						.click(
-								function() {
-									console.log("로부스타 클릭");
-									$("#sel_kd").empty();
-									$("#sel_kd").append("로부스타");
-									$
-											.ajax({
-												url : 'ajax/country.json',
-												dataType : 'json',
-												success : function(data) {
-													console.log("ajax 연결 성공");
-													$('#btn_wrap').empty();
-													for (var i = 0; i < data.length; i++) {
-														if (data[i].kd == "Robusta") {
-															$('#btn_wrap')
-																	.append(
-																			"<a class='carousel-control-next'"+
-								"href='#myCarousel' data-slide='next'>"
-																					+ "<img id='shop-option-img2' class='pro_country'"
-								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
-								+ data[i].id + "'></a>");
-														} else {
-															continue;
-														}
-													}
-													var moveLeft = 10;
-													var moveDown = 20;
+				$("#kd2").click(
+					function() {
+						console.log("로부스타 클릭");
+						$("#sel_kd").empty();
+						$("#sel_kd").append("로부스타");
+						$.ajax({
+							url : 'ajax/country.json',
+							dataType : 'json',
+							success : function(data) {
+							console.log("ajax 연결 성공");
+							$('#btn_wrap').empty();
+							for (var i = 0; i < data.length; i++) {
+								if (data[i].kd == "Robusta") {
+									$('#btn_wrap').append(
+										"<a class='carousel-control-next'"+
+										"href='#myCarousel' data-slide='next'>"
+										+ "<img id='shop-option-img2' class='pro_country'"
+										+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+										+ data[i].id + "'></a>");
+								} else {
+									continue;
+								}
+							}
+							var moveLeft = 10;
+							var moveDown = 20;
 
-													$(".pro_country")
-															.mouseenter(
-																	function(e) {
-																		var mover_country = $(
-																				this)
-																				.attr(
-																						"alt");
-																		for (var j = 0; j < data.length; j++) {
-																			if (mover_country == data[j].id) {
-																				var color = Chart.helpers.color;
-																				var config = {
-																					type : 'radar',
-																					data : {
-																						labels : [
-																								"Aroma",
-																								"Bitters",
-																								"Acidity",
-																								"Balance",
-																								"Body",
-																								"Sweet" ],
-																						datasets : [ {
-																							label : data[j].name,
-																							borderColor : window.chartColors.yellow,
-																							backgroundColor : color(
-																									window.chartColors.yellow)
-																									.alpha(
-																											0.7)
-																									.rgbString(),
-																							pointBackgroundColor : window.chartColors.yellow,
-																							data : [
-																									data[j].ar,
-																									data[j].bi,
-																									data[j].ac,
-																									data[j].ba,
-																									data[j].bo,
-																									data[j].sw ]
-																						} ]
-																					}
-																				};
+							$(".pro_country").mouseenter(function(e) {
+								var mover_country = $(this).attr("alt");
+								for (var j = 0; j < data.length; j++) {
+									if (mover_country == data[j].id) {
+										var color = Chart.helpers.color;
+										var config = {
+											type : 'radar',
+											data : {
+												labels : ["Aroma","Bitters","Acidity","Balance","Body","Sweet" ],
+												datasets : [ {
+													label : data[j].name,
+													borderColor : window.chartColors.yellow,
+													backgroundColor : color(window.chartColors.yellow).alpha(0.7).rgbString(),
+													pointBackgroundColor : window.chartColors.yellow,
+													data : [
+													        data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw ]
+												} ]
+											}
+										};
 
-																				$(
-																						'#canvas')
-																						.remove();
-																				$(
-																						"#canvas_wrap")
-																						.append(
-																								"<canvas id='canvas'></canvas>");
-																				myRadar = new Chart(
-																						document
-																								.getElementById("canvas"),
-																						config);
-																				$(
-																						"#info_name")
-																						.empty();
-																				$(
-																						"#info_name")
-																						.append(
-																								data[j].name);
-																				$(
-																						"#info_kind")
-																						.empty();
-																				$(
-																						"#info_kind")
-																						.append(
-																								data[j].kind);
-																				$(
-																						"#info_price")
-																						.empty();
-																				$(
-																						"#info_price")
-																						.append(
-																								data[j].price);
-																				$(
-																						"#info_rt")
-																						.empty();
-																				$(
-																						"#info_rt")
-																						.append(
-																								data[j].price);
+										$('#canvas').remove();
+										$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
+										myRadar = new Chart(document.getElementById("canvas"),config);
+										$("#info_name").empty();
+										$("#info_name").append(data[j].name);
+										$("#info_kind").empty();
+										$("#info_kind").append(data[j].kind);
+										$("#info_price").empty();
+										$("#info_price").append(data[j].price);
+										$("#info_rt").empty();
+										$("#info_rt").append(data[j].price);
 
-																				$(
-																						"#sel_kt")
-																						.empty();
-																				$(
-																						"#sel_kt")
-																						.append(
-																								data[j].kind
-																										+ data[j].name);
+										$("#sel_kt").empty();
+										$("#sel_kt").append(data[j].kind+ data[j].name);
 
-																				/* 팝업 생성 시작 */
-																				$(
-																						'.pro_country')
-																						.hover(
-																								function(
-																										e) {
-																									$(
-																											'div#pop-up')
-																											.show();
-																									$(
-																											'div#pop-up')
-																											.css(
-																													'top',
-																													e.pageY
-																															+ moveDown);
-																									$(
-																											'div#pop-up')
-																											.css(
-																													'left',
-																													e.pageX
-																															+ moveLeft);
-																									$(
-																											'div#pop-up')
-																											.appendTo(
-																													'body');
-																								},
-																								function() {
-																									$(
-																											'div#pop-up')
-																											.hide();
-																								});
-																				$(
-																						'.pro_country')
-																						.mousemove(
-																								function(
-																										e) {
-																									$(
-																											"div#pop-up")
-																											.css(
-																													'top',
-																													e.pageY
-																															+ moveDown)
-																											.css(
-																													'left',
-																													e.pageX
-																															+ moveLeft);
-																								});
+										/* 팝업 생성 시작 */
+										$('.pro_country').hover(function(e) {
+											$('div#pop-up').show();
+											$('div#pop-up').css('top',e.pageY+ moveDown);
+											$('div#pop-up').css('left',e.pageX+ moveLeft);
+											$('div#pop-up').appendTo('body');
+										},function() {
+											$('div#pop-up').hide();
+										});
+										$('.pro_country').mousemove(function(e) {
+											$("div#pop-up").css('top',e.pageY+ moveDown).css('left',e.pageX+ moveLeft);
+										});
 
-																				/* 팝업생성 끝 */
-																			} else {
-																				continue;
-																			}
-																		}
+										/* 팝업생성 끝 */
+									} else {
+										continue;
+									}
+								}
 
-																		$(
-																				".pro_country")
-																				.click(
-																						function() {
-																							var selected_ct = $(
-																									this)
-																									.attr(
-																											"alt");
-																							$(
-																									"#sel_ct")
-																									.empty();
-																							$(
-																									"#sel_ct")
-																									.append(
-																											selected_ct);
-																						});
-																	});
-												}
-											});
+								$(".pro_country").click(function() {
+									var selected_ct = $(this).attr("alt");
+									for(var k=0; k<data.length;k++){
+										if(selected_ct==data[k].id){
+											$("#sel_ct").empty();
+											$("#sel_ct").append(data[k].name);
+											$("#sel_pr").empty();
+											$("#sel_pr").append(data[k].price);
+										}else{
+											continue;
+										}
+									}
+																							
 								});
+							});
+						}
+					});
+				});
 
 				$("#rt0").click(function() {
 					$("#sel_rt").empty();
 					$("#sel_rt").append("라이트 로스팅");
+					$("#sel_pr").append("+"+1000);
 				});
 				$("#rt1").click(function() {
 					$("#sel_rt").empty();
@@ -467,75 +277,55 @@
 					$("#sel_gd").empty();
 					$("#sel_gd").append("Fine Grind");
 				});
-				$(".bpro_finish")
-						.click(
-								function() {
-									console.log("주문 완료");
-									$
-											.ajax({
-												url : 'ajax/country.json',
-												dataType : 'json',
-												success : function(data) {
-													for (var i = 0; i < data.length; i++) {
-														if ($("#sel_ct").text() == data[i].id) {
-															$("#complpro_table")
-																	.append(
-																			"<tr>"
-																					+ "<td>"
-																					+ $(
-																							"#sel_kd")
-																							.text()
-																					+ "/"
-																					+ $(
-																							"#sel_ct")
-																							.text()
-																					+ "/"
-																					+ $(
-																							"#sel_rt")
-																							.text()
-																					+ "/"
-																					+ $(
-																							"#sel_gd")
-																							.text()
-																					+ "</td>"
-																					+ "<td>"
-																					+ data[i].price
-																					+ "</td>"
-																					+ "</tr>");
-														} else {
-															continue;
-														}
-													}
-												}
-											});
+				$(".bpro_finish").click(function() {
+					console.log("선택 완료");
+					$.ajax({
+						url : 'ajax/country.json',
+						dataType : 'json',
+						success : function(data) {
+							var totalprice;
+							for (var k = 0; k < data.length; k++) {
+									
+								if ($("#sel_ct").text() == data[k].name) {
+									if($("#sel_rt").text())
+									$("#complpro_table").append(
+										"<tr>"+ "<td>"
+										+ $("#sel_kd").text()+ "/"
+										+ $("#sel_ct").text()+ "/"
+										+ $("#sel_rt").text()+ "/"
+										+ $("#sel_gd").text()+ "</td>"
+										+ "<td>1</td>"
+										+ "<td>"+$("#sel_pr").text()+"</td>"
+										+ "</tr>");
+								} else {
+									continue;
+								}
+							}
+						}
+					});
 
-									// JSON list 타입 생성
-									param += '{"item1":' + '"'
-											+ $("#sel_kd").text() + '",';
-									param += '"item2":' + '"'
-											+ $("#sel_ct").text() + '",';
-									param += '"item3":' + '"'
-											+ $("#sel_rt").text() + '",';
-									param += '"item4":' + '"'
-											+ $("#sel_gd").text() + '",';
-									param += '"item5":' + '"'
-											+ $("#sel_kd").text() + '"';
-									param += '},';
+					// JSON list 타입 생성
+					param += '{"item1":' + '"'+ $("#sel_kd").text() + '",';
+					param += '"item2":' + '"'+ $("#sel_ct").text() + '",';
+					param += '"item3":' + '"'+ $("#sel_rt").text() + '",';
+					param += '"item4":' + '"'+ $("#sel_gd").text() + '",';
+					param += '"item5":' + '"'+ $("#sel_kd").text() + '"';
+					param += '},';
+					
+				});
 
-								});
-
-				$(".btn-default").click(
-						function() {
-							console.log("주문 완료");
-							var sel_tpro;
-							sel_tpro = $(this).attr("id");
-							console.log(sel_tpro);
-							/*sel_tpro= $(".btn-default")this.attr("id");*/
-							$("#complpro_table").append(
-									"<tr>" + "<td>" + $("#tsel_name").text()
-											+ "</td>" + "<td>"
-											+ $("#tsel_price").text() + "</td>"
-											+ "</tr>");
+				$("아직 못정함").click(
+					function() {
+						console.log("주문 완료");
+						var sel_tpro;
+						sel_tpro = $(this).attr("id");
+						console.log(sel_tpro);
+						/*sel_tpro= $(".btn-default")this.attr("id");*/
+						$("#complpro_table").append(
+							"<tr>" + "<td>" + $("#tsel_name").text()
+							+ "</td>" + "<td>"
+							+ $("#tsel_price").text() + "</td>"
+							+ "</tr>");
 						});
 
-			});
+				});

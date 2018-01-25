@@ -95,6 +95,10 @@
 							<th>그라인딩</th>
 							<td id="sel_gd"></td>
 						</tr>
+						<tr>
+							<th>가격</th>
+							<td id="sel_pr"></td>
+						</tr>
 					</tbody>
 				</table>
 				<table id="complpro_table">
