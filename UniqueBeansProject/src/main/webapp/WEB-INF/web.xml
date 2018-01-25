@@ -42,4 +42,14 @@
     <filter-name>LoginCheck</filter-name>
     <url-pattern>*.do</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Beans_ProductImpl</display-name>
+    <servlet-name>Beans_ProductImpl</servlet-name>
+    <servlet-class>com.uniqueBeans.biz.impl.Beans_ProductImpl</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Beans_ProductImpl</servlet-name>
+    <url-pattern>/Beans_ProductImpl</url-pattern>
+  </servlet-mapping>
 </web-app>
