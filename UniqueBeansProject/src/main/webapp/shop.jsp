@@ -108,7 +108,7 @@
 						<th>삭제</th>
 					</tr>
 				</table>
-				<a href="####"><button class="btn btn-default">주문하기</button></a>
+				<a href="orderinfo.jsp"><button class="btn btn-default">주문하기</button></a>
 			</div>
 		</div>
 	</div>
@@ -429,7 +429,6 @@
 									data-toggle="modal" data-target="#myModal_1">
 							</div>
 							<div class="tpro_name">드립</div>
-							<div class="tpro_price">가격</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
@@ -437,7 +436,6 @@
 									data-toggle="modal" data-target="#myModal_2">
 							</div>
 							<div class="tpro_name">사이폰</div>
-							<div class="tpro_price">가격</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
@@ -445,7 +443,6 @@
 									data-toggle="modal" data-target="#myModal_3">
 							</div>
 							<div class="tpro_name">에스프레소 머신</div>
-							<div class="tpro_price">가격</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
@@ -453,7 +450,6 @@
 									data-toggle="modal" data-target="#myModal_4">
 							</div>
 							<div class="tpro_name">융드립</div>
-							<div class="tpro_price">가격</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
@@ -461,7 +457,6 @@
 									data-toggle="modal" data-target="#myModal_5">
 							</div>
 							<div class="tpro_name">프렌치프레스</div>
-							<div class="tpro_price">가격</div>
 						</div>
 					</div>
 				</div>
@@ -489,7 +484,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>drip</td>
+											<td id="tsel_code">drip</td>
 										</tr>
 									</tbody>
 								</table>
@@ -501,7 +496,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>드립</td>
+											<td id="tsel_name">드립</td>
 										</tr>
 									</tbody>
 								</table>
@@ -513,7 +508,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>50,000원</td>
+											<td id="tsel_price">50,000원</td>
 										</tr>
 									</tbody>
 								</table>
@@ -567,7 +562,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>drip</td>
+											<td id="tsel_code">syphone</td>
 										</tr>
 									</tbody>
 								</table>
@@ -579,7 +574,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>드립</td>
+											<td id="tsel_name">사이폰</td>
 										</tr>
 									</tbody>
 								</table>
@@ -591,7 +586,7 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td>50,000원</td>
+											<td id="tsel_price">200,000원</td>
 										</tr>
 									</tbody>
 								</table>
@@ -631,29 +626,62 @@
 
 							</div>
 							<div class="modal-body">
-								<h4 class="modal-title">에스프레소 머신</h4>
+							
+							<h4 class="modal-title">에스프레소 머신</h4>
+								<center>
 								<div>
-									<img src="img/tools/에스프레소.jpeg">
+									<img src="img/tools/에스프레소.jpeg" style="width: 300px; height: 300px;">
 								</div>
-								<table>
-									<tr>
-										<th>상품코드</th>
-										<td id="tsel_code">espressomachine</td>
-									</tr>
-									<tr>
-										<th>상품명</th>
-										<td id="tsel_name">에스프레소 머신</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td id="tsel_price">800,000</td>
-									</tr>
-									<tr>
-										<th>상세정보</th>
-										<td>에스프레소 머신과 함께라면 버튼 하나로 커피 원두를 분쇄한 후 바로 커피를 내릴 수 있습니다.
+								</center>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품 코드</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_code">espressomachine</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품명</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_name">에스프레소 머신</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>가격</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_price">800,000</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th>상세정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>에스프레소 머신과 함께라면 버튼 하나로 커피 원두를 분쇄한 후 바로 커피를 내릴 수 있습니다.
 											에스프레소와 카페 룽고는 물론, 일체형 우유 거품기로 낸 신선한 우유 거품을 올려 카푸치노 또는 라떼
 											마끼아또까지 마음껏 즐겨 보세요.</td>
-									</tr>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div class="modal-footer">
@@ -676,29 +704,62 @@
 
 							</div>
 							<div class="modal-body">
-								<h4 class="modal-title">융드립</h4>
+							
+							<h4 class="modal-title">융드립</h4>
+								<center>
 								<div>
-									<img src="img/tools/융드립.jpg">
+									<img src="img/tools/융드립.jpg" style="width: 300px; height: 300px;">
 								</div>
-								<table>
-									<tr>
-										<th>상품코드</th>
-										<td id="tsel_code">neldrip</td>
-									</tr>
-									<tr>
-										<th>상품명</th>
-										<td id="tsel_name">융드립</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td id="tsel_price">30,000</td>
-									</tr>
-									<tr>
-										<th>상세정보</th>
-										<td>융드립(nel)넬 드립이라고도하며 핸드드립중 가장뛰어난 맛과 완벽한 추출물을 표현해 내는 수제
+								</center>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품 코드</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_code">neldrip</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품명</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_name">융드립</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>가격</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_price">30,000</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th>상세정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>융드립(nel)넬 드립이라고도하며 핸드드립중 가장뛰어난 맛과 완벽한 추출물을 표현해 내는 수제
 											감각만점 (여과법)의 제왕이다. 융드립은 내리는 사람의 개성이 가장 잘 표현되기 쉽고 커피마니아 들에게
 											인기있는 추출법</td>
-									</tr>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div class="modal-footer">
@@ -721,29 +782,62 @@
 
 							</div>
 							<div class="modal-body">
-								<h4 class="modal-title">프렌치프레스</h4>
+							
+							<h4 class="modal-title">프렌치프레스</h4>
+								<center>
 								<div>
-									<img src="img/tools/프렌치프레스.jpg">
+									<img src="img/tools/프렌치프레스.jpg"style="width: 300px; height: 300px;">
 								</div>
-								<table>
-									<tr>
-										<th>상품코드</th>
-										<td id="tsel_code">frenchpress</td>
-									</tr>
-									<tr>
-										<th>상품명</th>
-										<td id="tsel_name">프렌치프레스</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td id="tsel_price">35,000</td>
-									</tr>
-									<tr>
-										<th>상세정보</th>
-										<td>여과지 대신 금속으로 만들어진 망을 눌러 커피를 추출하므로 커피오일 성분이 그대로 남아
+								</center>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품 코드</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_code">frenchpress</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품명</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_name">프렌치프레스</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>가격</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td id="tsel_price">35,000</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th>상세정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>여과지 대신 금속으로 만들어진 망을 눌러 커피를 추출하므로 커피오일 성분이 그대로 남아
 											바디(Body)가 강한 커피를 마실 수 있다. 비교적 굵게 분쇄한 커피가루를 넣고 뜨거운 물을 부은 후 천천히
 											망을 내려준다. 우려내기와 가압추출방식이 혼합된 추출법이다.</td>
-									</tr>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div class="modal-footer">
