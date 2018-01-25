@@ -78,7 +78,7 @@
 			</tbody>
 		</table>
 		<div class="write">
-			<c:if test="${board.id==loginUser.id }">
+			<c:if test="${board.id==loginUser.id or loginUser.admin==1 }">
 				<a href="deleteBoard.do?post_number=${board.post_number }">
 					<button type="button" class="btn btn-success btn-lg">글 삭제</button>
 				</a>
@@ -86,7 +86,7 @@
 			<c:if test="${board.id!=loginUser.id }">
 				
 			</c:if>
-			<c:if test="${board.id==loginUser.id }">
+			<c:if test="${board.id==loginUser.id or loginUser.admin==1}">
 				<a href="Free_update.jsp?post_number=${board.post_number }">
 					<button type="button" class="btn btn-success btn-lg">글 수정</button>
 				</a>

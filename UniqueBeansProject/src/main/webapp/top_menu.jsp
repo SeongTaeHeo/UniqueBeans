@@ -41,6 +41,7 @@
 							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 						</c:if>
 					</li>
+
 				</ul>
 			</div>
 		</div>

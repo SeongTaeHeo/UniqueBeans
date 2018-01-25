@@ -1,17 +1,17 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
+
 
 <title>Unique Bean</title>
 
@@ -46,7 +46,7 @@
 	</header>
 
 	<div class="board_header">
-		<h1 class="display-4" style="font-weight: bold">¹®ÀÇ °Ô½ÃÆÇ</h1>
+		<h1 class="display-4" style="font-weight: bold">ë¬¸ì˜ ê²Œì‹œíŒ</h1>
 	</div>
 
 	<div class="board_main">
@@ -54,37 +54,41 @@
 			class="bg-light table table-hover table-sm text-center form-radius">
 			<thead>
 				<tr>
-					<th class="board_no">±Û ¹øÈ£</th>
-					<th class="board_opt">¹®ÀÇ À¯Çü</th>
-					<th class="board_title">Á¦ ¸ñ</th>
-					<th class="board_write">ÀÛ¼ºÀÚ</th>
-					<th class="board_date">ÀÛ¼ºÀÏ</th>
-					<th class="board_cnt">Á¶È¸¼ö</th>
+					<th class="board_no">ê¸€ ë²ˆí˜¸</th>
+					<th class="board_opt">ë¬¸ì˜ ìœ í˜•</th>
+					<th class="board_title">ì œ ëª©</th>
+					<th class="board_write">ì‘ì„±ì</th>
+					<th class="board_date">ì‘ì„±ì¼</th>
+					<th class="board_cnt">ì¡°íšŒìˆ˜</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${contactList }" var="contact">
-					<tr>
-						<td>${contact.contact_seq }</td>
-						<td>${contact.contact_option }</td>
-						<td><a
-							href="Contact_board_content.do?contact_seq=${contact.contact_seq }">${contact.contact_title}</a></td>
-						<td>${contact.id }</td>
-						<td>${contact.contact_date }</td>
-						<td>${contact.contact_views }</td>
-					</tr>
-				</c:forEach>
+				
+					<c:forEach items="${contactList }" var="contact">
+					<c:if test="${contact.id==loginUser.id or loginUser.admin==1 }">
+						<tr>
+							<td>${contact.contact_seq }</td>
+							<td>${contact.contact_option }</td>
+							<td><a
+								href="Contact_board_content.do?contact_seq=${contact.contact_seq }">${contact.contact_title}</a></td>
+							<td>${contact.id }</td>
+							<td>${contact.contact_date }</td>
+							<td>${contact.contact_views }</td>
+						</tr>
+						</c:if>
+					</c:forEach>
+				
 			</tbody>
 		</table>
 		<div class="write">
 			<c:if test="${!empty loginUser}">
 				<a href="contact_write.jsp">
-					<button type="button" class="btn btn-success btn-lg">±Û ÀÛ¼º</button>
+					<button type="button" class="btn btn-success btn-lg">ê¸€ ì‘ì„±</button>
 				</a>
 			</c:if>
 			<c:if test="${empty loginUser}">
 				<button type="button" class="btn btn-success btn-lg"
-					onclick="alert('·Î±×ÀÎ ÈÄ ÀÛ¼ºÇÒ¼ö ÀÖ½À´Ï´Ù.')">±ÛÀÛ¼º</button>
+					onclick="alert('ë¡œê·¸ì¸ í›„ ì‘ì„±í• ìˆ˜ ìˆìŠµë‹ˆë‹¤.')">ê¸€ì‘ì„±</button>
 			</c:if>
 		</div>
 
@@ -92,7 +96,7 @@
 			<span class='green_window'> <input type='text'
 				class='input_text' />
 			</span>
-			<button type='submit' class='sch_smit'>°Ë»ö</button>
+			<button type='submit' class='sch_smit'>ê²€ìƒ‰</button>
 		</div>
 
 	</div>
@@ -112,7 +116,7 @@
 	<br>
 	<br>
 	<br>
-	<jsp:include page="footer.jsp"/>
+	<jsp:include page="footer.jsp" />
 	<script src="vendor/jquery/jquery.min.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

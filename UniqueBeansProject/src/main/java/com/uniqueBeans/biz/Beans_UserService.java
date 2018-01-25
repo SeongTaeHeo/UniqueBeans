@@ -1,5 +1,7 @@
 package com.uniqueBeans.biz;
 
+import java.util.List;
+
 /*
  * 유저 관련 DAO 작업을 위한 Service 인터페이스 정의
  */
@@ -22,4 +24,8 @@ public interface Beans_UserService {
 	
 	// 비밀번호 찾기
 	public Boolean searchPw(Beans_UserVO vo);
+	
+	// 유저 관리
+	List<Beans_UserVO> get_userList(Beans_UserVO vo);
+	
 }
