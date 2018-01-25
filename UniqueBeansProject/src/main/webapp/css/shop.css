@@ -460,6 +460,15 @@ div#pop-up {
   text-align: center;
   cursor: default;
 }
+.grind_hovereffect {
+  width: 100%;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  cursor: default;
+}
 
 .roast_hovereffect .overlay {
   width: 100%;

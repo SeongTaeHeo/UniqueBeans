@@ -1,7 +1,11 @@
-			$(function() {
+				var beanprice;
+				var roastprice;
+				var grindprice;
+				var totalprice = beanprice + roastprice + grindprice;
+				$(function() {
 
 				var param = '[';
-
+				
 				$('#showOrder').click(function() {
 					document.getElementById("mySidenav").style.width = "400px";
 					document.getElementById("main").style.marginLeft = "400px";
@@ -17,7 +21,6 @@
 						contentType : 'application/json',
 						data : param,
 						type : 'text',
-
 						success : function() {
 							alert('test');
 						}
@@ -28,6 +31,9 @@
 					function() {
 						console.log("아라비카 클릭");
 						$("#sel_kd").empty();
+						$("#sel_ct").empty();
+						$("#sel_rt").empty();
+						$("#sel_gd").empty();
 						$("#sel_kd").append("아라비카");
 						$.ajax({
 							url : 'ajax/country.json',
@@ -109,7 +115,8 @@
 											$("#sel_ct").empty();
 											$("#sel_ct").append(data[k].name);
 											$("#sel_pr").empty();
-											$("#sel_pr").append(data[k].price);
+											beanprice = parseInt(data[k].price);
+											$("#sel_pr").append(beanprice);
 										}else{
 											continue;
 										}
@@ -124,6 +131,9 @@
 					function() {
 						console.log("로부스타 클릭");
 						$("#sel_kd").empty();
+						$("#sel_ct").empty();
+						$("#sel_rt").empty();
+						$("#sel_gd").empty();
 						$("#sel_kd").append("로부스타");
 						$.ajax({
 							url : 'ajax/country.json',
@@ -207,7 +217,8 @@
 											$("#sel_ct").empty();
 											$("#sel_ct").append(data[k].name);
 											$("#sel_pr").empty();
-											$("#sel_pr").append(data[k].price);
+											beanprice =parseInt(data[k].price);
+											$("#sel_pr").append(beanprice);
 										}else{
 											continue;
 										}
@@ -222,7 +233,6 @@
 				$("#rt0").click(function() {
 					$("#sel_rt").empty();
 					$("#sel_rt").append("라이트 로스팅");
-					$("#sel_pr").append("+"+1000);
 				});
 				$("#rt1").click(function() {
 					$("#sel_rt").empty();
@@ -283,7 +293,6 @@
 						url : 'ajax/country.json',
 						dataType : 'json',
 						success : function(data) {
-							var totalprice;
 							for (var k = 0; k < data.length; k++) {
 									
 								if ($("#sel_ct").text() == data[k].name) {
@@ -329,3 +338,25 @@
 						});
 
 				});
+				$(".roast_hovereffect").click(function() {
+					if($(this).attr("id")!="rt0"){
+						roastprice = 1000;
+					} else{
+						roastprice = 0;
+					}
+					$("#sel_pr").empty();
+					$("#sel_pr").append(beanprice+roastprice);
+					
+				});
+				$(".grind_hovereffect").click(function() {
+					if($(this).attr("id")!="gd0"){
+						grindprice = 1000;
+					} else{
+						grindprice = 0;
+					}
+					$("#sel_pr").empty();
+					$("#sel_pr").append(beanprice+roastprice+grindprice);
+					
+				});
+
+					

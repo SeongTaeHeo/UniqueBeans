@@ -295,7 +295,7 @@
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd0">
+							<div class="grind_hovereffect" id="gd0">
 							<span class="bpro_finish">
 							
 							 <img
@@ -313,7 +313,7 @@
 								</a><a
 							class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd1">
+							<div class="grind_hovereffect" id="gd1">
 							<span class="bpro_finish"> <img
 								class="gd1" id="shop-option-img4"
 								src="img/grinding/grinding1.PNG" alt="grind_grade">
@@ -328,7 +328,7 @@
 								 </a><a
 							class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd2">
+							<div class="grind_hovereffect" id="gd2">
 							<span class="bpro_finish"> <img
 								class="gd2" id="shop-option-img4"
 								src="img/grinding/grinding2.PNG" alt="grind_grade">
@@ -343,7 +343,7 @@
 								</a> <a
 							class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd3">
+							<div class="grind_hovereffect" id="gd3">
 							<span class="bpro_finish"><img
 								class="gd3" id="shop-option-img4"
 								src="img/grinding/grinding3.PNG" alt="grind_grade">
@@ -358,7 +358,7 @@
 								 </a> <a
 							class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd4">
+							<div class="grind_hovereffect" id="gd4">
 							<span class="bpro_finish"> <img
 								class="gd4" id="shop-option-img4"
 								src="img/grinding/grinding4.PNG" alt="grind_grade">
@@ -373,7 +373,7 @@
 								 </a> <a
 							class="carousel-control-next" href="#myCarousel"
 							data-slide="next">
-							<div class="roast_hovereffect" id="gd5">
+							<div class="grind_hovereffect" id="gd5">
 							<span class="bpro_finish"><img
 								class="gd5" id="shop-option-img4"
 								src="img/grinding/grinding5.PNG" alt="grind_grade">
