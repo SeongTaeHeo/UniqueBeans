@@ -27,6 +27,7 @@
 
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/order-form.css?ver=1" rel="stylesheet">
+
 </head>
 <body id="main">
    <jsp:include page="top_menu.jsp"></jsp:include>
@@ -35,59 +36,87 @@
          <form name="write_form_member" method="post">
          	<h1>주문 결제</h1>
          	<h4>주문상품 정보</h4>
-         		<table>
-         			<tr>
-         				<th>No</th>
-         				<th colspan="2">상품 정보</th>
-         				<th>판매가</th>
-         				<th>수량</th>
-         				<th>적립금</th>
-         				<th>가격</th>
-         			</tr>
-         			<tr>
-         				<td>1</td>
-         				<td>이미지 들어갈 칸</td>
-         				<td>아라비카/콜롬비아/라이팅로스트/홀빈</td>
-         				<td>5000</td>
-         				<td><input type="number" name="" maxlength="2"></td>
-         				<td>50</td>
-         				<td>15000</td>
-         			</tr>
-         			<tr>
-         				<td>2</td>
-         				<td>이미지 들어갈 칸</td>
-         				<td>아라비카/콜롬비아/라이팅로스트/홀빈</td>
-         				<td>5000</td>
-         				<td><input type="number" name="" maxlength="2"></td>
-         				<td>50</td>
-         				<td>15000</td>
-         			</tr>
-         			<tr>
-         				<td colspan="6">상품구매금액 30000 + 배송비 2500 = 합계 <b> 32500원</b></td>
-         			</tr>
-         		</table>
+         		<table class="table">
+				  <thead class="thead-light">
+				    <tr>
+			      		<th>No</th>
+	       				<th colspan="2">상품 정보</th>
+	       				<th>판매가</th>
+	       				<th>수량</th>
+	       				<th>적립금</th>
+	       				<th>가격</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    <tr>
+				      	<th>1</th>
+         				<th><img src="img/country_img/bi.jpg"></th>
+         				<th>아라비카/콜롬비아/라이팅로스트/홀빈</th>
+         				<th>5000</td>
+         				<th>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select>
+						</th>
+         				<th>50</th>
+         				<th>15000</th>
+				    </tr>
+				    <tr>
+			      		<th>2</th>
+	       				<th><img src="img/country_img/bi.jpg"></th>
+	       				<th>아라비카/콜롬비아/라이팅로스트/홀빈</th>
+	       				<th>5000</th>
+	       				<th>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+								<option>5</option>
+								<option>6</option>
+								<option>7</option>
+								<option>8</option>
+								<option>9</option>
+								<option>10</option>
+							</select>
+						</th>
+	       				<th>50</th>
+	       				<th>15000</th>
+				    </tr>
+				  </tbody>
+				</table>
          		<br><br>
          	<h4>배송 정보</h4>
-         	<table>
-         		<tr>
+            <table class="table">
+			  <tbody>
+			    <tr>
          			<th>배송지 선택</th>
          			<td>
          				<input type="radio" name="1" value="customer_address">회원 정보와 동일
 						<input type="radio" name="1" value="new_address">새로운 배송지
          			</td>
          		</tr>
-         		<tr>
+			    <tr>
          			<th>받으시는 분</th>
        				<td><input type="text"></td>
-         		</tr> 
+         		</tr>
          		<tr>
          			<th>주소</th>
        				<td>
-       					<input type="text" name="" class="postcodify_postcode5" value=""/>
+       					<input type="text" name="" class="postcodify_postcode5" value="" size="8"/>
 						<button type="button" id="postcodify_search_button">검색</button><br/>
-						<input type="text" name="" class="postcodify_address" value=""/><br/>
-						<input type="text" name="" class="postcodify_details" value=""/><br/>
-						<input type="text" name="" class="postcodify_extra_info" value=""/><br/>
+						<input type="text" name="" class="postcodify_address" value="" size="30"/><br/>
+						<input type="text" name="" class="postcodify_details" value="" size="20"/><br/>
+						<input type="text" name="" class="postcodify_extra_info" value="" size="15"/><br/>
        				</td>
          		</tr>
          		<tr>
@@ -106,8 +135,10 @@
        					<textarea COLS="70" ROWS="4"></textarea>
        				</td>
          		</tr>      	
-            </table>
-            <h4>결제 예정 금액</h4>
+			  </tbody>
+			</table>
+            <br><br>
+            <h4>결제 예정 금액</h4><br>
          	<table>
          		<tr>
          			<th>총 주문 금액</th>
@@ -115,32 +146,38 @@
          			<th>총 결제예정 금액</th>
          		</tr>	
          		<tr>
-         			<td>32500</td>
-         			<td>
-         				<input type="text">
+         			<th>32500</th>
+         			<th>
+         				<input type="text" size="6"> / ${loginUser.point}
          				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
-         			</td>
-         			<td>32400원</td>
+         			</th>
+         			<th>32400원</th>
+         		</tr>
+         		<tr>
+         		
          		</tr>
             </table>
-            <h4>결제 수단</h4>
-         	<table>
-         		<tr>
-         			<td>
-         				<input type="radio" name="2" value="moo_tongjang">무통장입금
-						<input type="radio" name="2" value="card">카드결제
-						<input type="radio" name="2" value="silsigan_iche">실시간 계좌이체
-						<input type="radio" name="2" value="phone">휴대폰 결제
-         			</td>
-         			<td>
-         				최종결제 금액<br>
-         				32400원<br>
-         				<button type="submit">결제하기</button><br>
-         				마일리지<br>
-         				원 적립
-         			</td>
-         		</tr>	
-            </table>
+            <table class="table">
+			  <thead class="thead-dark">
+			    <tr>
+			      	<th>총 주문 금액</th>
+         			<th>마일리지 사용</th>
+         			<th>총 결제예정 금액</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr>
+			      <th scope="row">1</th>
+			      <td>Mark</td>
+			      <td>Otto</td>
+			    </tr>
+			    <tr>
+			      <th scope="row">2</th>
+			      <td>Jacob</td>
+			      <td>Thornton</td>
+			    </tr>
+			  </tbody>
+			</table>
         </form>
       </div>
 	</div>
