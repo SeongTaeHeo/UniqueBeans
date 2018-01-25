@@ -2,6 +2,8 @@ package com.uniqueBeans.biz;
 
 import java.sql.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class Beans_BoardVO {
 	private int post_number;
 	private String post_title;
@@ -21,6 +23,7 @@ public class Beans_BoardVO {
 	private String contact_contents;
 	private Date contact_date;
 	private int contact_views;
+	private MultipartFile uploadFile;
 
 	public int getRe_number() {
 		return re_number;
@@ -164,6 +167,14 @@ public class Beans_BoardVO {
 
 	public int getContact_views() {
 		return contact_views;
+	}
+
+	public MultipartFile getUploadFile() {
+		return uploadFile;
+	}
+
+	public void setUploadFile(MultipartFile uploadFile) {
+		this.uploadFile = uploadFile;
 	}
 
 	public String toString() {

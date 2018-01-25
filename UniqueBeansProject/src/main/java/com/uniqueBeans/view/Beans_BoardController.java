@@ -1,5 +1,6 @@
 package com.uniqueBeans.view;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
+
 import com.uniqueBeans.biz.Beans_BoardService;
 import com.uniqueBeans.biz.Beans_BoardVO;
 import com.uniqueBeans.biz.impl.Beans_BoardDAO;
@@ -34,7 +37,10 @@ public class Beans_BoardController {
 
 	@RequestMapping(value = "insertBoard.do")
 	public String insertBoard(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
+	
 		boardservice.insertBoard(vo);
+
+		
 		return "Free_board.do";
 	}
 

@@ -58,7 +58,7 @@
 					<tr>
 						<th>작성자</th>
 						
-						<td><input id="id" type="text" value=${loginUser.id} name="id"
+						<td><input id="id" type="text" value="${loginUser.id}" name="id"
 							readonly="readonly" style="border: none;" /></td>
 					</tr>
 					<tr>
