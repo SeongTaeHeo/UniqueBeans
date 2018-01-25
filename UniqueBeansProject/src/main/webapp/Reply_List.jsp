@@ -17,7 +17,7 @@
 		<td align="center" class="reply_id">${reply.id }</td>
 			<td class="reply_text" align="left">${reply.re_content }</td>
 		<td class="reply_button">${reply.re_date }<br>
-		<c:if test="${reply.id==loginUser.id }">
+		<c:if test="${reply.id==loginUser.id or loginUser.admin==1 }">
 		<a href="deleteReply.do?re_content=${reply.re_content }">
 			삭제</a>
 		</c:if>

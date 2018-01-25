@@ -3,6 +3,7 @@ package com.uniqueBeans.biz.impl;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
@@ -14,6 +15,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
+import com.uniqueBeans.biz.Beans_BoardVO;
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
 import com.uniqueBeans.biz.common.JDBCUtil;
@@ -168,6 +170,13 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 			return false;
 		}
 		return false;
+	}
+
+	@Override
+	public List<Beans_UserVO> get_userList(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		return userDAO.userList(vo);
+
 	}
 
 
