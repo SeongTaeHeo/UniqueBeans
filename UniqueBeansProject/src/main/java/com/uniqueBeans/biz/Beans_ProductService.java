@@ -6,5 +6,5 @@ package com.uniqueBeans.biz;
 public interface Beans_ProductService {
 	
 	// 상품 조회 등록
-	public void selectProductInfo(Beans_ProductVO vo);
+	public Beans_ProductVO selectProductInfo(Beans_ProductVO vo);
 }
