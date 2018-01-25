@@ -143,11 +143,30 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="kd1" id="shop-option-img1"
+							data-slide="next"> 
+							
+							<div class="hovereffect">
+							<img class="kd1" id="shop-option-img1"
 							src="img/arabica.PNG" alt="">
+							<div class="overlay">
+								<h2>아라비카</h2>
+								<p class="info">
+									아라비카는 현재 전세계 커피의 70%를 차지하는 품종이며, 우리가 접하는 원두커피는 대부분 아라비카 품종을 사용합니다.아라비카의 원산지가 에티오피아의 고산지대이며 섭씨 15도~25도 사이를 일년 내내 유지해야 재배가 가능할 정도로 재배가 어렵습니다. 또한 고산지대에서 재배되기 때문에 일교차에 의해서 향과 맛이 더 좋다고합니다. 아라비카 품종이 재배하기는 어려워도 일단 맛이 좋기 때문에 전세계 커피시장을 장악할 수 있었습니다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="kd2" id="shop-option-img1"
+							data-slide="next"> 
+							<div class="hovereffect">
+							<img class="kd2" id="shop-option-img1"
 							src="img/robusta.PNG" alt="">
+							<div class="overlay">
+								<h2>로부스타</h2>
+								<p class="info">
+									아라비카 커피보다 병충해에 강하고 높은 기온이라 하더라도 재배가 가능하기 때문에 저지대에서 많이 생산이 됩니다.상대적으로 일교차가 적은 지역에서 생산이 되기 때문에 아라비카 종보다는 향이 약하고 맛도 신맛보다는 쓴맛이 강한 특성을 가지고 있습니다.
+								</p>
+							</div>
+							</div>
 						</a>
 
 					</div>
@@ -167,29 +186,101 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt0" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt0" id="shop-option-img3"
 							src="img/roasting/roasting_1.PNG" alt="알수없음">
+							<div class="overlay">
+								<h2>라이트로스트</h2>
+								<p class="info">
+									커피의 향과 맛을 느낄 수 없는 초기단계이다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt1" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt1" id="shop-option-img3"
 							src="img/roasting/roasting_2.PNG" alt="">
+							<div class="overlay">
+								<h2>시나몬 로스트</h2>
+								<p class="info">
+									생두의 주름이 완전히 펴지지 않고, 색이 계피색 정도라 하여 시나몬 로스트라고 한다.신맛이 풍부하고 비릿한 향이 있다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt2" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt2" id="shop-option-img3"
 							src="img/roasting/roasting_3.PNG" alt="">
+							<div class="overlay">
+								<h2>미디엄로스트</h2>
+								<p class="info">
+									신맛과 쓴맛, 독특한 향이 나면서 깔끔한 맛으로 아메리칸 커피를 즐기는 최적의 방법이다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt3" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt3" id="shop-option-img3"
 							src="img/roasting/roasting_4.PNG" alt="">
+							<div class="overlay">
+								<h2>하이로스트</h2>
+								<p class="info">
+									신맛이 약해지고  쓴맛이 강해지면서 완연한 감칠맛이 나타난다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt4" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt4" id="shop-option-img3"
 							src="img/roasting/roasting_5.PNG" alt="">
+							<div class="overlay">
+								<h2>시티로스트</h2>
+								<p class="info">
+									신맛이 거의 없어지고 쓴맛과 달콤한 향이 나는게 특징이다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt5" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt5" id="shop-option-img3"
 							src="img/roasting/roasting_6.PNG" alt="">
+							<div class="overlay">
+								<h2>풀시티로스트</h2>
+								<p class="info">
+									신맛이 완전히 사라지고 부드럽고 풍부한 감칠맛이 난다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt6" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt6" id="shop-option-img3"
 							src="img/roasting/roasting_7.PNG" alt="">
+							<div class="overlay">
+								<h2>프렌치로스트</h2>
+								<p class="info">
+									쓴 맛이 지배적이라 에스프레소용이나 아이스커피에 사용된다.풀시티로스트에서 몇 초만 지나면 프렌치로스트 상태가 된다.
+								</p>
+							</div>
+							</div>
 						</a> <a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"> <img class="rt7" id="shop-option-img3"
+							data-slide="next"> 
+							<div class="roast_hovereffect">
+							<img class="rt7" id="shop-option-img3"
 							src="img/roasting/roasting_8.PNG" alt="">
+							<div class="overlay">
+								<h2>이탈리안로스트</h2>
+								<p class="info">
+									탄화되어 표면이 검게 되고, 쓴맛과 진한 맛의 절정이다.
+								</p>
+							</div>
+							</div>
 						</a>
 						<div>
 							<h5 id="carousel-caption">원두의 로스팅 강도를 선택하세요</h5>
@@ -200,29 +291,92 @@
 				<div class="carousel-item">
 					<div class="shop-step">
 						<a class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish">
+							
+							 <img
 								class="gd0" id="shop-option-img4"
-								src="img/grinding/grinding0.PNG" alt="grind_grade"></span> </a><a
+								src="img/grinding/grinding0.PNG" alt="grind_grade"></span> 
+								<div class="overlay">
+								<h2>Whole Bean</h2>
+								<p class="info">
+									분쇄를 하지 않은 원두입니다.
+								</p>
+							</div>
+							</div>
+								
+								</a><a
 							class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish"> <img
 								class="gd1" id="shop-option-img4"
-								src="img/grinding/grinding1.PNG" alt="grind_grade"></span> </a><a
+								src="img/grinding/grinding1.PNG" alt="grind_grade"></span>
+								<div class="overlay">
+								<h2>Coarse Grind</h2>
+								<p class="info">
+									프렌치 프레스라는 추출도구로 내릴 때 사용하는 굵기 입니다.침출식의 경우에는 물과 직접 접촉하기 때문에 물이 머무는 시간이 필터에 내리는 것보다 더 길기 때문에 더 굵은 굵기를 사용합니다.
+								</p>
+							</div>
+							</div>
+								 </a><a
 							class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish"> <img
 								class="gd2" id="shop-option-img4"
-								src="img/grinding/grinding2.PNG" alt="grind_grade"></span> </a> <a
+								src="img/grinding/grinding2.PNG" alt="grind_grade"></span> 
+								<div class="overlay">
+								<h2>Medium Coarse Grind</h2>
+								<p class="info">
+									카페솔로, 케멕스에 사용되는 굵기입니다. 드립보다는 약간 더 굵게 그라인딩해야 합니다.
+								</p>
+							</div>
+							</div>
+								</a> <a
 							class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"><img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish"><img
 								class="gd3" id="shop-option-img4"
-								src="img/grinding/grinding3.PNG" alt="grind_grade"></span> </a> <a
+								src="img/grinding/grinding3.PNG" alt="grind_grade"></span>
+								<div class="overlay">
+								<h2>Medium Grind</h2>
+								<p class="info">
+									가정에서 가장 많이 즐기는 드립용 굵기입니다. 케멕스를 내려도 무방합니다.
+								</p>
+							</div>
+							</div>
+								 </a> <a
 							class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"> <img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish"> <img
 								class="gd4" id="shop-option-img4"
-								src="img/grinding/grinding4.PNG" alt="grind_grade"></span> </a> <a
+								src="img/grinding/grinding4.PNG" alt="grind_grade"></span>
+								<div class="overlay">
+								<h2>Medium Fine Grind</h2>
+								<p class="info">
+									필터 드립으로 커피를 내리실 때, 종이 필터대신 메탈 필터를 사용하실 경우 사용하는 굵기입니다. 또는 사이폰과 같은 경우도 다고 가늘게 그라인딩 하실 수 있습니다.
+								</p>
+							</div>
+							</div>
+								 </a> <a
 							class="carousel-control-next" href="#myCarousel"
-							data-slide="next"><span class="bpro_finish"><img
+							data-slide="next">
+							<div class="roast_hovereffect">
+							<span class="bpro_finish"><img
 								class="gd5" id="shop-option-img4"
-								src="img/grinding/grinding5.PNG" alt="grind_grade"></span> </a>
+								src="img/grinding/grinding5.PNG" alt="grind_grade"></span>
+								<div class="overlay">
+								<h2>Fine Grind</h2>
+								<p class="info">
+									가늘게의 경우에는 에어로프레스의 경우에 이정도의 굵기를 사용하실 수 있습니다. 혹은 에스프레소의 경우에도 이정도의 굵기를 사용하 실 수 있습니다.
+								</p>
+							</div>
+							</div>
+								 </a>
 
 						<div>
 							<h5 id="carousel-caption">원두의 분쇄도를 선택하세요</h5>
@@ -651,6 +805,559 @@
 		<script src="js/agency.min.js"></script>
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
+		<script type="text/javascript">
+			$(function() {
+
+				var param = '[';
+
+				$('#showOrder').click(function() {
+					document.getElementById("mySidenav").style.width = "400px";
+					document.getElementById("main").style.marginLeft = "400px";
+
+					param = param.substr(0, param.length - 1);
+
+					param += ']';
+					console.log(param);
+
+					$.ajax({
+						url : 'orderDetailInput.do',
+						method : 'post',
+						contentType : 'application/json',
+						data : param,
+						type : 'text',
+
+						success : function() {
+							alert('test');
+						}
+					});
+				});
+
+				$(".kd1")
+						.click(
+								function() {
+									console.log("아라비카 클릭");
+									$("#sel_kd").empty();
+									$("#sel_kd").append("아라비카");
+									$
+											.ajax({
+												url : 'ajax/country.json',
+												dataType : 'json',
+												success : function(data) {
+													console.log("ajax 연결 성공");
+													$('#btn_wrap').empty();
+													for (var i = 0; i < data.length; i++) {
+														if (data[i].kd == "Arabica") {
+															$('#btn_wrap')
+																	.append(
+																			"<a class='carousel-control-next'"+
+								"href='#myCarousel' data-slide='next'>"
+																					+ "<img id='shop-option-img2' class='pro_country'"
+								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+								+ data[i].id + "'></a>");
+														} else {
+															continue;
+														}
+													}
+													var moveLeft = 10;
+													var moveDown = 20;
+
+													$(".pro_country")
+															.mouseenter(
+																	function(e) {
+																		var mover_country = $(
+																				this)
+																				.attr(
+																						"alt");
+																		for (var j = 0; j < data.length; j++) {
+																			if (mover_country == data[j].id) {
+																				var color = Chart.helpers.color;
+																				var config = {
+																					type : 'radar',
+																					data : {
+																						labels : [
+																								"Aroma",
+																								"Bitters",
+																								"Acidity",
+																								"Balance",
+																								"Body",
+																								"Sweet" ],
+																						datasets : [ {
+																							label : data[j].name,
+																							borderColor : window.chartColors.yellow,
+																							backgroundColor : color(
+																									window.chartColors.yellow)
+																									.alpha(
+																											0.7)
+																									.rgbString(),
+																							pointBackgroundColor : window.chartColors.yellow,
+																							data : [
+																									data[j].ar,
+																									data[j].bi,
+																									data[j].ac,
+																									data[j].ba,
+																									data[j].bo,
+																									data[j].sw ]
+																						} ]
+																					}
+																				};
+
+																				$(
+																						'#canvas')
+																						.remove();
+																				$(
+																						"#canvas_wrap")
+																						.append(
+																								"<canvas id='canvas'></canvas>");
+																				myRadar = new Chart(
+																						document
+																								.getElementById("canvas"),
+																						config);
+																				$(
+																						"#info_name")
+																						.empty();
+																				$(
+																						"#info_name")
+																						.append(
+																								data[j].name);
+																				$(
+																						"#info_kind")
+																						.empty();
+																				$(
+																						"#info_kind")
+																						.append(
+																								data[j].kind);
+																				$(
+																						"#info_price")
+																						.empty();
+																				$(
+																						"#info_price")
+																						.append(
+																								data[j].price);
+																				$(
+																						"#info_rt")
+																						.empty();
+																				$(
+																						"#info_rt")
+																						.append(
+																								data[j].price);
+
+																				$(
+																						"#sel_kt")
+																						.empty();
+																				$(
+																						"#sel_kt")
+																						.append(
+																								data[j].kind
+																										+ data[j].name);
+
+																				/* 팝업 생성 시작 */
+																				$(
+																						'.pro_country')
+																						.hover(
+																								function(
+																										e) {
+																									$(
+																											'div#pop-up')
+																											.show();
+																									$(
+																											'div#pop-up')
+																											.css(
+																													'top',
+																													e.pageY
+																															+ moveDown);
+																									$(
+																											'div#pop-up')
+																											.css(
+																													'left',
+																													e.pageX
+																															+ moveLeft);
+																									$(
+																											'div#pop-up')
+																											.appendTo(
+																													'body');
+																								},
+																								function() {
+																									$(
+																											'div#pop-up')
+																											.hide();
+																								});
+																				$(
+																						'.pro_country')
+																						.mousemove(
+																								function(
+																										e) {
+																									$(
+																											"div#pop-up")
+																											.css(
+																													'top',
+																													e.pageY
+																															+ moveDown)
+																											.css(
+																													'left',
+																													e.pageX
+																															+ moveLeft);
+																								});
+
+																				/* 팝업생성 끝 */
+																			} else {
+																				continue;
+																			}
+																		}
+
+																		$(
+																				".pro_country")
+																				.click(
+																						function() {
+																							var selected_ct = $(
+																									this)
+																									.attr(
+																											"alt");
+																							$(
+																									"#sel_ct")
+																									.empty();
+																							$(
+																									"#sel_ct")
+																									.append(
+																											selected_ct);
+																						});
+																	});
+												}
+											});
+								});
+
+				$(".kd2")
+						.click(
+								function() {
+									console.log("로부스타 클릭");
+									$("#sel_kd").empty();
+									$("#sel_kd").append("로부스타");
+									$
+											.ajax({
+												url : 'ajax/country.json',
+												dataType : 'json',
+												success : function(data) {
+													console.log("ajax 연결 성공");
+													$('#btn_wrap').empty();
+													for (var i = 0; i < data.length; i++) {
+														if (data[i].kd == "Robusta") {
+															$('#btn_wrap')
+																	.append(
+																			"<a class='carousel-control-next'"+
+								"href='#myCarousel' data-slide='next'>"
+																					+ "<img id='shop-option-img2' class='pro_country'"
+								+"src='img/country_img/" + data[i].id + ".jpg' alt ='"
+								+ data[i].id + "'></a>");
+														} else {
+															continue;
+														}
+													}
+													var moveLeft = 10;
+													var moveDown = 20;
+
+													$(".pro_country")
+															.mouseenter(
+																	function(e) {
+																		var mover_country = $(
+																				this)
+																				.attr(
+																						"alt");
+																		for (var j = 0; j < data.length; j++) {
+																			if (mover_country == data[j].id) {
+																				var color = Chart.helpers.color;
+																				var config = {
+																					type : 'radar',
+																					data : {
+																						labels : [
+																								"Aroma",
+																								"Bitters",
+																								"Acidity",
+																								"Balance",
+																								"Body",
+																								"Sweet" ],
+																						datasets : [ {
+																							label : data[j].name,
+																							borderColor : window.chartColors.yellow,
+																							backgroundColor : color(
+																									window.chartColors.yellow)
+																									.alpha(
+																											0.7)
+																									.rgbString(),
+																							pointBackgroundColor : window.chartColors.yellow,
+																							data : [
+																									data[j].ar,
+																									data[j].bi,
+																									data[j].ac,
+																									data[j].ba,
+																									data[j].bo,
+																									data[j].sw ]
+																						} ]
+																					}
+																				};
+
+																				$(
+																						'#canvas')
+																						.remove();
+																				$(
+																						"#canvas_wrap")
+																						.append(
+																								"<canvas id='canvas'></canvas>");
+																				myRadar = new Chart(
+																						document
+																								.getElementById("canvas"),
+																						config);
+																				$(
+																						"#info_name")
+																						.empty();
+																				$(
+																						"#info_name")
+																						.append(
+																								data[j].name);
+																				$(
+																						"#info_kind")
+																						.empty();
+																				$(
+																						"#info_kind")
+																						.append(
+																								data[j].kind);
+																				$(
+																						"#info_price")
+																						.empty();
+																				$(
+																						"#info_price")
+																						.append(
+																								data[j].price);
+																				$(
+																						"#info_rt")
+																						.empty();
+																				$(
+																						"#info_rt")
+																						.append(
+																								data[j].price);
+
+																				$(
+																						"#sel_kt")
+																						.empty();
+																				$(
+																						"#sel_kt")
+																						.append(
+																								data[j].kind
+																										+ data[j].name);
+
+																				/* 팝업 생성 시작 */
+																				$(
+																						'.pro_country')
+																						.hover(
+																								function(
+																										e) {
+																									$(
+																											'div#pop-up')
+																											.show();
+																									$(
+																											'div#pop-up')
+																											.css(
+																													'top',
+																													e.pageY
+																															+ moveDown);
+																									$(
+																											'div#pop-up')
+																											.css(
+																													'left',
+																													e.pageX
+																															+ moveLeft);
+																									$(
+																											'div#pop-up')
+																											.appendTo(
+																													'body');
+																								},
+																								function() {
+																									$(
+																											'div#pop-up')
+																											.hide();
+																								});
+																				$(
+																						'.pro_country')
+																						.mousemove(
+																								function(
+																										e) {
+																									$(
+																											"div#pop-up")
+																											.css(
+																													'top',
+																													e.pageY
+																															+ moveDown)
+																											.css(
+																													'left',
+																													e.pageX
+																															+ moveLeft);
+																								});
+
+																				/* 팝업생성 끝 */
+																			} else {
+																				continue;
+																			}
+																		}
+
+																		$(
+																				".pro_country")
+																				.click(
+																						function() {
+																							var selected_ct = $(
+																									this)
+																									.attr(
+																											"alt");
+																							$(
+																									"#sel_ct")
+																									.empty();
+																							$(
+																									"#sel_ct")
+																									.append(
+																											selected_ct);
+																						});
+																	});
+												}
+											});
+								});
+
+				$(".rt0").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("그린 빈");
+				});
+				$(".rt1").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("라이트 로스팅");
+				});
+				$(".rt2").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("시나몬 로스팅");
+				});
+				$(".rt3").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("미디엄 로스팅");
+				});
+				$(".rt4").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("하이 로스팅");
+				});
+				$(".rt5").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("시티 로스팅");
+				});
+				$(".rt6").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("풀시티 로스팅");
+				});
+				$(".rt7").click(function() {
+					$("#sel_rt").empty();
+					$("#sel_rt").append("프렌치 로스팅");
+				});
+
+				$(".gd0").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("홀빈");
+				});
+				$(".gd1").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("프렌치 프레스");
+				});
+				$(".gd2").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("융 드립");
+				});
+				$(".gd3").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("사이폰");
+				});
+				$(".gd4").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("드립");
+				});
+				$(".gd5").click(function() {
+					$("#sel_gd").empty();
+					$("#sel_gd").append("에스프레소");
+				});
+				$(".bpro_finish")
+						.click(
+								function() {
+									console.log("주문 완료");
+									$
+											.ajax({
+												url : 'ajax/country.json',
+												dataType : 'json',
+												success : function(data) {
+													for (var i = 0; i < data.length; i++) {
+														if ($("#sel_ct").text() == data[i].id) {
+															$("#complpro_table")
+																	.append(
+																			"<tr>"
+																					+ "<td>"
+																					+ $(
+																							"#sel_kd")
+																							.text()
+																					+ "/"
+																					+ $(
+																							"#sel_ct")
+																							.text()
+																					+ "/"
+																					+ $(
+																							"#sel_rt")
+																							.text()
+																					+ "/"
+																					+ $(
+																							"#sel_gd")
+																							.text()
+																					+ "</td>"
+																					+ "<td>3</td>"
+																					+ "<td>"
+																					+ data[i].price
+																					+ "</td>"
+																					+ "</tr>");
+														} else {
+															continue;
+														}
+													}
+												}
+											});
+
+									// JSON list 타입 생성
+									param += '{"item1":' + '"'
+											+ $("#sel_kd").text() + '",';
+									param += '"item2":' + '"'
+											+ $("#sel_ct").text() + '",';
+									param += '"item3":' + '"'
+											+ $("#sel_rt").text() + '",';
+									param += '"item4":' + '"'
+											+ $("#sel_gd").text() + '",';
+									param += '"item5":' + '"'
+											+ $("#sel_kd").text() + '"';
+									param += '},';
+
+								});
+				/* $("#add_complpro").click(
+						function() {
+							console.log("주문 완료");
+							$("#complpro_table").append(
+									"<tr>" + "<td>" + $("#tsel_name").text()
+											+ "</td>" + "<td>"
+											+ $("#tsel_price").text() + "</td>"
+											+ "</tr>");
+						});
+				 */
+				$(".btn-default").click(
+						function() {
+							console.log("주문 완료");
+							var sel_tpro;
+							sel_tpro = $(this).attr("id");
+							console.log(sel_tpro);
+							/*sel_tpro= $(".btn-default")this.attr("id");*/
+							$("#complpro_table").append(
+									"<tr>" + "<td>" + $("#tsel_name").text()
+											+ "</td>" + "<td>"
+											+ $("#tsel_price").text() + "</td>"
+											+ "</tr>");
+						});
+
+			});
+		</script>
 		<script src="js/shop.js"></script>
 </body>
 </html>
