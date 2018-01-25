@@ -15,7 +15,7 @@
 			<tr>
 				<td class="reply_num"><input id="contact_seq" name="contact_seq"
 					value=${contact.contact_seq } style="border: none; display:none;" /></td>
-				<td class="reply_id" align="center"><input id="id" type="text" value=${loginUser }
+				<td class="reply_id" align="center"><input id="id" type="text" value=${loginUser.id }
 							name="id" readonly="readonly" style="border: none;" /></td>
 				<td class="reply_text" align="left"><textarea id="re_content"
 						name="re_content" class="form-control"

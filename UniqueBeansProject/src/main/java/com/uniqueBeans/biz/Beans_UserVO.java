@@ -18,6 +18,7 @@ public class Beans_UserVO {
 	private String address_other;
 	private String gender;
 	private int point;
+	private int admin;
 	
 	public int getAddress_number() {
 		return address_number;
@@ -103,7 +104,15 @@ public class Beans_UserVO {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public int getAdmin() {
+		return admin;
+	}
 	
+	
+	
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
 	/*
 	 * toString() 메소드 오버라이드 통한 객체값 출력.
 	 */
@@ -113,7 +122,8 @@ public class Beans_UserVO {
 		return "[id = " + id + " pwd = " + pwd + " email = " + email + " birth = " + birth
 				+ " tel = " + tel + " name = " + name + " address = " + address_road + " "
 				+ " " + address_detail + " " + address_other + " " + " sex = " +
-				gender + " point = " + point + "]";
+				gender + " point = " + point + "admin =" +admin+ "]";
+
 	}
 	
 }

@@ -36,7 +36,7 @@
 </head>
 <body id="board_body">
 
-	<!-- <jsp:include page="top_menu.jsp" /> -->
+	<jsp:include page="top_menu.jsp" />
 
 	<header class="masthead" style="height:250px;">
 	<div class="container">
@@ -78,7 +78,7 @@
 			</tbody>
 		</table>
 		<div class="write">
-			<c:if test="${contact.id==loginUser.id }">
+			<c:if test="${contact.id==loginUser.id or loginUser.admin==1 }">
 				<a href="deleteContact.do?contact_seq=${contact.contact_seq }">
 					<button type="button" class="btn btn-success btn-lg">글 삭제</button>
 				</a>
@@ -86,7 +86,7 @@
 			<c:if test="${contact.id!=loginUser.id }">
 
 			</c:if>
-			<c:if test="${contact.id==loginUser.id }">
+			<c:if test="${contact.id==loginUser.id or loginUser.admin==1 }">
 				<a href="Contact_update.jsp?contact_seq=${contact.contact_seq }">
 					<button type="button" class="btn btn-success btn-lg">글 수정</button>
 				</a>

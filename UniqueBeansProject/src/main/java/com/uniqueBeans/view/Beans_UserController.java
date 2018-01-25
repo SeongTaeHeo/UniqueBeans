@@ -1,6 +1,7 @@
 package com.uniqueBeans.view;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uniqueBeans.biz.Beans_BoardVO;
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
 
@@ -146,5 +148,11 @@ public class Beans_UserController {
 		}
 		
 		return "foundpw.jsp";
+	}
+	@RequestMapping("/userList.do")
+	public List<Beans_UserVO> dataTransform(HttpServletRequest request, Beans_UserVO vo){
+		vo.setId(request.getParameter("id"));
+		List<Beans_UserVO> userList=userService.get_userList(vo);
+		return userList;
 	}
 }

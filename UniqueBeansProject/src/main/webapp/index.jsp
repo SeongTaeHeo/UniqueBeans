@@ -73,7 +73,6 @@
 						</c:if> <c:if test="${empty loginUser.id}">
 							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 						</c:if></li>
-					</li>
 				</ul>
 			</div>
 		</div>
@@ -369,9 +368,9 @@
 			</div>
 		</div>
 	</section>
-	
-	<jsp:include page="footer.jsp"/>
-	
+
+	<jsp:include page="footer.jsp" />
+
 	<!-- model 1 -->
 	<div class="portfolio-modal modal fade" id="portfolioModal1"
 		tabindex="-1" role="dialog" aria-hidden="true">
@@ -736,16 +735,19 @@
 									class="glyphicon glyphicon-chevron-right"></div>
 								<span id="text-register-msg">문의사항을 상세하게 입력해주세요</span>
 							</div>
-							<input id="contact_title" class="form-control" type="text" placeholder="*제목" name="contact_title" required> 		
-							<input id="id" class="form-control" type="text" value=${loginUser.id } name="id" readonly="readonly" style="border:none;"/>
-							<select id="contact_option" class="form-control" name="contact_option">
+							<input id="contact_title" class="form-control" type="text"
+								placeholder="*제목" name="contact_title" required> <input
+								id="id" class="form-control" type="text" value=${loginUser.id }
+								name="id" readonly="readonly" style="border: none;" /> <select
+								id="contact_option" class="form-control" name="contact_option">
 								<option value="삼품관련">상품관련</option>
 								<option value="결제관련">결제관련</option>
 								<option value="배송관련">배송관련</option>
 								<option value="기타문의">기타문의</option>
 							</select>
-							<textarea class="form-control" id="contact_contents" name="contact_contents"
-								placeholder="*상세문의 내용을 입력하세요" height:200px; required></textarea>
+							<textarea class="form-control" id="contact_contents"
+								name="contact_contents" placeholder="*상세문의 내용을 입력하세요"
+								height:200px; required></textarea>
 						</div>
 						<div class="modal-footer">
 							<div>
