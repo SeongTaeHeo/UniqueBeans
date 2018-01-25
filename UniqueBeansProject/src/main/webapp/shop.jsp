@@ -464,37 +464,68 @@
 						<div class="modal-content" id="tpro_modal">
 							<div class="modal-header">
 								<button type="button" class="close" data-dismiss="modal">X</button>
-
 							</div>
 							<div class="modal-body">
 								<h4 class="modal-title">드립</h4>
+								<center>
 								<div>
 									<img src="img/tools/드립.jpg">
 								</div>
-								<table>
-									<tr>
-										<th>상품코드</th>
-										<td id="tsel_code">drip</td>
-									</tr>
-									<tr>
-										<th>상품명</th>
-										<td id="tsel_name">드립</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td id="tsel_price">50,000</td>
-									</tr>
-									<tr>
-										<th>상세정보</th>
-										<td>깔때기 모양의 드리퍼에 종이 필터를 넣고 드립 서버에 얹은 다음, 필터 안에 적절한 크기로
-											분쇄한 커피를 담고 뜨거운 물을 부어 잠시 불린 다음 드립포트로 마저 물을 부어서 중력에 의한 낙차에 의해
-											커피를 추출하는 방식이다.</td>
-									</tr>
+								</center>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품 코드</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>drip</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품명</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>드립</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>가격</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>50,000원</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th>상세정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>깔때기 모양의 드리퍼에 종이 필터를 넣고 드립 서버에 얹은 다음, 필터 안에 적절한 크기로
+												분쇄한 커피를 담고 뜨거운 물을 부어 잠시 불린 다음 드립포트로 마저 물을 부어서 중력에 의한 낙차에 의해
+												커피를 추출하는 방식이다.</td>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="AA0">추가하기</button>
+									data-dismiss="modal" id="add_complpro" style="margin-right: 10px;">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -514,33 +545,65 @@
 							</div>
 							<div class="modal-body">
 								<h4 class="modal-title">사이폰</h4>
+								<center>
 								<div>
-									<img src="img/tools/사이폰.jpg">
+									<img src="img/tools/사이폰.jpg" style="width: 300px; height: 300px;">
 								</div>
-								<table>
-									<tr>
-										<th>상품코드</th>
-										<td id="tsel_code">syphone</td>
-									</tr>
-									<tr>
-										<th>상품명</th>
-										<td id="tsel_name">사이폰</td>
-									</tr>
-									<tr>
-										<th>가격</th>
-										<td id="tsel_price">200,000</td>
-									</tr>
-									<tr>
-										<th>상세정보</th>
-										<td>커피 맛보다는 화려한 추출 기구로 유명한 도구이다. 상·하단 두 개의 유리용기로 구성되어 있고,
+								</center>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품 코드</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>drip</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>상품명</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>드립</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-light">
+										<tr>
+											<th>가격</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>50,000원</td>
+										</tr>
+									</tbody>
+								</table>
+								<table class="table">
+									<thead class="thead-dark">
+										<tr>
+											<th>상세정보</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>커피 맛보다는 화려한 추출 기구로 유명한 도구이다. 상·하단 두 개의 유리용기로 구성되어 있고,
 											하단 용기의 물이 끓어 커피 가루가 있는 상단으로 올라오면 스틱을 사용해 잘 섞어주고 그 후 커피가 다시
 											하단으로 내려오는 방식이다. 추출시간은 1분을 넘지 않도록 한다.</td>
-									</tr>
+										</tr>
+									</tbody>
 								</table>
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="AA1">추가하기</button>
+									data-dismiss="modal" id="add_complpro" style="margin-right: 10px;">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -586,7 +649,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="AA2">추가하기</button>
+									data-dismiss="modal" id="add_complpro">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -631,7 +694,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="AA3">추가하기</button>
+									data-dismiss="modal" id="add_complpro">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -676,7 +739,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="AA4">추가하기</button>
+									data-dismiss="modal" id="add_complpro">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -724,9 +787,6 @@
 		<script
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<script>
-			function openNav() {
-
-			}
 			function closeNav() {
 				document.getElementById("mySidenav").style.width = "0";
 				document.getElementById("main").style.marginLeft = "0";
@@ -1298,5 +1358,6 @@
 
 			});
 		</script>
+		<script src="js/shop.js"></script>
 </body>
 </html>

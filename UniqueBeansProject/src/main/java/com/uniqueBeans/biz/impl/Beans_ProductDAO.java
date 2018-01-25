@@ -21,16 +21,21 @@ public class Beans_ProductDAO {
 	/*
 	 * 상품 조회를 위한 메서드
 	 */
-	public void selectProductInfo(Beans_ProductVO vo){
+	public Beans_ProductVO selectProductInfo(Beans_ProductVO vo){
 		System.out.println("dao 클래스 상품정보 selelct");
 		conn = (Connection) JDBCUtil.getConnection();
-		
+		Beans_ProductVO productCode = new Beans_ProductVO();
 		try{
 			pstmt = conn.prepareStatement(SELECT_PRODUCTINFO);
 			pstmt.setString(1, vo.getProduct_code());
+			
 			rs = pstmt.executeQuery();
 			while(rs.next()){
-				System.out.println("");
+				System.out.println("받아온 상품 코드= " + rs.getString(1));
+				
+				productCode.setProduct_code(rs.getString(1));
+				productCode.setProduct_name(rs.getString(2));
+				productCode.setProduct_price(rs.getInt(3));
 			}
 			
 		}catch(SQLException e){
@@ -38,5 +43,6 @@ public class Beans_ProductDAO {
 		}finally {
 			JDBCUtil.close(pstmt, conn);
 		}
+		return productCode;
 	}
 }

@@ -36,58 +36,56 @@ public class Beans_OrderController {
 		return "index.jsp";
 	}
 	
-	@RequestMapping(value = "orderDetailInput.do", method=RequestMethod.POST)
+	@RequestMapping("/orderDetailInput.do")
 	@ResponseBody
-	public List<test> test(@RequestBody List<test> ttt) {
-		
-		List<test> list = new ArrayList<>();
-		list = ttt;
-		
-		for(int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).getItem1());
+	public ArrayList<test> test(@RequestBody ArrayList<test> ttt) {
+		for(int i = 0; i < ttt.size(); i++) {
+			System.out.println(ttt.get(i).getName());
 		}
 		
-		
-		return list;
+		return ttt;
 	}
 }
 
 class test {
-	private String item1;
-	private String item2;
-	private String item3;
-	private String item4;
-	private String item5;
-	public String getItem1() {
-		return item1;
+	private String code;
+	private String name;
+	private String grind;
+	private String roasting;
+	private String price;
+	
+	
+	public String getCode() {
+		return code;
 	}
-	public void setItem1(String item1) {
-		this.item1 = item1;
+	public void setCode(String code) {
+		this.code = code;
 	}
-	public String getItem2() {
-		return item2;
+	public String getName() {
+		return name;
 	}
-	public void setItem2(String item2) {
-		this.item2 = item2;
+	public void setName(String name) {
+		this.name = name;
 	}
-	public String getItem3() {
-		return item3;
+	public String getGrind() {
+		return grind;
 	}
-	public void setItem3(String item3) {
-		this.item3 = item3;
+	public void setGrind(String grind) {
+		this.grind = grind;
 	}
-	public String getItem4() {
-		return item4;
+	public String getRoasting() {
+		return roasting;
 	}
-	public void setItem4(String item4) {
-		this.item4 = item4;
+	public void setRoasting(String roasting) {
+		this.roasting = roasting;
 	}
-	public String getItem5() {
-		return item5;
+	public String getPrice() {
+		return price;
 	}
-	public void setItem5(String item5) {
-		this.item5 = item5;
+	public void setPrice(String price) {
+		this.price = price;
 	}
+	
 	
 	
 }
