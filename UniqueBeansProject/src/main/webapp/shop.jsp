@@ -340,7 +340,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+									data-dismiss="modal" id="AA0">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -386,7 +386,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+									data-dismiss="modal" id="AA1">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -432,7 +432,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+									data-dismiss="modal" id="AA2">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -477,7 +477,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+									data-dismiss="modal" id="AA3">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -522,7 +522,7 @@
 							</div>
 							<div class="modal-footer">
 								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+									data-dismiss="modal" id="AA4">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -1064,13 +1064,27 @@
 				$(".bpro_finish").click(
 						function() {
 							console.log("주문 완료");
-							$("#complpro_table").append(
-									"<tr>" + "<td>" + $("#sel_kd").text() + "/"
-											+ $("#sel_ct").text() + "/"
-											+ $("#sel_rt").text() + "/"
-											+ $("#sel_gd").text() + "</td>"
-											+ "<td>3</td>" + "<td>5000</td>"
-											+ "</tr>");
+							$.ajax({
+								url : 'ajax/country.json',
+								dataType : 'json',
+								success : function(data) {
+									for(var i =0; i < data.length; i++){
+										if($("#sel_ct").text()==data[i].id){
+											$("#complpro_table").append(
+													"<tr>" + "<td>" + $("#sel_kd").text() + "/"
+															+ $("#sel_ct").text() + "/"
+															+ $("#sel_rt").text() + "/"
+															+ $("#sel_gd").text() + "</td>"
+															+ "<td>3</td>" 
+															+ "<td>"+data[i].price+"</td>"
+															+ "</tr>");
+										}else{
+											continue;
+										}
+									}
+								}
+							});
+							
 
 							// JSON list 타입 생성
 							param += '{"item1":' + '"' + $("#sel_kd").text()
@@ -1096,30 +1110,21 @@
 											+ "</tr>");
 						});
  */
-				$("#add_complpro").click(
+				$(".btn-default").click(
 						function() {
 							console.log("주문 완료");
-							$.ajax({
-								url : 'ajax/product.json',
-								dataType : 'json',
-								success : function(data) {
-									console.log("ajax연결 성공");
-									for(var i=0 ; i <= data[i] ; i++){
-										
-										if(data[i].code){
-											
-										}
+							var sel_tpro;
+							sel_tpro=$(this).attr("id");
+							console.log(sel_tpro);
+							/*sel_tpro= $(".btn-default")this.attr("id");*/
+							$("#complpro_table").append(
+								"<tr>" + "<td>"
+								+ $("#tsel_name").text()
+								+ "</td>" + "<td>"
+								+ $("#tsel_price").text()
+								+ "</td>" + "</tr>");
 									}
-									$("#complpro_table").append(
-											"<tr>" + "<td>"
-													+ $("#tsel_name").text()
-													+ "</td>" + "<td>"
-													+ $("#tsel_price").text()
-													+ "</td>" + "</tr>");
-								}
-							});
-
-						});
+				);
 
 			});
 		</script>
