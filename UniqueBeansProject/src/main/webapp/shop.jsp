@@ -528,8 +528,8 @@
 								</table>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro" style="margin-right: 10px;">추가하기</button>
+								<button type="button" class="btn btn-default add-tpro"
+									data-dismiss="modal" id="AA0" style="margin-right: 10px;">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -606,8 +606,8 @@
 								</table>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro" style="margin-right: 10px;">추가하기</button>
+								<button type="button" class="btn btn-default add-tpro"
+									data-dismiss="modal" id="AA1" style="margin-right: 10px;">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -685,8 +685,8 @@
 								</table>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+								<button type="button" class="btn btn-default add-tpro"
+									data-dismiss="modal" id="AA2">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -763,8 +763,8 @@
 								</table>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+								<button type="button" class="btn btn-default add-tpro"
+									data-dismiss="modal" id="AA3">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
@@ -841,8 +841,8 @@
 								</table>
 							</div>
 							<div class="modal-footer">
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal" id="add_complpro">추가하기</button>
+								<button type="button" class="btn btn-default add-tpro"
+									data-dismiss="modal" id="AA4">추가하기</button>
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">Close</button>
 							</div>
