@@ -38,35 +38,7 @@
 	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 	<script>
 		$(function() {
-			var code = "cd";
-			var name = "아라비카 과테말라";
-			var roasting = "라이팅로스트";
-			var grind = "홀빈";
-			var price = 5000;
 			
-			var data = new Object();
-			var list = new Array();
-			var param = new Array();
-			
-			data.code = "cd";
-			data.name = "아라비카 과테말라";
-			data.roasting = "라이팅로스트";
-			data.grind = "홀빈";
-			data.price = 5000;
-
-			list.push(data);
-			param.push(list);
-			
-			data.code = "ao";
-			data.name = "아라비카 dd";
-			data.roasting = "ff";
-			data.grind = "cc";
-			data.price = 5000;
-
-			list.push(data);
-			param.push(list);
-			
-			console.log(JSON.stringify(param));
 			
 			$.ajax({
 				url: 'orderDetailInput.do',

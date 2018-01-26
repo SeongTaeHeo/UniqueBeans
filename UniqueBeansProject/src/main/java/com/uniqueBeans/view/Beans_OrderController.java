@@ -18,7 +18,7 @@ public class Beans_OrderController {
 	
 
 	 /* 주문완료 insertOrder.do 메서드 */
-	 
+	  
 	@RequestMapping("/insertOrder.do")
 	public String insertOrder(Beans_OrderVO vo){
 		System.out.println("주문완료 메서드 실행");

@@ -26,10 +26,10 @@
 						}
 					});
 				});
-
 				$("#kd1").click(
 					function() {
 						console.log("아라비카 클릭");
+						// 현재 주문테이블 비우기
 						$("#sel_kd").empty();
 						$("#sel_ct").empty();
 						$("#sel_rt").empty();
@@ -43,6 +43,7 @@
 								console.log("ajax 연결 성공");
 								$('#btn_wrap').empty();
 								for (var i = 0; i < data.length; i++) {
+									// 해당하는 국가 버튼 생성
 									if (data[i].kd == "Arabica") {
 										$('#btn_wrap').append(
 											"<a class='carousel-control-next'"+
@@ -56,7 +57,7 @@
 								}
 								var moveLeft = 10;
 								var moveDown = 20;
-
+								// 해당 국가 차트 속성, 데이터 추가
 								$(".pro_country").mouseenter(function(e) {
 									var mover_country = $(this).attr("alt");
 									for (var j = 0; j < data.length; j++) {
@@ -77,8 +78,10 @@
 												}
 											};
 											$('#canvas').remove();
+											// 차트 불러오기
 											$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
 											myRadar = new Chart(document.getElementById("canvas"),config);
+											// json에 있는 나머지 데이터 불러오기
 											$("#info_name").empty();
 											$("#info_name").append(data[j].name);
 											$("#info_kind").empty();
@@ -109,7 +112,9 @@
 										continue;
 									}
 								}
+								// 국가 버튼 클릭시 
 								$(".pro_country").click(function() {
+									// 해당 이미지 alt속성 값으로 json 데이터 찾아서 현재 주문테이블에 데이터 입력
 									var selected_ct = $(this).attr("alt");
 									for(var k=0; k<data.length;k++){
 										if(selected_ct==data[k].id){
@@ -131,6 +136,7 @@
 				$("#kd2").click(
 					function() {
 						console.log("로부스타 클릭");
+						// 현재 주문 테이블 비우기
 						$("#sel_kd").empty();
 						$("#sel_ct").empty();
 						$("#sel_rt").empty();
@@ -144,6 +150,7 @@
 							console.log("ajax 연결 성공");
 							$('#btn_wrap').empty();
 							for (var i = 0; i < data.length; i++) {
+								//해당 국가 버튼 생성
 								if (data[i].kd == "Robusta") {
 									$('#btn_wrap').append(
 										"<a class='carousel-control-next'"+
@@ -157,11 +164,13 @@
 							}
 							var moveLeft = 10;
 							var moveDown = 20;
-
+							
 							$(".pro_country").mouseenter(function(e) {
+								// 이미지의 alt 값을 통해 json에서 데이터를 찾음
 								var mover_country = $(this).attr("alt");
 								for (var j = 0; j < data.length; j++) {
 									if (mover_country == data[j].id) {
+										// 해당 국가 차트 속성 부여
 										var color = Chart.helpers.color;
 										var config = {
 											type : 'radar',
@@ -179,6 +188,7 @@
 										};
 
 										$('#canvas').remove();
+										// 차트 생성
 										$("#canvas_wrap").append("<canvas id='canvas'></canvas>");
 										myRadar = new Chart(document.getElementById("canvas"),config);
 										$("#info_name").empty();
@@ -211,7 +221,7 @@
 										continue;
 									}
 								}
-
+								// alt값으로 이름, 가격 찾음
 								$(".pro_country").click(function() {
 									var selected_ct = $(this).attr("alt");
 									for(var k=0; k<data.length;k++){
@@ -290,6 +300,7 @@
 					$("#sel_gd").append("Fine Grind");
 				});
 				$(".bpro_finish").click(function() {
+					//현재 테이블의 값을 선택완료 테이블로 옮김
 					console.log("선택 완료");
 					$.ajax({
 						url : 'ajax/country.json',
@@ -320,7 +331,8 @@
 					param += '"item2":' + '"'+ $("#sel_ct").text() + '",';
 					param += '"item3":' + '"'+ $("#sel_rt").text() + '",';
 					param += '"item4":' + '"'+ $("#sel_gd").text() + '",';
-					param += '"item5":' + '"'+ $("#sel_kd").text() + '"';
+					param += '"item5":' + '"'+ $("#sel_kd").text() + '",';
+					param += '"item6":' + '"'+ $("#sel_pr").text() + '"';
 					param += '},';
 					
 				});
@@ -359,6 +371,32 @@
 					$("#sel_pr").empty();
 					$("#sel_pr").append(beanprice+roastprice+grindprice);
 					
+				});
+				// 도구 주문완료 테이블에 생성
+				$(".add-tpro").click(function(){
+					var sel_tpro_code;
+					sel_tpro_code = $(this).attr("id")
+					console.log(sel_tpro_code);
+					$.ajax({
+						url : 'ajax/product.json',
+						dataType : 'json',
+						success : function(data) {
+							console.log("연결성공!");
+							for(var i=0; i<data.length;i++){
+								if(sel_tpro_code==data[i].code){
+									$("#complpro_table").append(
+											"<tr>"+ 
+											"<td>"+ data[i].name +"</td>"
+											+"<td>1</td>"
+											+"<td>"+ data[i].price +"</td>"
+											+"</tr>"
+									);
+								}else{
+									continue;
+								}
+							}
+						}
+					})
 				});
 
 					
