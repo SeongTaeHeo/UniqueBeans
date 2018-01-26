@@ -58,25 +58,25 @@ height: 100%;
 						  	
 						  		<tr>
 						  			<th>${index.index}</th>
-						  			<th><img src="img/country_img/${list.code}.jpg"></th>
+						  			<th><img src="img/country_img/${list.code}.jpg" style="width: 200px; height: 120px;"></th>
 						  			<th>${list.name}</th>
 						  			<th>${list.price }</th>
 						  			<th>
-										<select>
-											<option>1</option>
-											<option>2</option>
-											<option>3</option>
-											<option>4</option>
-											<option>5</option>
-											<option>6</option>
-											<option>7</option>
-											<option>8</option>
-											<option>9</option>
-											<option>10</option>
+										<select id="select">
+											<option value="1">1</option>
+											<option value="2">2</option>
+											<option value="3">3</option>
+											<option value="4">4</option>
+											<option value="5">5</option>
+											<option value="6">6</option>
+											<option value="7">7</option>
+											<option value="8">8</option>
+											<option value="9">9</option>
+											<option value="10">10</option>
 										</select>
 									</th>
-									<th>50</th>
-									<th>10000</th>
+									<th><div id=point>50</div></th>
+									<th><div id="price">1231</div></th>
 						  		</tr>
 						  	
 						  </c:forEach>
@@ -160,37 +160,6 @@ height: 100%;
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 
-	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
-	<script> 
-		$(function() { 
-			  $('#phone').keyup(function() {
-		            var check = $('#phone').val();
-
-		            this.value = autoHypenPhone(check);
-		         });
-		         
-		         function autoHypenPhone(str) {
-		            str = str.replace(/[^0-9]/g, '');
-		            var tmp = '';
-
-		            if (str.length < 4) {
-		               return str;
-		            } else if (str.length < 8) {
-		               tmp += str.substr(0, 3);
-		               tmp += '-';
-		               tmp += str.substr(3, 4);
-		               return tmp;
-		            } else {
-		               tmp += str.substr(0, 3);
-		               tmp += '-';
-		               tmp += str.substr(3, 4);
-		               tmp += '-';
-		               tmp += str.substr(7);
-		               return tmp;
-		            }
-		         }
-			$("#postcodify_search_button").postcodifyPopUp(); });
-		
-	</script>
+	<script src="js/orderInfo.js"></script>
 </body>
 </html>

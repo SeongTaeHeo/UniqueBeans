@@ -108,7 +108,7 @@
 						<th>삭제</th>
 					</tr>
 				</table>
-				<a href="orderinfo.jsp"><button class="btn btn-default">주문하기</button></a>
+				<button id="orderCommand" class="btn btn-default">주문하기</button>
 			</div>
 		</div>
 	</div>
