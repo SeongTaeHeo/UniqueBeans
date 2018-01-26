@@ -38,41 +38,45 @@
 	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
 	<script>
 		$(function() {
-			var item1 = "CD0";
-			var item2 = "아라비카 과테말라";
-			var item3 = "4단계";
-			var item4 = "5단계";
-			var item5 = 5000;
+			var code = "cd";
+			var name = "아라비카 과테말라";
+			var roasting = "라이팅로스트";
+			var grind = "홀빈";
+			var price = 5000;
 			
-			var item = new Object();
-			var array = new Array();
+			var data = new Object();
+			var list = new Array();
 			var param = new Array();
 			
-			item.code = item1;
-			item.name = item2;
-			item.roasting = item3;
-			item.grind = item4;
-			item.price = item5;
+			data.code = "cd";
+			data.name = "아라비카 과테말라";
+			data.roasting = "라이팅로스트";
+			data.grind = "홀빈";
+			data.price = 5000;
+
+			list.push(data);
+			param.push(list);
 			
-			for(i = 0; i < 10; i++) {
-				array.push(item);
-			}
+			data.code = "ao";
+			data.name = "아라비카 dd";
+			data.roasting = "ff";
+			data.grind = "cc";
+			data.price = 5000;
+
+			list.push(data);
+			param.push(list);
 			
-			param.push(array);
-			var inpuData = JSON.stringify(param);
-			
-			inpuData = inpuData.substr(1, inpuData.length - 1);
-			console.log(inpuData);
+			console.log(JSON.stringify(param));
 			
 			$.ajax({
 				url: 'orderDetailInput.do',
 				method: 'post',
 				contentType: 'application/json',
 				type: 'text',
-				data: inpuData,
+				data: param,
 				
-				success: function() {
-					console.log('dd');
+				success: function(bodyData) {
+					$('body').html(bodyData)
 				}
 			});
 		});

@@ -54,50 +54,32 @@ height: 100%;
 					    </tr>
 					  </thead>
 					  <tbody>
-					    <tr>
-					      	<th>1</th>
-	         				<th><img src="img/country_img/bi.jpg"></th>
-	         				<th>아라비카/콜롬비아/라이팅로스트/홀빈</th>
-	         				<th>5000</td>
-	         				<th>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-								</select>
-							</th>
-	         				<th>50</th>
-	         				<th>15000</th>
-					    </tr>
-					    <tr>
-				      		<th>2</th>
-		       				<th><img src="img/country_img/bi.jpg"></th>
-		       				<th>아라비카/콜롬비아/라이팅로스트/홀빈</th>
-		       				<th>5000</th>
-		       				<th>
-								<select>
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-								</select>
-							</th>
-		       				<th>50</th>
-		       				<th>15000</th>
-					    </tr>
+						  <c:forEach var="list" items="${beanItem}" varStatus="index">
+						  	
+						  		<tr>
+						  			<th>${index.index}</th>
+						  			<th><img src="img/country_img/${list.code}.jpg"></th>
+						  			<th>${list.name}</th>
+						  			<th>${list.price }</th>
+						  			<th>
+										<select>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+											<option>5</option>
+											<option>6</option>
+											<option>7</option>
+											<option>8</option>
+											<option>9</option>
+											<option>10</option>
+										</select>
+									</th>
+									<th>50</th>
+									<th>10000</th>
+						  		</tr>
+						  	
+						  </c:forEach>
 					  </tbody>
 					</table>
 	         		<br><br>
@@ -172,7 +154,6 @@ height: 100%;
 	        </form>
 	      </div>
 		</div>
-		<div style="position: relative; top: 2200px;"><jsp:include page="footer.jsp"></jsp:include></div>
 	</div>
 
     <!-- jQuery와 Postcodify를 로딩한다 -->
