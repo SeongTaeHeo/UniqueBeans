@@ -34,6 +34,7 @@
 						$("#sel_ct").empty();
 						$("#sel_rt").empty();
 						$("#sel_gd").empty();
+						$("#sel_pr").empty();
 						$("#sel_kd").append("아라비카");
 						$.ajax({
 							url : 'ajax/country.json',
@@ -134,6 +135,7 @@
 						$("#sel_ct").empty();
 						$("#sel_rt").empty();
 						$("#sel_gd").empty();
+						$("#sel_pr").empty();
 						$("#sel_kd").append("로부스타");
 						$.ajax({
 							url : 'ajax/country.json',

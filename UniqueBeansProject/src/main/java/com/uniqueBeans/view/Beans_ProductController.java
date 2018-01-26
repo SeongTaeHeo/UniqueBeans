@@ -2,6 +2,8 @@ package com.uniqueBeans.view;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +23,7 @@ public class Beans_ProductController {
 	 */
 	@RequestMapping("/selectProductInfo.do")
 	@ResponseBody
-	public ArrayList<Beans_ProductVO> selectProductInfo(Beans_ProductVO vo){
+	public ArrayList<Beans_ProductVO> selectProductInfo(Beans_ProductVO vo, HttpServletResponse response){
 		System.out.println("상품 결제");
 		ArrayList<Beans_ProductVO> list = new ArrayList<>();
 		list.add(productService.selectProductInfo(vo));
