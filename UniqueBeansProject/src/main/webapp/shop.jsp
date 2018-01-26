@@ -425,35 +425,35 @@
 
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
-								<img src="img/tools/드립.jpg" class="tpro_img" alt=""
+								<img src="img/country_img/AA0.jpg" class="tpro_img" alt=""
 									data-toggle="modal" data-target="#myModal_1">
 							</div>
 							<div class="tpro_name">드립</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
-								<img src="img/tools/사이폰.jpg" class="tpro_img" alt=""
+								<img src="img/country_img/AA1.jpg" class="tpro_img" alt=""
 									data-toggle="modal" data-target="#myModal_2">
 							</div>
 							<div class="tpro_name">사이폰</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
-								<img src="img/tools/에스프레소.jpeg" class="tpro_img" alt=""
+								<img src="img/country_img/AA2.jpg" class="tpro_img" alt=""
 									data-toggle="modal" data-target="#myModal_3">
 							</div>
 							<div class="tpro_name">에스프레소 머신</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
-								<img src="img/tools/융드립.jpg" class="tpro_img" alt=""
+								<img src="img/country_img/AA3.jpg" class="tpro_img" alt=""
 									data-toggle="modal" data-target="#myModal_4">
 							</div>
 							<div class="tpro_name">융드립</div>
 						</div>
 						<div class="tpro_wrap" id="shop-option-img5">
 							<div class="tpro_img_wrap">
-								<img src="img/tools/프렌치프레스.jpg" class="tpro_img" alt=""
+								<img src="img/country_img/AA4.jpg" class="tpro_img" alt=""
 									data-toggle="modal" data-target="#myModal_5">
 							</div>
 							<div class="tpro_name">프렌치프레스</div>
@@ -473,7 +473,7 @@
 								<h4 class="modal-title">드립</h4>
 								<center>
 								<div>
-									<img src="img/tools/드립.jpg">
+									<img src="img/country_img/AA0.jpg">
 								</div>
 								</center>
 								<table class="table">
@@ -551,7 +551,7 @@
 								<h4 class="modal-title">사이폰</h4>
 								<center>
 								<div>
-									<img src="img/tools/사이폰.jpg" style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA1.jpg" style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">
@@ -630,7 +630,7 @@
 							<h4 class="modal-title">에스프레소 머신</h4>
 								<center>
 								<div>
-									<img src="img/tools/에스프레소.jpeg" style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA2.jpeg" style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">
@@ -708,7 +708,7 @@
 							<h4 class="modal-title">융드립</h4>
 								<center>
 								<div>
-									<img src="img/tools/융드립.jpg" style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA3.jpg" style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">
@@ -786,7 +786,7 @@
 							<h4 class="modal-title">프렌치프레스</h4>
 								<center>
 								<div>
-									<img src="img/tools/프렌치프레스.jpg"style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA4.jpg"style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">
@@ -885,6 +885,14 @@
 				</div>
 			</div>
 		</div>
+		
+		<!-- 주문상품 값 넘기기 -->
+		<div style="display: none;">
+			<form id="orderDetail" action="orderinfo.jsp" method="post">
+				<input type="hidden">
+			</form>
+		</div>
+		
 		<script
 			src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/mc_validate.js"></script>
 		<script
@@ -899,15 +907,14 @@
 		<script type="text/javascript"
 			src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 		<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="js/bootstrap.js"></script>
 		<script src="vendor/jquery/jquery.min.js"></script>
 		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 		<script src="js/jqBootstrapValidation.js"></script>
-		<script src="js/contact_me.js"></script>
-		<script src="js/agency.min.js"></script>
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
 		<script src="js/shop.js"></script>
+		<script src="vendor/jquery/jquery.min.js"></script>
+
 </body>
 </html>

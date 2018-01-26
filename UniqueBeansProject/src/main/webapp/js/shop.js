@@ -12,7 +12,7 @@
 
                 param += ']';
                 console.log(param);
-                
+
                 $.ajax({
     				url: 'orderDetailInput.do',
     				method: 'post',
@@ -20,8 +20,9 @@
     				type: 'text',
     				data: param,
     				
-    				success: function(bodyData) {
-    					$('html').html(bodyData)
+    				success: function(data) {
+    					alert(data);
+    					$('#orderDetail').val(param).submit();
     				}
     			});
             });

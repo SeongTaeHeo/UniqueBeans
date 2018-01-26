@@ -156,10 +156,48 @@ height: 100%;
 		</div>
 	</div>
 
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	<script src="js/jqBootstrapValidation.js"></script>
+	
     <!-- jQuery와 Postcodify를 로딩한다 -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
+	
+	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+	<script> $(function() { 
+		$("#postcodify_search_button").postcodifyPopUp(); 
+		
+		$('#phone').keyup(function() {
+			var check = $('#phone').val();
 
-	<script src="js/orderInfo.js"></script>
+			this.value = autoHypenPhone(check);
+		});
+
+		function autoHypenPhone(str) {
+			str = str.replace(/[^0-9]/g, '');
+			var tmp = '';
+
+			if (str.length < 4) {
+				return str;
+			} else if (str.length < 8) {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 4);
+				return tmp;
+			} else {
+				tmp += str.substr(0, 3);
+				tmp += '-';
+				tmp += str.substr(3, 4);
+				tmp += '-';
+				tmp += str.substr(7);
+				return tmp;
+			}
+		}
+	}); 
+	</script>
+	
 </body>
 </html>
