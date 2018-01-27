@@ -27,15 +27,15 @@ public class Beans_ProductDAO {
 		Beans_ProductVO productCode = new Beans_ProductVO();
 		try{
 			pstmt = conn.prepareStatement(SELECT_PRODUCTINFO);
-			pstmt.setString(1, vo.getProduct_code());
+			//pstmt.setString(1, vo.getProduct_code());
 			
 			rs = pstmt.executeQuery();
 			while(rs.next()){
 				System.out.println("받아온 상품 코드= " + rs.getString(1));
 				
-				productCode.setProduct_code(rs.getString(1));
-				productCode.setProduct_name(rs.getString(2));
-				productCode.setProduct_price(rs.getInt(3));
+				//productCode.setProduct_code(rs.getString(1));
+				//productCode.setProduct_name(rs.getString(2));
+				//productCode.setProduct_price(rs.getInt(3));
 			}
 			
 		}catch(SQLException e){

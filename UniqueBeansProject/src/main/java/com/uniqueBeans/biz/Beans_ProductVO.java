@@ -5,9 +5,13 @@ public class Beans_ProductVO {
 	private String name;
 	private String grind;
 	private String roasting;
-	private String price;
+	private int price;
+	private int point;
 	
-	
+	public int getPoint() {
+		point = (int)(getPrice() * 0.005);
+		return point;
+	}
 	public String getCode() {
 		return code;
 	}
@@ -32,10 +36,10 @@ public class Beans_ProductVO {
 	public void setRoasting(String roasting) {
 		this.roasting = roasting;
 	}
-	public String getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 	

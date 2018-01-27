@@ -55,14 +55,13 @@ height: 100%;
 					  </thead>
 					  <tbody>
 						  <c:forEach var="list" items="${beanItem}" varStatus="index">
-						  	
 						  		<tr>
 						  			<th>${index.index}</th>
 						  			<th><img src="img/country_img/${list.code}.jpg" style="width: 200px; height: 120px;"></th>
-						  			<th>${list.name}</th>
-						  			<th>${list.price }</th>
+						  			<th><div id="name">${list.name}</div></th>
+						  			<th><div id="price${index.index}">${list.price }</div></th>
 						  			<th>
-										<select id="select">
+										<select id="quantity${index.index}">
 											<option value="1">1</option>
 											<option value="2">2</option>
 											<option value="3">3</option>
@@ -75,14 +74,17 @@ height: 100%;
 											<option value="10">10</option>
 										</select>
 									</th>
-									<th><div id=point>50</div></th>
-									<th><div id="price">1231</div></th>
+									<th><div id="point${index.index}">${list.point}</div></th>
+									<th><div id="total${index.index}">${list.price}</div></th>
 						  		</tr>
+						  		
+						  	
 						  	
 						  </c:forEach>
 					  </tbody>
 					</table>
 	         		<br><br>
+	         		
 	         	<h4>배송 정보</h4>
 	            <table class="table">
 				  <tbody>
@@ -137,12 +139,12 @@ height: 100%;
 				  </thead>
 				  <tbody>
 				    <tr>
-	         			<th><h3>32400원<h3></th>
+	         			<th><h3 id="totalPrice">32400원</h3></th>
 	         			<th>
 	         				<input type="text" size="6"> / ${loginUser.point}
 	         				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
 	         			</th>
-	         			<th><h3>32400원<h3></th>
+	         			<th><h3 id="totalPriceResult">32400원<h3></th>
 	         		</tr>
 				    <tr>
 				      <th scope="row"></th>
@@ -166,37 +168,79 @@ height: 100%;
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	
-	<!-- "검색" 단추를 누르면 팝업 레이어가 열리도록 설정한다 -->
+	<script src="js/orderInfo.js"></script>
 	<script> $(function() { 
+		// 검색 단추를 누르면 팝업 레이어가 열리도록 설정한다.
 		$("#postcodify_search_button").postcodifyPopUp(); 
 		
-		$('#phone').keyup(function() {
-			var check = $('#phone').val();
+		var result = new Array();
+		var totalPrice = 0;
+		var price = 0;
+		var total = 0;
+		var totalPriceResult = 0;
+		
+		<c:forEach var="i" items="${beanItem}" varStatus="index">
+			var jsonObject = new Object();
+			
+			jsonObject.code = "${i.code}";
+			jsonObject.name = "${i.name}";
+			jsonObject.roasting = "${i.roasting}";
+			jsonObject.grind = "${i.grind}";
+			jsonObject.price = Number("${i.price}");
 
-			this.value = autoHypenPhone(check);
+			totalPrice += jsonObject.price;
+			totalPriceResult = totalPrice;
+			
+			$('#price'+${index.index}).text(numberWithCommas(${i.price}));
+			$('#total'+${index.index}).text(numberWithCommas(${i.price}));
+			
+			result.push(jsonObject);
+		</c:forEach>
+		
+		var pointPercent = 0.005;
+		
+		// table 안의 id값 동적 선택 하는 방법
+		$('table').on('change','select',function(){
+			 var $select = $(this);
+			 var id = $select.attr('id');
+			 var idx = id.substring(8,id.length);
+			 
+			 console.log(uncomma($('#price'+idx).text()));
+			 price = Number(uncomma($('#price'+idx).text()) * $(this).val());
+			 total = price * pointPercent; 
+			 
+			 $('#total'+idx).text(numberWithCommas(price));
+			 $('#point'+idx).text(numberWithCommas(total));
+			 
+			 result[idx].price = price;
+			 totalPrice = 0;
+			 
+			 for(i = 0; i < result.length; i++) {
+				 totalPrice += result[i].price;
+				 totalPriceResult = totalPrice;
+			 }
+			 
+			 $('#totalPrice').text(numberWithCommas(totalPrice) + '원');
+			 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+			 
+			 console.log(JSON.stringify(result));
 		});
-
-		function autoHypenPhone(str) {
-			str = str.replace(/[^0-9]/g, '');
-			var tmp = '';
-
-			if (str.length < 4) {
-				return str;
-			} else if (str.length < 8) {
-				tmp += str.substr(0, 3);
-				tmp += '-';
-				tmp += str.substr(3, 4);
-				return tmp;
-			} else {
-				tmp += str.substr(0, 3);
-				tmp += '-';
-				tmp += str.substr(3, 4);
-				tmp += '-';
-				tmp += str.substr(7);
-				return tmp;
-			}
-		}
-	}); 
+		
+		$('#totalPrice').text(numberWithCommas(totalPrice) + '원');
+		 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+		
+	});
+	
+	// 숫자 자리수 마다 콤마 찍기
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+	
+	//콤마풀기
+	function uncomma(str) {
+	    str = String(str);
+	    return str.replace(/[^\d]+/g, '');
+	}
 	</script>
 	
 </body>

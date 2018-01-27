@@ -35,9 +35,8 @@ public class Beans_OrderController {
 	@ResponseBody
 	public String test(@RequestBody ArrayList<Beans_ProductVO> list, Model model) {
 		
-		System.out.println(list.get(0).getName());
 		model.addAttribute("beanItem", list);
 		
-		return "좇갓네";
+		return "fuck!!";
 	}
 }
