@@ -101,10 +101,10 @@
 						</tr>
 					</tbody>
 				</table>
-				<table id="complpro_table">
+				<table id="complpro_table" class="table">
 					<tr>
-						<th>상품내용</th>
-						<th>수량</th>
+						<th width="250px">상품내용</th>
+						<th>가격</th>
 						<th>삭제</th>
 					</tr>
 				</table>
@@ -913,8 +913,16 @@
 		<script src="js/jqBootstrapValidation.js"></script>
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
-		<script src="js/shop.js"></script>
+		<script src="js/shop.js?ver=2"></script>
 		<script src="vendor/jquery/jquery.min.js"></script>
+		<script type="text/javascript">
+		$(function() {
+
+			   $('#complpro_table').on('click',function(){
+				  console.log('fff');
+			   });
+		})
+		</script>
 
 </body>
 </html>
