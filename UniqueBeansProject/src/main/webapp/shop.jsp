@@ -915,14 +915,7 @@
 		<script src="js/utils.js"></script>
 		<script src="js/shop.js?ver=2"></script>
 		<script src="vendor/jquery/jquery.min.js"></script>
-		<script type="text/javascript">
-		$(function() {
-
-			   $('#complpro_table').on('click',function(){
-				  console.log('fff');
-			   });
-		})
-		</script>
+		
 
 </body>
 </html>
