@@ -913,7 +913,7 @@
 		<script src="js/jqBootstrapValidation.js"></script>
 		<script src="js/Chart.bundle.js"></script>
 		<script src="js/utils.js"></script>
-		<script src="js/shop.js?ver=2"></script>
+		<script src="js/shop.js?ver=5"></script>
 		<script src="vendor/jquery/jquery.min.js"></script>
 		
 

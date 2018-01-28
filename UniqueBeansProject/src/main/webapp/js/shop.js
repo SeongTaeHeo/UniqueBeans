@@ -9,15 +9,14 @@ $(function() {
 
 	// 주문삭제 기능
 	$(document).on('click','.btn-sm',function(){
-		var select = $(this);
-		var id = select.attr('id');
-		var list = id.substr(6);
+		var select = $(this).closest('tr').prevAll().length;
+		var line = $(this);
 		var array = new Array();
-		
+		console.log(select);
 		for(i = 0; i < index; i++) {
-			if(i == list) {
+			if(i == select-1) {
 				param.splice(i,1);
-				deleteLine(select);
+				deleteLine(line);
 			}
 		}
 	});
