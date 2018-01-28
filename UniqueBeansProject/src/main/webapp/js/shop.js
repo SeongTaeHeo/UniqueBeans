@@ -7,6 +7,7 @@ var index = 0;
 
 $(function() {
 
+	// 주문삭제 기능
 	$(document).on('click','.btn-sm',function(){
 		var select = $(this);
 		var id = select.attr('id');
@@ -336,6 +337,7 @@ $(function() {
 	                  + "<td><button id='delete"+ index + "' type='button' class='btn btn-danger btn-sm'>삭제</button>"
 	                  + "</tr>");
 	               
+	               //Json array 생성
 	               	var jsonObject = new Object();
 	               	
 	               	jsonObject.code = data[k].id;
@@ -397,6 +399,7 @@ $(function() {
 	                     +"</tr>"
 	               );
 	               
+	               //Json array 생성
 	               	var jsonObject = new Object();
 	              	
 	              	jsonObject.code = data[i].code;
@@ -416,6 +419,7 @@ $(function() {
 	   });
    
 });
+	
 	function deleteLine(obj) {
 	    var tr = $(obj).parent().parent();
 	 

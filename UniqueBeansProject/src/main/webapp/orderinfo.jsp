@@ -170,7 +170,7 @@ height: 100%;
 	
 	<script src="js/orderInfo.js"></script>
 	<script> $(function() { 
-		// 검색 단추를 누르면 팝업 레이어가 열리도록 설정한다.
+		// 검색 단추를 누르면 주소 검색 팝업 레이어가 열리도록 설정한다.
 		$("#postcodify_search_button").postcodifyPopUp(); 
 		
 		var result = new Array();
@@ -179,6 +179,7 @@ height: 100%;
 		var total = 0;
 		var totalPriceResult = 0;
 		
+		// Json array 생성(주문이 완료되었을때 해당 json 객체를 활용한다.)
 		<c:forEach var="i" items="${beanItem}" varStatus="index">
 			var jsonObject = new Object();
 			
@@ -191,12 +192,15 @@ height: 100%;
 			totalPrice += jsonObject.price;
 			totalPriceResult = totalPrice;
 			
+			// html페이지를 로드 하면서 가격란에 콤마 부호를 붙여준다.(가격표시 가독성을 위해서)
 			$('#price'+${index.index}).text(numberWithCommas(${i.price}));
 			$('#total'+${index.index}).text(numberWithCommas(${i.price}));
 			
+			// 해당 객체를 이용하여 DB통신을 진행한다.
 			result.push(jsonObject);
 		</c:forEach>
 		
+		// 적립 퍼센트0.5%
 		var pointPercent = 0.005;
 		
 		// table 안의 id값 동적 선택 하는 방법
@@ -205,10 +209,11 @@ height: 100%;
 			 var id = $select.attr('id');
 			 var idx = id.substring(8,id.length);
 			 
-			 console.log(uncomma($('#price'+idx).text()));
+			 // 가격에 붙은 콤마를 제거하여 연산에 활용한다.(가격이 콤마가 붙은 채로 생성되는데 그걸 제거하고 연산에 활용)
 			 price = Number(uncomma($('#price'+idx).text()) * $(this).val());
 			 total = price * pointPercent; 
 			 
+			 // 연산 활용후 다시 콤마를 붙인다.
 			 $('#total'+idx).text(numberWithCommas(price));
 			 $('#point'+idx).text(numberWithCommas(total));
 			 
@@ -222,12 +227,11 @@ height: 100%;
 			 
 			 $('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 			 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
-			 
-			 console.log(JSON.stringify(result));
 		});
 		
+		// 최종 가격 표시
 		$('#totalPrice').text(numberWithCommas(totalPrice) + '원');
-		 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+		$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
 		
 	});
 	
@@ -236,7 +240,7 @@ height: 100%;
 	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 	}
 	
-	//콤마풀기
+	// 숫자 자리수 마다 찍힌 콤마 제거
 	function uncomma(str) {
 	    str = String(str);
 	    return str.replace(/[^\d]+/g, '');
