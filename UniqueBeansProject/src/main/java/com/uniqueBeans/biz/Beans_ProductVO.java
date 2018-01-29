@@ -7,7 +7,14 @@ public class Beans_ProductVO {
 	private String roasting;
 	private int price;
 	private int point;
-	
+	private int quantity;
+
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
 	public int getPoint() {
 		point = (int)(getPrice() * 0.005);
 		return point;

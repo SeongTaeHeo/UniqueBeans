@@ -39,7 +39,6 @@ height: 100%;
     <div id="bodymain">
 	    <div class="register-form">
 	       <div class="send-info">
-	         <form name="write_form_member" method="post">
 	         	<h1>주문 결제</h1>
 	         	<h4>주문상품 정보</h4>
 	         		<table class="table">
@@ -86,47 +85,50 @@ height: 100%;
 	         		<br><br>
 	         		
 	         	<h4>배송 정보</h4>
-	            <table class="table">
-				  <tbody>
-				    <tr>
-	         			<th>배송지 선택</th>
-	         			<td>
-	         				<input type="radio" name="1" value="customer_address">회원 정보와 동일
-							<input type="radio" name="1" value="new_address">새로운 배송지
-	         			</td>
-	         		</tr>
-				    <tr>
-	         			<th>받으시는 분</th>
-	       				<td><input type="text"></td>
-	         		</tr>
-	         		<tr>
-	         			<th>주소</th>
-	       				<td>
-	       					<input type="text" name="" class="postcodify_postcode5" value="" size="8"/>
-							<button type="button" id="postcodify_search_button">검색</button><br/>
-							<input type="text" name="" class="postcodify_address" value="" size="30"/><br/>
-							<input type="text" name="" class="postcodify_details" value="" size="20"/><br/>
-							<input type="text" name="" class="postcodify_extra_info" value="" size="15"/><br/>
-	       				</td>
-	         		</tr>
-	         		<tr>
-	         			<th>휴대전화</th>
-	                  	<td><input id="phone" type="text" maxlength="13"></td>
-	         		</tr>
-	         		<tr>
-	         			<th>이메일</th>
-	       				<td>
-	       					<input type="text">
-	       				</td>
-	         		</tr>
-	         		<tr>
-	         			<th>배송 메시지</th>
-	       				<td>
-	       					<textarea COLS="70" ROWS="4"></textarea>
-	       				</td>
-	         		</tr>      	
-				  </tbody>
-				</table>
+	         	<form id="orderInfo" action="paymentComplete.do" name="write_form_member" method="post">
+		            <table class="table">
+					  <tbody>
+					    <tr>
+		         			<th>배송지 선택</th>
+		         			<td>
+		         				<input type="radio" name="1" value="customer_address">회원 정보와 동일
+								<input type="radio" name="1" value="new_address">새로운 배송지
+		         			</td>
+		         		</tr>
+					    <tr>
+		         			<th>받으시는 분</th>
+		       				<td><input type="text"></td>
+		         		</tr>
+		         		<tr>
+		         			<th>주소</th>
+		       				<td>
+		       					<input id="test" type="hidden" name="list" value=""/>
+		       					<input type="text" name="postCode" class="postcodify_postcode5" value="" size="8"/>
+								<button type="button" id="postcodify_search_button">검색</button><br/>
+								<input type="text" name="address" class="postcodify_address" value="" size="30"/><br/>
+								<input type="text" name="details" class="postcodify_details" value="" size="20"/><br/>
+								<input type="text" name="extra_info" class="postcodify_extra_info" value="" size="15"/><br/>
+		       				</td>
+		         		</tr>
+		         		<tr>
+		         			<th>휴대전화</th>
+		                  	<td><input id="phone" type="text" maxlength="13"></td>
+		         		</tr>
+		         		<tr>
+		         			<th>이메일</th>
+		       				<td>
+		       					<input type="text">
+		       				</td>
+		         		</tr>
+		         		<tr>
+		         			<th>배송 메시지</th>
+		       				<td>
+		       					<textarea COLS="70" ROWS="4"></textarea>
+		       				</td>
+		         		</tr>      	
+					  </tbody>
+					</table>
+				</form>
 	            <br><br>
 	            <h4>결제 예정 금액</h4><br>
 	            <table class="table">
@@ -149,12 +151,11 @@ height: 100%;
 				    <tr>
 				      <th scope="row"></th>
 				      <th>위 사항대로 주문 하시겠습니까???</th>
-				      <th><button type="button" class="btn btn-primary btn-lg">결제완료</button></th>
+				      <th><button id="complete" type="button" class="btn btn-primary btn-lg">결제완료</button></th>
 				    </tr>
 				  </tbody>
 				</table>
-	        </form>
-	      </div>
+	      	</div>
 		</div>
 	</div>
 
@@ -187,6 +188,7 @@ height: 100%;
 			jsonObject.name = "${i.name}";
 			jsonObject.roasting = "${i.roasting}";
 			jsonObject.grind = "${i.grind}";
+			jsonObject.quantity = 1;
 			jsonObject.price = Number("${i.price}");
 
 			totalPrice += jsonObject.price;
@@ -220,6 +222,7 @@ height: 100%;
 			 $('#point'+idx).text(numberWithCommas(total));
 			 
 			 result[idx].price = price;
+			 result[idx].quantity = $(this).val()
 			 totalPrice = 0;
 			 
 			 for(i = 0; i < result.length; i++) {
@@ -229,11 +232,18 @@ height: 100%;
 			 
 			 $('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 			 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+			 
+			 console.log(JSON.stringify(result));
 		});
 		
 		// 최종 가격 표시
 		$('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 		$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+		
+		$('#complete').on('click',function(){
+			$('#test').val(JSON.stringify(result));
+			$('#orderInfo').submit();
+		});
 		
 	});
 	
