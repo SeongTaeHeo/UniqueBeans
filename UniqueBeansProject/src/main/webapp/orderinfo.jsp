@@ -59,7 +59,7 @@ height: 100%;
 						  			<th>${index.index}</th>
 						  			<th><img src="img/country_img/${list.code}.jpg" style="width: 200px; height: 120px;"></th>
 						  			<th><div id="name">${list.name}</div></th>
-						  			<th><div id="price${index.index}">${list.price }</div></th>
+						  			<th><div id="price${index.index}">${list.price}</div></th>
 						  			<th>
 										<select id="quantity${index.index}">
 											<option value="1">1</option>
@@ -199,6 +199,7 @@ height: 100%;
 			
 			// 해당 객체를 이용하여 DB통신을 진행한다.
 			result.push(jsonObject);
+			console.log(result.push(jsonObject));
 		</c:forEach>
 		
 		// 적립 퍼센트0.5%

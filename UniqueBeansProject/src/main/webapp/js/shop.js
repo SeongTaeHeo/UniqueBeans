@@ -91,6 +91,14 @@ $(function() {
 	                           data : [
 	                              data[j].ar,data[j].bi,data[j].ac,data[j].ba,data[j].bo,data[j].sw ]
 	                           } ]
+	                        },
+	                        options : {
+	                        	ticks:{
+	                        		beginAtZero: true,
+	                        		min: 0,
+	                        		max: 10,
+	                        		stepSize: 2
+	                        	}
 	                        }
 	                     };
 	                     $('#canvas').remove();
