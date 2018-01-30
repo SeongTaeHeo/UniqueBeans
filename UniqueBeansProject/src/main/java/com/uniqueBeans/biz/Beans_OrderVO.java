@@ -7,18 +7,27 @@ import java.sql.Date;
  */
 public class Beans_OrderVO {
 	private String order_code;
-	private String id;
-	private int price;
+	private int details_number;
+	private String product_code;
 	private int quantity;
-	private Date order_date;
+	
+	private String grinding;
+	private String roasting;
+	
+	private String id;
+	private int totalprice;
+	private String order_date;
 	private String order_status;
 	private String pay_type;
 	private String order_require;
-	private String send_address;
-	private int send_tel;
-	private String send_name;
+	private int receive_address_num;
+	private String receive_address_road;
+	private String receive_address_detail;
+	private String receive_address_other;
+	private String receive_tel;
+	private String receive_name;
 	private String order_address;
-	private int order_tel;
+	private String order_tel;
 	private String order_name;
 	public String getOrder_code() {
 		return order_code;
@@ -26,17 +35,17 @@ public class Beans_OrderVO {
 	public void setOrder_code(String order_code) {
 		this.order_code = order_code;
 	}
-	public String getId() {
-		return id;
+	public int getDetails_number() {
+		return details_number;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setDetails_number(int details_number) {
+		this.details_number = details_number;
 	}
-	public int getPrice() {
-		return price;
+	public String getProduct_code() {
+		return product_code;
 	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setProduct_code(String product_code) {
+		this.product_code = product_code;
 	}
 	public int getQuantity() {
 		return quantity;
@@ -44,10 +53,34 @@ public class Beans_OrderVO {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public Date getOrder_date() {
+	public String getGrinding() {
+		return grinding;
+	}
+	public void setGrinding(String grinding) {
+		this.grinding = grinding;
+	}
+	public String getRoasting() {
+		return roasting;
+	}
+	public void setRoasting(String roasting) {
+		this.roasting = roasting;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	public int getTotalprice() {
+		return totalprice;
+	}
+	public void setTotalprice(int totalprice) {
+		this.totalprice = totalprice;
+	}
+	public String getOrder_date() {
 		return order_date;
 	}
-	public void setOrder_date(Date order_date) {
+	public void setOrder_date(String order_date) {
 		this.order_date = order_date;
 	}
 	public String getOrder_status() {
@@ -68,23 +101,41 @@ public class Beans_OrderVO {
 	public void setOrder_require(String order_require) {
 		this.order_require = order_require;
 	}
-	public String getSend_address() {
-		return send_address;
+	public int getReceive_address_num() {
+		return receive_address_num;
 	}
-	public void setSend_address(String send_address) {
-		this.send_address = send_address;
+	public void setReceive_address_num(int receive_address_num) {
+		this.receive_address_num = receive_address_num;
 	}
-	public int getSend_tel() {
-		return send_tel;
+	public String getReceive_address_road() {
+		return receive_address_road;
 	}
-	public void setSend_tel(int send_tel) {
-		this.send_tel = send_tel;
+	public void setReceive_address_road(String receive_address_road) {
+		this.receive_address_road = receive_address_road;
 	}
-	public String getSend_name() {
-		return send_name;
+	public String getReceive_address_detail() {
+		return receive_address_detail;
 	}
-	public void setSend_name(String send_name) {
-		this.send_name = send_name;
+	public void setReceive_address_detail(String receive_address_detail) {
+		this.receive_address_detail = receive_address_detail;
+	}
+	public String getReceive_address_other() {
+		return receive_address_other;
+	}
+	public void setReceive_address_other(String receive_address_other) {
+		this.receive_address_other = receive_address_other;
+	}
+	public String getReceive_tel() {
+		return receive_tel;
+	}
+	public void setReceive_tel(String receive_tel) {
+		this.receive_tel = receive_tel;
+	}
+	public String getReceive_name() {
+		return receive_name;
+	}
+	public void setReceive_name(String receive_name) {
+		this.receive_name = receive_name;
 	}
 	public String getOrder_address() {
 		return order_address;
@@ -92,10 +143,10 @@ public class Beans_OrderVO {
 	public void setOrder_address(String order_address) {
 		this.order_address = order_address;
 	}
-	public int getOrder_tel() {
+	public String getOrder_tel() {
 		return order_tel;
 	}
-	public void setOrder_tel(int order_tel) {
+	public void setOrder_tel(String order_tel) {
 		this.order_tel = order_tel;
 	}
 	public String getOrder_name() {
@@ -106,10 +157,14 @@ public class Beans_OrderVO {
 	}
 	@Override
 	public String toString() {
-		return "Beans_OrderVO [order_code=" + order_code + ", id=" + id + ", price=" + price + ", quantity=" + quantity
-				+ ", order_date=" + order_date + ", order_status=" + order_status + ", pay_type=" + pay_type
-				+ ", order_require=" + order_require + ", send_address=" + send_address + ", send_tel=" + send_tel
-				+ ", send_name=" + send_name + ", order_address=" + order_address + ", order_tel=" + order_tel
-				+ ", order_name=" + order_name + "]";
+		return "Beans_OrderVO [order_code=" + order_code + ", details_number=" + details_number + ", product_code="
+				+ product_code + ", quantity=" + quantity + ", grinding=" + grinding + ", roasting=" + roasting
+				+ ", id=" + id + ", totalprice=" + totalprice + ", order_date=" + order_date + ", order_status="
+				+ order_status + ", pay_type=" + pay_type + ", order_require=" + order_require
+				+ ", receive_address_num=" + receive_address_num + ", receive_address_road=" + receive_address_road
+				+ ", receive_address_detail=" + receive_address_detail + ", receive_address_other="
+				+ receive_address_other + ", receive_tel=" + receive_tel + ", receive_name=" + receive_name
+				+ ", order_address=" + order_address + ", order_tel=" + order_tel + ", order_name=" + order_name + "]";
 	}
+	
 }
