@@ -28,4 +28,7 @@ public interface Beans_UserService {
 	// 유저 관리
 	List<Beans_UserVO> get_userList(Beans_UserVO vo);
 	
+	// 마일리지(포인트) 사용
+	
+	
 }

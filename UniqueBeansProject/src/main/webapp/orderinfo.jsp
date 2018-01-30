@@ -58,7 +58,7 @@ height: 100%;
 						  			<th>${index.index}</th>
 						  			<th><img src="img/country_img/${list.code}.jpg" style="width: 200px; height: 120px;"></th>
 						  			<th><div id="name">${list.name}</div></th>
-						  			<th><div id="price${index.index}">${list.price }</div></th>
+						  			<th><div id="price${index.index}">${list.price}</div></th>
 						  			<th>
 										<select id="quantity${index.index}">
 											<option value="1">1</option>
@@ -97,37 +97,36 @@ height: 100%;
 		         		</tr>
 					    <tr>
 		         			<th>받으시는 분</th>
-		       				<td><input type="text"></td>
+		       				<td><input type="text" name="receive_name"></td>
+		         		</tr>
+		         		<tr>
+		         			<th>전화번호</th>
+		       				<td><input type="text" name="receive_tel"></td>
 		         		</tr>
 		         		<tr>
 		         			<th>주소</th>
 		       				<td>
 		       					<input id="test" type="hidden" name="list" value=""/>
-		       					<input type="text" name="postCode" class="postcodify_postcode5" value="" size="8"/>
+		       					<input type="text" name="receive_address_num" class="postcodify_postcode5" value="" size="8"/>
 								<button type="button" id="postcodify_search_button">검색</button><br/>
-								<input type="text" name="address" class="postcodify_address" value="" size="30"/><br/>
-								<input type="text" name="details" class="postcodify_details" value="" size="20"/><br/>
-								<input type="text" name="extra_info" class="postcodify_extra_info" value="" size="15"/><br/>
+								<input type="text" name="receive_address_road" class="postcodify_address" value="" size="30"/><br/>
+								<input type="text" name="receive_address_detail" class="postcodify_details" value="" size="20"/><br/>
+								<input type="text" name="receive_address_other" class="postcodify_extra_info" value="" size="15"/><br/>
 		       				</td>
 		         		</tr>
 		         		<tr>
 		         			<th>휴대전화</th>
-		                  	<td><input id="phone" type="text" maxlength="13"></td>
-		         		</tr>
-		         		<tr>
-		         			<th>이메일</th>
-		       				<td>
-		       					<input type="text">
-		       				</td>
+		                  	<td><input id="phone" name="receive_tel" type="text" maxlength="13"></td>
 		         		</tr>
 		         		<tr>
 		         			<th>배송 메시지</th>
 		       				<td>
-		       					<textarea COLS="70" ROWS="4"></textarea>
+		       					<textarea COLS="70" ROWS="4" name="order_require"></textarea>
 		       				</td>
 		         		</tr>      	
 					  </tbody>
 					</table>
+					<input type="hidden" name ="id" value="${loginUser.id}">
 				</form>
 	            <br><br>
 	            <h4>결제 예정 금액</h4><br>
@@ -201,6 +200,8 @@ height: 100%;
 			
 			// 해당 객체를 이용하여 DB통신을 진행한다.
 			result.push(jsonObject);
+			console.log(result.push(jsonObject));
+
 		</c:forEach>
 		
 		// 적립 퍼센트0.5%

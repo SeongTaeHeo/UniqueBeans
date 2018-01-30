@@ -1,7 +1,9 @@
 
 package com.uniqueBeans.view;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -9,6 +11,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.fasterxml.jackson.core.JsonParser;
+import com.uniqueBeans.biz.Beans_OrderService;
 import com.uniqueBeans.biz.Beans_OrderVO;
 import com.uniqueBeans.biz.Beans_ProductVO;
 import com.uniqueBeans.biz.Test;
@@ -24,37 +28,27 @@ import com.uniqueBeans.biz.Test;
 @Controller
 @SessionAttributes("beanItem")
 public class Beans_OrderController {
-/*	@Autowired
-	private Beans_OrderService orderService;*/
 	
+	@Autowired
+	private Beans_OrderService orderService;
+	
+	
+	private final String create_order_code = "select concat('PROP','-', (select LPAD(COUNT(*)+1,5,'0') FROM orderproduct))";
+	private String send_name = "장선웅 사장님";
+	private String send_address = "커피빈 공장";
+	private int detail_number = 1;
+	java.util.Date dt = new java.util.Date();
 
-	 /* 주문완료 insertOrder.do 메서드 */
+	java.text.SimpleDateFormat sdf = 
+	     new java.text.SimpleDateFormat("yyyy-MM-dd");
+
+	String currentTime = sdf.format(dt);
 	  
-	@RequestMapping("/insertOrder.do")
-	public String insertOrder(Beans_OrderVO vo){
-		System.out.println("주문완료 메서드 실행");
-		//orderService.insertOrder(vo);
-		
-		return "index.jsp";
-	}
-	
-	@RequestMapping("/orderDetailInput.do")
-	@ResponseBody
-	public String orderDetail(@RequestBody ArrayList<Beans_ProductVO> list, Model model) {
-		
-		model.addAttribute("beanItem", list);
-		
-		return "fuck!!";
-	}
-	
 	@RequestMapping("/paymentComplete.do")
-	public String test(Test vo, HttpServletRequest request) {
-		System.out.println("test");
-		System.out.println(vo.getPostCode());
-		System.out.println(vo.getAddress());
-		System.out.println(vo.getDetails());
-		System.out.println(vo.getExtra_info());
-	
+	public String insertOrder(Beans_OrderVO vo, HttpServletRequest request){
+		System.out.println("주문완료 메서드 실행");
+		
+		
 		String json = "{\"data\":" + request.getParameter("list") + "}";
 		System.out.println(json);
 		
@@ -67,14 +61,56 @@ public class Beans_OrderController {
 				JSONObject jsonObject = (JSONObject) array.get(i);
 				
 				System.out.println("code : " + jsonObject.get("code"));
-				System.out.println("name : " + jsonObject.get("name"));
+				
+				int parseQuantity = (int)(long)jsonObject.get("quantity");
+				int parseTotalprice = (int)(long)jsonObject.get("price");
+				String product_code = (String)jsonObject.get("code")+"0";
+				String uppder_code = product_code.toUpperCase();
+				// json 값 받아오기
+				vo.setProduct_code(uppder_code);
+				vo.setRoasting((String)jsonObject.get("roasting"));
+				vo.setGrinding((String)jsonObject.get("grind"));
+				vo.setPay_type("계좌이체");
+				vo.setOrder_status("접수중...");
+				vo.setQuantity(parseQuantity);
+				vo.setTotalprice(parseTotalprice);
+				vo.setOrder_code("product-01");
+				vo.setOrder_address(send_address);
+				vo.setOrder_name(send_name);
+				vo.setOrder_tel("010-1111-1111");
+				vo.setDetails_number(detail_number);
+				vo.setOrder_date(currentTime);
+				
+				orderService.insertOrderProduct(vo);
+				orderService.insertOrderOption(vo);
+				orderService.insertOrderInfo(vo);
+				
+				System.out.println(vo.toString());
+				detail_number += 1;
 			}
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return "index.jsp";
+	}
+	
+	@RequestMapping("/orderDetailInput.do")
+	@ResponseBody
+	public String orderDetail(@RequestBody ArrayList<Beans_ProductVO> list, Model model) {
+		
+		model.addAttribute("beanItem", list);
+		
+		return "fuck!!";
+	}
+	
+	/*@RequestMapping("/paymentComplete.do")
+	public String test(Beans_OrderVO vo, HttpServletRequest request) {
+		System.out.println("test");
+
+		
 		
 		return "dd";
-	}
+	}*/
 }

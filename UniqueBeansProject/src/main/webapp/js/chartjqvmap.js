@@ -60,6 +60,14 @@
 									                	data[i].ar,data[i].bi,data[i].ac,data[i].ba,data[i].bo,data[i].sw
 									                ]
 									            }]
+									        },
+									        options :{
+									        	ticks:{
+					                        		beginAtZero: true,
+					                        		min: 0,
+					                        		max: 10,
+					                        		stepSize: 2
+					                        	}
 									        }
 									
 									 };
