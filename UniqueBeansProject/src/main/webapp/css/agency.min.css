@@ -14,7 +14,7 @@ p {
 }
 
 a {
-	color: #358cfe
+	color: black
 }
 
 a:hover {
@@ -119,14 +119,14 @@ body {
 }
 
 #mainNavs .navbar-brand {
-	color: #7F6854;
+	color: white;
 	font-family: 'Kaushan Script', 'Helvetica Neue', Helvetica, Arial,
 		cursive
 }
 
-#mainNavs .navbar-brand.active, #mainNav .navbar-brand:active, #mainNav .navbar-brand:focus,
-	#mainNav .navbar-brand:hover {
-	color: #358cfe
+#mainNavs .navbar-brand.active, #mainNavs .navbar-brand:active, #mainNavs .navbar-brand:focus,
+	#mainNavs .navbar-brand:hover {
+	color: #fed136
 }
 
 #mainNavs .navbar-nav .nav-item .nav-link {

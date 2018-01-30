@@ -45,17 +45,17 @@
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav text-uppercase ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#About">About</a></li>
+					href="index.jsp#About">About</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Shop">Shop</a></li>
+					href="shop.do">Shop</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#portfolio">Library</a></li>
+					href="index.jsp#portfolio">Library</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Board">Board</a></li>
+					href="Free_board.do">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#contact">Contact</a></li>
+					href="Contact_board.do">Contact</a></li>
 				<li class="nav-item"><c:if test="${!empty loginUser.id}">
-						<a class="nav-link js-scroll-trigger" href="#">${loginUser.id}님</a>
+						<a class="nav-link js-scroll-trigger" href="userInfo.jsp">${loginUser.id}님</a>
 					</c:if> <c:if test="${empty loginUser.id}">
 						<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 					</c:if></li>
@@ -630,7 +630,7 @@
 							<h4 class="modal-title">에스프레소 머신</h4>
 								<center>
 								<div>
-									<img src="img/country_img/AA2.jpeg" style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA2.jpg" style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">

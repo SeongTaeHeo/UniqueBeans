@@ -17,13 +17,13 @@
 				<ul class="navbar-nav text-uppercase ml-auto">
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#About">About</a></li>
+						href="index.jsp#About">About</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#Shop">Shop</a></li>
+						href="shop.do">Shop</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="#portfolio">Library</a></li>
+						href="index.jsp#portfolio">Library</a></li>
 
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="Free_board.do">Board</a></li>

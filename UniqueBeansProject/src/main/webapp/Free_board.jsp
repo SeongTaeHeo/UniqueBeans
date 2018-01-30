@@ -46,9 +46,7 @@
 	</header>
 
 	<div class="board_header">
-		<a href="Free_board.do">
 			<h1 class="display-4" style="font-weight: bold">자유 게시판</h1>
-		</a>
 	</div>
 
 	<div class="board_main" style="color: black;">

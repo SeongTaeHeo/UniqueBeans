@@ -206,7 +206,7 @@ sup {
 }
 
 a {
-	color: #007bff;
+	color: black;
 	text-decoration: none;
 	background-color: transparent;
 	-webkit-text-decoration-skip: objects
@@ -450,7 +450,8 @@ template {
 .display-4 {
 	font-size: 3.5rem;
 	font-weight: 300;
-	line-height: 1.2
+	line-height: 1.2.;
+	color: white;
 }
 
 hr {
