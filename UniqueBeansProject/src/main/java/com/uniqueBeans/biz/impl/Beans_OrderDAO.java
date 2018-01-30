@@ -20,12 +20,12 @@ public class Beans_OrderDAO {
 	
 	private final String INSERT_ORDERPRODUCT = "insert into orderproduct (order_code, details_number, product_code, quantity)"
 			+ "values(?,?,?,?)";
-	private final String INSERT_ORDEROPTION = "insert into orderoption(order_code, details_number, grinding, quantity)"
+	private final String INSERT_ORDEROPTION = "insert into orderoption(order_code, details_number, grinding, roasting)"
 			+ "values(?,?,?,?)";
-	private final String INSERT_ORDERINFO = "insert into orderinfo(order_code, id, totalprice, order_date, order_status,"
+	private final String INSERT_ORDERINFO = "insert into orderinfo(order_code, id, totalprice, order_status,"
 				+ "pay_type, order_require, receive_address_num, receive_address_road, receive_address_detail, receive_address_other, receive_tel,"
-				+ "receive_name, order_address, order_tel, order_name)+"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+				+ "receive_name, order_address, order_tel, order_name)"
+				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	public void insertOrderProduct(Beans_OrderVO vo){
 		System.out.println("dao orderproduct insert");
@@ -55,7 +55,7 @@ public class Beans_OrderDAO {
 			pstmt.setInt(2, vo.getDetails_number());
 			pstmt.setString(3, vo.getRoasting());
 			pstmt.setString(4, vo.getGrinding());
-			pstmt.executeQuery();
+			pstmt.executeUpdate();
 		}catch(SQLException e){
 			System.err.println(e.getMessage());
 		}finally{
@@ -70,8 +70,8 @@ public class Beans_OrderDAO {
 		try{
 			pstmt = conn.prepareStatement(INSERT_ORDERINFO);
 			pstmt.setString(1, vo.getOrder_code());
-			pstmt.setInt(2, vo.getTotalprice());
-			pstmt.setString(3, vo.getId());
+			pstmt.setString(2, vo.getId());
+			pstmt.setInt(3, vo.getTotalprice());
 			pstmt.setString(4, vo.getOrder_status());
 			pstmt.setString(5, vo.getPay_type());
 			pstmt.setString(6, vo.getOrder_require());

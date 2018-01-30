@@ -16,7 +16,7 @@ public class Beans_OrderVO {
 	
 	private String id;
 	private int totalprice;
-	private String order_date;
+	private Date order_date;
 	private String order_status;
 	private String pay_type;
 	private String order_require;
@@ -77,10 +77,10 @@ public class Beans_OrderVO {
 	public void setTotalprice(int totalprice) {
 		this.totalprice = totalprice;
 	}
-	public String getOrder_date() {
+	public Date getOrder_date() {
 		return order_date;
 	}
-	public void setOrder_date(String order_date) {
+	public void setOrder_date(Date order_date) {
 		this.order_date = order_date;
 	}
 	public String getOrder_status() {

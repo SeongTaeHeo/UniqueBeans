@@ -206,7 +206,7 @@
 							<img class="rt1" id="shop-option-img3"
 							src="img/roasting/roasting_2.PNG" alt="">
 							<div class="overlay">
-								<h2>시나몬 로스트</h2>
+								<h2>시나몬로스트</h2>
 								<p class="info">
 									생두의 주름이 완전히 펴지지 않고, 색이 계피색 정도라 하여 시나몬 로스트라고 한다.신맛이 풍부하고 비릿한 향이 있다.
 								</p>
@@ -302,7 +302,7 @@
 								class="gd0" id="shop-option-img4"
 								src="img/grinding/grinding0.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Whole Bean</h2>
+								<h2>WholeBean</h2>
 								<p class="info">
 									분쇄를 하지 않은 원두입니다.
 								</p>
@@ -318,7 +318,7 @@
 								class="gd1" id="shop-option-img4"
 								src="img/grinding/grinding1.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Coarse Grind</h2>
+								<h2>CoarseGrind</h2>
 								<p class="info">
 									프렌치 프레스라는 추출도구로 내릴 때 사용하는 굵기 입니다.침출식의 경우에는 물과 직접 접촉하기 때문에 물이 머무는 시간이 필터에 내리는 것보다 더 길기 때문에 더 굵은 굵기를 사용합니다.
 								</p>
@@ -333,7 +333,7 @@
 								class="gd2" id="shop-option-img4"
 								src="img/grinding/grinding2.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Medium Coarse Grind</h2>
+								<h2>MediumCoarseGrind</h2>
 								<p class="info">
 									카페솔로, 케멕스에 사용되는 굵기입니다. 드립보다는 약간 더 굵게 그라인딩해야 합니다.
 								</p>
@@ -348,7 +348,7 @@
 								class="gd3" id="shop-option-img4"
 								src="img/grinding/grinding3.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Medium Grind</h2>
+								<h2>MediumGrind</h2>
 								<p class="info">
 									가정에서 가장 많이 즐기는 드립용 굵기입니다. 케멕스를 내려도 무방합니다.
 								</p>
@@ -363,7 +363,7 @@
 								class="gd4" id="shop-option-img4"
 								src="img/grinding/grinding4.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Medium Fine Grind</h2>
+								<h2>MediumFineGrind</h2>
 								<p class="info">
 									필터 드립으로 커피를 내리실 때, 종이 필터대신 메탈 필터를 사용하실 경우 사용하는 굵기입니다. 또는 사이폰과 같은 경우도 다고 가늘게 그라인딩 하실 수 있습니다.
 								</p>
@@ -378,7 +378,7 @@
 								class="gd5" id="shop-option-img4"
 								src="img/grinding/grinding5.PNG" alt="grind_grade">
 								<div class="overlay">
-								<h2>Fine Grind</h2>
+								<h2>FineGrind</h2>
 								<p class="info">
 									가늘게의 경우에는 에어로프레스의 경우에 이정도의 굵기를 사용하실 수 있습니다. 혹은 에스프레소의 경우에도 이정도의 굵기를 사용하 실 수 있습니다.
 								</p>

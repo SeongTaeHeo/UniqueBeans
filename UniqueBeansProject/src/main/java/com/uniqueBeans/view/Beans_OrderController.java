@@ -37,12 +37,6 @@ public class Beans_OrderController {
 	private String send_name = "장선웅 사장님";
 	private String send_address = "커피빈 공장";
 	private int detail_number = 1;
-	java.util.Date dt = new java.util.Date();
-
-	java.text.SimpleDateFormat sdf = 
-	     new java.text.SimpleDateFormat("yyyy-MM-dd");
-
-	String currentTime = sdf.format(dt);
 	  
 	@RequestMapping("/paymentComplete.do")
 	public String insertOrder(Beans_OrderVO vo, HttpServletRequest request){
@@ -58,12 +52,18 @@ public class Beans_OrderController {
 			JSONArray array = (JSONArray) object.get("data");
 			
 			for(int i = 0; i < array.size(); i++) {
-				JSONObject jsonObject = (JSONObject) array.get(i);
 				
+				JSONObject jsonObject = (JSONObject) array.get(i);
+				System.out.println("price = "+ jsonObject.get("price"));
+				
+				System.out.println("quantity = "+ jsonObject.get("quantity"));
 				System.out.println("code : " + jsonObject.get("code"));
 				
-				int parseQuantity = (int)(long)jsonObject.get("quantity");
-				int parseTotalprice = (int)(long)jsonObject.get("price");
+				
+				//int parseQuantity = Integer.parseInt((String) jsonObject.get("quantity"));
+				
+				//int parseTotalprice = Integer.parseInt((String)jsonObject.get("price"));
+				
 				String product_code = (String)jsonObject.get("code")+"0";
 				String uppder_code = product_code.toUpperCase();
 				// json 값 받아오기
@@ -72,14 +72,13 @@ public class Beans_OrderController {
 				vo.setGrinding((String)jsonObject.get("grind"));
 				vo.setPay_type("계좌이체");
 				vo.setOrder_status("접수중...");
-				vo.setQuantity(parseQuantity);
-				vo.setTotalprice(parseTotalprice);
+				vo.setQuantity(3);
+				vo.setTotalprice(1234);
 				vo.setOrder_code("product-01");
 				vo.setOrder_address(send_address);
 				vo.setOrder_name(send_name);
 				vo.setOrder_tel("010-1111-1111");
 				vo.setDetails_number(detail_number);
-				vo.setOrder_date(currentTime);
 				
 				orderService.insertOrderProduct(vo);
 				orderService.insertOrderOption(vo);
