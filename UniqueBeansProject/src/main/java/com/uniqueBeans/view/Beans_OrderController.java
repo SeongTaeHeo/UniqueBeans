@@ -52,11 +52,10 @@ public class Beans_OrderController {
 			JSONArray array = (JSONArray) object.get("data");
 			
 			for(int i = 0; i < array.size(); i++) {
-				
 				JSONObject jsonObject = (JSONObject) array.get(i);
 				System.out.println("price = "+ jsonObject.get("price"));
-				
-				System.out.println("quantity = "+ jsonObject.get("quantity"));
+
+				System.out.println("array => " + array.size());
 				System.out.println("code : " + jsonObject.get("code"));
 				
 				
@@ -66,6 +65,8 @@ public class Beans_OrderController {
 				
 				String product_code = (String)jsonObject.get("code")+"0";
 				String uppder_code = product_code.toUpperCase();
+				
+				
 				// json 값 받아오기
 				vo.setProduct_code(uppder_code);
 				vo.setRoasting((String)jsonObject.get("roasting"));
@@ -99,6 +100,7 @@ public class Beans_OrderController {
 	@ResponseBody
 	public String orderDetail(@RequestBody ArrayList<Beans_ProductVO> list, Model model) {
 		
+		System.out.println(list.size());
 		model.addAttribute("beanItem", list);
 		
 		return "fuck!!";

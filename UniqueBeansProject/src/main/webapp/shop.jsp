@@ -45,17 +45,17 @@
 		<div class="collapse navbar-collapse">
 			<ul class="navbar-nav text-uppercase ml-auto">
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#About">About</a></li>
+					href="index.jsp#About">About</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Shop">Shop</a></li>
+					href="shop.do">Shop</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#portfolio">Library</a></li>
+					href="index.jsp#portfolio">Library</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#Board">Board</a></li>
+					href="Free_board.do">Board</a></li>
 				<li class="nav-item"><a class="nav-link js-scroll-trigger"
-					href="#contact">Contact</a></li>
+					href="Contact_board.do">Contact</a></li>
 				<li class="nav-item"><c:if test="${!empty loginUser.id}">
-						<a class="nav-link js-scroll-trigger" href="#">${loginUser.id}님</a>
+						<a class="nav-link js-scroll-trigger" href="userInfo.jsp">${loginUser.id}님</a>
 					</c:if> <c:if test="${empty loginUser.id}">
 						<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
 					</c:if></li>
@@ -154,7 +154,7 @@
 							<div class="overlay">
 								<h2>아라비카</h2>
 								<p class="info">
-									아라비카는 현재 전세계 커피의 70%를 차지하는 품종이며, 우리가 접하는 원두커피는 대부분 아라비카 품종을 사용합니다.아라비카의 원산지가 에티오피아의 고산지대이며 섭씨 15도~25도 사이를 일년 내내 유지해야 재배가 가능할 정도로 재배가 어렵습니다. 또한 고산지대에서 재배되기 때문에 일교차에 의해서 향과 맛이 더 좋다고합니다. 아라비카 품종이 재배하기는 어려워도 일단 맛이 좋기 때문에 전세계 커피시장을 장악할 수 있었습니다.
+									아라비카는 현재 전세계 커피의 70%를 차지하는 품종이며, 아라비카의 원산지가 에티오피아의 고산지대이며 섭씨 15도~25도 사이를 일년 내내 유지해야 재배가 가능할 정도로 재배가 어렵습니다. 또한 고산지대에서 재배되기 때문에 일교차에 의해서 향과 맛이 더 좋다고합니다.
 								</p>
 							</div>
 							</div>
@@ -630,7 +630,7 @@
 							<h4 class="modal-title">에스프레소 머신</h4>
 								<center>
 								<div>
-									<img src="img/country_img/AA2.jpeg" style="width: 300px; height: 300px;">
+									<img src="img/country_img/AA2.jpg" style="width: 300px; height: 300px;">
 								</div>
 								</center>
 								<table class="table">

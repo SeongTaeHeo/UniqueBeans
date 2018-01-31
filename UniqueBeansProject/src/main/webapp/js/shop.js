@@ -354,6 +354,7 @@ $(function() {
 	               	jsonObject.price = $("#sel_pr").text();
 	               	
 	               	param.push(jsonObject);
+	               	console.log('shop.jsp => ' + JSON.stringify(param));
 	               	index++;
 					
 	            } else {
@@ -416,6 +417,7 @@ $(function() {
 	              	jsonObject.price = data[i].price;
 	              	
 	              	param.push(jsonObject);
+	              	console.log('shop.jsp => ' + JSON.stringify(param));
 	              	index++;
 					
 	            }else{

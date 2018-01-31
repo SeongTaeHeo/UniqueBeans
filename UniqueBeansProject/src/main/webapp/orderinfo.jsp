@@ -210,7 +210,7 @@ height: 100%;
 			
 			// 해당 객체를 이용하여 DB통신을 진행한다.
 			result.push(jsonObject);
-			console.log(result.push(jsonObject));
+			console.log(' test=> ' + JSON.stringify(result));
 			
 		</c:forEach>
 		
@@ -237,7 +237,7 @@ height: 100%;
 			 $('#point'+idx).text(numberWithCommas(total));
 			 
 			 result[idx].price = price;
-			 result[idx].quantity = $(this).val()
+			 result[idx].quantity = Number($(this).val());
 			 totalPrice = 0;
 			 
 			 for(i = 0; i < result.length; i++) {
@@ -248,7 +248,7 @@ height: 100%;
 			 $('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 			 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
 			 
-			 console.log(JSON.stringify(result));
+			 console.log('oderinfo.jsp => ' + JSON.stringify(result));
 		});
 		
 		// 최종 가격 표시

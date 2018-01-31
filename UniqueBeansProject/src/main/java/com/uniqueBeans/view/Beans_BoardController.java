@@ -41,14 +41,14 @@ public class Beans_BoardController {
 		boardservice.insertBoard(vo);
 
 		
-		return "Free_board.do";
+		return "redirect:Free_board.do";
 	}
 
 	@RequestMapping(value = "insertReply.do")
-	public String insertReply(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
+	public String insertReply(Beans_BoardVO vo) throws IOException {
 
+		
 		boardservice.insertReply(vo);
-		System.out.println(vo.getId());
 		return "Free_board_content.do";
 	}
 
@@ -83,7 +83,7 @@ public class Beans_BoardController {
 	@RequestMapping(value = "/Free_board_content.do")
 	public String Free_board_content(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO, Model model) {
 		model.addAttribute("board", boardservice.Free_board_content(vo));
-		return "Free_board_content.jsp";
+		return "redirect:Free_board_content.jsp";
 	}
 
 	/*
@@ -111,10 +111,15 @@ public class Beans_BoardController {
 	}
 
 
+	// 리플 불러오기
 	@RequestMapping(value = "Reply_List.do")
-	public String Reply_List(Beans_BoardVO vo, Model model) {
-		model.addAttribute("ReplyList", boardservice.Reply_List(vo));
-		return "Reply_List.jsp";
+	@ResponseBody
+	public List<Beans_BoardVO> Reply_List(HttpServletRequest request, Model model) {
+	
+		Beans_BoardVO vo = new Beans_BoardVO();
+		vo.setPost_number(Integer.parseInt(request.getParameter("number")));
+		
+		return boardservice.Reply_List(vo);
 	}
 	
 	//문의 게시판 컨트롤러
@@ -122,8 +127,9 @@ public class Beans_BoardController {
 	@RequestMapping(value = "insertContact.do")
 	public String insertContact(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
 		boardservice.insertContact(vo);
-		return "Contact_board.do";
+		return "redirect:Contact_board.do";
 	}
+	
 	@RequestMapping(value = "updateContact.do")
 	public String updateContact(@ModelAttribute("contact") Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) {
 		System.out.println("번호: " + vo.getContact_seq());
