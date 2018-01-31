@@ -16,7 +16,7 @@ $(function() {
 			tmp += str.substr(0, 3);
 			tmp += '-';
 			tmp += str.substr(3, 4);
-			return tmp;
+			return tmp; 
 		} else {
 			tmp += str.substr(0, 3);
 			tmp += '-';

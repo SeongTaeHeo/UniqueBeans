@@ -23,9 +23,9 @@ public class Beans_OrderDAO {
 	private final String INSERT_ORDEROPTION = "insert into orderoption(order_code, details_number, grinding, roasting)"
 			+ "values(?,?,?,?)";
 	private final String INSERT_ORDERINFO = "insert into orderinfo(order_code, id, totalprice, order_status,"
-				+ "pay_type, order_require, receive_address_num, receive_address_road, receive_address_detail, receive_address_other, receive_tel,"
-				+ "receive_name, order_address, order_tel, order_name)"
-				+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+			+ "pay_type, order_require, receive_address_num, receive_address_road, receive_address_detail, receive_address_other, receive_tel,"
+			+ "receive_name, order_address, order_tel, order_name)"
+			+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
 	public void insertOrderProduct(Beans_OrderVO vo){
 		System.out.println("dao orderproduct insert");

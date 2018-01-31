@@ -25,6 +25,13 @@
 <link href="css/agency.min.css" rel="stylesheet">
 <link href="css/register-form.css?ver=1" rel="stylesheet">
 
+						<!-- 
+						<li class="nav-item"><c:if test="${!empty loginUser.id}">
+							<a class="nav-link js-scroll-trigger" href="userInfo.jsp">${loginUser.id}님</a>
+						</c:if> <c:if test="${empty loginUser.id}">
+							<a class="nav-link js-scroll-trigger" href="login.jsp">Login</a>
+						</c:if></li> 
+						-->
 </head>
 <body>
 	<div>원두</div>

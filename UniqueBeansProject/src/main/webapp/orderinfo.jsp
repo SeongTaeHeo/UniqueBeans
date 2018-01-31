@@ -91,13 +91,13 @@ height: 100%;
 					    <tr>
 		         			<th>배송지 선택</th>
 		         			<td>
-		         				<input type="radio" name="1" value="customer_address">회원 정보와 동일
-								<input type="radio" name="1" value="new_address">새로운 배송지
+		         				<input type="radio" name="insert_address" value="customer_address" onclick="customer_address()" id="ct_address">회원 정보와 동일
+								<input type="radio" name="insert_address" value="new_address" onclick="new_address()">새로운 배송지
 		         			</td>
 		         		</tr>
 					    <tr>
 		         			<th>받으시는 분</th>
-		       				<td><input type="text" name="receive_name"></td>
+		       				<td><input type="text" name="receive_name" id="receive_name"></td>
 		         		</tr>
 		         		<tr>
 		         			<th>전화번호</th>
@@ -113,10 +113,6 @@ height: 100%;
 								<input type="text" name="receive_address_detail" class="postcodify_details" value="" size="20"/><br/>
 								<input type="text" name="receive_address_other" class="postcodify_extra_info" value="" size="15"/><br/>
 		       				</td>
-		         		</tr>
-		         		<tr>
-		         			<th>휴대전화</th>
-		                  	<td><input id="phone" name="receive_tel" type="text" maxlength="13"></td>
 		         		</tr>
 		         		<tr>
 		         			<th>배송 메시지</th>
@@ -169,7 +165,18 @@ height: 100%;
 	<script src="//d1p7wdleee1q2z.cloudfront.net/post/search.min.js"></script>
 	
 	<script src="js/orderInfo.js"></script>
-	<script> $(function() { 
+	<script>
+	// 기존 주소 입력
+	function customer_address(){
+		console.log("기존 주소 입력");
+		$('#receive_name').attr("value","${loginUser.point}");
+		
+	}
+	function new_address(){
+		console.log("새 주소 입력");
+	}
+	$(function() { 
+		
 		// 검색 단추를 누르면 주소 검색 팝업 레이어가 열리도록 설정한다.
 		$("#postcodify_search_button").postcodifyPopUp(); 
 		
@@ -193,6 +200,9 @@ height: 100%;
 			totalPrice += jsonObject.price;
 			totalPriceResult = totalPrice;
 			
+			
+
+			
 			// html페이지를 로드 하면서 가격란에 콤마 부호를 붙여준다.(가격표시 가독성을 위해서)
 			// 에러가 뜨는데 이는 컴파일러 오류인듯 하다. 수정할 필요 없음.
 			$('#price'+${index.index}).text(numberWithCommas(${i.price}));
@@ -201,8 +211,13 @@ height: 100%;
 			// 해당 객체를 이용하여 DB통신을 진행한다.
 			result.push(jsonObject);
 			console.log(result.push(jsonObject));
-
+			
 		</c:forEach>
+		
+
+				
+		
+		
 		
 		// 적립 퍼센트0.5%
 		var pointPercent = 0.005;
