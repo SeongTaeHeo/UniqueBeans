@@ -30,4 +30,10 @@ public class Beans_OrderServiceImpl implements Beans_OrderService {
 		// TODO Auto-generated method stub
 		orderDAO.insertOrderInfo(vo);
 	}
+
+	@Override
+	public String createOrder_Code(Beans_OrderVO vo) {
+		return orderDAO.createOrder_Code(vo);
+		
+	}
 }

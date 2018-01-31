@@ -29,6 +29,7 @@ public class Beans_OrderVO {
 	private String order_address;
 	private String order_tel;
 	private String order_name;
+	private String generated_code;
 	
 	public String getOrder_code() {
 		return order_code;

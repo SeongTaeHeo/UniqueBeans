@@ -17,7 +17,7 @@ public class Beans_OrderDAO {
 	private ResultSet rs;
 	
 	// 쿼리문 생성
-	
+	private final String CREATE_ORDER_CODE = "select concat('PROP','-', (select LPAD(COUNT(*)+1,5,'0') FROM orderproduct))";
 	private final String INSERT_ORDERPRODUCT = "insert into orderproduct (order_code, details_number, product_code, quantity)"
 			+ "values(?,?,?,?)";
 	private final String INSERT_ORDEROPTION = "insert into orderoption(order_code, details_number, grinding, roasting)"
@@ -27,6 +27,31 @@ public class Beans_OrderDAO {
 			+ "receive_name, order_address, order_tel, order_name)"
 			+ "values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 	
+	// Order_Code 생성하기
+	public String createOrder_Code(Beans_OrderVO vo){
+		String generated_code = null;
+		System.out.println("Order_Code 생성");
+		conn = (Connection) JDBCUtil.getConnection();
+		try{
+			pstmt = conn.prepareStatement(CREATE_ORDER_CODE);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				generated_code = rs.getString("concat('PROP','-', (select LPAD(COUNT(*)+1,5,'0') FROM orderproduct))");
+			}
+			
+		} catch(SQLException e){
+			e.printStackTrace();
+		} finally{
+			JDBCUtil.close(pstmt, conn);
+		}
+		System.out.println(generated_code);
+		return generated_code;
+	}
+	
+	
+	// 주문 완료 값 넣기
 	public void insertOrderProduct(Beans_OrderVO vo){
 		System.out.println("dao orderproduct insert");
 		conn = (Connection) JDBCUtil.getConnection();
