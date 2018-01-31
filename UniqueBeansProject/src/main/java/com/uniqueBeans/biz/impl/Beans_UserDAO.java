@@ -37,7 +37,7 @@ public class Beans_UserDAO {
 	private final String FIND_USER_PASSWORD = "select password from customer where id=? and email=?";
 	// 유저 리스트 출력하기
 	private final String GET_USER_LIST = "select * from customer where id=?";
-	// 결제 후 마일리지(포인트) 차감
+	// 마일리지 포인트 사용, 적립
 	private final String USE_POINT = "update customer set point=?, where id = ?";
 
 	/*
@@ -257,8 +257,23 @@ public class Beans_UserDAO {
 		return userList;
 	}
 	/*
-	 *  마일리지 포인트 사용 메소드
+	 *  마일리지 포인트 사용, 적립 메소드
 	 */
+	
+	public void usePoint(Beans_UserVO vo){
+		System.out.println("마일리지 포인트 사용, 적립 메소드");
+		try{
+			conn = (Connection) JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(USE_POINT);
+			pstmt.setInt(1, vo.getPoint());
+			pstmt.setString(2, vo.getId());
+
+		} catch(SQLException e){
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
 	
 	
 }

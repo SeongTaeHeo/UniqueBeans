@@ -160,4 +160,12 @@ public class Beans_UserController {
 		List<Beans_UserVO> userList=userService.get_userList(vo);
 		return userList;
 	}
+	/*
+	 *  포인트 사용, 적립을 위한 메서드
+	 */
+	@RequestMapping("/paymentComplete.do")
+	public void usepoint(Beans_UserVO vo, HttpServletRequest request){
+		userService.usePoint(vo);
+	}
+	
 }

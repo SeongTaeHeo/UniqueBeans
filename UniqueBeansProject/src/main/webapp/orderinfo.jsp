@@ -29,8 +29,8 @@
 <link href="css/order-form.css?ver=1" rel="stylesheet">
 <style>
 #bodymain{
-width: 100%;
-height: 100%;
+	width: 100%;
+	height: 100%;
 }
 </style>
 </head>

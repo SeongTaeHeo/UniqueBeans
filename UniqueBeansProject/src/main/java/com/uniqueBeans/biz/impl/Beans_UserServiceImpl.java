@@ -179,4 +179,10 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		return userDAO.userList(vo);
 
 	}
+
+	@Override
+	public void usePoint(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+		userDAO.usePoint(vo);
+	}
 }
