@@ -39,7 +39,7 @@
 					<li class="sidebar-brand"><a id="userInfo"
 						value="${loginUser.id}">${loginUser.id}님</a></li>
 					<li><a id="a1">회원정보 수정</a></li>
-					<li><a id="a2">구매내역</a></li>
+					<li><a id="a2">판매내역</a></li>
 					<li><a id="a3">내 마일리지 확인</a></li>
 					<li><a id="a4">내가 쓴 글 보기</a></li>
 					<li><a id="a5">고객 관리</a></li>
@@ -53,7 +53,7 @@
 					<li><a id="a1">회원정보 수정</a></li>
 					<li><a id="a2">구매내역</a></li>
 					<li><a id="a3">내 마일리지 확인</a></li>
-					<li><a id="a4">내가 쓴 글 보기</a></li>
+					<li><a id="a4">전체 글 보기</a></li>
 					<li><a href="logout.do">로그아웃</a></li>
 				</ul>
 			</c:if>
@@ -120,10 +120,45 @@
 					</div>
 
 
-					<!-- 구매내역 -->
+					<!-- 판매내역 -->
 					<div id="buyList">
-						<h1>구매내역</h1>
-
+						<h1>판매내역</h1>
+						<table class="table">
+							<thead style="text-align: center;">
+								<th>주문번호</th>
+								<th>상세주문번호</th>
+								<th>상품명</th>
+								<th>가격</th>
+								<th>주문자</th>
+								<th>주문상태</th>
+							</thead>
+							<tbody style="text-align: center;">
+								<tr>
+									<td>1234</td>
+									<td>1</td>
+									<td>커피상품</td>
+									<td>845620</td>
+									<td>gj1534</td>
+									<td>준비중</td>
+								</tr>
+								<tr>
+									<td>1234</td>
+									<td>2</td>
+									<td>도구상품2</td>
+									<td>88523</td>
+									<td>gj1534</td>
+									<td>준비중</td>
+								</tr>
+								<tr>
+									<td>1235</td>
+									<td>1</td>
+									<td>커피상품2</td>
+									<td>5000</td>
+									<td>hst</td>
+									<td>준비중</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 
 					<!-- 내 마일리지 -->
@@ -142,9 +177,9 @@
 						</div>
 					</div>
 
-					<!-- 내가 쓴 글 보기 -->
+					<!-- 전체 글 보기 -->
 					<div id="userBoardView">
-						<h1>내가 쓴 글 보기</h1>
+						<h1>전체 글 보기</h1>
 						<table
 							class="bg-light table table-hover table-sm text-center form-radius"
 							style="margin-top: 150px">

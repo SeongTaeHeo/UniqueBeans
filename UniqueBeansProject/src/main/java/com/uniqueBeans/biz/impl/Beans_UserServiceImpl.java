@@ -16,6 +16,7 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 import com.uniqueBeans.biz.Beans_BoardVO;
+import com.uniqueBeans.biz.Beans_OrderVO;
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
 import com.uniqueBeans.biz.common.JDBCUtil;
@@ -178,7 +179,4 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		return userDAO.userList(vo);
 
 	}
-
-
-
 }

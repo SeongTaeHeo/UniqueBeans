@@ -30,5 +30,4 @@ public interface Beans_UserService {
 	
 	// 마일리지(포인트) 사용
 	
-	
 }

@@ -72,13 +72,11 @@
 					<td align="left" colspan="12" height="500px">${board.post_contents }</td>
 				</tr>
 			</tbody>
-			<tbody>
-				<%-- <jsp:include page="Reply_List.do" />
-				<jsp:include page="Reply_write.jsp" /> --%>
-			</tbody>
 		</table>
 		
 		<table id="commentList" class="table"></table>
+		
+		<input id="user" type="hidden" value="${loginUser.id}"/>
 		
 		<form id="insertComment" action="insertReply.do" method="post">
 			<table class="table table-bordered">
@@ -149,10 +147,41 @@
 	
 	$(function(){
 		var number = $('#post_number').attr('value');
-		
-		
 		number = number.substr(0, number.length - 1);
 
+		$(document).on('click','.btn-sm',function(){
+			var id = '';
+			var user = '';
+			var admin = 'Admin';
+			
+			id = $(this).attr('id');
+			user = $('#user').attr('value');
+			console.log(id + " " + user + " " + admin);
+			if(id == user || user == admin) {
+				var tr = $($(this)).parent().parent();
+				var content = $($(this)).parent().parent().text(); 
+				content = content.substr(id.length, content.length - id.length - 2);
+				console.log(content);
+				
+				$.ajax({
+					url: 'deleteReply.do?re_content=' + content + '&post_number='+ number,
+					
+					success: function(data) {
+						tr.remove();
+						alert('댓글이 삭제 되었습니다.');
+					},
+					
+					error: function() {
+						alert('실패!');
+						
+					}
+				});
+				
+			} else {
+				alert('자신의 댓글이 아니면 삭제 할 수 없습니다.');	
+			}
+		});
+		
 		$.ajax({
 			url: 'Reply_List.do?number='+number,
 			method: 'post',
@@ -161,11 +190,9 @@
 			success: function(data){
 				$(data).each(function(index, comment){
 					$('#commentList').append('<tr><td>'+ comment.id +'</td>'
-					+ '<td>' + comment.re_content + '</td>'
-					+ '<c:if test="${reply.id==loginUser.id or loginUser.admin==1 }">'
-					+ '<a href="deleteReply.do?re_content=${reply.re_content }">삭제</a>'
-					+ '</c:if><c:if test="${reply.id!=loginUser }"></c:if></tr>'
-					)
+						+ '<td>' + comment.re_content + '</td>'
+						+ '<td><button id = '+ comment.id +' type="button" class="btn btn-outline-danger btn-sm">삭제</td></tr>'
+					); 
 				});
 			},
 			
@@ -187,11 +214,10 @@
 					$(data).each(function(index, comment){
 						$('#commentList').empty();
 						$('#commentList').append('<tr><td>'+ comment.id +'</td>'
-						+ '<td>' + comment.re_content + '</td>'
-						+ '<c:if test="${reply.id==loginUser.id or loginUser.admin==1 }">'
-						+ '<a href="deleteReply.do?re_content=${reply.re_content }">삭제</a>'
-						+ '</c:if><c:if test="${reply.id!=loginUser }"></c:if></tr>'
-						)
+							+ '<td>' + comment.re_content + '</td>'
+							+ '<td><a href="deleteReply.do?re_content="' + comment.re_content + '>'
+							+ '<button id = '+ comment.id +' type="button" class="btn btn-outline-danger btn-sm">삭제</a></td></tr>'
+						); 
 					});
 				},
 				

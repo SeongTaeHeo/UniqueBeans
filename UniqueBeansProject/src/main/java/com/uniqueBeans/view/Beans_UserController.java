@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uniqueBeans.biz.Beans_BoardVO;
+import com.uniqueBeans.biz.Beans_OrderVO;
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
 
@@ -149,6 +150,10 @@ public class Beans_UserController {
 		
 		return "foundpw.jsp";
 	}
+	
+	/*
+	 * 유저 관리를 위한 메서드(미완성)
+	 */
 	@RequestMapping("/userList.do")
 	public List<Beans_UserVO> dataTransform(HttpServletRequest request, Beans_UserVO vo){
 		vo.setId(request.getParameter("id"));

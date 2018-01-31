@@ -72,8 +72,10 @@ public class Beans_BoardController {
 
 	@RequestMapping(value = "deleteReply.do")
 	public String deleteReply(Beans_BoardVO vo) {
+		System.out.println(vo.getRe_content());
 		boardservice.deleteReply(vo);
-		return "Free_board.do";
+		
+		return "Free_board_content.do?post_number=" + vo.getPost_number();
 	}
 
 	/*
