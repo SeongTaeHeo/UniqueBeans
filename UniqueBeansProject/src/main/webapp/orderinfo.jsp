@@ -123,6 +123,7 @@ height: 100%;
 					  </tbody>
 					</table>
 					<input type="hidden" name ="id" value="${loginUser.id}">
+					<input type="hidden" name="totalprice" id="insert_tprice">
 				</form>
 	            <br><br>
 	            <h4>결제 예정 금액</h4><br>
@@ -142,6 +143,7 @@ height: 100%;
 	         				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
 	         			</th>
 	         			<th><h3 id="totalPriceResult">32400원<h3></th>
+	         			
 	         		</tr>
 				    <tr>
 				      <th scope="row"></th>
@@ -194,7 +196,7 @@ height: 100%;
 			jsonObject.name = "${i.name}";
 			jsonObject.roasting = "${i.roasting}";
 			jsonObject.grind = "${i.grind}";
-			jsonObject.quantity = 1;
+			jsonObject.quantity = "${i.quantity}";
 			jsonObject.price = Number("${i.price}");
 
 			totalPrice += jsonObject.price;
@@ -256,6 +258,7 @@ height: 100%;
 		$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
 		
 		$('#complete').on('click',function(){
+			$('#insert_tprice').val(totalPriceResult);
 			$('#test').val(JSON.stringify(result));
 			$('#orderInfo').submit();
 		});

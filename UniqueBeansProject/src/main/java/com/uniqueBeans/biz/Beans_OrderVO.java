@@ -29,6 +29,7 @@ public class Beans_OrderVO {
 	private String order_address;
 	private String order_tel;
 	private String order_name;
+	private String generated_code;
 	public String getOrder_code() {
 		return order_code;
 	}
@@ -154,6 +155,13 @@ public class Beans_OrderVO {
 	}
 	public void setOrder_name(String order_name) {
 		this.order_name = order_name;
+	}
+	
+	public String getGenerated_code() {
+		return generated_code;
+	}
+	public void setGenerated_code(String generated_code) {
+		this.generated_code = generated_code;
 	}
 	@Override
 	public String toString() {

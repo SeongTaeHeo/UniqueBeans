@@ -31,15 +31,13 @@ public class Beans_OrderController {
 	
 	@Autowired
 	private Beans_OrderService orderService;
-	
-	
-	private final String create_order_code = "select concat('PROP','-', (select LPAD(COUNT(*)+1,5,'0') FROM orderproduct))";
 	private String send_name = "장선웅 사장님";
 	private String send_address = "커피빈 공장";
-	private int detail_number = 1;
 	  
 	@RequestMapping("/paymentComplete.do")
 	public String insertOrder(Beans_OrderVO vo, HttpServletRequest request){
+		String generated_code = orderService.createOrder_Code(vo);
+		
 		System.out.println("주문완료 메서드 실행");
 		
 		
@@ -73,20 +71,17 @@ public class Beans_OrderController {
 				vo.setGrinding((String)jsonObject.get("grind"));
 				vo.setPay_type("계좌이체");
 				vo.setOrder_status("접수중...");
-				vo.setQuantity(3);
-				vo.setTotalprice(1234);
-				vo.setOrder_code("product-01");
+				vo.setQuantity((int)(long)jsonObject.get("quantity"));
+				vo.setOrder_code(generated_code);
 				vo.setOrder_address(send_address);
 				vo.setOrder_name(send_name);
 				vo.setOrder_tel("010-1111-1111");
-				vo.setDetails_number(detail_number);
-				
+				vo.setDetails_number(i);
 				orderService.insertOrderProduct(vo);
 				orderService.insertOrderOption(vo);
 				orderService.insertOrderInfo(vo);
 				
 				System.out.println(vo.toString());
-				detail_number += 1;
 			}
 			
 		} catch (ParseException e) {
