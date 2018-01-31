@@ -101,17 +101,17 @@ height: 100%;
 		         		</tr>
 		         		<tr>
 		         			<th>전화번호</th>
-		       				<td><input type="text" name="receive_tel"></td>
+		       				<td><input type="text" name="receive_tel" id="receive_tel"></td>
 		         		</tr>
 		         		<tr>
 		         			<th>주소</th>
 		       				<td>
 		       					<input id="test" type="hidden" name="list" value=""/>
-		       					<input type="text" name="receive_address_num" class="postcodify_postcode5" value="" size="8"/>
+		       					<input type="text" name="receive_address_num" class="postcodify_postcode5" value="" size="8" id="ad_num"/>
 								<button type="button" id="postcodify_search_button">검색</button><br/>
-								<input type="text" name="receive_address_road" class="postcodify_address" value="" size="30"/><br/>
-								<input type="text" name="receive_address_detail" class="postcodify_details" value="" size="20"/><br/>
-								<input type="text" name="receive_address_other" class="postcodify_extra_info" value="" size="15"/><br/>
+								<input type="text" name="receive_address_road" class="postcodify_address" value="" size="30" id="ad_road"/><br/>
+								<input type="text" name="receive_address_detail" class="postcodify_details" value="" size="20" id="ad_detail"/><br/>
+								<input type="text" name="receive_address_other" class="postcodify_extra_info" value="" size="15" id="ad_other"/><br/>
 		       				</td>
 		         		</tr>
 		         		<tr>
@@ -139,7 +139,7 @@ height: 100%;
 				    <tr>
 	         			<th><h3 id="totalPrice">32400원</h3></th>
 	         			<th>
-	         				<input type="text" size="6"> / ${loginUser.point}
+	         				<input type="text" size="6" id="use_point"> / <span id="view_point">${loginUser.point}</span>
 	         				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
 	         			</th>
 	         			<th><h3 id="totalPriceResult">32400원<h3></th>
@@ -171,12 +171,45 @@ height: 100%;
 	// 기존 주소 입력
 	function customer_address(){
 		console.log("기존 주소 입력");
-		$('#receive_name').attr("value","${loginUser.point}");
-		
+		$('#receive_name').attr("");
+		$('#receive_name').attr("value","${loginUser.name}");
+		$('#receive_tel').attr("");
+		$('#receive_tel').attr("value","${loginUser.tel}");
+		$('#ad_num').attr("value","");
+		$('#ad_num').attr("value","${loginUser.address_number}");
+		$('#ad_road').attr("value","");
+		$('#ad_road').attr("value","${loginUser.address_road}");
+		$('#ad_detail').attr("value","");
+		$('#ad_detail').attr("value","${loginUser.address_detail}");
+		$('#ad_other').attr("value","");
+		$('#ad_other').attr("value","${loginUser.address_other}");
 	}
 	function new_address(){
 		console.log("새 주소 입력");
+		$('#receive_name').attr("value","");
+		$('#receive_tel').attr("value","");
+		$('#ad_num').attr("value","");
+		$('#ad_road').attr("value","");
+		$('#ad_detail').attr("value","");
+		$('#ad_other').attr("value","");
 	}
+	// 마일리지 입력 제한
+	$('#use_point').keyup(function(){
+		console.log("그아앗");
+		var check = $('#use_point').val();
+		this.value = intRegex(check);
+		
+		if(this.value >=$('#view_point').text()){
+			this.value = ${loginUser.point};
+		}
+	});
+	
+	function intRegex(str){
+		var templet;
+		templet = str.replace(/[^0-9]/g,"");
+		return templet;
+	}
+	
 	$(function() { 
 		
 		// 검색 단추를 누르면 주소 검색 팝업 레이어가 열리도록 설정한다.
@@ -215,12 +248,7 @@ height: 100%;
 			console.log(' test=> ' + JSON.stringify(result));
 			
 		</c:forEach>
-		
 
-				
-		
-		
-		
 		// 적립 퍼센트0.5%
 		var pointPercent = 0.005;
 		
