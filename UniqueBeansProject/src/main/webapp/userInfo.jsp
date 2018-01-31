@@ -34,7 +34,7 @@
 	<div id="page-wrapper" style="margin-top: 55px">
 		<!-- 사이드바 -->
 		<div id="sidebar-wrapper">
-			<c:if test="${loginUser.admin==1 }">
+			<c:if test="${loginUser.admin == 1 }">
 				<ul class="sidebar-nav">
 					<li class="sidebar-brand"><a id="userInfo"
 						value="${loginUser.id}">${loginUser.id}님</a></li>
@@ -46,7 +46,7 @@
 					<li><a href="logout.do">로그아웃</a></li>
 				</ul>
 			</c:if>
-			<c:if test="${loginUser.admin==0 }">
+			<c:if test="${loginUser.admin == 0 }">
 				<ul class="sidebar-nav">
 					<li class="sidebar-brand"><a id="userInfo"
 						value="${loginUser.id}">${loginUser.id}님</a></li>

@@ -11,7 +11,10 @@
 </head>
 <body>
 <div class="board_main">
-<table class="bg-light table table-hover table-sm text-center form-radius">
+
+
+
+<%-- <table class="bg-light table table-hover table-sm text-center form-radius">
 <c:forEach items="${ReplyList }" var="reply">
 	<tr>
 		<td align="center" class="reply_id">${reply.id }</td>
@@ -27,7 +30,7 @@
 		</td>
 	</tr>
 </c:forEach>
-</table>
+</table> --%>
 </div>
 </body>
 </html>

@@ -59,13 +59,15 @@ public class Beans_OrderController {
 			
 			for(int i = 0; i < array.size(); i++) {
 				JSONObject jsonObject = (JSONObject) array.get(i);
-				
+				System.out.println("array => " + array.size());
 				System.out.println("code : " + jsonObject.get("code"));
 				
 				int parseQuantity = (int)(long)jsonObject.get("quantity");
 				int parseTotalprice = (int)(long)jsonObject.get("price");
 				String product_code = (String)jsonObject.get("code")+"0";
 				String uppder_code = product_code.toUpperCase();
+				
+				
 				// json 값 받아오기
 				vo.setProduct_code(uppder_code);
 				vo.setRoasting((String)jsonObject.get("roasting"));
@@ -80,6 +82,8 @@ public class Beans_OrderController {
 				vo.setOrder_tel("010-1111-1111");
 				vo.setDetails_number(detail_number);
 				vo.setOrder_date(currentTime);
+				
+				
 				
 				orderService.insertOrderProduct(vo);
 				orderService.insertOrderOption(vo);
@@ -100,6 +104,7 @@ public class Beans_OrderController {
 	@ResponseBody
 	public String orderDetail(@RequestBody ArrayList<Beans_ProductVO> list, Model model) {
 		
+		System.out.println(list.size());
 		model.addAttribute("beanItem", list);
 		
 		return "fuck!!";

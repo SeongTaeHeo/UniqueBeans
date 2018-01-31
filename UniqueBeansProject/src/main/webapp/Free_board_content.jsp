@@ -73,10 +73,29 @@
 				</tr>
 			</tbody>
 			<tbody>
-				<jsp:include page="Reply_List.do" />
-				<jsp:include page="Reply_write.jsp" />
+				<%-- <jsp:include page="Reply_List.do" />
+				<jsp:include page="Reply_write.jsp" /> --%>
 			</tbody>
 		</table>
+		
+		<table id="commentList" class="table"></table>
+		
+		<form id="insertComment" action="insertReply.do" method="post">
+			<table class="table table-bordered">
+				<tr>
+					<td class="reply_num" style="display: none;" ><input type="hidden" id="post_number" name="post_number"
+						value=${board.post_number }/></td>
+					<td class="reply_id" align="center"><input id="id" type="text" value=${loginUser.id }
+								name="id" readonly="readonly" style="border: none;" /></td>
+					<td class="reply_text" align="left"><textarea id="re_content"
+							name="re_content" class="form-control"
+							style="resize: none; height: 50px;" required></textarea></td>
+					<td align="center" class="reply_button"><button type="button" id="comment"
+							class="btn btn-success btn-lg">등록</button></td>
+				</tr>
+			</table>
+		</form>
+		
 		<div class="write">
 			<c:if test="${board.id==loginUser.id or loginUser.admin==1 }">
 				<a href="deleteBoard.do?post_number=${board.post_number }">
@@ -111,18 +130,6 @@
 
 	</div>
 
-
-
-
-
-
-
-
-
-
-
-
-
 	<br>
 	<br>
 	<br>
@@ -138,6 +145,63 @@
 
 	<script src="js/agency.min.js"></script>
 
+	<script type="text/javascript">
+	
+	$(function(){
+		var number = $('#post_number').attr('value');
+		
+		
+		number = number.substr(0, number.length - 1);
+
+		$.ajax({
+			url: 'Reply_List.do?number='+number,
+			method: 'post',
+			type: 'text',
+			
+			success: function(data){
+				$(data).each(function(index, comment){
+					$('#commentList').append('<tr><td>'+ comment.id +'</td>'
+					+ '<td>' + comment.re_content + '</td>'
+					+ '<c:if test="${reply.id==loginUser.id or loginUser.admin==1 }">'
+					+ '<a href="deleteReply.do?re_content=${reply.re_content }">삭제</a>'
+					+ '</c:if><c:if test="${reply.id!=loginUser }"></c:if></tr>'
+					)
+				});
+			},
+			
+			error: function(){
+				console.log('리플 불러오기 실패');
+			}
+		});
+		
+		$('#comment').on('click',function(){
+			$('#post_number').val(number);
+			$('#insertComment').submit();
+			
+			$.ajax({
+				url: 'Reply_List.do?number='+number,
+				method: 'post',
+				type: 'text',
+				
+				success: function(data){
+					$(data).each(function(index, comment){
+						$('#commentList').empty();
+						$('#commentList').append('<tr><td>'+ comment.id +'</td>'
+						+ '<td>' + comment.re_content + '</td>'
+						+ '<c:if test="${reply.id==loginUser.id or loginUser.admin==1 }">'
+						+ '<a href="deleteReply.do?re_content=${reply.re_content }">삭제</a>'
+						+ '</c:if><c:if test="${reply.id!=loginUser }"></c:if></tr>'
+						)
+					});
+				},
+				
+				error: function(){
+					console.log('리플 불러오기 실패');
+				}
+			});
+		});
+	})
+	</script>	
 
 </body>
 </html>
