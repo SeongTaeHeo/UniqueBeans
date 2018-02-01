@@ -100,6 +100,40 @@ $(function(){
 		console.log('test'+html);
 		$('#userBoardView').html(html);
 	});
+	
+	/*
+	 * (Admin)전체 주문 내역 보기
+	 */
+	$.getJSON('showOrderList.do', function(data) {
+		console.log('fdsa'+data);
+		var html = '<h1>판매내역</h1>' +
+			'<table class="table">'+ 
+			'<thead style="text-align: center;">'+ 
+			'<th>주문번호</th>'+
+			'<th>상세주문번호</th>'+
+			'<th>상품명</th>'+
+			'<th>가격</th>'+
+			'<th>수량</th>'+
+			'<th>주문자</th>'+
+			'<th>주문상태</th>'+
+			'</thead><tbody style="text-align: center;">';
+		$(data).each(function(index, orderList){
+			html += '<tr>';
+			html += '<td>' + orderList.order_code + '</td>';
+			html += '<td>' + orderList.details_number + '</td>';
+			html += '<td>' + orderList.product_name + '</td>';
+			html += '<td>' + orderList.totalprice + '</td>';
+			html += '<td>' + orderList.quantity + '</td>';
+			html += '<td>' + orderList.id + '</td>';
+			html += '<td>' + orderList.order_status + '</td>';
+			html += '</tr>';
+		});
+		
+		html += '</tbody></table>';
+		console.log('test'+html);
+		$('#orderList').html(html);
+	});
+	
 });
 
 

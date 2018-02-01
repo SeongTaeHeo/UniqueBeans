@@ -78,6 +78,12 @@ public class Beans_BoardController {
 		return "Free_board_content.do?post_number=" + vo.getPost_number();
 	}
 
+	@RequestMapping(value = "deleteReply2.do")
+	public String deleteReply2(Beans_BoardVO vo) {
+		boardservice.deleteReply(vo);
+		return "Contact_board_content.do";
+	}
+	
 	/*
 	 * 게시글 불러오기
 	 */
@@ -169,7 +175,7 @@ public class Beans_BoardController {
 	public String insertReply2(Beans_BoardVO vo, Beans_BoardDAO beans_boardDAO) throws IOException {
 
 		boardservice.insertReply2(vo);
-		System.out.println(vo.getId());
+		System.out.println("id = " + vo.getId());
 		return "Contact_board_content.do";
 	}
 	@RequestMapping(value = "Reply_List2.do")
