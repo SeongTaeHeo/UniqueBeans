@@ -36,7 +36,7 @@
 </head>
 <body id="board_body">
 
-	<jsp:include page="top_menu.jsp" />
+	<!-- <jsp:include page="top_menu.jsp" /> -->
 
 	<header class="masthead" style="height:250px;">
 	<div class="container">

@@ -33,7 +33,13 @@ public class Beans_OrderController {
 	private Beans_OrderService orderService;
 	private String send_name = "장선웅 사장님";
 	private String send_address = "커피빈 공장";
-	  
+	
+	// 샵페이지 접속
+	@RequestMapping("/shop.do")
+	public String shopOrder() {
+	   return "shop.jsp";
+	}
+	
 	@RequestMapping("/paymentComplete.do")
 	public String insertOrder(Beans_OrderVO vo, HttpServletRequest request){
 		String generated_code = orderService.createOrder_Code(vo);

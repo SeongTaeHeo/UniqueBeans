@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mysql.jdbc.Connection;
 import com.mysql.jdbc.Statement;
+import com.uniqueBeans.biz.Beans_OrderVO;
 import com.uniqueBeans.biz.Beans_UserVO;
 import com.uniqueBeans.biz.common.JDBCUtil;
 
@@ -35,6 +36,12 @@ public class Beans_UserDAO {
 	private final String FIND_USER_ID = "select id from customer where name=? and email=?";
 	// 비밀번호찾기
 	private final String FIND_USER_PASSWORD = "select password from customer where id=? and email=?";
+	// 구매내역 출력하기
+	private static String GET_ORDER_LIST = "select DISTINCT A.order_code, A.details_number, C.product_name, "
+			+ "C.product_price, A.quantity, D.id, D.order_status from orderproduct A, "
+			+ "orderoption B, productinfo C, orderinfo D where A.order_code = B.order_code "
+			+ "and A.details_number = B.details_number and A.product_code = C.product_code "
+			+ "and A.order_code = D.order_code and D.id = ? order by A.order_code asc, A.details_number asc";
 	// 유저 리스트 출력하기
 	private final String GET_USER_LIST = "select * from customer where id=?";
 	// 마일리지 포인트 사용, 적립
@@ -225,6 +232,40 @@ public class Beans_UserDAO {
 		return userPwd;
 	}
 
+	// 구매내역 보기
+	public List<Beans_OrderVO> getBuyList(Beans_UserVO vo) {
+		
+		List<Beans_OrderVO> orderList = new ArrayList<>();
+		
+		try {
+			conn = (Connection) JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(GET_ORDER_LIST);
+			pstmt.setString(1, vo.getId());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Beans_OrderVO list = new Beans_OrderVO();
+				
+				list.setOrder_code(rs.getString(1));
+				list.setDetails_number(rs.getInt(2));
+				list.setProduct_name(rs.getString(3));
+				list.setTotalprice(rs.getInt(4));
+				list.setQuantity(rs.getInt(5));
+				list.setId(rs.getString(6));
+				list.setOrder_status(rs.getString(7));
+				
+				orderList.add(list);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orderList;
+	}
+	
+	// 가입자 정보 불러오기
 	public List<Beans_UserVO> userList(Beans_UserVO vo) {
 		System.out.println("가입자 정보 불러오기");
 		List<Beans_UserVO> userList = new ArrayList<>();

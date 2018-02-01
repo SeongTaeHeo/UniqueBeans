@@ -173,6 +173,14 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		return false;
 	}
 
+	// 유저 구매 내역 보기
+	@Override
+	public List<Beans_OrderVO> getUserBuyList(Beans_UserVO vo) {
+		// TODO Auto-generated method stub
+
+		return userDAO.getBuyList(vo);
+	}
+	
 	@Override
 	public List<Beans_UserVO> get_userList(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
