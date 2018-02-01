@@ -81,7 +81,7 @@ public class Beans_BoardController {
 	@RequestMapping(value = "deleteReply2.do")
 	public String deleteReply2(Beans_BoardVO vo) {
 		boardservice.deleteReply(vo);
-		return "Contact_board_content.do";
+		return "Contact_board_content.do?contact_seq=" + vo.getContact_seq();
 	}
 	
 	/*

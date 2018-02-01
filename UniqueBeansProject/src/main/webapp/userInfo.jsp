@@ -38,11 +38,11 @@
 				<ul class="sidebar-nav">
 					<li class="sidebar-brand"><a id="userInfo"
 						value="${loginUser.id}">${loginUser.id}님</a></li>
-					<li><a id="a1">회원정보 수정</a></li>
-					<li><a id="a2">판매내역</a></li>
-					<li><a id="a3">내 마일리지 확인</a></li>
-					<li><a id="a4">내가 쓴 글 보기</a></li>
-					<li><a id="a5">고객 관리</a></li>
+					<li><a id="admin1">회원정보 수정</a></li>
+					<li><a id="admin2">판매내역</a></li>
+					<li><a id="admin3">내 마일리지 확인</a></li>
+					<li><a id="admin4">내가 쓴 글 보기</a></li>
+					<li><a id="admin5">고객 관리</a></li>
 					<li><a href="logout.do">로그아웃</a></li>
 				</ul>
 			</c:if>
@@ -224,10 +224,7 @@
 
 
 					<!-- 구매내역 -->
-					<div id="buyList">
-						<h1>구매내역</h1>
-
-					</div>
+					<div id="buyList"></div>
 
 					<!-- 내 마일리지 -->
 					<div id="userMilage">
@@ -272,7 +269,7 @@
 	<script src="vendor/jquery/jquery.min.js"></script>
 
 	<!-- userInfo 자바 스크립트 -->
-	<script src="js/userInfo.js?ver=2"></script>
+	<script src="js/userInfo.js?ver=3"></script>
 	<script src="ajax/userInfo.js?ver=3"></script>
 
 	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

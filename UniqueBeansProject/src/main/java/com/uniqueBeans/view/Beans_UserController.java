@@ -151,6 +151,15 @@ public class Beans_UserController {
 		return "foundpw.jsp";
 	}
 	
+	// 구매내역 보기
+	@RequestMapping("/userBuyList.do")
+	@ResponseBody
+    public List<Beans_OrderVO> getBuyList(Beans_UserVO vo, Model model) {
+	   List<Beans_OrderVO> list = userService. getUserBuyList(vo);
+	  
+	   return list;
+    }
+	
 	/*
 	 * 유저 관리를 위한 메서드(미완성)
 	 */

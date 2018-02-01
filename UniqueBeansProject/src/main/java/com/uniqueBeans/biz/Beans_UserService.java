@@ -25,6 +25,9 @@ public interface Beans_UserService {
 	// 비밀번호 찾기
 	public Boolean searchPw(Beans_UserVO vo);
 	
+	// 구매내역 관리
+	public List<Beans_OrderVO> getUserBuyList(Beans_UserVO vo);
+	
 	// 유저 관리
 	List<Beans_UserVO> get_userList(Beans_UserVO vo);
 	
