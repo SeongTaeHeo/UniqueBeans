@@ -31,7 +31,6 @@ $(function() {
 			data: JSON.stringify(param),
 			
 			success: function(data) {
-				alert(data);
 				$('#orderDetail').val(param).submit();
 			}
 		});

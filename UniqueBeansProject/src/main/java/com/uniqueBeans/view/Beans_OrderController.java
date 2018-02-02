@@ -85,10 +85,11 @@ public class Beans_OrderController {
 				vo.setDetails_number(i);
 				orderService.insertOrderProduct(vo);
 				orderService.insertOrderOption(vo);
-				orderService.insertOrderInfo(vo);
-				
+
 				System.out.println(vo.toString());
 			}
+			
+			orderService.insertOrderInfo(vo);
 			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block

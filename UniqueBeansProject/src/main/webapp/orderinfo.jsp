@@ -137,12 +137,13 @@
 				  </thead>
 				  <tbody>
 				    <tr>
-	         			<th><h3 id="totalPrice">32400원</h3></th>
+	         			<th><h3 id="totalPrice">0원</h3></th>
 	         			<th>
 	         				<input type="text" size="6" id="use_point"> / <span id="view_point">${loginUser.point}</span>
+	         				<br><button id="pointEnter" class="btn btn-info btn-sm">적용</button>
 	         				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
 	         			</th>
-	         			<th><h3 id="totalPriceResult">32400원<h3></th>
+	         			<th><h3 id="totalPriceResult">0원<h3></th>
 	         			
 	         		</tr>
 				    <tr>
@@ -184,6 +185,7 @@
 		$('#ad_other').attr("value","");
 		$('#ad_other').attr("value","${loginUser.address_other}");
 	}
+	
 	function new_address(){
 		console.log("새 주소 입력");
 		$('#receive_name').attr("value","");
@@ -192,21 +194,6 @@
 		$('#ad_road').attr("value","");
 		$('#ad_detail').attr("value","");
 		$('#ad_other').attr("value","");
-	}
-	// 마일리지 입력 제한
-	$('#use_point').keyup(function(){
-		var check = $('#use_point').val();
-		this.value = intRegex(check);
-		
-		if(this.value >=$('#view_point').text()){
-			this.value = ${loginUser.point};
-		}
-	});
-	
-	function intRegex(str){
-		var templet;
-		templet = str.replace(/[^0-9]/g,"");
-		return templet;
 	}
 	
 	$(function() { 
@@ -219,6 +206,7 @@
 		var price = 0;
 		var total = 0;
 		var totalPriceResult = 0;
+		var check = $('#use_point').val();
 		
 		// Json array 생성(주문이 완료되었을때 해당 json 객체를 활용한다.)
 		<c:forEach var="i" items="${beanItem}" varStatus="index">
@@ -270,11 +258,35 @@
 				 totalPrice += result[i].price;
 				 totalPriceResult = totalPrice;
 			 }
-			 
+			  
 			 $('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 			 $('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
 			 
 			 console.log('oderinfo.jsp => ' + JSON.stringify(result));
+		});
+		
+		// 마일리지 입력 제한
+		$('#use_point').keyup(function(){
+			var check = $('#use_point').val();
+			this.value = intRegex(check);
+			
+			if(Number(this.value) >= Number($('#view_point').text())){
+				alert('소유한 마일리지 이상 입력 할 수 없습니다!');
+				this.value = ${loginUser.point};	
+			}
+			
+			totalPrice = Number(uncomma($('#totalPrice').text()));
+			totalPriceResult = totalPrice;
+			$('#insert_tprice').text(totalPriceResult);
+			$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+		});
+		
+		// 마일리지 적용
+		$('#pointEnter').on('click',function(){
+			var point = $('#use_point').val();
+			totalPriceResult = totalPriceResult - point;
+			$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+			$('#insert_tprice').text(totalPriceResult);
 		});
 		
 		// 최종 가격 표시
@@ -298,6 +310,13 @@
 	function uncomma(str) {
 	    str = String(str);
 	    return str.replace(/[^\d]+/g, '');
+	}
+	
+	// 숫자만 입력 가능
+	function intRegex(str){
+		var templet;
+		templet = str.replace(/[^0-9]/g,"");
+		return templet;
 	}
 	</script>
 	
