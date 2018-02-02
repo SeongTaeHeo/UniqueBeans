@@ -111,14 +111,6 @@ public class Beans_UserController {
 	
 	
 	/*
-	 * 로그인한 아이디의 구매내역을 보기 위한 메서드
-	 */
-	@RequestMapping("/buyList.do")
-	public void buyList() {
-		
-	}
-	
-	/*
 	 * 아이디 찾기 인증 메일
 	 */
 	@RequestMapping("/findId.do")
@@ -159,6 +151,31 @@ public class Beans_UserController {
 	   return list;
     }
 	
+    // 상세 구매내역 보기
+    @RequestMapping("/userOrderDetail.do")
+    public String userOrderDeatil(Beans_OrderVO vo, Model model) {
+    	
+    	model.addAttribute("userOrder", userService.getUserOrderDetail(vo));
+    	
+    	return "orderContent.jsp";
+    }
+    
+    // 주문 취소 하기
+    @RequestMapping("/orderCancle.do")
+    public String orderCancle(Beans_OrderVO vo) {
+    	userService.deleteUserOrder(vo);
+    	
+    	return "userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
+    }
+    
+    // 주문 내역 수정하기(배송정보)
+    @RequestMapping("/orderUpdate.do")
+    public String orderUpdate(Beans_OrderVO vo) {
+    	userService.updateUserOrder(vo);
+    	
+    	return "userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
+    }
+    
 	/*
 	 * 유저 관리를 위한 메서드(미완성)
 	 */

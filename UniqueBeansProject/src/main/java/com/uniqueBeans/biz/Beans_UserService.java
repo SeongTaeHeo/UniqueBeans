@@ -28,6 +28,15 @@ public interface Beans_UserService {
 	// 구매내역 관리
 	public List<Beans_OrderVO> getUserBuyList(Beans_UserVO vo);
 	
+	// 구매상세 내역 관리
+	public Beans_OrderVO getUserOrderDetail(Beans_OrderVO vo);
+	
+	// 구매 취소
+	public void deleteUserOrder(Beans_OrderVO vo);
+	
+	// 구매 내역 수정(배송정보만)
+	public void updateUserOrder(Beans_OrderVO vo);
+	
 	// 유저 관리
 	List<Beans_UserVO> get_userList(Beans_UserVO vo);
 	

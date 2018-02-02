@@ -182,6 +182,30 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		return userDAO.getBuyList(vo);
 	}
 	
+	// 유저 구매 상세내역 보기
+	@Override
+	public Beans_OrderVO getUserOrderDetail(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		return userDAO.getUserOrderDetail(vo);
+	}
+	
+	// 구매 취소 하기
+	@Override
+	public void deleteUserOrder(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		userDAO.deleteOrderList(vo);
+	}
+	
+	// 구매 내역 수정하기(배송정보만)
+	@Override
+	public void updateUserOrder(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		userDAO.updateOrder(vo);
+	}
+	
 	@Override
 	public List<Beans_UserVO> get_userList(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
