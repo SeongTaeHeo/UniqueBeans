@@ -85,6 +85,10 @@
 	         		<br><br>
 	         		
 	         	<h4>배송 정보</h4>
+	         	<form id="orderInfo" action="usepoint.do" method="post">
+	         		<input type="hidden"  value="">
+	         		 
+	         	</form>
 	         	<form id="orderInfo" action="paymentComplete.do" name="write_form_member" method="post">
 		            <table class="table">
 					  <tbody>
