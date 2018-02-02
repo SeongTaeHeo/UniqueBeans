@@ -86,7 +86,8 @@
 	         		
 	         	<h4>배송 정보</h4>
 	         	<form id="orderInfo" action="usepoint.do" method="post">
-	         		<input type="hidden"  value="">
+	         		<input type="hidden" name="id"  value="${loginUser.id}">
+	         		<input type="hidden" name="point" value="">
 	         		 
 	         	</form>
 	         	<form id="orderInfo" action="paymentComplete.do" name="write_form_member" method="post">
@@ -211,6 +212,7 @@
 		var total = 0;
 		var totalPriceResult = 0;
 		var check = $('#use_point').val();
+		var pcheck = true;
 		
 		// Json array 생성(주문이 완료되었을때 해당 json 객체를 활용한다.)
 		<c:forEach var="i" items="${beanItem}" varStatus="index">
@@ -271,6 +273,8 @@
 		
 		// 마일리지 입력 제한
 		$('#use_point').keyup(function(){
+			pcheck = true;
+			
 			var check = $('#use_point').val();
 			this.value = intRegex(check);
 			
@@ -283,19 +287,30 @@
 			totalPriceResult = totalPrice;
 			$('#insert_tprice').text(totalPriceResult);
 			$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+			
+			
 		});
+		
 		
 		// 마일리지 적용
 		$('#pointEnter').on('click',function(){
-			var point = $('#use_point').val();
-			totalPriceResult = totalPriceResult - point;
-			$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
-			$('#insert_tprice').text(totalPriceResult);
+			
+			if(pcheck) {
+				var point = $('#use_point').val();
+				totalPriceResult = totalPriceResult - point;
+				$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+				$('#insert_tprice').text(totalPriceResult);
+				pcheck = false;
+			} else {
+				alert('이미 마일리지가 적용된 금액입니다.');
+			}
+			
 		});
 		
 		// 최종 가격 표시
 		$('#totalPrice').text(numberWithCommas(totalPrice) + '원');
 		$('#totalPriceResult').text(numberWithCommas(totalPriceResult) + '원');
+		
 		
 		$('#complete').on('click',function(){
 			$('#insert_tprice').val(totalPriceResult);
