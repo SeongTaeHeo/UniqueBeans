@@ -133,6 +133,7 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		}
 		return false;
 	}
+	
 	/*
 	 *  비밀번호 찾기
 	 */

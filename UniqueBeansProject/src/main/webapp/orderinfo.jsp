@@ -195,7 +195,6 @@
 	}
 	// 마일리지 입력 제한
 	$('#use_point').keyup(function(){
-		console.log("그아앗");
 		var check = $('#use_point').val();
 		this.value = intRegex(check);
 		
@@ -229,15 +228,12 @@
 			jsonObject.name = "${i.name}";
 			jsonObject.roasting = "${i.roasting}";
 			jsonObject.grind = "${i.grind}";
-			jsonObject.quantity = "${i.quantity}";
+			jsonObject.quantity = 1;
 			jsonObject.price = Number("${i.price}");
 
 			totalPrice += jsonObject.price;
 			totalPriceResult = totalPrice;
-			
-			
 
-			
 			// html페이지를 로드 하면서 가격란에 콤마 부호를 붙여준다.(가격표시 가독성을 위해서)
 			// 에러가 뜨는데 이는 컴파일러 오류인듯 하다. 수정할 필요 없음.
 			$('#price'+${index.index}).text(numberWithCommas(${i.price}));
