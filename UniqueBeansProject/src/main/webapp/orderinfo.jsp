@@ -195,7 +195,6 @@
 	}
 	// 마일리지 입력 제한
 	$('#use_point').keyup(function(){
-		console.log("그아앗");
 		var check = $('#use_point').val();
 		this.value = intRegex(check);
 		

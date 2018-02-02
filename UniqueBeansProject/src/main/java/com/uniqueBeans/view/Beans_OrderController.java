@@ -94,7 +94,7 @@ public class Beans_OrderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "index.jsp";
+		return "ordercomplete.jsp";
 	}
 	
 	@RequestMapping("/orderDetailInput.do")

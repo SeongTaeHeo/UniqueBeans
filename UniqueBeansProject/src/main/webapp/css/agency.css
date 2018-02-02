@@ -314,8 +314,7 @@ header.masthead {
     .timeline > li:after {
       clear: both; }
     .timeline > li .timeline-panel {
-      position: relative;
-      float: right;
+      float: left;
       width: 100%;
       padding: 0 20px 0 100px;
       text-align: left; }
