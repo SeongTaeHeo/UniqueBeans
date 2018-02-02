@@ -13,9 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
-import org.springframework.web.servlet.ModelAndView;
 
-import com.uniqueBeans.biz.Beans_BoardVO;
 import com.uniqueBeans.biz.Beans_OrderVO;
 import com.uniqueBeans.biz.Beans_UserService;
 import com.uniqueBeans.biz.Beans_UserVO;
@@ -119,6 +117,7 @@ public class Beans_UserController {
 	public void buyList() {
 		
 	}
+	
 	/*
 	 * 아이디 찾기 인증 메일
 	 */
@@ -155,7 +154,7 @@ public class Beans_UserController {
 	@RequestMapping("/userBuyList.do")
 	@ResponseBody
     public List<Beans_OrderVO> getBuyList(Beans_UserVO vo, Model model) {
-	   List<Beans_OrderVO> list = userService. getUserBuyList(vo);
+	   List<Beans_OrderVO> list = userService.getUserBuyList(vo);
 	  
 	   return list;
     }
@@ -169,6 +168,7 @@ public class Beans_UserController {
 		List<Beans_UserVO> userList=userService.get_userList(vo);
 		return userList;
 	}
+	
 	/*
 	 *  포인트 사용, 적립을 위한 메서드
 	 */
@@ -176,5 +176,5 @@ public class Beans_UserController {
 	public void usepoint(Beans_UserVO vo, HttpServletRequest request){
 		userService.usePoint(vo);
 	}*/
-	
+
 }

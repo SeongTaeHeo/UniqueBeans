@@ -104,7 +104,7 @@ public class Beans_OrderController {
 		System.out.println(list.size());
 		model.addAttribute("beanItem", list);
 		
-		return "fuck!!";
+		return "complet!";
 	}
 	
 	/*@RequestMapping("/paymentComplete.do")
