@@ -94,16 +94,15 @@ margin-bottom: 10px;
 		</c:if>
 		
 		<div style="text-align: right;">
-			<c:if test="${'주문취소' != userOrder.order_status}">
+			<c:if test="${'주문취소' != userOrder.order_status && '접수완료' != userOrder.order_status}">
 				<Button id="update" type="submit" class="btn btn-success">주문수정</Button>
-				<a href="orderCancle.do?order_code=${userOrder.order_code}">
+				<a href="orderCancle.do?order_code=${userOrder.order_code}&details_number=${userOrder.details_number}">
 					<Button id="cancle" type="button" class="btn btn-danger">주문취소</Button>
 				</a>
 			</c:if>
-			<c:if test="${loginUser.admin == 1}">
-				<a href="#statusModal" data-toggle="modal">
-					<Button id="status" type="button" class="btn btn-primary">배송중</Button>
-					<Button id="status" type="button" class="btn btn-primary">배송완료</Button>
+			<c:if test="${loginUser.admin == 1 && '주문취소' != userOrder.order_status}">
+				<a href="changeStatus.do?order_code=${userOrder.order_code}&details_number=${userOrder.details_number}">
+					<Button id="status" type="button" class="btn btn-primary">접수완료</Button>
 				</a>
 			</c:if>
 			
@@ -127,6 +126,7 @@ margin-bottom: 10px;
 			$("#postcodify_search_button").postcodifyPopUp(); 
 		
 			$('#update').on('click',function(){
+				
 				$('#orderInfo').submit();
 			});
 		})

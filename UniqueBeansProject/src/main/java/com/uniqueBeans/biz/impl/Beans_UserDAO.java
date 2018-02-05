@@ -46,6 +46,8 @@ public class Beans_UserDAO {
 	private final String GET_ORDERDETAIL_LIST = "select * from orderinfo where order_code = ?";
 	// orderInfo 테이블 주문 취소
 	private final String DELETE_ORDERINFO = "update orderinfo set order_status = '주문취소' where order_code = ?";
+	// orderInfo 테이블 주문 상태 변경
+	private final String COMPLET_ORDERINFO = "update orderinfo set order_status = '접수완료' where order_code = ?";
 	// orderInfo 테이블 배송정보 변경하기
 	private final String UPDATE_ORDERINFO = "update orderinfo set order_require = ?, "
 			+ "receive_address_num = ?, receive_address_road = ?, "
@@ -310,12 +312,61 @@ public class Beans_UserDAO {
 		return vo;
 	}
 	
+	public List<Beans_OrderVO> getOrderList() {
+		
+		List<Beans_OrderVO> orderList = new ArrayList<>();
+		
+		try {
+			conn = (Connection) JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(GET_ORDER_LIST);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Beans_OrderVO vo = new Beans_OrderVO();
+				
+				vo.setOrder_code(rs.getString(1));
+				vo.setDetails_number(rs.getInt(2));
+				vo.setProduct_name(rs.getString(3));
+				vo.setTotalprice(rs.getInt(4));
+				vo.setQuantity(rs.getInt(5));
+				vo.setId(rs.getString(6));
+				vo.setOrder_status(rs.getString(7));
+				
+				orderList.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orderList;
+	}
+	
 	// 구매 내역 삭제
 	public void deleteOrderList(Beans_OrderVO vo) {
 		conn = (Connection) JDBCUtil.getConnection();
 		
 		try {
 			pstmt = conn.prepareStatement(DELETE_ORDERINFO);
+			pstmt.setString(1, vo.getOrder_code());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
+	
+	// 주문 접수 완료
+	public void completOrderList(Beans_OrderVO vo) {
+		conn = (Connection) JDBCUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(COMPLET_ORDERINFO);
+			System.out.println(vo.getOrder_code());
 			pstmt.setString(1, vo.getOrder_code());
 			pstmt.executeUpdate();
 			

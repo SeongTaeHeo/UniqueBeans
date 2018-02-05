@@ -38,8 +38,7 @@
 				<ul class="sidebar-nav">
 					<li class="sidebar-brand"><a id="userInfo"
 						value="${loginUser.id}">${loginUser.id}님</a></li>
-					<li><a id="admin1">회원정보 수정</a></li>
-					<li><a id="admin2">판매내역</a></li>
+					<li><a id="admin2">판매내역 보기</a></li>
 					<li><a id="admin3">내 마일리지 확인</a></li>
 					<li><a id="admin4">내가 쓴 글 보기</a></li>
 					<li><a id="admin5">고객 관리</a></li>
@@ -63,63 +62,6 @@
 			<!-- 본문 -->
 			<div id="page-content-wrapper">
 				<div class="container-fluid">
-
-					<!-- 회원정보 수정 -->
-					<div id="userSetUp">
-						<h1>회원정보 수정</h1>
-						<center>
-							<div id="passInput">
-								<h5>비밀번호 입력</h5>
-								<input id="pass" type="password" class="form-control">
-								<button id="enter_info" class="btn btn-dark"
-									style="margin: 10px;">입력</button>
-							</div>
-						</center>
-
-						<div id="userSetPanel">
-							<table class="table table-reflow">
-								<tbody>
-									<tr>
-										<th scope="row">아이디</th>
-										<td><input type="text" value="${loginUser.id}"
-											readonly="readonly" style="border: none;"></td>
-									</tr>
-									<tr>
-										<th scope="row">비밀번호</th>
-										<td><input id="passCheck1" type="password"
-											class="form-control" style="width: 200px;"></td>
-									</tr>
-									<tr>
-										<th scope="row">비밀번호 확인</th>
-										<td><input id="passCheck2" type="password"
-											class="form-control" style="width: 200px;">
-											<p></p></td>
-									</tr>
-									<tr>
-										<th scope="row">주소</th>
-										<td><input id="address" type="text"
-											value="${loginUser.address_detail}" class="form-control"
-											style="width: 400px;"></td>
-									</tr>
-									<tr>
-										<th scope="row">전화번호</th>
-										<td><input id="phone" type="text"
-											value="${loginUser.tel}" class="form-control"
-											style="width: 400px;"></td>
-									</tr>
-									<tr>
-										<th scope="row">이메일</th>
-										<td><input id="email" type="text"
-											value="${loginUser.email}" class="form-control"
-											style="width: 400px;"></td>
-									</tr>
-								</tbody>
-							</table>
-							<button id="userSetCommit" class="btn btn-primary">수정완료</button>
-						</div>
-					</div>
-
-
 					<!-- 판매내역 -->
 					<div id="orderList"></div>
 
@@ -280,5 +222,13 @@
 	<script src="js/contact_me.js"></script>
 
 	<script src="js/agency.min.js"></script>
+	
+	<script type="text/javascript">
+	<c:if test="${loginUser.admin == 1}">
+		$(function(){
+			$('#orderList').css('display','block');
+		});
+	</c:if>
+	</script>
 </body>
 </html>

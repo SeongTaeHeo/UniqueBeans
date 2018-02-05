@@ -14,6 +14,7 @@ public class Beans_AdminServiceImpl implements Beans_AdminService{
 	@Autowired
 	Beans_AdminDAO adminDAO;
 
+
 	// 전체 주문내역 확인
 	@Override
 	public List<Beans_OrderVO> getUserOrderList() {
@@ -21,5 +22,5 @@ public class Beans_AdminServiceImpl implements Beans_AdminService{
 
 		return adminDAO.getOrderList();
 	}
-	
+		
 }

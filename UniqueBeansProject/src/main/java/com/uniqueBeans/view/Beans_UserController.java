@@ -165,7 +165,7 @@ public class Beans_UserController {
     public String orderCancle(Beans_OrderVO vo) {
     	userService.deleteUserOrder(vo);
     	
-    	return "userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
+    	return "redirect:userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
     }
     
     // 주문 내역 수정하기(배송정보)
@@ -173,9 +173,17 @@ public class Beans_UserController {
     public String orderUpdate(Beans_OrderVO vo) {
     	userService.updateUserOrder(vo);
     	
-    	return "userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
+    	return "retirect:userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
     }
     
+    // 주문상태 변경
+ 	@RequestMapping("/changeStatus.do")
+ 	public String changeStatus(Beans_OrderVO vo) {
+ 		userService.completUserOrder(vo);
+ 		
+ 		return "redirect:userOrderDetail.do?order_code=" + vo.getOrder_code() + "&details_code=" + vo.getDetails_number();
+ 	}
+ 	
 	/*
 	 * 유저 관리를 위한 메서드(미완성)
 	 */
