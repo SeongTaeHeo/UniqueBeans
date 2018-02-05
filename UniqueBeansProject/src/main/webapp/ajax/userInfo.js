@@ -119,7 +119,8 @@ $(function(){
 			html += '<tr>';
 			html += '<td>' + orderList.order_code + '</td>';
 			html += '<td>' + orderList.details_number + '</td>';
-			html += '<td>' + orderList.product_name + '</td>';
+			html += '<td><a href="userOrderDetail.do?order_code=' + orderList.order_code + '&details_number=' + orderList.details_number + '">' + 
+				orderList.product_name + '</a></td>';
 			html += '<td>' + orderList.totalprice + '</td>';
 			html += '<td>' + orderList.quantity + '</td>';
 			html += '<td>' + orderList.id + '</td>';
@@ -150,7 +151,8 @@ $(function(){
 			html += '<tr>';
 			html += '<td>' + orderList.order_code + '</td>';
 			html += '<td>' + orderList.details_number + '</td>';
-			html += '<td>' + orderList.product_name + '</td>';
+			html += '<td><a href="userOrderDetail.do?order_code=' + orderList.order_code + '&details_number=' + orderList.details_number + '">' + 
+				orderList.product_name + '</a></td>';
 			html += '<td>' + orderList.totalprice + '</td>';
 			html += '<td>' + orderList.quantity + '</td>';
 			html += '<td>' + orderList.id + '</td>';

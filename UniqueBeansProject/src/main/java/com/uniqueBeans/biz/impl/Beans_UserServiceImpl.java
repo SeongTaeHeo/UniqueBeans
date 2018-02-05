@@ -14,6 +14,9 @@ import org.springframework.mail.MailSender;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.uniqueBeans.biz.Beans_BoardVO;
 import com.uniqueBeans.biz.Beans_OrderVO;
@@ -180,6 +183,38 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		// TODO Auto-generated method stub
 
 		return userDAO.getBuyList(vo);
+	}
+	
+	// 유저 구매 상세내역 보기
+	@Override
+	public Beans_OrderVO getUserOrderDetail(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		return userDAO.getUserOrderDetail(vo);
+	}
+	
+	// 구매 취소 하기
+	@Override
+	public void deleteUserOrder(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		userDAO.deleteOrderList(vo);
+	}
+	
+	// 배송 접수 완료
+	@Override
+	public void completUserOrder(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		userDAO.completOrderList(vo);;
+	}
+	
+	// 구매 내역 수정하기(배송정보만)
+	@Override
+	public void updateUserOrder(Beans_OrderVO vo) {
+		// TODO Auto-generated method stub
+		
+		userDAO.updateOrder(vo);
 	}
 	
 	@Override

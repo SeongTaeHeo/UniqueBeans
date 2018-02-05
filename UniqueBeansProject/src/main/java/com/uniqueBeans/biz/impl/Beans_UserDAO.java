@@ -37,11 +37,22 @@ public class Beans_UserDAO {
 	// 비밀번호찾기
 	private final String FIND_USER_PASSWORD = "select password from customer where id=? and email=?";
 	// 구매내역 출력하기
-	private static String GET_ORDER_LIST = "select DISTINCT A.order_code, A.details_number, C.product_name, "
+	private final String GET_ORDER_LIST = "select DISTINCT A.order_code, A.details_number, C.product_name, "
 			+ "C.product_price, A.quantity, D.id, D.order_status from orderproduct A, "
 			+ "orderoption B, productinfo C, orderinfo D where A.order_code = B.order_code "
 			+ "and A.details_number = B.details_number and A.product_code = C.product_code "
 			+ "and A.order_code = D.order_code and D.id = ? order by A.order_code asc, A.details_number asc";
+	// 구매 상세 내역 출력하기
+	private final String GET_ORDERDETAIL_LIST = "select * from orderinfo where order_code = ?";
+	// orderInfo 테이블 주문 취소
+	private final String DELETE_ORDERINFO = "update orderinfo set order_status = '주문취소' where order_code = ?";
+	// orderInfo 테이블 주문 상태 변경
+	private final String COMPLET_ORDERINFO = "update orderinfo set order_status = '접수완료' where order_code = ?";
+	// orderInfo 테이블 배송정보 변경하기
+	private final String UPDATE_ORDERINFO = "update orderinfo set order_require = ?, "
+			+ "receive_address_num = ?, receive_address_road = ?, "
+			+ "receive_address_detail = ?, receive_address_other = ?, "
+			+ "receive_tel = ?, receive_name = ? WHERE order_code = ?";
 	// 유저 리스트 출력하기
 	private final String GET_USER_LIST = "select * from customer where id=?";
 	// 마일리지 포인트 사용, 적립
@@ -260,9 +271,135 @@ public class Beans_UserDAO {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
 		}
 		
 		return orderList;
+	}
+	
+	//상세 구매내역 보기
+	public Beans_OrderVO getUserOrderDetail(Beans_OrderVO vo) {
+		System.out.println("구매내역 상세 정보 보기");
+		
+		try {
+			conn = (Connection) JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(GET_ORDERDETAIL_LIST);
+			pstmt.setString(1, vo.getOrder_code());
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				vo.setOrder_code(rs.getString("order_code"));
+				vo.setId(rs.getString("id"));
+				vo.setOrder_date(rs.getDate("order_date"));
+				vo.setOrder_status(rs.getString("order_status"));
+				vo.setOrder_require(rs.getString("order_require"));
+				vo.setReceive_address_num(rs.getInt("receive_address_num"));
+				vo.setReceive_address_road(rs.getString("receive_address_road"));
+				vo.setReceive_address_detail(rs.getString("receive_address_detail"));
+				vo.setReceive_address_other(rs.getString("receive_address_other"));
+				vo.setReceive_tel(rs.getString("receive_tel"));
+				vo.setReceive_name(rs.getString("receive_name"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+		
+		return vo;
+	}
+	
+	public List<Beans_OrderVO> getOrderList() {
+		
+		List<Beans_OrderVO> orderList = new ArrayList<>();
+		
+		try {
+			conn = (Connection) JDBCUtil.getConnection();
+			pstmt = conn.prepareStatement(GET_ORDER_LIST);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Beans_OrderVO vo = new Beans_OrderVO();
+				
+				vo.setOrder_code(rs.getString(1));
+				vo.setDetails_number(rs.getInt(2));
+				vo.setProduct_name(rs.getString(3));
+				vo.setTotalprice(rs.getInt(4));
+				vo.setQuantity(rs.getInt(5));
+				vo.setId(rs.getString(6));
+				vo.setOrder_status(rs.getString(7));
+				
+				orderList.add(vo);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return orderList;
+	}
+	
+	// 구매 내역 삭제
+	public void deleteOrderList(Beans_OrderVO vo) {
+		conn = (Connection) JDBCUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(DELETE_ORDERINFO);
+			pstmt.setString(1, vo.getOrder_code());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
+	
+	// 주문 접수 완료
+	public void completOrderList(Beans_OrderVO vo) {
+		conn = (Connection) JDBCUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(COMPLET_ORDERINFO);
+			System.out.println(vo.getOrder_code());
+			pstmt.setString(1, vo.getOrder_code());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
+	}
+	
+	// 구매 정보 수정
+	public void updateOrder(Beans_OrderVO vo) {
+		conn = (Connection) JDBCUtil.getConnection();
+		
+		try {
+			pstmt = conn.prepareStatement(UPDATE_ORDERINFO);
+			pstmt.setString(1, vo.getOrder_require());
+			pstmt.setInt(2, vo.getReceive_address_num());
+			pstmt.setString(3, vo.getReceive_address_road());
+			pstmt.setString(4, vo.getReceive_address_detail());
+			pstmt.setString(5, vo.getReceive_address_other());
+			pstmt.setString(6, vo.getReceive_tel());
+			pstmt.setString(7, vo.getReceive_name());
+			pstmt.setString(8, vo.getOrder_code());
+			pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JDBCUtil.close(pstmt, conn);
+		}
 	}
 	
 	// 가입자 정보 불러오기
@@ -297,10 +434,10 @@ public class Beans_UserDAO {
 		}
 		return userList;
 	}
+	
 	/*
 	 *  마일리지 포인트 사용, 적립 메소드
-	 */
-	
+	 */	
 	public void usePoint(Beans_UserVO vo){
 		System.out.println("마일리지 포인트 사용, 적립 메소드");
 		try{
@@ -316,6 +453,8 @@ public class Beans_UserDAO {
 			JDBCUtil.close(pstmt, conn);
 		}
 	}
+	
+	
 	
 	
 }
