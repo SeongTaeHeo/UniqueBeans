@@ -45,7 +45,7 @@ public class Beans_UserDAO {
 	// 유저 리스트 출력하기
 	private final String GET_USER_LIST = "select * from customer where id=?";
 	// 마일리지 포인트 사용, 적립
-	private final String USE_POINT = "update customer set point=?, where id = ?";
+	private final String USE_POINT = "update customer set point=? where id=?";
 
 	/*
 	 * 회원가입을 위한 메서드
@@ -308,6 +308,7 @@ public class Beans_UserDAO {
 			pstmt = conn.prepareStatement(USE_POINT);
 			pstmt.setInt(1, vo.getPoint());
 			pstmt.setString(2, vo.getId());
+			pstmt.executeUpdate();
 
 		} catch(SQLException e){
 			e.printStackTrace();

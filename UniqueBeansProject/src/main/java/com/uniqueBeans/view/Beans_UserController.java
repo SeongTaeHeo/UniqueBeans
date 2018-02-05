@@ -130,8 +130,7 @@ public class Beans_UserController {
 			System.out.println("이름 또는 이메일확인 요망");
 		}
 		
-		return "foundpw.jsp";
-		
+		return "foundpw.jsp";	
 	}
 	
 	
@@ -172,9 +171,13 @@ public class Beans_UserController {
 	/*
 	 *  포인트 사용, 적립을 위한 메서드
 	 */
-	@RequestMapping("/usepoint.do")
-	public void usepoint(Beans_UserVO vo, HttpServletRequest request){
+	@RequestMapping("/usePoint.do")
+	public String usePoint(Beans_UserVO vo, HttpServletRequest request){
+		System.out.println("마일리지 실행");
+		vo.setId(request.getParameter("id"));
+		vo.setPoint(Integer.parseInt(request.getParameter("point")));
 		userService.usePoint(vo);
+		return "ordercomplete.jsp";
 	}
 
 }

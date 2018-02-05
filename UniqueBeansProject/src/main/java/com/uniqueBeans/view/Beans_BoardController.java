@@ -189,24 +189,3 @@ public class Beans_BoardController {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -85,10 +85,8 @@
 	         		<br><br>
 	         		
 	         	<h4>배송 정보</h4>
-	         	<form id="orderInfo" action="usepoint.do" method="post">
-	         		<input type="hidden" name="id"  value="${loginUser.id}">
-	         		<input type="hidden" name="point" value="">
-	         		 
+	         	<form id="pointInfo" action="usePoint.do">
+		         	
 	         	</form>
 	         	<form id="orderInfo" action="paymentComplete.do" name="write_form_member" method="post">
 		            <table class="table">
@@ -129,6 +127,9 @@
 					</table>
 					<input type="hidden" name ="id" value="${loginUser.id}">
 					<input type="hidden" name="totalprice" id="insert_tprice">
+					<input id="insert_tpoint" type="hidden" name="point" value="">
+					
+					
 				</form>
 	            <br><br>
 	            <h4>결제 예정 금액</h4><br>
@@ -144,9 +145,10 @@
 				    <tr>
 	         			<th><h3 id="totalPrice">0원</h3></th>
 	         			<th>
-	         				<input type="text" size="6" id="use_point"> / <span id="view_point">${loginUser.point}</span>
+	         				<input type="text" size="6" id="use_point" value="0"> / <span id="view_point">${loginUser.point}</span>
 	         				<br><button id="pointEnter" class="btn btn-info btn-sm">적용</button>
 	         				<div>적립금은 최소 100원 이상일 때 결제가 가능합니다.</div>
+	         				<div id="completeusempoint"></div>
 	         			</th>
 	         			<th><h3 id="totalPriceResult">0원<h3></th>
 	         			
@@ -205,7 +207,7 @@
 		
 		// 검색 단추를 누르면 주소 검색 팝업 레이어가 열리도록 설정한다.
 		$("#postcodify_search_button").postcodifyPopUp(); 
-		
+		var templet = 0;
 		var result = new Array();
 		var totalPrice = 0;
 		var price = 0;
@@ -213,7 +215,7 @@
 		var totalPriceResult = 0;
 		var check = $('#use_point').val();
 		var pcheck = true;
-		
+		var totalpointresult = 0;
 		// Json array 생성(주문이 완료되었을때 해당 json 객체를 활용한다.)
 		<c:forEach var="i" items="${beanItem}" varStatus="index">
 			var jsonObject = new Object();
@@ -224,10 +226,10 @@
 			jsonObject.grind = "${i.grind}";
 			jsonObject.quantity = 1;
 			jsonObject.price = Number("${i.price}");
-
+			
 			totalPrice += jsonObject.price;
 			totalPriceResult = totalPrice;
-
+			totalpointresult = (totalPriceResult*0.05);
 			// html페이지를 로드 하면서 가격란에 콤마 부호를 붙여준다.(가격표시 가독성을 위해서)
 			// 에러가 뜨는데 이는 컴파일러 오류인듯 하다. 수정할 필요 없음.
 			$('#price'+${index.index}).text(numberWithCommas(${i.price}));
@@ -278,7 +280,7 @@
 			var check = $('#use_point').val();
 			this.value = intRegex(check);
 			
-			if(Number(this.value) >= Number($('#view_point').text())){
+			if(Number(this.value) > Number($('#view_point').text())){
 				alert('소유한 마일리지 이상 입력 할 수 없습니다!');
 				this.value = ${loginUser.point};	
 			}
@@ -304,8 +306,9 @@
 			} else {
 				alert('이미 마일리지가 적용된 금액입니다.');
 			}
-			
+			console.log($('input#use_point').val());
 		});
+		
 		
 		// 최종 가격 표시
 		$('#totalPrice').text(numberWithCommas(totalPrice) + '원');
@@ -314,10 +317,30 @@
 		
 		$('#complete').on('click',function(){
 			$('#insert_tprice').val(totalPriceResult);
-			$('#test').val(JSON.stringify(result));
+			$('#test').val(JSON.stringify(result));	
+			/*
+			var a = $('#a').attr('value');
+			var b = $('#b').attr('value');
+			
+			var param = '[{"a":' + a + ',"b":' + b + '}]';
+			
+			console.log(param);
+			$.ajax({
+				url: 'usePoint.go',
+				type: 'post',
+				data: param,
+				
+				success: function(data){
+					alert(data);
+				}
+			});
+			*/
+			var pointresult = Number('${loginUser.point}') + totalpointresult - $('input#use_point').val();
+			$('#insert_tpoint').attr('value',pointresult);
+			
+			
 			$('#orderInfo').submit();
 		});
-		
 	});
 	
 	// 숫자 자리수 마다 콤마 찍기
@@ -333,7 +356,7 @@
 	
 	// 숫자만 입력 가능
 	function intRegex(str){
-		var templet;
+		
 		templet = str.replace(/[^0-9]/g,"");
 		return templet;
 	}

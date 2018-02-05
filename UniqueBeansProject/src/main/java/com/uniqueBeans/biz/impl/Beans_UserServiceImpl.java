@@ -188,10 +188,12 @@ public class Beans_UserServiceImpl implements Beans_UserService{
 		return userDAO.userList(vo);
 
 	}
-
+	
+	// 포인트 사용, 적립
 	@Override
-	public void usePoint(Beans_UserVO vo) {
+	public String usePoint(Beans_UserVO vo) {
 		// TODO Auto-generated method stub
 		userDAO.usePoint(vo);
+		return "적용됬습니다.";
 	}
 }

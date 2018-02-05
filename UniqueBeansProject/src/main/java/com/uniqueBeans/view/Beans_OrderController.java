@@ -69,7 +69,7 @@ public class Beans_OrderController {
 				
 				String product_code = (String)jsonObject.get("code")+"0";
 				String uppder_code = product_code.toUpperCase();
-				
+				int totalpoint = Integer.parseInt(request.getParameter("point"));
 				
 				// json 값 받아오기
 				vo.setProduct_code(uppder_code);
@@ -95,7 +95,7 @@ public class Beans_OrderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return "ordercomplete.jsp";
+		return "usePoint.do";
 	}
 	
 	@RequestMapping("/orderDetailInput.do")
@@ -105,7 +105,7 @@ public class Beans_OrderController {
 		System.out.println(list.size());
 		model.addAttribute("beanItem", list);
 		
-		return "complet!";
+		return "complete!";
 	}
 	
 	/*@RequestMapping("/paymentComplete.do")
