@@ -172,7 +172,7 @@ public class Beans_UserController {
     public String orderUpdate(Beans_OrderVO vo) {
     	userService.updateUserOrder(vo);
     	
-    	return "retirect:userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
+    	return "redirect:userOrderDetail.do?order_code=" + vo.getOrder_code() + "&detail_code=" + vo.getDetails_number();
     }
     
     // 주문상태 변경
