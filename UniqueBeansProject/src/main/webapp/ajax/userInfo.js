@@ -1,9 +1,9 @@
 $(function(){
 	var userId = $('#userInfo').attr('value');
-	var userPw = $('#pass').val();
 	
 	/*유저정보 수정전 비밀번호 입력 확인*/
 	$('#enter_info').click(function(){
+		var userPw = $('#pass').val();
 		var param = {'id': userId, 'pw': userPw};
 		
 		console.log(param);
